@@ -1,0 +1,48 @@
+<view class="my">
+
+  <!-- 我的 头 -->
+  <view class="my_header">
+    <view class="modal-bg"></view>
+    <!-- 个人信息背景图 -->
+    <image class="my_header_bg" src="/static/default_my_bg.png"></image>
+
+    <!-- 个人信息 -->
+    <view class="my_header-info">
+      <view class="my_header-info_user">
+        <view class="my_header-info_left">
+          <image class="avatar my_header-info_avatar" src="/static/default_avatar.jpg"></image>
+          <view class="text-14">柠檬草莓酱</view>
+          <view class="text-8">等级1</view>
+        </view>
+        <view class="my_header-info_center"></view>
+        <view class="my_header-info_right">
+          <view class="btn text-12">关注</view>
+        </view>
+      </view>
+
+      <!-- 礼物、被关注、关注 数量 -->
+      <view class="my_header-info_items">
+        <view class="my_header-info_item">
+          <view class="text-15">23</view>
+          <view class="text-10">礼物</view>
+        </view>
+        <view class="my_header-info_item">
+          <view class="text-15">10</view>
+          <view class="text-10">被关注</view>
+        </view>
+        <view class="my_header-info_item">
+          <view class="text-15">35</view>
+          <view class="text-10">关注</view>
+        </view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的 腿儿 -->
+  <view class="my_footer">
+    <view class="my_footer-tab-container">
+      <gu-tab tabs="{{tabs}}" width="50%" bindselectmytab="myTabHandler"></gu-tab>
+    </view>
+  </view>
+</view>

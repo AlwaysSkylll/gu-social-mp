@@ -1,0 +1,60 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+.text-8 {
+  font-size: 8px;
+}
+
+.text-9 {
+  font-size: 9px;
+}
+
+.text-10 {
+  font-size: 10px;
+}
+
+.text-12 {
+  font-size: 12px;
+}
+
+.text-13 {
+  font-size: 13px;
+}
+
+.text-14 {
+  font-size: 14px;
+}
+
+.text-15 {
+  font-size: 15px;
+}
+
+.text-16 {
+  font-size: 16px;
+}
+
+.btn {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 20rpx;
+  border-radius: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  background-color: #5cd4ea;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  border: 1rpx solid #FFFFFF;
+}

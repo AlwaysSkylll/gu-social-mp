@@ -1,0 +1,51 @@
+/**index.wxss**/
+
+.gu-permission-container {
+  
+}
+
+.gu-permission-bg {
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+.gu-permission-body {
+  box-sizing: border-box;
+  position: absolute;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 0;
+  height: 600rpx;
+  background: #FFFFFF;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  z-index: 10;
+  text-align: center;
+}
+
+.gu-permission-content {
+  margin-top: 60rpx;
+  text-align: center;
+  font-size: 15px;
+  color: #777777;
+  line-height: 50rpx;
+}
+
+.gu-permission-logo {
+  
+}
+
+.gu-permission-logo .logo-image {
+  margin: 40rpx auto;
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #000000;
+}
+
+.gu-permission-btn {
+  height: 80rpx;
+  width: 90%;
+  border-radius: 100rpx;
+  line-height: 80rpx;
+}

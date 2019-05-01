@@ -1,0 +1,34 @@
+/* pages/components/gu-tab/index.wxss */
+.gu-tab {
+  display: flex;
+  height: 84rpx;
+}
+
+.gu-tab-item {
+  color: #979797;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.gu-tab-item.active {
+  color: #000000;
+}
+
+.gu-tab-name {
+  font-size: 13px;
+  line-height: 80rpx;
+}
+
+.gu-tab-item .gu-tab-border {
+  height: 2px;
+  margin: 0 auto;
+}
+
+.gu-tab-item.active .gu-tab-border {
+  height: 4rpx;
+  width: 16rpx;
+  background: #5cd4ea;
+}

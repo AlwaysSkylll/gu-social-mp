@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="gu-permission-container">
+  <image class="gu-permission-bg" src="/static/request_permission.png"></image>
+  <view class="gu-permission-body">
+    <view class="gu-permission-content">
+      <view>亲，您还没有授权登陆</view>
+      <view>目前无法使用这个小程序哦！</view>
+      <view class="gu-permission-logo">
+        <image class="logo-image" src=""></image>
+      </view>
+    </view>
+    <button class="btn gu-permission-btn" bindtap="getUserInfo">授权</button>
+  </view>
+</view>

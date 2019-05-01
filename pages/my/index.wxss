@@ -1,0 +1,95 @@
+.my {
+
+}
+
+.modal-bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400rpx;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.my_header {
+  height: 400rpx;
+  overflow: hidden;
+}
+
+.my_header_bg {
+  width: 100%;
+  height: 75vw;
+}
+.my_footer {
+
+}
+
+.my_footer-tab-container {
+  border-bottom: 2rpx solid #eeeeee;
+}
+
+.my_footer .custom-tab {
+  width: 400rpx;
+}
+
+.my_header-info {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 400rpx;
+}
+
+.my_header-info_user {
+  display: flex;
+  height: 290rpx;
+}
+
+.my_header-info_avatar {
+
+}
+
+.my_header-info_left {
+  flex: 1;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.my_header-info_left view {
+  margin-top: 20rpx;
+}
+
+.my_header-info_center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.my_header-info_right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 65rpx;
+}
+
+.my_header-info_right .btn {
+  line-height: 50rpx;
+}
+
+.my_header-info_items {
+  display: flex;
+}
+.my_header-info_item {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+}

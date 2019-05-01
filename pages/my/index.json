@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "gu-tab": "/pages/components/gu-tab/index"
+  },
+  "navigationBarTitleText": "我的"
+}

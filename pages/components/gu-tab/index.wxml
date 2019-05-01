@@ -1,0 +1,7 @@
+<!--pages/components/gu-tab/index.wxml-->
+<view class="gu-tab" style="width: {{width}}">
+  <view wx:for="{{tabs}}" wx:key="{{index}}" class="gu-tab-item {{selected == index ? 'active' : ''}}" data-index="{{index}}" bindtap="selectTab">
+    <view class="gu-tab-name">{{item}}</view>
+    <view class="gu-tab-border"></view>
+  </view>
+</view>
