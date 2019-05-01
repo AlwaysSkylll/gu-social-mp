@@ -27,7 +27,7 @@
 }
 
 .gu-tab-item .gu-tab-border {
-  height: 2px;
+  height: 4rpx;
   margin: 0 auto;
 }
 

@@ -19,6 +19,10 @@ Component({
     fontSize: {
       type: Number,
       value: 13
+    },
+    initialIndex: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -27,6 +31,13 @@ Component({
    */
   data: {
     selected: 0,
+  },
+
+  ready() {
+    this.setData({
+      selected: this.properties.initialIndex
+    })
+    console.log(this.properties.initialIndex)
   },
 
   /**

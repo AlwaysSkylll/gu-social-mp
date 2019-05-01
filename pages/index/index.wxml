@@ -9,6 +9,6 @@
         <image class="logo-image" src=""></image>
       </view>
     </view>
-    <button class="btn gu-permission-btn" bindtap="getUserInfo">授权</button>
+    <button class="btn gu-permission-btn" bindtap="getUserInfo">授权使用</button>
   </view>
 </view>

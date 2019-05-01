@@ -1,18 +1,26 @@
-<view class="home">
+<view class="container home">
   <view class="home_header">
     <view class="home_header-top">
-      <gu-tab tabs="{{mainTabs}}" width="50%" center="{{true}}" bindselectmytab="myTabHandler" fontSize="14"></gu-tab>
+      <gu-tab tabs="{{mainTabs}}" width="50%" center="{{true}}" bindselectmytab="mainTabHandler" fontSize="14"></gu-tab>
     </view>
   </view>
   <view class="home_body">
     <!-- 推荐页 -->
-    <view wx:if="{{ tabIndex == 0 }}">
+    <view wx:if="{{ tabIndex == 2 }}">
       <view class="home_banner-container">
         <image class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
-      <gu-tab tabs="{{middleTabs[tabIndex]}}" width="45%" bindselectmytab="middleTabHandler"></gu-tab>
+      <gu-tab tabs="{{middleTabs[tabIndex]}}" width="45%" bindselectmytab="middleTabHandler" initialIndex="{{middleTabIndex}}"></gu-tab>
 
       <view wx:if="{{ middleTabIndex == 0 }}" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+        <activity-card></activity-card>
+      </view>
+
+      <view wx:if="{{ middleTabIndex == 1 }}" wx:for="{{[1]}}" wx:key="{{index}}">
+        <activity-card objection="{{true}}"></activity-card>
+      </view>
+
+      <view wx:if="{{ middleTabIndex == 2 }}" wx:for="{{[1, 2]}}" wx:key="{{index}}">
         <activity-card></activity-card>
       </view>
     </view>
@@ -23,7 +31,7 @@
     </view>
 
     <!-- 活动页 -->
-    <view wx:if="{{ tabIndex == 2 }}">
+    <view wx:if="{{ tabIndex == 0 }}">
       
     </view>
   </view>

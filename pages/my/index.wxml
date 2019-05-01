@@ -1,4 +1,4 @@
-<view class="my">
+<view class="container my">
 
   <!-- 我的 头 -->
   <view class="my_header">

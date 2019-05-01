@@ -13,6 +13,18 @@
   padding-right: 100rpx;
 }
 
+.activity-card_line .fire {
+  height: 26rpx;
+  width: 20rpx;
+  margin-right: 2px;
+}
+
+.activity-card_line .gift {
+  height: 28rpx;
+  width: 28rpx;
+  margin-right: 2px;
+}
+
 .activity-card_num {
   position: absolute;
   top: 0;
@@ -29,6 +41,11 @@
 
 .activity-card_line {
   position: relative;
+}
+
+.activity-card_line.objection {
+  filter:grayscale(1);
+  opacity:0.5;
 }
 
 .activity-card_img-container {
