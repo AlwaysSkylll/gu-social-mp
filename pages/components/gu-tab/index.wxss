@@ -4,6 +4,10 @@
   height: 84rpx;
 }
 
+.gu-tab.center {
+  margin: 0 auto;
+}
+
 .gu-tab-item {
   color: #979797;
   flex: 1;

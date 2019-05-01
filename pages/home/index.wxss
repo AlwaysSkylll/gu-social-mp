@@ -1,0 +1,21 @@
+.home {
+
+}
+
+.home_header {
+
+}
+
+.home_header-top {
+  border-bottom: 2rpx solid #EEEEEE;
+}
+
+.home_banner {
+  height: 100%;
+  width: 100%;
+}
+
+.home_banner-container {
+  height: 380rpx; 
+  width: 100vw;
+}

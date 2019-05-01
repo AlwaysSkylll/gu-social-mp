@@ -1,4 +1,30 @@
-<view class="my">
-  <view class="my_header"></view>
-  <view class="my_footer"></view>
+<view class="home">
+  <view class="home_header">
+    <view class="home_header-top">
+      <gu-tab tabs="{{mainTabs}}" width="50%" center="{{true}}" bindselectmytab="myTabHandler" fontSize="14"></gu-tab>
+    </view>
+  </view>
+  <view class="home_body">
+    <!-- 推荐页 -->
+    <view wx:if="{{ tabIndex == 0 }}">
+      <view class="home_banner-container">
+        <image class="home_banner" src="/static/default_banner.jpg"></image>
+      </view>
+      <gu-tab tabs="{{middleTabs[tabIndex]}}" width="45%" bindselectmytab="middleTabHandler"></gu-tab>
+
+      <view wx:if="{{ middleTabIndex == 0 }}" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+        <activity-card></activity-card>
+      </view>
+    </view>
+    
+    <!-- 广场页 -->
+    <view wx:if="{{ tabIndex == 1 }}">
+      
+    </view>
+
+    <!-- 活动页 -->
+    <view wx:if="{{ tabIndex == 2 }}">
+      
+    </view>
+  </view>
 </view>

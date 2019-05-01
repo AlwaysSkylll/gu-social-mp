@@ -1,0 +1,13 @@
+<!--pages/components/activity-card/index.wxml-->
+<view class="activity-card">
+  <view class="activity-card_img-container">
+   <image class="activity-card_img" src="/static/default_card.jpg"></image>
+  </view>
+  <view class="activity-card_info">
+    <view class="activity-card_line">
+      <view class="activity-card_title">嘻嘻嘻嘻嘻嘻</view>
+      <view class="activity-card_num">gift 15</view>
+    </view>
+    <view class="activity-card_sub-info">1123人参与活动</view>
+  </view>
+</view>

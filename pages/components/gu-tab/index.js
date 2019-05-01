@@ -11,6 +11,14 @@ Component({
     width: {
       type: String,
       value: '100%'
+    },
+    center: {
+      type: Boolean,
+      value: false
+    },
+    fontSize: {
+      type: Number,
+      value: 13
     }
   },
 
