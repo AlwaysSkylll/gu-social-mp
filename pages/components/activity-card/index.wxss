@@ -7,10 +7,12 @@
 }
 
 .activity-card_title {
+  display: flex;
   margin-top: 20rpx; 
   font-size: 13px;
   color: #000000;
   padding-right: 100rpx;
+  align-items: center;
 }
 
 .activity-card_line .fire {
@@ -26,11 +28,13 @@
 }
 
 .activity-card_num {
+  display: flex;
   position: absolute;
   top: 0;
   right: 0;
   font-size: 9px;
   color: #e8204f;
+  align-items: center;
 }
 
 .activity-card_sub-info {

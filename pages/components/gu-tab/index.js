@@ -23,6 +23,10 @@ Component({
     initialIndex: {
       type: Number,
       value: 0
+    },
+    inlineBlock: {
+      type: Boolean,
+      value: false
     }
   },
 

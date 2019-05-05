@@ -6,6 +6,14 @@
 
 }
 
+.mrore-link {
+  float: right;
+  margin-top: 20rpx;
+  margin-right: 45rpx;
+  font-size: 10px;
+  color: #5cd4ea;
+}
+
 .home_header-top {
   border-bottom: 2rpx solid #EEEEEE;
 }
@@ -18,4 +26,35 @@
 .home_banner-container {
   height: 380rpx; 
   width: 100vw;
+}
+
+.home-social-circle {
+  white-space: nowrap;
+  padding: 0 0 20rpx 0;
+}
+
+.home-swiper-container {
+  height: 340rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.home-swiper-container swiper {
+  height: 340rpx;
+}
+
+.home-swiper-item {
+}
+
+.home-swiper-item image {
+  width: 580rpx;
+  height: 100%;
+  border-radius: 5rpx;
+}
+
+.home-mini-circle-item {
+  display: inline-block;
+  margin-left: 30rpx;
+  width: 220rpx;
+  height: 280rpx;
 }

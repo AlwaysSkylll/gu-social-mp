@@ -38,6 +38,10 @@
   font-size: 16px;
 }
 
+.gray-buttom {
+  border-bottom: 10rpx solid #EEEEEE;
+}
+
 .btn {
   box-sizing: border-box;
   display: inline-block;
