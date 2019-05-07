@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "follow-btn": "/pages/components/follow-btn/index"
+  }
+}

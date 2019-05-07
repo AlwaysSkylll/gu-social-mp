@@ -19,6 +19,9 @@
 
 .gu-tab-item.active {
   color: #000000;
+  animation-name: active;
+  animation-duration: .2s;
+  animation-timing-function: linear
 }
 
 .gu-tab-name {
@@ -35,4 +38,14 @@
   height: 4rpx;
   width: 16rpx;
   background: #5cd4ea;
+}
+
+@keyframes active {
+    0% {
+        color: #979797;
+    }
+
+    100% {
+        color: #000000;
+    }
 }

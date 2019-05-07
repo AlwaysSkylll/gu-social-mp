@@ -1,10 +1,11 @@
 Page({
     data: {
       tabs: [
-        "小说",
+        "罍小说",
         "我的消息",
         "个人中心"
-      ]
+      ],
+      tabIndex: 0,
     },
     onLoad: function () {
       
@@ -17,6 +18,8 @@ Page({
     },
     myTabHandler(e) {
       const tabIndex = e.detail.tabIndex
-      console.log(tabIndex, 999999)
+      this.setData({
+        tabIndex
+      })
     }
 });

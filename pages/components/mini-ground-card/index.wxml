@@ -1,0 +1,24 @@
+<!--pages/components/mini-ground-card/index.wxml-->
+<view class="mini-ground-card">
+  <view class="mini-ground-card_user">
+    <image class="avatar" src="/static/default_avatar.jpg"></image>
+    <view class="mini-ground-card_ground-info">
+      <view class="mini-ground-card_info1">
+        <text>柠檬草莓酱</text>
+        <text>等级1</text>
+      </view>
+      <view class="mini-ground-card_info2">
+        <text>1小时前</text>
+        <text>来自</text>
+        <text>杭州·浙江大学</text>
+      </view>
+    </view>
+    <view class="mini-ground-card_btn">
+      <follow-btn text="关注"></follow-btn>
+    </view>
+  </view>
+  <view class="mini-ground-card_content">
+  嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀
+  <image src="/static/default_ground.jpg"></image>
+  </view>
+</view>

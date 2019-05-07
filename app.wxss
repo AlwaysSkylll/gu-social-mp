@@ -1,9 +1,10 @@
-/*@import "colorui/main.wxss";
-@import "colorui/icon.wxss";*/
+/* @import "colorui/main.wxss"; */
+/* @import "colorui/icon.wxss"; */
+@import "colorui/animation.wxss";
 
 /**app.wxss**/
 .container {
-  margin-bottom: 140rpx;
+  margin-bottom: 100rpx;
 } 
 
 .text-8 {
@@ -38,8 +39,16 @@
   font-size: 16px;
 }
 
+.light-gray-bottom {
+  border-bottom: 1rpx solid #eeeeee;
+}
+
 .gray-buttom {
   border-bottom: 10rpx solid #EEEEEE;
+}
+
+.gray-buttom:last-child {
+  border-bottom: none;
 }
 
 .btn {

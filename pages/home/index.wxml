@@ -35,7 +35,7 @@
         </swiper>
       </view>
       <!-- 推荐页 —— 圈子 -->
-      <view class="home-social-circle gray-buttom">
+      <view class="home-social-circle gray-buttom ">
         <gu-tab tabs="{{['圈子']}}" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
         <text class="more-link">查看更多</text>
         <scroll-view class="home-mini-circle-list" scroll-x>
@@ -60,6 +60,10 @@
         <image class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
       <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
+      <view class="light-gray-bottom"></view>
+      <view class="home-gorund-item gray-buttom" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+        <mini-ground-card ></mini-ground-card>
+      </view>
     </view>
   </view>
 </view>

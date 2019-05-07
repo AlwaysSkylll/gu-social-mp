@@ -1,0 +1,12 @@
+/* pages/components/follow-btn/index.wxss */
+.btn {
+  line-height:50rpx;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 20rpx;
+  border-radius: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  background-color: #5cd4ea;
+}
