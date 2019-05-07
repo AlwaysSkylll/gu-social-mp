@@ -10,17 +10,17 @@
       <view class="home_banner-container">
         <image class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
-      <gu-tab tabs="{{middleTabs[tabIndex]}}" width="45%" bindselectmytab="middleTabHandler" initialIndex="{{middleTabIndex}}"></gu-tab>
+      <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
 
-      <view wx:if="{{ middleTabIndex == 0 }}" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+      <view wx:if="{{ activityTabIndex == 0 }}" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
         <activity-card></activity-card>
       </view>
 
-      <view wx:if="{{ middleTabIndex == 1 }}" wx:for="{{[1]}}" wx:key="{{index}}">
+      <view wx:if="{{ activityTabIndex == 1 }}" wx:for="{{[1]}}" wx:key="{{index}}">
         <activity-card objection="{{true}}"></activity-card>
       </view>
 
-      <view wx:if="{{ middleTabIndex == 2 }}" wx:for="{{[1, 2]}}" wx:key="{{index}}">
+      <view wx:if="{{ activityTabIndex == 2 }}" wx:for="{{[1, 2]}}" wx:key="{{index}}">
         <activity-card></activity-card>
       </view>
     </view>
@@ -36,8 +36,8 @@
       </view>
       <!-- 推荐页 —— 圈子 -->
       <view class="home-social-circle gray-buttom">
-        <gu-tab tabs="{{middleTabs[tabIndex]}}" width="auto" style="margin-left: 30rpx;" bindselectmytab="middleTabHandler" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
-        <text class="mrore-link">查看更多</text>
+        <gu-tab tabs="{{['圈子']}}" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
+        <text class="more-link">查看更多</text>
         <scroll-view class="home-mini-circle-list" scroll-x>
           <view class="home-mini-circle-item" wx:for="{{[1,3,4,1,1,2]}}" wx:key="{{index}}">
             <mini-circle-card></mini-circle-card>
@@ -45,9 +45,12 @@
         </scroll-view>
       </view>
       <!-- 推荐页 —— 热门话题 -->
-      <view class="home-social-circle gray-buttom">
-        <gu-tab tabs="{{['热门话题']}}" width="auto" style="margin-left: 30rpx;" bindselectmytab="middleTabHandler"  initialIndex="0" inlineBlock="{{true}}"></gu-tab>
-        <text class="mrore-link">查看更多</text>
+      <view class="home-topic">
+        <gu-tab tabs="{{['热门话题']}}" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
+        <text class="more-link">查看更多</text>
+        <view class="home-topic-lists">
+          <mini-topic-card class="home-topic-item" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}"></mini-topic-card>
+        </view>
       </view>
     </view>
 
@@ -56,7 +59,7 @@
       <view class="home_banner-container">
         <image class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
-      <gu-tab tabs="{{middleTabs[tabIndex]}}" width="auto" style="margin-left: 30rpx;" bindselectmytab="middleTabHandler" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
+      <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
     </view>
   </view>
 </view>

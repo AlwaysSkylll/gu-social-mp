@@ -41,7 +41,6 @@ Component({
     this.setData({
       selected: this.properties.initialIndex
     })
-    console.log(this.properties.initialIndex)
   },
 
   /**

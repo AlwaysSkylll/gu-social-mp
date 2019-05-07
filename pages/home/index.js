@@ -5,13 +5,9 @@ Page({
         "广场",
         "活动"
       ],
-      middleTabs: [
-        ["圈子"],
-        ["热门", "最新"],
-        ["最新", "往期", "我的"]
-      ],
       tabIndex: 0,
-      middleTabIndex: 0,
+      activityTabIndex: 0,
+      groundTabIndex: 0,
     },
     onLoad: function () {
       
@@ -28,10 +24,12 @@ Page({
         tabIndex
       })
     },
-    middleTabHandler(e) {
-      const middleTabIndex = e.detail.tabIndex
+    tempTabHandler(e) {
+      const type = e.currentTarget.dataset.type
+      const tabIndex = e.detail.tabIndex
+      const targetName = `${type}TabIndex`
       this.setData({
-        middleTabIndex
+        [targetName]: tabIndex
       })
     }
 });
