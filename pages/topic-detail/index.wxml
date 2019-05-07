@@ -1,0 +1,4 @@
+<!--pages/topic-detail/index.wxml-->
+<view>
+  <topic-card ></topic-card>
+</view>

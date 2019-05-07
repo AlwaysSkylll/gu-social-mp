@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "topic-card": "/pages/components/topic-card/index"
+  }
+}

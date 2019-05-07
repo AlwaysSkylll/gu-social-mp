@@ -4,13 +4,13 @@
   <view class="my_header">
     <view class="modal-bg"></view>
     <!-- 个人信息背景图 -->
-    <image class="my_header_bg" src="/static/default_my_bg.png"></image>
+    <image lazy-load="{{true}}" class="my_header_bg" src="/static/default_my_bg.png"></image>
 
     <!-- 个人信息 -->
     <view class="my_header-info">
       <view class="my_header-info_user">
         <view class="my_header-info_left">
-          <image class="avatar my_header-info_avatar" src="/static/default_avatar.jpg"></image>
+          <image lazy-load="{{true}}" class="avatar my_header-info_avatar" src="/static/default_avatar.jpg"></image>
           <view class="text-14">柠檬草莓酱</view>
           <view class="text-8">等级1</view>
         </view>
@@ -46,7 +46,7 @@
       <view class="light-gray-bottom"></view>
       <view wx:if="{{tabIndex == 0}}">
         <view class="home-gorund-item gray-buttom" wx:for="{{[1,2]}}" wx:key="{{index}}">
-        <mini-ground-card ></mini-ground-card>
+        <topic-card ></topic-card>
       </view>
       </view>
     </view>

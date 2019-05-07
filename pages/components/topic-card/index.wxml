@@ -1,0 +1,24 @@
+<!--pages/components/topic-card/index.wxml-->
+<view class="topic-card" hover-class="topic-card_hovered" bindtap="directDetail">
+  <view class="topic-card_user">
+    <image lazy-load="{{true}}" class="avatar" src="/static/default_avatar.jpg"></image>
+    <view class="topic-card_ground-info">
+      <view class="topic-card_info1">
+        <text>柠檬草莓酱</text>
+        <text>等级1</text>
+      </view>
+      <view class="topic-card_info2">
+        <text>1小时前</text>
+        <text>来自</text>
+        <text>杭州·浙江大学</text>
+      </view>
+    </view>
+    <view class="topic-card_btn">
+      <follow-btn text="关注"></follow-btn>
+    </view>
+  </view>
+  <view class="topic-card_content">
+  嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀嘻嘻嘻秀
+  <image lazy-load="{{true}}" mode="widthFix" src="/static/default_ground.jpg"></image>
+  </view>
+</view>

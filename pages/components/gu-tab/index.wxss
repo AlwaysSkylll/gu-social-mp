@@ -40,12 +40,31 @@
   background: #5cd4ea;
 }
 
-@keyframes active {
-    0% {
-        color: #979797;
-    }
+.gu-tab-item.active .gu-tab-border {
+  height: 4rpx;
+  width: 16rpx;
+  background: #5cd4ea;
+  animation-name: active-border;
+  animation-duration: .3s;
+  animation-timing-function: linear;
+}
 
-    100% {
-        color: #000000;
-    }
+@keyframes active-border {
+  0% {
+    width: 70%;
+  }
+
+  100% {
+    width: 16rpx;
+  }
+}
+
+@keyframes active {
+  0% {
+    color: #979797;
+  }
+
+  100% {
+    color: #000000;
+  }
 }

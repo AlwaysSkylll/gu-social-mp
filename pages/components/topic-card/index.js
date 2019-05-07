@@ -1,4 +1,4 @@
-// pages/components/mini-ground-card/index.js
+// pages/components/topic-card/index.js
 Component({
   /**
    * 组件的属性列表
@@ -18,6 +18,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    directDetail() {
+      wx.navigateTo({
+        url: '/pages/topic-detail/index',
+      })
+    }
   }
 })

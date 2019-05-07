@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/home/index",
     "pages/my/index",
-    "pages/index/index",
     "pages/logs/logs",
-    "pages/components/gu-tab/index"
+    "pages/components/gu-tab/index",
+    "pages/topic-detail/index",
+    "pages/circle-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

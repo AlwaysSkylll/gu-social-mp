@@ -13,9 +13,22 @@ Component({
       iconPath: "/static/my.png",
       selectedIconPath: "/static/my_active.png",
       text: "我的"
-    }]
+    }],
+    showTabList: [
+      'pages/home/index',
+      'pages/my/index',
+    ],
+    showTabbar: true,
   },
   attached() {
+  },
+  ready() {
+    const pageList = getCurrentPages()
+    const pageLength = pageList.length
+    const page = pageList[pageLength - 1]
+    this.setData({
+      showTabbar: this.data.showTabList.indexOf(page.route) != -1
+    })
   },
   methods: {
     switchTab(e) {

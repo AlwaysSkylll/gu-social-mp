@@ -8,7 +8,7 @@
     <!-- 活动页 -->
     <view wx:if="{{ tabIndex == 2 }}">
       <view class="home_banner-container">
-        <image class="home_banner" src="/static/default_banner.jpg"></image>
+        <image lazy-load="{{true}}" class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
       <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
 
@@ -30,7 +30,7 @@
       <view class="home-swiper-container gray-buttom">
         <swiper circular="{{true}}" previous-margin="30rpx" next-margin="110rpx">
           <swiper-item class="home-swiper-item" wx:for="{{[1,3,3,3]}}" wx:key="{{index}}">
-            <image src="/static/default_swipe.jpg"></image>
+            <image lazy-load="{{true}}" src="/static/default_swipe.jpg"></image>
           </swiper-item>
         </swiper>
       </view>
@@ -57,12 +57,12 @@
     <!-- 广场页 -->
     <view wx:if="{{ tabIndex == 1 }}">
       <view class="home_banner-container">
-        <image class="home_banner" src="/static/default_banner.jpg"></image>
+        <image lazy-load="{{true}}" class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
       <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
       <view class="light-gray-bottom"></view>
       <view class="home-gorund-item gray-buttom" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
-        <mini-ground-card ></mini-ground-card>
+        <topic-card ></topic-card>
       </view>
     </view>
   </view>

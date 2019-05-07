@@ -1,11 +1,11 @@
 <!--pages/components/mini-circle-card/index.wxml-->
 <view class="mini-circle-card">
-  <image class="mini-circle-card_img" src="/static/circle_card.jpg"></image>
+  <image lazy-load="{{true}}" class="mini-circle-card_img" src="/static/circle_card.jpg"></image>
   <view class="mini-card_info">
     <text class="title">冰淇淋红茶</text>
     <text class="desc">嘻嘻嘻嘻</text>
     <view class="btn">
-      <image class="btn_join-img"></image>
+      <image lazy-load="{{true}}" class="btn_join-img"></image>
       <text>进入</text>
     </view>
   </view>
