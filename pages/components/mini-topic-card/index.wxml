@@ -1,5 +1,5 @@
 <!--pages/components/mini-topic-card/index.wxml-->
-<view class="mini-topic-card">
+<view class="mini-topic-card" hover-class="mini-topic-card_hovered" bindtap="toDetail">
   <image lazy-load="{{true}}" class="mini-topic-card_img" src="/static/default_topic.png" class="mini-topic-card_img"></image>
   <view class="mini-topic-card_title">
     <text>#啦啦啦啦啦啦啦</text>

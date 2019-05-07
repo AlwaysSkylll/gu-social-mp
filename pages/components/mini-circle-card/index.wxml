@@ -1,5 +1,5 @@
 <!--pages/components/mini-circle-card/index.wxml-->
-<view class="mini-circle-card">
+<view class="mini-circle-card" hover-class="mini-circle-card_hovered" bindtap="toDetail">
   <image lazy-load="{{true}}" class="mini-circle-card_img" src="/static/circle_card.jpg"></image>
   <view class="mini-card_info">
     <text class="title">冰淇淋红茶</text>

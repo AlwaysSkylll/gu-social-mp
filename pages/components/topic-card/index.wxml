@@ -1,5 +1,5 @@
 <!--pages/components/topic-card/index.wxml-->
-<view class="topic-card" hover-class="topic-card_hovered" bindtap="directDetail">
+<view class="topic-card" hover-class="topic-card_hovered" bindtap="toDetail">
   <view class="topic-card_user">
     <image lazy-load="{{true}}" class="avatar" src="/static/default_avatar.jpg"></image>
     <view class="topic-card_ground-info">
