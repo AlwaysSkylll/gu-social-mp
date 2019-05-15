@@ -40,11 +40,11 @@
 
 .item-left {
   padding: 30rpx;
-  flex: 8;
+  flex: 44;
 }
 
 .item-right {
-  flex: 5;
+  flex: 25;
   border-bottom-left-radius: 30rpx;  
   overflow: hidden;
 }

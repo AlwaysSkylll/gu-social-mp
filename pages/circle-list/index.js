@@ -8,7 +8,7 @@ Page({
    */
   data: {
     circles: [],
-    limit: 0,
+    limit: 10,
     finish: false,
   },
 
@@ -51,14 +51,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      offset: 0,
+      circles: [],
+      finish: false,
+    })
+    this.getData();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+    this.getData();
   },
 
   /**
@@ -76,7 +81,7 @@ Page({
       offset: this.data.circles.length,
       limit: this.data.limit,
     }
-    api.getCircles({}).then(response => {
+    api.getCircles(param).then(response => {
       const res = response.data
       if (res.error) {
         wx.showToast({

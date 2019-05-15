@@ -1,2 +1,23 @@
 <!--pages/topic-list/index.wxml-->
-<text>pages/topic-list/index.wxml</text>
+<view class="topic-list">
+  <view class="topic-item gray-buttom" wx:for="{{topics}}" wx:key="{{index}}" wx:if="{{item.status == 'published'}}">
+    <view class="topic-item_head">
+      <text class="item-index">{{index}}</text>
+      <text class="item-title">#{{item.title}}#</text>
+      <text class="item-comment-num">1.1万条评论 ></text>
+    </view>
+    <view class="topic-item_body">
+      <view class="item-body_left">
+        <view class="topic-desc">【#{{item.title}}#：{{item.description}}】</view>
+        <view class="topic-desc">4月22日顶顶顶顶彻底的改革看了多久啊的山东的搜是。</view>
+        <view class="topic-relation">
+          <view>@往后余生</view>
+          <view>5小时前</view>
+        </view>
+      </view>
+      <view class="item-body_right">
+        <image class="item-bg" src="/static/topic_default.jpg"></image>
+      </view>
+    </view>
+  </view>
+</view>
