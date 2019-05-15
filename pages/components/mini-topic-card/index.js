@@ -22,9 +22,9 @@ Component({
    */
   methods: {
     toDetail() {
-      // wx.navigateTo({
-      //   url: `/pages/topic-detail/index?id=${this.data.item.id}&type=subjects`,
-      // })
+      wx.navigateTo({
+        url: `/pages/topic-detail/index?id=${this.data.item.id}`,
+      })
     }
   }
 })

@@ -2,5 +2,5 @@
   "usingComponents": {
     "event-card": "/pages/components/event-card/index"
   },
-  "navigationBarTitleText": "话题"
+  "navigationBarTitleText": "查看评论"
 }

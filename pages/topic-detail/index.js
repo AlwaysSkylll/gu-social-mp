@@ -7,19 +7,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: null,
+    subject: {},
+    events: [],
+    id: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    api.getEventDetail({}, options.id).then(res => {
-      this.setData({
-        item: res
-      })
+    this.setData({
+      id: options.id
     })
+    this.getData()
   },
 
   /**
@@ -69,5 +69,32 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getData() {
+    this.getSubjectEvents()
+    this.getSubject()
+  },
+  
+  /**
+   * 获取话题下的说手
+   */
+  getSubjectEvents() {
+    api.getSubjectEvents({}, this.data.id).then(res => {
+      this.setData({
+        events: res.data
+      })
+    })
+  },
+
+  /**
+   * 获取话题
+   */
+  getSubject() {
+    api.getSubjectDetail({}, this.data.id).then(res => {
+      this.setData({
+        subject: res
+      })
+    })
   }
 })

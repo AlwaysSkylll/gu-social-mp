@@ -1,1 +1,60 @@
 /* pages/topic-detail/index.wxss */
+.topic-detail {
+
+}
+
+.topic-detail_bg {
+  width: 100vw;
+  height: 420rpx;
+}
+
+.topic-detail_share {
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+  height: 35rpx;
+  width: 40rpx;
+}
+
+.topic-detail_info {
+  box-sizing: border-box;
+  position: relative;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 14px;
+  padding: 0 30rpx;
+  color: #000000;
+}
+
+.topic-detail_info .info-desc {
+  font-size: 10px;
+  margin-left: 15rpx;
+}
+
+.topic-detail_datas {
+  display: flex;
+  align-items: center;
+  line-height: 12px;
+  position: absolute;
+  right: 30rpx;
+  bottom: 5rpx;
+  font-size: 9px;
+  color: #979797;
+}
+
+.topic-detail_datas .data-icon {
+  width: 25rpx;
+  height: 20rpx;
+  margin: 0 10rpx 0 20rpx;
+}
+
+.topic-detail_datas .data-icon.fire {
+  width: 18rpx;
+  height: 25rpx;
+}
+.topic-detail_datas .data-icon.share {
+
+}
+.topic-detail_datas .data-icon.comment {
+  width: 25rpx;
+}

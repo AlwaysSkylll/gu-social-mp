@@ -1,4 +1,4 @@
-// pages/components/topic-card/index.js
+// pages/components/event-card/index.js
 Component({
   /**
    * 组件的属性列表
@@ -11,6 +11,10 @@ Component({
     type: {
       type: String,
       value: ''
+    },
+    callback: {
+      type: Boolean,
+      value: true
     }
   },
 
@@ -26,12 +30,13 @@ Component({
    */
   methods: {
     toDetail() {
+      if (!this.data.callback) return
       let id = 0;
       if (this.properties.event) {
         id = this.properties.event.id
       }
       wx.navigateTo({
-        url: `/pages/topic-detail/index?id=${id}&type=${this.data.type}`,
+        url: `/pages/event-detail/index?id=${id}`,
       })
     }
   }

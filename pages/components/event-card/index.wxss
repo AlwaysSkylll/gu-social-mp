@@ -1,4 +1,4 @@
-/* pages/components/topic-card/index.wxss */
+/* pages/components/event-card/index.wxss */
 .avatar {
   width: 100rpx;
   height: 100rpx;
@@ -6,97 +6,97 @@
   border: 1rpx solid #FFFFFF;
 }
 
-.topic-card {
+.event-card {
   box-sizing: border-box;
   padding: 30rpx;
 }
 
-.topic-card_hovered {
+.event-card_hovered {
   background: #efefef;
   opacity: 0.9;
 }
 
-.topic-card_user {
+.event-card_user {
   position: relative;
 }
 
-.topic-card_user .avatar {
+.event-card_user .avatar {
   position: absolute;
   left: 0;
   top: 0;
 }
 
-.topic-card_btn {
+.event-card_btn {
   position: absolute;
   right: 0;
   top: 0;
 }
 
-.topic-card_ground-info {
+.event-card_ground-info {
   box-sizing: border-box;
   padding: 0 100rpx;
   min-height: 120rpx;
 }
 
-.topic-card_info1 {
+.event-card_info1 {
   line-height: 12px;
   box-sizing: border-box;
   padding-top: 30rpx;
 }
 
-.topic-card_info1 text {
+.event-card_info1 text {
   margin-left: 20rpx;
   font-size: 10px;
 }
 
-.topic-card_info1 text:first-child {
+.event-card_info1 text:first-child {
   font-size: 14px;
 }
 
-.topic-card_info2 {
+.event-card_info2 {
   line-height: 10px;
 }
 
-.topic-card_info2 text {
+.event-card_info2 text {
   margin-left: 15rpx;
   color: #979797;
   font-size: 8px;
 }
 
-.topic-card_info2 text:first-child {
+.event-card_info2 text:first-child {
   margin-left: 20rpx;
 }
 
-.topic-card_info2 text:first-child {
+.event-card_info2 text:first-child {
 
 }
 
-.topic-card_info2 text:last-child {
+.event-card_info2 text:last-child {
   color: #5cd4ea;
 }
 
-.topic-card_content, .topic-card_content text {
+.event-card_content, .event-card_content text {
   line-height: 18px;
   font-size: 13px;
 }
 
-.topic-card_content .image-box {
+.event-card_content .image-box {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.topic-card_content image {
+.event-card_content image {
   flex: 1;
   margin-top: 10rpx;
   border-radius: 5rpx;
 }
 
-.topic-card_content image:not(:first-child) {
+.event-card_content image:not(:first-child) {
   margin-left: 15rpx;
 }
 
-.topic-card_btn {
+.event-card_btn {
   box-sizing: border-box;
   padding-top: 15rpx;
 }

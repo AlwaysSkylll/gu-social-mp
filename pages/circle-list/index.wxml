@@ -1,6 +1,6 @@
 <!--pages/circle-list/index.wxml-->
 <view class="circle-list">
-  <view class="circle-list_item" wx:for="{{circles}}">
+  <view class="circle-list_item" wx:for="{{circles}}" wx:key="{{index}}">
     <view class="item-left">
       <view class="topic">#{{item.title}}</view>
       <view class="topic-content">{{item.description}}</view>

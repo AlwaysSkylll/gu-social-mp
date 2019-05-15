@@ -2,7 +2,7 @@
   "usingComponents": {
     "gu-tab": "/pages/components/gu-tab/index",
     "follow-btn": "/pages/components/follow-btn/index",
-    "topic-card": "/pages/components/topic-card/index",
+    "event-card": "/pages/components/event-card/index",
     "custom-tab-bar": "/custom-tab-bar/index"
   },
   "navigationBarTitleText": "我的"

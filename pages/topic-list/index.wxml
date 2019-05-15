@@ -1,22 +1,24 @@
 <!--pages/topic-list/index.wxml-->
 <view class="topic-list">
-  <view class="topic-item gray-buttom" wx:for="{{topics}}" wx:key="{{index}}" wx:if="{{item.status == 'published'}}">
-    <view class="topic-item_head">
-      <text class="item-index">{{index}}</text>
-      <text class="item-title">#{{item.title}}#</text>
-      <text class="item-comment-num">{{item.comment_num}}条评论 ></text>
-    </view>
-    <view class="topic-item_body">
-      <view class="item-body_left">
-        <view class="topic-desc">【#{{item.title}}#：{{item.description}}】</view>
-        <view class="topic-desc">4月22日顶顶顶顶彻底的改革看了多久啊的山东的搜是。</view>
-        <view class="topic-relation">
-          <view>@往后余生</view>
-          <view>{{item.create_time}}</view>
-        </view>
+  <view class="gray-buttom" wx:for="{{topics}}" wx:key="{{index}}">
+    <view class="topic-item" wx:if="{{item.status == 'published'}}" bindtap="goDetail" data-id="{{item.id}}">
+      <view class="topic-item_head">
+        <text class="item-index">{{index}}</text>
+        <text class="item-title">#{{item.title}}#</text>
+        <text class="item-comment-num">{{item.comment_num}}条评论 ></text>
       </view>
-      <view class="item-body_right">
-        <image class="item-bg" src="{{item.covers[0] || '/static/topic_default.jpg'}}"></image>
+      <view class="topic-item_body">
+        <view class="item-body_left">
+          <view class="topic-desc">【#{{item.title}}#：{{item.description}}】</view>
+          <view class="topic-desc">4月22日顶顶顶顶彻底的改革看了多久啊的山东的搜是。</view>
+          <view class="topic-relation">
+            <view>@往后余生</view>
+            <view>{{item.create_time}}</view>
+          </view>
+        </view>
+        <view class="item-body_right">
+          <image class="item-bg" src="{{item.covers[0] || '/static/topic_default.jpg'}}"></image>
+        </view>
       </view>
     </view>
   </view>

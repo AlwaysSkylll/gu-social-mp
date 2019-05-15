@@ -71,7 +71,7 @@ module.exports.getEvents = (data) => commonRequest.request('/api/events', 'GET',
 /**
  * 说说信息
  */
-module.exports.getEventDetail = (id) => commonRequest.request(`/api/events/${id}`, 'GET')
+module.exports.getEventDetail = (data, id) => commonRequest.request(`/api/events/${id}`, 'GET')
 
 /**
  * 发布评论

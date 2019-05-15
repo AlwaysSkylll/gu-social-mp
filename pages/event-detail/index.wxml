@@ -1,0 +1,4 @@
+<!--pages/topic-detail/index.wxml-->
+<view>
+  <event-card event="{{item}}" callback="{{false}}"></event-card>
+</view>

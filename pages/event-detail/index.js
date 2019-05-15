@@ -1,4 +1,4 @@
-// pages/circle-list/index.js
+// pages/topic-detail/index.js
 const api = require('../../api/index.js')
 
 Page({
@@ -7,23 +7,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    circles: [],
-    limit: 10,
-    finish: false,
+    item: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData()
+    console.log(options)
+    api.getEventDetail({}, options.id).then(res => {
+      this.setData({
+        item: res
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
@@ -51,19 +54,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({
-      offset: 0,
-      circles: [],
-      finish: false,
-    })
-    this.getData();
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getData();
+
   },
 
   /**
@@ -71,25 +69,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  getData() {
-    if (this.data.finish) {
-      return
-    }
-    const param = {
-      offset: this.data.circles.length,
-      limit: this.data.limit,
-    }
-    api.getCircles(param).then(res => {
-      const circles = [...this.data.circles, ...res.data]
-      const finish = res.paging.total <= circles.length
-
-      this.setData({
-        circles,
-        finish
-      })
-      wx.stopPullDownRefresh()
-    })
   }
 })
