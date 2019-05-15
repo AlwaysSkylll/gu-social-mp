@@ -37,17 +37,17 @@
       <!-- 推荐页 —— 圈子 -->
       <view class="home-social-circle gray-buttom ">
         <gu-tab tabs="{{['圈子']}}" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
-        <text class="more-link">查看更多</text>
+        <text class="more-link" bindtap="goListPage" data-type="circle">查看更多</text>
         <scroll-view class="home-mini-circle-list" scroll-x>
-          <view class="home-mini-circle-item" wx:for="{{[1,3,4,1,1,2]}}" wx:key="{{index}}">
-            <mini-circle-card></mini-circle-card>
+          <view class="home-mini-circle-item" wx:for="{{circles}}" wx:key="{{index}}">
+            <mini-circle-card item="{{item}}"></mini-circle-card>
           </view>
         </scroll-view>
       </view>
       <!-- 推荐页 —— 热门话题 -->
       <view class="home-topic">
         <gu-tab tabs="{{['热门话题']}}" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
-        <text class="more-link">查看更多</text>
+        <text class="more-link" bindtap="goListPage" data-type="topic">查看更多</text>
         <view class="home-topic-lists">
           <mini-topic-card class="home-topic-item" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}"></mini-topic-card>
         </view>

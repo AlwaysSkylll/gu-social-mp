@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    authToken: 'vF1JFcywpyUKP2QT0l9huG8f2VAeseDO',
   }
 })

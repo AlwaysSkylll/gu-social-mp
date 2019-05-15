@@ -18,16 +18,25 @@ Component({
       'pages/home/index',
       'pages/my/index',
     ],
-    showTabbar: true,
+    showBar: true,
   },
   attached() {
+    // const pageList = getCurrentPages()
+    // const pageLength = pageList.length
+    // const page = pageList[pageLength - 1]
+    // this.setData({
+    //   showBar: page && this.data.showTabList.indexOf(page.route) != -1 || false
+    // })
+    // wx.showToast({
+    //   title: String(pageLength) + 'attached',
+    // })
   },
   ready() {
     const pageList = getCurrentPages()
     const pageLength = pageList.length
     const page = pageList[pageLength - 1]
     this.setData({
-      showTabbar: this.data.showTabList.indexOf(page.route) != -1
+      showBar: page && this.data.showTabList.indexOf(page.route) != -1 || false
     })
   },
   methods: {

@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -60,6 +60,13 @@
 					"id": -1,
 					"name": "home",
 					"pathName": "pages/home/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "圈子列表",
+					"pathName": "pages/circle-list/index",
 					"scene": null
 				}
 			]

@@ -1,0 +1,142 @@
+var commonRequest = require('../commonRequest.js')
+
+// ------------------------- 用户  ----------------------／／
+
+/**
+ * 登录
+ * param {
+ *    code
+ *    gender
+ *    nickname
+ *    avatar_url
+ * }
+ */
+module.exports.login = (data) => commonRequest.request('/api/tokens', 'POST', data)
+
+
+
+// ------------------------- 说说  ----------------------／／
+
+/**
+ * 说说广场
+ * param: { 
+ *   sort
+ * }
+ */
+module.exports.getEvents = (data) => commonRequest.request('/api/events', 'GET', data)
+
+/**
+ * 说说信息
+ */
+module.exports.getEventsDetail = (id) => commonRequest.request(`/api/events/${id}`, 'GET')
+
+/**
+ * 发布评论
+ * param: {
+ *   content 内容
+ *   event_id 说说id
+ *   comment_id 评论id，评论说说时可不传
+ *   target_user_id 对指定用户回复的id
+ * }
+ */
+module.exports.commentEvent = (data, id) => commonRequest.request(`/api/events/${id}/comments`, 'POST', data)
+
+/**
+ * 获取说说下的评论
+ * param {
+ *   offset
+ *   limit
+ * }
+ */
+module.exports.getEventsComments = (data, id) => commonRequest.request(`/api/events/${id}/comments`, 'GET' ,data)
+
+/**
+ * 获取评论下的评论
+ * 
+ */
+module.exports.getCommentsDetail = (data, id) => commonRequest.request(`/api/comments/${id}/comments`, 'GET', data)
+
+/**
+ * 发布说说
+ * param {
+ *    subject_id 话题id
+ *    content 内容
+ *    notify_user_ids[] @用户id列表
+ *    location_name  位置名称
+ *    location_address  位置详细地址
+ *    location_latitude 位置纬度
+ *    location_longitude  位置经度
+ * }
+ */
+module.exports.postEvents = (data) => commonRequest.request('/api/events', 'POST', data)
+
+// ------------------------- 圈子  ----------------------／／
+
+/**
+ * 获取圈子下的说说
+ * param {
+ *    offset
+ *    limit
+ * }
+ */
+module.exports.getCirclesEvents = (data, id) => commonRequest.request(`/api/circles/${id}/events`, 'GET', data)
+
+/**
+ * 圈子信息
+ */
+module.exports.getCircleDetail = (data, id) => commonRequest.request(`/api/circles/${id}`, 'GET', data)
+
+/**
+ * 圈子搜索
+ * param {
+ *    sort
+ *    limit
+ *    offset
+ * }
+ */
+module.exports.getCircles = (data) => commonRequest.request('/api/circles', 'GET', data)
+
+
+// ------------------------- 话题  ----------------------／／
+
+/**
+ * 获取话题下的说说
+ * param {
+ *    offset
+ *    limit
+ * }
+ */
+module.exports.getSubjectEvents = (data, id) => commonRequest.request(`/api/subjects/${id}/events`, 'GET', data)
+
+/**
+ * 话题信息
+ */
+module.exports.getSubject = (data, id) => commonRequest.request(`/api/subjects/${id}`, 'GET', data)
+
+/**
+ * 话题搜索
+ * param {
+ *    sort
+ *    title
+ * }
+ */
+module.exports.searchSubject = (data) => commonRequest.request('/api/subjects', 'GET', data)
+
+/**
+ * 发布话题
+ * param {
+ *    title
+ *    description
+ *    notify_user_ids[]
+ * }
+ */
+module.exports.postSubject = (data) => commonRequest.request('/api/subjects', 'POST', data)
+
+
+// -------------------- 标签 ----------------------- //
+
+/**
+ * 获取所有标签
+ */
+module.exports.getSubject = (data) => commonRequest.request('/api/labels', 'GET', data)
+

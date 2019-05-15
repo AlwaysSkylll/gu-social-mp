@@ -43,12 +43,17 @@ Page({
       })
     }
   },
+  onReady() {
+  },
   getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    // console.log(e)
+    // app.globalData.userInfo = e.detail.userInfo
+    // this.setData({
+    //   userInfo: e.detail.userInfo,
+    //   hasUserInfo: true
+    // })
+    wx.switchTab({
+      url: '/pages/home/index',
     })
   }
 })

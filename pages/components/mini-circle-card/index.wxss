@@ -46,6 +46,9 @@
   line-height: 17.5px;
 }
 .btn_join-img {
+  vertical-align: middle;
+  padding: 2px;
+  margin: 0 4rpx;
   width: 18rpx;
   height: 18rpx;
 }
