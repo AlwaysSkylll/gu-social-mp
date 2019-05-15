@@ -13,7 +13,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.0",
+	"libVersion": "2.4.4",
 	"appid": "wxeb933a5a268333e2",
 	"projectname": "gu-social-mp",
 	"debugOptions": {

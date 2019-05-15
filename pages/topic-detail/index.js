@@ -14,14 +14,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
-    const apiTypes = {
-      events: 'getEventDetail',
-      subjects: 'getSubjectDetail'
-    }
-    debugger
-    const apiName = apiTypes[options.type]
-    api[apiName]({}, options.id).then(res => {
+    console.log(options)
+    api.getEventDetail({}, options.id).then(res => {
       this.setData({
         item: res
       })

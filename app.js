@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    authToken: 'vF1JFcywpyUKP2QT0l9huG8f2VAeseDO',
+    testToken: 'vF1JFcywpyUKP2QT0l9huG8f2VAeseDO',
+    tokenBody: {},
   }
 })

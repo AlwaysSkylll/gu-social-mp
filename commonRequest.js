@@ -7,7 +7,8 @@ module.exports.request = function (url, method, data) {
       data: data,
       header: {
         'content-type': 'application/json',
-        'X-Auth-Token': app.globalData.authToken
+        // 'X-Auth-Token': app.globalData.tokenBody.token
+        'X-Auth-Token': app.globalData.testToken
       },
       method: method || 'GET',
       success: function (response) {
