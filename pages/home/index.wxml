@@ -49,7 +49,7 @@
         <gu-tab tabs="{{['热门话题']}}" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
         <text class="more-link" bindtap="goListPage" data-type="topic">查看更多</text>
         <view class="home-topic-lists">
-          <mini-topic-card class="home-topic-item" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}"></mini-topic-card>
+          <mini-topic-card class="home-topic-item" item="{{item}}" wx:for="{{topics}}" wx:key="{{index}}"></mini-topic-card>
         </view>
       </view>
     </view>

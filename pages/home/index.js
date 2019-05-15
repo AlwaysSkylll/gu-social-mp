@@ -11,13 +11,14 @@ Page({
       activityTabIndex: 0,
       groundTabIndex: 0,
       circles: [],
+      topics: [],
     },
     onLoad: function () {
       api.getEvents().then(res => {
         console.log(res, 9999)
       })
 
-      this.getCircleData()
+      this.getData()
     },
     onReady() {
       const tabbar = this.getTabBar()
@@ -51,6 +52,14 @@ Page({
     },
     
     /**
+     * 获取页面所有数据
+     */
+    getData() {
+      this.getCircleData()
+      this.getTopicData()
+    },
+
+    /**
      * 获取推荐页圈子数据
      */
     getCircleData() {
@@ -67,6 +76,28 @@ Page({
 
         this.setData({
           circles,
+        })
+      })
+    },
+
+    /**
+     * searchSubject
+     * 推荐话题
+     */
+    getTopicData() {
+      api.searchSubject({ limit: 6 }).then(response => {
+        const res = response.data
+        if (res.error) {
+          wx.showToast({
+            title: res.error.message,
+            icon: 'none',
+          })
+          return
+        }
+        const topics = res.data
+
+        this.setData({
+          topics,
         })
       })
     }
