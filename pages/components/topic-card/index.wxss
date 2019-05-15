@@ -80,9 +80,20 @@
   font-size: 13px;
 }
 
-.topic-card_content image {
-  margin-top: 10rpx;
+.topic-card_content .image-box {
+  display: flex;
   width: 100%;
+  justify-content: space-between;
+}
+
+.topic-card_content image {
+  flex: 1;
+  margin-top: 10rpx;
+  border-radius: 5rpx;
+}
+
+.topic-card_content image:not(:first-child) {
+  margin-left: 15rpx;
 }
 
 .topic-card_btn {

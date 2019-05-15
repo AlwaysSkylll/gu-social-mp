@@ -10,8 +10,17 @@ module.exports.request = function (url, method, data) {
         'X-Auth-Token': app.globalData.authToken
       },
       method: method || 'GET',
-      success: function (res) {
-        resolve(res)
+      success: function (response) {
+        const res = response.data
+        if (res.error) {
+          wx.showToast({
+            title: res.error.message,
+            icon: 'none',
+          })
+          reject(res)
+        } else {
+          resolve(res)
+        }
       },
       fail: function (res) {
         reject(res)

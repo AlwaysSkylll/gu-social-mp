@@ -81,15 +81,7 @@ Page({
       offset: this.data.circles.length,
       limit: this.data.limit,
     }
-    api.getCircles(param).then(response => {
-      const res = response.data
-      if (res.error) {
-        wx.showToast({
-          title: res.error.message,
-          icon: 'none',
-        })
-        return
-      }
+    api.getCircles(param).then(res => {
       const circles = [...this.data.circles, ...res.data]
       const finish = res.paging.total <= circles.length
 

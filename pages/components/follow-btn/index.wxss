@@ -10,3 +10,7 @@
   font-size: 12px;
   background-color: #5cd4ea;
 }
+
+.btn.disabled {
+  background-color: #dcdcdc;
+}

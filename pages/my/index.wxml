@@ -4,13 +4,13 @@
   <view class="my_header">
     <view class="modal-bg"></view>
     <!-- 个人信息背景图 -->
-    <image lazy-load="{{true}}" class="my_header_bg" src="/static/default_my_bg.png"></image>
+    <image lazy-load="{{true}}" class="my_header_bg" src="{{ userInfo.background || '/static/default_my_bg.png'}}"></image>
 
     <!-- 个人信息 -->
     <view class="my_header-info">
       <view class="my_header-info_user">
         <view class="my_header-info_left">
-          <image lazy-load="{{true}}" class="avatar my_header-info_avatar" src="/static/default_avatar.jpg"></image>
+          <image lazy-load="{{true}}" class="avatar my_header-info_avatar" src="{{ userInfo.avatar_url || '/static/default_avatar.jpg'}}"></image>
           <view class="text-14">柠檬草莓酱</view>
           <view class="text-8">等级1</view>
         </view>
@@ -27,11 +27,11 @@
           <view class="text-10">礼物</view>
         </view>
         <view class="my_header-info_item">
-          <view class="text-15">10</view>
+          <view class="text-15">{{userInfo.be_follow_num}}</view>
           <view class="text-10">被关注</view>
         </view>
         <view class="my_header-info_item">
-          <view class="text-15">35</view>
+          <view class="text-15">{{userInfo.follow_num}}</view>
           <view class="text-10">关注</view>
         </view>
         <view></view>
@@ -45,8 +45,8 @@
       <gu-tab tabs="{{tabs}}" width="50%" bindselectmytab="myTabHandler"></gu-tab>
       <view class="light-gray-bottom"></view>
       <view wx:if="{{tabIndex == 0}}">
-        <view class="home-gorund-item gray-buttom" wx:for="{{[1,2]}}" wx:key="{{index}}">
-        <topic-card ></topic-card>
+        <view class="home-gorund-item gray-buttom" wx:for="{{myEvents}}" wx:key="{{index}}">
+        <topic-card item="{{item}}"></topic-card>
       </view>
       </view>
     </view>

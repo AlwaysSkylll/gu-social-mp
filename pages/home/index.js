@@ -12,12 +12,9 @@ Page({
       groundTabIndex: 0,
       circles: [],
       topics: [],
+      events: []
     },
     onLoad: function () {
-      api.getEvents().then(res => {
-        console.log(res, 9999)
-      })
-
       this.getData()
     },
     onReady() {
@@ -57,21 +54,14 @@ Page({
     getData() {
       this.getCircleData()
       this.getTopicData()
+      this.getEventsData()
     },
 
     /**
      * 获取推荐页圈子数据
      */
     getCircleData() {
-      api.getCircles({ limit: 5 }).then(response => {
-        const res = response.data
-        if (res.error) {
-          wx.showToast({
-            title: res.error.message,
-            icon: 'none',
-          })
-          return
-        }
+      api.getCircles({ limit: 5 }).then(res => {
         const circles = res.data
 
         this.setData({
@@ -85,20 +75,25 @@ Page({
      * 推荐话题
      */
     getTopicData() {
-      api.searchSubject({ limit: 6 }).then(response => {
-        const res = response.data
-        if (res.error) {
-          wx.showToast({
-            title: res.error.message,
-            icon: 'none',
-          })
-          return
-        }
+      api.searchSubject({ limit: 6 }).then(res => {
         const topics = res.data
 
         this.setData({
           topics,
         })
       })
-    }
+    },
+
+  /**
+   * 获取说说数据
+   */
+  getEventsData() {
+    api.getEvents().then(res => {
+      const events = res.data
+
+      this.setData({
+        events,
+      })
+    })
+  },
 });

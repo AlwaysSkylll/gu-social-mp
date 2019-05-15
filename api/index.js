@@ -13,7 +13,50 @@ var commonRequest = require('../commonRequest.js')
  */
 module.exports.login = (data) => commonRequest.request('/api/tokens', 'POST', data)
 
+/**
+ * 取消关注
+ */
+module.exports.unfollow = (data, id) => commonRequest.request(`/api/me/users/${id}`, 'DELETE', data)
 
+/**
+ * 关注用户
+ */
+module.exports.follow = (data, id) => commonRequest.request(`/api/me/users/${id}`, 'POST', data)
+
+/**
+ * 我的说说
+ */
+module.exports.myEvents = (data) => commonRequest.request('/api/me/events', 'GET', data)
+
+/**
+ * 搜索已关注用户
+ */
+module.exports.followed = (data) => commonRequest.request('/api/me/users', 'GET', data)
+
+/**
+ * 修改用户标签
+ */
+module.exports.customLabel = (data) => commonRequest.request('/api/me/labels', 'POST', data)
+
+/**
+ * 修改用户信息
+ * param: {
+ *  nickname,
+ *  avatar_url,
+ *  gender,
+ *  birthday,
+ *  school,
+ *  position,
+ *  hobby,
+ *  background,
+ * }
+ */
+module.exports.setUserInfo = (data) => commonRequest.request('/api/me', 'POST', data)
+
+/**
+ * 获取用户信息
+ */
+module.exports.getUserInfo = (data) => commonRequest.request('/api/me', 'GET', data)
 
 // ------------------------- 说说  ----------------------／／
 

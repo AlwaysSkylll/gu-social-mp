@@ -61,8 +61,8 @@
       </view>
       <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
       <view class="light-gray-bottom"></view>
-      <view class="home-gorund-item gray-buttom" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
-        <topic-card ></topic-card>
+      <view class="home-gorund-item gray-buttom" wx:for="{{events}}" wx:key="{{index}}">
+        <topic-card item="{{item}}"></topic-card>
       </view>
     </view>
   </view>

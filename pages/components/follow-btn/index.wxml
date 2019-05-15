@@ -1,2 +1,2 @@
 <!--pages/components/follow-btn/index.wxml-->
-<view class="btn">{{text}}</view>
+<view class="btn {{disabled ? 'disabled' : ''}}">{{text}}</view>

@@ -81,15 +81,7 @@ Page({
       offset: this.data.topics.length,
       limit: this.data.limit,
     }
-    api.searchSubject(param).then(response => {
-      const res = response.data
-      if (res.error) {
-        wx.showToast({
-          title: res.error.message,
-          icon: 'none',
-        })
-        return
-      }
+    api.searchSubject(param).then(res => {
       const topics = [...this.data.topics, ...res.data]
       const finish = res.paging.total <= topics.length
 
