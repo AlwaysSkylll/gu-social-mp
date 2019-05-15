@@ -1,4 +1,4 @@
 <!--pages/topic-detail/index.wxml-->
 <view>
-  <topic-card ></topic-card>
+  <topic-card item="{{item}}" fallback="{{false}}"></topic-card>
 </view>

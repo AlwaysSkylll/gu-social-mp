@@ -14,19 +14,11 @@ Page({
       userInfo: {},
     },
     onLoad: function () {
+      wx.hideTabBar({})
       this.getData()
     },
     onReady() {
-      const tabbar = this.getTabBar()
-      tabbar.setData({
-        selected: 1,
-      })
-      // wx.navigateTo({
-      //   url: '/pages/index/index',
-      //   success: () => {
-      //     tabbar.setData({ showBar: false })
-      //   }
-      // })
+      wx.hideTabBar({})
     },
     myTabHandler(e) {
       const tabIndex = e.detail.tabIndex
@@ -39,19 +31,14 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-      this.setData({
-        offset: 0,
-        myEvents: [],
-        finish: false,
-      })
-      this.getData();
+
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-      this.getData();
+      // this.getData();
     },
 
     getData() {

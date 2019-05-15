@@ -1,6 +1,14 @@
 Component({
+  /**
+  * 组件的属性列表
+  */
+  properties: {
+    selected: {
+      type: Number,
+      value: 0
+    }
+  },
   data: {
-    selected: 0,
     color: "#000000",
     selectedColor: "#5cd4ea",
     list: [{
@@ -41,7 +49,6 @@ Component({
   },
   methods: {
     switchTab(e) {
-      const tabIndex = this.getTabBar().data.selected
       const data = e.currentTarget.dataset
       const url = data.path
       if (data.index === this.data.selected) {

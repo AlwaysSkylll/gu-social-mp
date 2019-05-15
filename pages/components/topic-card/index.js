@@ -4,9 +4,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    item: {
+    event: {
       type: Object,
-      value: {}
+      value: null
+    },
+    type: {
+      type: String,
+      value: ''
     }
   },
 
@@ -22,8 +26,12 @@ Component({
    */
   methods: {
     toDetail() {
+      let id = 0;
+      if (this.properties.event) {
+        id = this.properties.event.id
+      }
       wx.navigateTo({
-        url: '/pages/topic-detail/index',
+        url: `/pages/topic-detail/index?id=${id}&type=${this.data.type}`,
       })
     }
   }

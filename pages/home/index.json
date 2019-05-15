@@ -4,7 +4,8 @@
     "activity-card": "/pages/components/activity-card/index",
     "mini-circle-card": "/pages/components/mini-circle-card/index",
     "mini-topic-card": "/pages/components/mini-topic-card/index",
-    "topic-card": "/pages/components/topic-card/index"
+    "topic-card": "/pages/components/topic-card/index",
+    "custom-tab-bar": "/custom-tab-bar/index"
   },
   "navigationBarTitleText": "古井贡酒"
 }

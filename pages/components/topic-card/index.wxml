@@ -1,26 +1,26 @@
 <!--pages/components/topic-card/index.wxml-->
 <view class="topic-card" hover-class="topic-card_hovered" bindtap="toDetail">
   <view class="topic-card_user">
-    <image lazy-load="{{true}}" class="avatar" src="{{ item.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
+    <image lazy-load="{{true}}" class="avatar" src="{{ event.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
     <view class="topic-card_ground-info">
       <view class="topic-card_info1">
-        <text>{{item.user.nickname}}</text>
+        <text>{{event.user.nickname}}</text>
         <text>等级1</text>
       </view>
       <view class="topic-card_info2">
-        <text>{{item.create_time}}</text>
+        <text>{{event.create_time}}</text>
         <text>来自</text>
-        <text>{{item.location_address}}.{{item.location_name}}</text>
+        <text>{{event.location_address}}.{{event.location_name}}</text>
       </view>
     </view>
     <view class="topic-card_btn">
-      <follow-btn text="{{!item.user.follow ? '关注' : '已关注'}}" disabled="{{item.user.follow}}"></follow-btn>
+      <follow-btn text="{{!event.user.follow ? '关注' : '已关注'}}" disabled="{{event.user.follow}}"></follow-btn>
     </view>
   </view>
   <view class="topic-card_content">
-    {{item.content}}
+    {{event.content}}
     <view class="image-box">
-      <image wx:for="{{item.images}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="widthFix" src="{{ img || '/static/default_ground.jpg' }}"></image>
+      <image wx:for="{{event.images}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="widthFix" src="{{ img || '/static/default_ground.jpg' }}"></image>
     </view>
   </view>
 </view>

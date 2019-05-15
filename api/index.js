@@ -71,7 +71,7 @@ module.exports.getEvents = (data) => commonRequest.request('/api/events', 'GET',
 /**
  * 说说信息
  */
-module.exports.getEventsDetail = (id) => commonRequest.request(`/api/events/${id}`, 'GET')
+module.exports.getEventDetail = (id) => commonRequest.request(`/api/events/${id}`, 'GET')
 
 /**
  * 发布评论
@@ -154,7 +154,7 @@ module.exports.getSubjectEvents = (data, id) => commonRequest.request(`/api/subj
 /**
  * 话题信息
  */
-module.exports.getSubject = (data, id) => commonRequest.request(`/api/subjects/${id}`, 'GET', data)
+module.exports.getSubjectDetail = (data, id) => commonRequest.request(`/api/subjects/${id}`, 'GET', data)
 
 /**
  * 话题搜索
@@ -181,5 +181,5 @@ module.exports.postSubject = (data) => commonRequest.request('/api/subjects', 'P
 /**
  * 获取所有标签
  */
-module.exports.getSubject = (data) => commonRequest.request('/api/labels', 'GET', data)
+module.exports.getAllLabels = (data) => commonRequest.request('/api/labels', 'GET', data)
 

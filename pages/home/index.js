@@ -15,13 +15,11 @@ Page({
       events: []
     },
     onLoad: function () {
+      wx.hideTabBar({})
       this.getData()
     },
     onReady() {
-      const tabbar = this.getTabBar()
-      tabbar.setData({
-        selected: 0
-      })
+      wx.hideTabBar({})
     },
     mainTabHandler(e) {
       const tabIndex = e.detail.tabIndex
