@@ -183,3 +183,13 @@ module.exports.postSubject = (data) => commonRequest.request('/api/subjects', 'P
  */
 module.exports.getAllLabels = (data) => commonRequest.request('/api/labels', 'GET', data)
 
+
+// -------------------- 公共 ----------------------- //
+
+/**
+ * 图片上传
+ * param: {
+ *  image
+ * }
+ */
+module.exports.uploadImage = (data) => commonRequest.request('/api/images', 'POST', data)

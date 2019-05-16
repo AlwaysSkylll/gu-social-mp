@@ -28,7 +28,7 @@
         </view>
         <view class="my_header-info_item">
           <view class="text-15">{{userInfo.be_follow_num}}</view>
-          <view class="text-10">被关注</view>
+          <view class="text-10">粉丝</view>
         </view>
         <view class="my_header-info_item">
           <view class="text-15">{{userInfo.follow_num}}</view>

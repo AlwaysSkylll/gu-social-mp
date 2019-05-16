@@ -80,7 +80,7 @@ Component({
     goPublishPage(e) {
       const type = e.currentTarget.dataset.type
       wx.navigateTo({
-        url: `/pages/publish/index?type=${type}`,
+        url: `/pages/publish-${type}/index`,
       })
     }
   },

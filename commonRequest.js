@@ -1,9 +1,11 @@
 var app = getApp()
+var host = require('./config.js').host
 
 module.exports.request = function (url, method, data) {
+  debugger
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: "https://leixiaoguan.browqui.com" + url,
+      url: host + url,
       data: data,
       header: {
         'content-type': 'application/json',
