@@ -9,7 +9,7 @@
   
   <!-- 发布 -->
   <cover-view class="tab-bar-item">
-    <cover-image class="tab-bar-publish tab-bar-item_img" src="/static/publish.png"></cover-image>
+    <cover-image class="tab-bar-publish tab-bar-item_img" src="/static/publish.png" bindtap="showPublishHandler"></cover-image>
   </cover-view>
 
   <!-- 我的 -->
@@ -18,3 +18,8 @@
     <cover-view class="tab-bar-title tab-bar-item_view" style="color: {{selected == 1 ? '#5cd4ea' : '#000000'}}">我的</cover-view>
   </cover-view>
 </cover-view>
+
+<view class="cu-modal {{publishModalShow ? 'show' : ''}}" bindtap="hidePublishHandler">
+  <view class="circle" hover-class="circle-hovered" data-type="topic" catchtap="goPublishPage">发布话题</view>
+  <view class="circle" hover-class="circle-hovered" data-type="event" catchtap="goPublishPage">发布说说</view>
+</view>

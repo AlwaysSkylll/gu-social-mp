@@ -27,6 +27,7 @@ Component({
       'pages/my/index',
     ],
     showBar: true,
+    publishModalShow: false,
   },
   attached() {
     // const pageList = getCurrentPages()
@@ -49,12 +50,39 @@ Component({
   },
   methods: {
     switchTab(e) {
+      this.hidePublishHandler()
       const data = e.currentTarget.dataset
       const url = data.path
       if (data.index === this.data.selected) {
         return;
       }
       wx.switchTab({ url })
+    },
+    /**
+    * 展示发布按钮
+    */
+    showPublishHandler() {
+      this.setData({
+        publishModalShow: true
+      })
+    },
+    /**
+     * 隐藏发布按钮
+     */
+    hidePublishHandler() {
+      this.setData({
+        publishModalShow: false
+      })
+    },
+    /**
+     * 前往发布页面
+     */
+    goPublishPage(e) {
+      const type = e.currentTarget.dataset.type
+      wx.navigateTo({
+        url: `/pages/publish/index?type=${type}`,
+      })
     }
-  }
+  },
+ 
 })

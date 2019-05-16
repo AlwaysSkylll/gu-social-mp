@@ -8,7 +8,8 @@
     "pages/event-detail/index",
     "pages/circle-detail/index",
     "pages/circle-list/index",
-    "pages/topic-list/index"
+    "pages/topic-list/index",
+    "pages/publish/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
