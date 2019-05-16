@@ -23,7 +23,7 @@
       <!-- 礼物、被关注、关注 数量 -->
       <view class="my_header-info_items">
         <view class="my_header-info_item">
-          <view class="text-15">23</view>
+          <view class="text-15">0</view>
           <view class="text-10">礼物</view>
         </view>
         <view class="my_header-info_item">

@@ -14,13 +14,36 @@
       </view>
     </view>
     <view class="event-card_btn">
-      <follow-btn text="{{!event.user.follow ? '关注' : '已关注'}}" disabled="{{event.user.follow}}"></follow-btn>
+      <follow-btn userId="{{event.user.id}}" text="{{!event.user.follow ? '关注' : '已关注'}}" disabled="{{event.user.follow}}"></follow-btn>
     </view>
   </view>
   <view class="event-card_content">
     {{event.content}}
     <view class="image-box">
-      <image wx:for="{{event.images}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="widthFix" src="{{ img || '/static/default_ground.jpg' }}"></image>
+      <image wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="widthFix" src="{{ img || '/static/default_ground.jpg' }}"></image>
+    </view>
+  </view>
+  <view class="event-card-footer">
+    <text class="topic-title">#{{event.subject.title}}</text>
+    <view class="footer-operations">
+      <view class="operation">
+        <image class="operation-icon" wx:if="{{event.praise}}" src="/static/flower.png"></image>
+        <image class="operation-icon" wx:else src="/static/normal_flower.png"></image>
+        {{event.participant_num}}
+      </view>
+      <view class="operation">
+        <image class="operation-icon" src="/static/normal_share.png"></image>
+        {{event.share_num}}
+      </view>
+      <view class="operation">
+        <image class="operation-icon" src="/static/normal_comment.png"></image>
+        {{event.comment_num}}
+      </view>
+      <view class="operation">
+        <image class="operation-icon" wx:if="{{event.praise}}" src="/static/thumbsup.png"></image>
+        <image class="operation-icon" wx:else src="/static/normal_thumbsup.png"></image>
+        {{event.praise_num}}
+      </view> 
     </view>
   </view>
 </view>

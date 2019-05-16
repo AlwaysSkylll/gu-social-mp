@@ -8,6 +8,8 @@ Page({
    */
   data: {
     item: null,
+    total: 0,
+    comments: [],
   },
 
   /**
@@ -18,6 +20,13 @@ Page({
     api.getEventDetail({}, options.id).then(res => {
       this.setData({
         item: res
+      })
+    })
+
+    api.getEventsComments({}, options.id).then(res => {
+      this.setData({
+        comments: res.data,
+        total: res.paging.total
       })
     })
   },

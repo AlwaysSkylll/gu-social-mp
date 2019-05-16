@@ -5,7 +5,7 @@
     "pages/my/index",
     "pages/logs/logs",
     "pages/components/gu-tab/index",
-    "pages/topic-detail/index",
+    "pages/event-detail/index",
     "pages/circle-detail/index",
     "pages/circle-list/index",
     "pages/topic-list/index"

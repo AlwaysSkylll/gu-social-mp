@@ -1,0 +1,25 @@
+<!--pages/components/comment-item/index.wxml-->
+<view class="comment-item">
+  <view class="event-card_user">
+    <image lazy-load="{{true}}" class="avatar" src="{{ item.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
+    <view class="event-card_ground-info">
+      <view class="event-card_info1">
+        <text>{{item.user.nickname}}</text>
+        <text>等级1</text>
+      </view>
+      <view class="event-card_info2">
+        <text>{{item.create_time}}</text>
+        <text>来自</text>
+        <text>神秘星球</text>
+      </view>
+    </view>
+    <view class="thumbsup-info {{item.praise ? 'active' : ''}}">
+      <image class="thumbsup-icon" wx:if="{{item.praise}}" src="/static/thumbsup.png"></image>
+      <image class="thumbsup-icon" wx:else src="/static/normal_thumbsup.png"></image>
+      <text>{{item.praise_num}}</text>
+    </view>
+  </view>
+  <view class="comment-item_content">
+    {{item.content}}
+  </view>
+</view>

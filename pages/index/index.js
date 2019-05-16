@@ -52,6 +52,9 @@ Page({
   getUserInfo(e) {
     console.log(e)
     const userInfo = e.detail.userInfo
+    if (!userInfo) {
+      return;
+    }
     app.globalData.userInfo = userInfo
     this.getToken(userInfo)
   },

@@ -100,3 +100,42 @@
   box-sizing: border-box;
   padding-top: 15rpx;
 }
+
+.event-card-footer {
+  position: relative;
+  margin-top: 20rpx;
+  font-size: 10px;
+}
+
+.event-card-footer .topic-title {
+  display: inline-block;
+  padding: 10rpx;
+  background: #eeeeee;
+  color: #979797;
+  border-radius: 5rpx;
+}
+
+.footer-operations {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  right: 20rpx;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-operations .operation {
+  display: flex;
+  align-items: center;
+}
+
+.footer-operations .operation-icon {
+  margin: 0 20rpx 0 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.footer-operations .operation-icon:nth-child(3) {
+  width: 40rpx;
+}

@@ -1,2 +1,2 @@
 <!--pages/components/follow-btn/index.wxml-->
-<view class="btn {{disabled ? 'disabled' : ''}}">{{text}}</view>
+<view catchtap="followHandler" class="btn {{disabled ? 'disabled' : ''}}">{{text}}</view>

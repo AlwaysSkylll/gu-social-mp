@@ -37,7 +37,7 @@
   line-height: 12px;
   position: absolute;
   right: 30rpx;
-  bottom: 5rpx;
+  bottom: 10rpx;
   font-size: 9px;
   color: #979797;
 }

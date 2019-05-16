@@ -1,1 +1,11 @@
 /* pages/topic-detail/index.wxss */
+.event-detail_comment-list {
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.event-detail_comment-list .comment-num {
+  font-size: 10px;
+  margin-left: 10rpx;
+}

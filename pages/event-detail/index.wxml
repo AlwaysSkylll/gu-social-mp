@@ -1,4 +1,9 @@
 <!--pages/topic-detail/index.wxml-->
 <view>
   <event-card event="{{item}}" callback="{{false}}"></event-card>
+  <view class="gray-buttom"></view>
+  <view class="event-detail_comment-list">
+    <view>评论 <text class="comment-num">({{total}})</text></view>
+    <comment-item class="comment-item" item="{{item}}" wx:for="{{comments}}" wx:key="{{index}}"></comment-item>
+  </view>
 </view>
