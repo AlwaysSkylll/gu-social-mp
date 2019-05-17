@@ -118,9 +118,11 @@ Page({
       event_id: this.data.item.id,
       target_user_id: this.data.comment.target_user_id,
     }).then(res => {
+      const commentNum = this.data.item.comment_num + 1
       this.setData({
         // [`comment.context`]: '',
         ['comments']: [res, ...this.data.comments],
+        ['item.comment_num']: commentNum,
         focusArea: false,
       })
       wx.showToast({
