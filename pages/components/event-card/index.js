@@ -1,6 +1,5 @@
 // pages/components/event-card/index.js
 const api = require('../../../api/index.js')
-const app = getApp()
 
 Component({
   /**
@@ -25,13 +24,13 @@ Component({
    * 组件的初始数据
    */
   data: {
-    user: {},
+    user: wx.getStorageSync('userInfo'),
     hovered: false,
   },
 
   attached() {
     this.setData({
-      user: app.globalData.userInfo,
+      user: wx.getStorageSync('userInfo'),
     })
   },
 
