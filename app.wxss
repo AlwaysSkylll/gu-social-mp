@@ -4,7 +4,7 @@
 
 /**app.wxss**/
 .container {
-  padding-bottom: 180rpx;
+  /* padding-bottom: 100rpx; */
 } 
 
 .text-8 {

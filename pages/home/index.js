@@ -19,6 +19,7 @@ Page({
       ],
       finish: [false, false],
       swipers: [1,2,3],
+      isIpx: app.globalData.isIpx
     },
     onLoad() {
       wx.hideTabBar({})

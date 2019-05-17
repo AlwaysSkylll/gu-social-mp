@@ -1,4 +1,5 @@
 const api = require('../../api/index.js')
+const app = getApp()
 
 Page({
     data: {
@@ -13,6 +14,7 @@ Page({
       limit: 10,
       finish: false,
       userInfo: {},
+      isIpx: app.globalData.isIpx
     },
     onLoad: function () {
       console.log('onload my index')

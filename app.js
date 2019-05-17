@@ -3,12 +3,22 @@ var host = require('./config.js').host
 
 App({
   onLaunch: function () {
+    const self = this
     wx.hideTabBar({})
 
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    // var logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
+
+    wx.getSystemInfo({
+      success: function (res) {
+        //model中包含着设备信息
+        console.log(res.model)
+        const model = res.model
+        self.globalData.isIpx = model.search('iPhone X') != -1;
+      }
+    })
   },
   login(callback) {
     const self = this
