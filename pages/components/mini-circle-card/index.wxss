@@ -29,10 +29,12 @@
   flex: 6;
 }
 .mini-circle-card .title {
+  max-width: 100%;
   line-height: 11px;
   font-size: 11px;
 }
 .mini-circle-card .desc {
+  max-width: 100%;
   line-height: 9px;
   font-size: 9px;
   color: #979797;
@@ -51,4 +53,10 @@
   margin: 0 4rpx;
   width: 18rpx;
   height: 18rpx;
+}
+
+.text-overflow {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
 }

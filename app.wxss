@@ -104,3 +104,9 @@
 	overflow-y: auto;
 	pointer-events: auto;
 }
+
+.text-overflow {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+}

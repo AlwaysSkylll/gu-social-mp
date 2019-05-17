@@ -47,6 +47,14 @@ Component({
       // this.setData({
       //   [`event.images[${index}]`]: '/static/default_ground.jpg'
       // })
+    },
+    setFollow(e) {
+      console.log(e ,88888)
+      const status = e.detail
+      if (this.data.event.user.follow == status) return
+      this.setData({
+        ['event.user.follow']: status
+      })
     }
   }
 })

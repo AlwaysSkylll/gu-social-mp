@@ -1,3 +1,4 @@
+/* pages/publish-event/index.wxss */
 /* pages/publish/index.wxss */
 .publish {
   padding-top: 30rpx;

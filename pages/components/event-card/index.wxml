@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class="event-card_btn">
-      <follow-btn userId="{{event.user.id}}" text="{{!event.user.follow ? '关注' : '已关注'}}" disabled="{{event.user.follow}}"></follow-btn>
+      <follow-btn userId="{{event.user.id}}" text="{{!event.user.follow ? '关注' : '已关注'}}" disabled="{{event.user.follow}}" bindfollowstatus="setFollow"></follow-btn>
     </view>
   </view>
   <view class="event-card_content">

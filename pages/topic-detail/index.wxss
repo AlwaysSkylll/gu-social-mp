@@ -19,7 +19,7 @@
 .topic-detail_info {
   box-sizing: border-box;
   position: relative;
-  height: 100rpx;
+  min-height: 100rpx;
   line-height: 100rpx;
   font-size: 14px;
   padding: 0 30rpx;

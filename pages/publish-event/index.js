@@ -1,3 +1,4 @@
+// pages/publish-event/index.js
 // pages/publish/index.js
 const api = require('../../api/index.js')
 const host = require('../../config.js').host

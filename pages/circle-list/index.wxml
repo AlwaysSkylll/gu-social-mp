@@ -2,8 +2,8 @@
 <view class="circle-list">
   <view class="circle-list_item" wx:for="{{circles}}" wx:key="{{index}}">
     <view class="item-left">
-      <view class="topic">#{{item.title}}</view>
-      <view class="topic-content">{{item.description}}</view>
+      <view class="topic text-overflow">#{{item.title}}</view>
+      <view class="topic-content text-overflow">{{item.description}}</view>
       <view class="topic-desc">{{item.participant_num}}人参与了讨论</view>
     </view>
     <view class="item-right">

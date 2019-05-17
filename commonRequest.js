@@ -2,6 +2,11 @@ var app = getApp()
 var host = require('./config.js').host
 
 module.exports.request = function (url, method, data) {
+  wx.showToast({
+    icon: 'loading',
+    title: '加载中',
+    mask: true
+  })
   return new Promise(function (resolve, reject) {
     wx.request({
       url: host + url,

@@ -17,6 +17,10 @@ Component({
     disabled: {
       type: Boolean,
       value: false
+    },
+    event: {
+      type: Object,
+      value: null
     }
   },
 
@@ -38,6 +42,7 @@ Component({
       if (this.data.disabled) {
         api.unfollow({}, id).then(res => {
           if (res.success) {
+            this.setEvent(false)
             wx.showToast({
               icon: "none",
               title: '取消关注'
@@ -49,11 +54,15 @@ Component({
       // 关注
       api.follow({}, id).then(res => {
         if (res.success) {
+          this.setEvent(true)
           wx.showToast({
             title: '关注成功'
           })
         }
       })
+    },
+    setEvent(status) {
+      this.triggerEvent('followstatus', status)
     }
-  }
+  },
 })
