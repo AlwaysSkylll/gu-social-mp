@@ -2,7 +2,6 @@ var app = getApp()
 var host = require('./config.js').host
 
 module.exports.request = function (url, method, data) {
-  debugger
   return new Promise(function (resolve, reject) {
     wx.request({
       url: host + url,
@@ -15,6 +14,11 @@ module.exports.request = function (url, method, data) {
       method: method || 'GET',
       success: function (response) {
         const res = response.data
+        console.log(response)
+        if (response.statusCode == 403) {
+          app.login();
+          return;
+        }
         if (res.error) {
           wx.showToast({
             title: res.error.message,

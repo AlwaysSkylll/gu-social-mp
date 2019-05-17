@@ -1,4 +1,5 @@
 const api = require('../../api/index.js')
+const app = getApp()
 
 Page({
     data: {
@@ -16,10 +17,11 @@ Page({
     },
     onLoad: function () {
       wx.hideTabBar({})
-      this.getData()
+      app.userInfoReadyCallback = this.getData
     },
     onReady() {
       wx.hideTabBar({})
+      this.getData();
     },
     mainTabHandler(e) {
       const tabIndex = e.detail.tabIndex
