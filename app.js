@@ -107,7 +107,7 @@ App({
   globalData: {
     logining: false,
     userInfo: null,
-    testToken: 'vF1JFcywpyUKP2QT0l9huG8f2VAeseDO',
+    testToken: 'lGV0HK8F8fKIJCvW4pyY6QSU4xAtXq4n',
     tokenBody: {},
   }
 })

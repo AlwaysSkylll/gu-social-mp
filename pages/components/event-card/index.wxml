@@ -10,11 +10,11 @@
       <view class="event-card_info2">
         <text>{{event.create_time}}</text>
         <text>来自</text>
-        <text>{{event.location_address}}.{{event.location_name}}</text>
+        <text>{{event.location_name}}.{{event.location_address}}</text>
       </view>
     </view>
     <view class="event-card_btn">
-      <follow-btn userId="{{event.user.id}}" text="{{!event.user.follow ? '关注' : '已关注'}}" disabled="{{event.user.follow}}" bindfollowstatus="setFollow"></follow-btn>
+      <follow-btn wx:if="{{event.user.id != user.id}}" userId="{{event.user.id}}" text="{{!event.user.follow ? '关注' : '已关注'}}" disabled="{{event.user.follow}}" bindfollowstatus="setFollow"></follow-btn>
     </view>
   </view>
   <view class="event-card_content">
@@ -24,7 +24,7 @@
     </view>
   </view>
   <view class="event-card-footer">
-    <text class="topic-title">#{{event.subject.title}}</text>
+    <text class="topic-title text-overflow">#{{event.subject.title}}</text>
     <view class="footer-operations">
       <view class="operation">
         <image class="operation-icon" wx:if="{{event.praise}}" src="/static/flower.png"></image>

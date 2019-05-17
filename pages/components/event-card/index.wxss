@@ -1,4 +1,10 @@
 /* pages/components/event-card/index.wxss */
+.text-overflow {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
 .avatar {
   width: 100rpx;
   height: 100rpx;
@@ -108,6 +114,7 @@
 }
 
 .event-card-footer .topic-title {
+  max-width: 300rpx;
   display: inline-block;
   padding: 10rpx;
   background: #eeeeee;
@@ -121,7 +128,7 @@
   justify-content: flex-end;
   align-items: center;
   right: 20rpx;
-  bottom: 0;
+  bottom: 15rpx;
   width: 100%;
 }
 

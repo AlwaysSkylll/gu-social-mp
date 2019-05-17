@@ -1,5 +1,6 @@
 // pages/components/event-card/index.js
 const api = require('../../../api/index.js')
+const app = getApp()
 
 Component({
   /**
@@ -17,17 +18,20 @@ Component({
     callback: {
       type: Boolean,
       value: true
-    }
+    },
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    user: {},
   },
 
   attached() {
-
+    this.setData({
+      user: app.globalData.userInfo,
+    })
   },
 
   /**
