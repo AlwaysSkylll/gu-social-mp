@@ -22,7 +22,9 @@ Page({
     },
     btnStatus: false,
     topics: [],
-    selectTopic: {},
+    selectTopic: {
+      title: ''
+    },
     showModal: false,
   },
 
@@ -30,7 +32,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    const title = options.subjectTitle || ''
+    const subjectId = options.subjectId || 0
+    this.setData({
+      ['selectTopic.title']: title,
+      ['event.subject_id']: subjectId
+    })
   },
 
   /**

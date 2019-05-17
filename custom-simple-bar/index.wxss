@@ -1,10 +1,11 @@
+/* custom-simple-bar/index.wxss */
 .tab-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 100rpx;
-  background: white;
+  background: transparent;
   display: flex;
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -69,7 +70,7 @@
 	position: fixed;
 	top: 0;
 	right: 0;
-	bottom: 100rpx;
+	bottom: 0;
 	left: 0;
 	z-index: 1110;
 	opacity: 0;

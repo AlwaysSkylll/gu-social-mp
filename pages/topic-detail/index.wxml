@@ -17,3 +17,5 @@
     <event-card event="{{item}}" type="subjects"></event-card>
   </view>
 </view>
+
+<custom-simple-bar type="{{type}}" subject="{{subject}}"></custom-simple-bar>

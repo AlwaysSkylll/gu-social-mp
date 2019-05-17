@@ -10,6 +10,7 @@ Page({
     subject: {},
     events: [],
     id: 0,
+    type: ''
   },
 
   /**

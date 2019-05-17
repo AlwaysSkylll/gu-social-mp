@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "event-card": "/pages/components/event-card/index"
+    "event-card": "/pages/components/event-card/index",
+    "custom-simple-bar": "/custom-simple-bar/index"
   },
   "navigationBarTitleText": "话题"
 }

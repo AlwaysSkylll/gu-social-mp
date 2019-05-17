@@ -15,6 +15,7 @@ Page({
       description: '',
     },
     btnStatus: false,
+    circlesId: 1,
   },
 
   /**
@@ -22,6 +23,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
+      circlesId: options.circlesId || this.data.circlesId
     })
   },
 
@@ -129,7 +131,7 @@ Page({
     api.postSubject({
       title: this.data.topic.title,
       description: this.data.topic.description,
-      circles_id: 8,
+      circles_id: this.data.circlesId,
       covers: this.data.topic.images,
     }).then((e) => {
       wx.showToast({

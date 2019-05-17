@@ -129,7 +129,7 @@
   align-items: center;
   right: 20rpx;
   bottom: 15rpx;
-  width: 100%;
+  max-width: 480rpx;
 }
 
 .footer-operations .operation {

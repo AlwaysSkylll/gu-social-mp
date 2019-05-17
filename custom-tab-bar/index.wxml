@@ -20,6 +20,6 @@
 </cover-view>
 
 <view class="cu-modal {{publishModalShow ? 'show' : ''}}" bindtap="hidePublishHandler">
-  <view class="circle" hover-class="circle-hovered" data-type="topic" catchtap="goPublishPage">发布话题</view>
+  <!-- <view class="circle" hover-class="circle-hovered" data-type="topic" catchtap="goPublishPage">发布话题</view> -->
   <view class="circle" hover-class="circle-hovered" data-type="event" catchtap="goPublishPage">发布说说</view>
 </view>

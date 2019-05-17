@@ -113,5 +113,16 @@ Component({
     unHoverCard() {
       this.setHoverStatus(false)
     },
+    /**
+     * 前往主题详情
+     */
+    goSubjectDetail() {
+      const id = this.data.event.subject && this.data.event.subject.id
+      const type = 'Subject'
+      if (!id) return
+      wx.navigateTo({
+        url: `/pages/topic-detail/index?id=${id}&type=${type}`,
+      })
+    }
    }
 })

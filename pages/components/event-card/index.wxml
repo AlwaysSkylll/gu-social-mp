@@ -24,17 +24,17 @@
     </view>
   </view>
   <view class="event-card-footer">
-    <text class="topic-title text-overflow">#{{event.subject.title}}</text>
+    <text class="topic-title text-overflow" catchtap="goSubjectDetail">#{{event.subject.title}}</text>
     <view class="footer-operations">
       <!-- <view class="operation">
         <image class="operation-icon" wx:if="{{event.praise}}" src="/static/flower.png"></image>
         <image class="operation-icon" wx:else src="/static/normal_flower.png"></image>
         {{event.participant_num}}
       </view> -->
-      <view class="operation">
+      <!-- <view class="operation">
         <image class="operation-icon" src="/static/normal_share.png"></image>
-        <!-- {{event.share_num}} -->
-      </view>
+        {{event.share_num}}
+      </view> -->
       <view class="operation">
         <image class="operation-icon" src="/static/normal_comment.png"></image>
         {{event.comment_num}}
