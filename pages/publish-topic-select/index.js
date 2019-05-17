@@ -64,13 +64,6 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   selectItem(e) {
     const index = e.currentTarget.dataset.index
     const pages = getCurrentPages();   //当前页面

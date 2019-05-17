@@ -7,5 +7,6 @@
     "event-card": "/pages/components/event-card/index",
     "custom-tab-bar": "/custom-tab-bar/index"
   },
-  "navigationBarTitleText": "古井贡酒"
+  "navigationBarTitleText": "古井贡酒",
+  "enablePullDownRefresh": true
 }

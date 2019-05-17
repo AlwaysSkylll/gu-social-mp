@@ -112,6 +112,6 @@ Component({
     },
     unHoverCard() {
       this.setHoverStatus(false)
-    }
+    },
    }
 })

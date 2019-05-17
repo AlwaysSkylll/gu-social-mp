@@ -1,6 +1,6 @@
 <!--pages/components/event-card/index.wxml-->
-<view class="event-card {{hovered ? 'event-card_hovered' : ''}}" bindlongtap="hoverCard" bindtouchend="unHoverCard" bindtap="toDetail">
-  <view class="event-card_user">
+<view class="event-card {{hovered ? 'event-card_hovered' : ''}}" bindlongtap="hoverCard" bindtouchend="unHoverCard">
+  <view class="event-card_user" bindtap="toDetail">
     <image lazy-load="{{true}}" class="avatar" src="{{ event.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
     <view class="event-card_ground-info">
       <view class="event-card_info1">
@@ -17,7 +17,7 @@
       <follow-btn wx:if="{{event.user.id != user.id}}" userId="{{event.user.id}}" text="{{!event.user.follow ? '关注' : '已关注'}}" disabled="{{event.user.follow}}" bindfollowstatus="setFollow"></follow-btn>
     </view>
   </view>
-  <view class="event-card_content">
+  <view class="event-card_content" bindtap="toDetail">
     {{event.content}}
     <view class="image-box" style="width: {{ event.images.length == 1 ? '60%'  : '100%'}};">
       <image style="height: {{ event.images.length > 1 ? 90 / event.images.length : 40}}vw;" wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="aspectFill" src="{{ img }}" catchtap="preview"></image>
@@ -33,7 +33,7 @@
       </view> -->
       <view class="operation">
         <image class="operation-icon" src="/static/normal_share.png"></image>
-        {{event.share_num}}
+        <!-- {{event.share_num}} -->
       </view>
       <view class="operation">
         <image class="operation-icon" src="/static/normal_comment.png"></image>

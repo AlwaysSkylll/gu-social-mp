@@ -13,23 +13,65 @@ Page({
       groundTabIndex: 0,
       circles: [],
       topics: [],
-      events: [],
+      events: [
+        [],
+        []
+      ],
+      finish: [false, false],
       swipers: [1,2,3],
     },
-    onLoad: function () {
+    onLoad() {
       wx.hideTabBar({})
-      this.setData({
-        circles: [],
-        topics: [],
-        events: [],
-        swipers: [1, 2, 3],
-      })
       this.getData();
       app.userInfoReadyCallback = this.getData
     },
     onReady() {
       
     },
+
+    /**
+    * 页面相关事件处理函数--监听用户下拉动作
+    */
+    onPullDownRefresh() {
+      if (this.data.tabIndex === 0) {
+        this.setData({
+          circles: [],
+          topics: [],
+          swipers: [1, 2, 3],
+        })
+        this.getCircleData()
+        this.getTopicData()
+        this.getSwiper()
+        wx.stopPullDownRefresh()
+      } else if (this.data.tabIndex === 1) {
+        this.setData({
+          events: [[], []],
+          finish: [false, false],
+        })
+        this.getEventsData(0)
+        this.getEventsData(1)
+        wx.stopPullDownRefresh()
+      }
+    },
+
+    /**
+    * 页面相关事件处理函数--监听用户到底的动作
+    */
+    onReachBottom() {
+      console.log('onReachBottom')
+      // 广场无限加载
+      if (this.data.tabIndex === 1) {
+        this.getEventsData(this.data.groundTabIndex)
+      }
+    },
+
+    /**
+     * 分享
+     */
+    onShareAppMessage(e) {
+      console.log(e)
+    },
+
     mainTabHandler(e) {
       const tabIndex = e.detail.tabIndex
       this.setData({
@@ -63,9 +105,17 @@ Page({
      */
     getData() {
       console.log('home getData')
+      this.setData({
+        circles: [],
+        topics: [],
+        events: [[], []],
+        finish: [false, false],
+        swipers: [1, 2, 3],
+      })
       this.getCircleData()
       this.getTopicData()
-      this.getEventsData()
+      this.getEventsData(0)
+      this.getEventsData(1)
       this.getSwiper()
     },
 
@@ -102,16 +152,22 @@ Page({
       })
     },
 
-  /**
-   * 获取说说数据
-   */
-  getEventsData() {
-    api.getEvents().then(res => {
-      const events = res.data
-
-      this.setData({
-        events,
+    /**
+     * 获取说说数据
+     */
+    getEventsData(index) {
+      if (this.data.finish[index]) return
+      const param = {
+        offset: this.data.events[index].length,
+        sort: index === 1 ? 'hot' : ''
+      }
+      api.getEvents(param).then(res => {
+        const events = [...this.data.events[index], ...res.data]
+        const finish = res.paging.total <= this.data.events[index].length
+        this.setData({
+          [`events[${index}]`]: events,
+          [`finish[${index}]`]: finish,
+        })
       })
-    })
-  },
+    },
 });

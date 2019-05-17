@@ -11,6 +11,7 @@
 }
 
 .my_header {
+  position: relative;
   height: 400rpx;
   overflow: hidden;
 }

@@ -17,11 +17,6 @@ Page({
     onLoad: function () {
       console.log('onload my index')
       wx.hideTabBar({})
-      this.setData({
-        finish: false,
-        offset: 0,
-        myEvents: []
-      })
       this.getData()
     },
     onReady() {
@@ -38,7 +33,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-      // this.getData();
+      this.getData();
     },
 
     /**
@@ -49,8 +44,14 @@ Page({
     },
 
     getData() {
+      this.setData({
+        finish: false,
+        offset: 0,
+        myEvents: []
+      })
       this.getMyEvents()
       this.getUserInfo()
+      wx.stopPullDownRefresh();
     },
 
     /**
