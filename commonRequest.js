@@ -18,6 +18,7 @@ module.exports.request = function (url, method, data) {
       },
       method: method || 'GET',
       success: function (response) {
+        wx.hideToast()
         const res = response.data
         console.log(response)
         if (response.statusCode == 403) {

@@ -39,7 +39,7 @@
         <image class="operation-icon" src="/static/normal_comment.png"></image>
         {{event.comment_num}}
       </view>
-      <view class="operation">
+      <view class="operation" catchtap="setPraise">
         <image class="operation-icon" wx:if="{{event.praise}}" src="/static/thumbsup.png"></image>
         <image class="operation-icon" wx:else src="/static/normal_thumbsup.png"></image>
         {{event.praise_num}}

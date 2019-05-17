@@ -193,3 +193,21 @@ module.exports.getAllLabels = (data) => commonRequest.request('/api/labels', 'GE
  * }
  */
 module.exports.uploadImage = (data) => commonRequest.request('/api/images', 'POST', data)
+
+/**
+ * 点赞／喜欢
+ * param: {
+ *  target_id
+ *  target_type
+ * }
+ */
+module.exports.praise = (data) => commonRequest.request('/api/praise', 'POST', data)
+
+/**
+ * 取消点赞／取消喜欢
+ *  param: {
+ *  target_id
+ *  target_type
+ * }
+ */
+module.exports.unpraise = (data) => commonRequest.request('/api/praise', 'DELETE', data)

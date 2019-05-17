@@ -13,7 +13,7 @@
         <text>神秘星球</text>
       </view>
     </view>
-    <view class="thumbsup-info {{item.praise ? 'active' : ''}}">
+    <view class="thumbsup-info {{item.praise ? 'active' : ''}}" catchtap="setPraise">
       <image class="thumbsup-icon" wx:if="{{item.praise}}" src="/static/thumbsup.png"></image>
       <image class="thumbsup-icon" wx:else src="/static/normal_thumbsup.png"></image>
       <text>{{item.praise_num}}</text>

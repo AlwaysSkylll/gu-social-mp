@@ -1,4 +1,6 @@
 // pages/components/event-card/index.js
+const api = require('../../../api/index.js')
+
 Component({
   /**
    * 组件的属性列表
@@ -49,12 +51,34 @@ Component({
       // })
     },
     setFollow(e) {
-      console.log(e ,88888)
       const status = e.detail
       if (this.data.event.user.follow == status) return
       this.setData({
         ['event.user.follow']: status
       })
+    },
+    setPraise() {
+      const status = !this.data.event.praise
+      let praise_num = this.data.event.praise_num || 0
+      const callback = (praiseNum) => {
+        this.setData({
+          ['event.praise']: status,
+          ['event.praise_num']: praise_num < 0 ? 0 : praise_num
+        })
+      }
+      const param = {
+        target_type: 'event',
+        target_id: this.data.event.id,
+      }
+      if (status) {
+        api.praise(param).then(res => {
+          callback(praise_num++)
+        })
+      } else {
+        api.unpraise(param).then(res => {
+          callback(praise_num--)
+        })
+      }
     }
   }
 })
