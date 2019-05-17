@@ -17,7 +17,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id
+      id: options.id,
+      type: options.type
     })
     this.getData()
   },
@@ -72,15 +73,15 @@ Page({
   },
 
   getData() {
-    this.getSubjectEvents()
-    this.getSubject()
+    this.getEvents()
+    this.getDetail()
   },
   
   /**
    * 获取话题下的说手
    */
-  getSubjectEvents() {
-    api.getSubjectEvents({}, this.data.id).then(res => {
+  getEvents() {
+    api[`get${this.data.type}Events`]({}, this.data.id).then(res => {
       this.setData({
         events: res.data
       })
@@ -90,8 +91,8 @@ Page({
   /**
    * 获取话题
    */
-  getSubject() {
-    api.getSubjectDetail({}, this.data.id).then(res => {
+  getDetail() {
+    api[`get${this.data.type}Detail`]({}, this.data.id).then(res => {
       this.setData({
         subject: res
       })

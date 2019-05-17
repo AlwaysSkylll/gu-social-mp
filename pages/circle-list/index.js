@@ -91,5 +91,12 @@ Page({
       })
       wx.stopPullDownRefresh()
     })
+  },
+
+  toDetail(e) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/topic-detail/index?id=${id}&type=Circle`,
+    })
   }
 })

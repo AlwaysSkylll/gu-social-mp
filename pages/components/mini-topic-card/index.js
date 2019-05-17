@@ -22,7 +22,7 @@ Component({
   methods: {
     toDetail() {
       wx.navigateTo({
-        url: `/pages/topic-detail/index?id=${this.data.item.id}`,
+        url: `/pages/topic-detail/index?id=${this.data.item.id}&type=Subject`,
       })
     }
   }

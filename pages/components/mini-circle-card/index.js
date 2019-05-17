@@ -23,7 +23,7 @@ Component({
   methods: {
     toDetail() {
       wx.navigateTo({
-        url: '/pages/circle-detail/index',
+        url: `/pages/topic-detail/index?id=${this.data.item.id}&type=Circle`,
       })
     }
   }

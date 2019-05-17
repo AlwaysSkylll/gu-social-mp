@@ -122,7 +122,7 @@ module.exports.postEvents = (data) => commonRequest.request('/api/events', 'POST
  *    limit
  * }
  */
-module.exports.getCirclesEvents = (data, id) => commonRequest.request(`/api/circles/${id}/events`, 'GET', data)
+module.exports.getCircleEvents = (data, id) => commonRequest.request(`/api/circles/${id}/events`, 'GET', data)
 
 /**
  * 圈子信息
