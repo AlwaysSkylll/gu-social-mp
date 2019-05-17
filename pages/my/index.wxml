@@ -4,7 +4,7 @@
   <view class="my_header">
     <view class="modal-bg"></view>
     <!-- 个人信息背景图 -->
-    <image lazy-load="{{true}}" class="my_header_bg" src="{{ userInfo.background || '/static/default_my_bg.png'}}"></image>
+    <image mode="widthFix" lazy-load="{{true}}" class="my_header_bg" src="{{userInfo.background}}"></image>
 
     <!-- 个人信息 -->
     <view class="my_header-info">

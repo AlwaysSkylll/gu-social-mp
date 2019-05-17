@@ -164,8 +164,12 @@ Page({
       })
       setTimeout(() => {
         wx.switchTab({
-          url: '/pages/home/index',
-          mask: true
+          url: '/pages/my/index',
+          success: function (e) {
+            let page = getCurrentPages().pop();
+            if (page == undefined || page == null) return;
+            page.onLoad();
+          }
         })
       }, 1500)
     })

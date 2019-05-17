@@ -17,7 +17,7 @@
 
 .my_header_bg {
   width: 100%;
-  height: 75vw;
+  height: 100%;
 }
 .my_footer {
 

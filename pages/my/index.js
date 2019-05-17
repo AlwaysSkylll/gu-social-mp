@@ -19,7 +19,6 @@ Page({
     },
     onReady() {
       wx.hideTabBar({})
-      console.log(11111)
     },
     myTabHandler(e) {
       const tabIndex = e.detail.tabIndex
