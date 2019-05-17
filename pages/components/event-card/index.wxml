@@ -20,7 +20,7 @@
   <view class="event-card_content">
     {{event.content}}
     <view class="image-box">
-      <image wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="widthFix" src="{{ img }}" catchtap="preview"></image>
+      <image style="height: {{ 90 / event.images.length}}vw;" wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="aspectFill" src="{{ img }}" catchtap="preview"></image>
     </view>
   </view>
   <view class="event-card-footer">
