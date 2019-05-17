@@ -13,7 +13,8 @@ Page({
       groundTabIndex: 0,
       circles: [],
       topics: [],
-      events: []
+      events: [],
+      swipers: [1,2,3],
     },
     onLoad: function () {
       wx.hideTabBar({})
@@ -47,7 +48,10 @@ Page({
         url: `/pages/${type}-list/index`,
       })
     },
-    
+
+    goSwiperDetail(e) {
+      
+    },
     /**
      * 获取页面所有数据
      */
@@ -55,6 +59,13 @@ Page({
       this.getCircleData()
       this.getTopicData()
       this.getEventsData()
+      this.getSwiper()
+    },
+
+    getSwiper() {
+      // api.homeSwiper(res => {
+
+      // })
     },
 
     /**

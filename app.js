@@ -58,6 +58,7 @@ App({
             avatar_url: userInfo.avatarUrl
           }).then(res => {
             console.log(res)
+            wx.setStorageSync('userInfo', res.user)
             self.globalData.userInfo = res.user
             self.globalData.tokenBody = res.token
             self.globalData.logining = false;

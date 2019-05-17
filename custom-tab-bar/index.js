@@ -82,7 +82,8 @@ Component({
     goPublishPage(e) {
       const type = e.currentTarget.dataset.type
       // 角色不是kol不能发布话题
-      if (app.globalData.userInfo.role !== 'kol' && type === 'topic') {
+      const userInfo = wx.getStorageSync('userInfo')
+      if (userInfo.role !== 'kol' && type === 'topic') {
         wx.showToast({
           icon: 'none',
           title: '缺少权限',

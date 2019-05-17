@@ -211,3 +211,8 @@ module.exports.praise = (data) => commonRequest.request('/api/praise', 'POST', d
  * }
  */
 module.exports.unpraise = (data) => commonRequest.request('/api/praise', 'DELETE', data)
+
+/**
+ * 首页轮播
+ */
+module.exports.homeSwiper = (data) => commonRequest.request('/api/index/slides', 'GET', data)

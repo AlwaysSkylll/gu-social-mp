@@ -29,8 +29,8 @@
     <view wx:if="{{ tabIndex == 0 }}">
       <view class="home-swiper-container gray-buttom">
         <swiper circular="{{true}}" previous-margin="30rpx" next-margin="110rpx">
-          <swiper-item class="home-swiper-item" wx:for="{{[1,3,3,3]}}" wx:key="{{index}}">
-            <image lazy-load="{{true}}" src="/static/default_swipe.jpg"></image>
+          <swiper-item class="home-swiper-item" wx:for="{{swipers}}" wx:key="{{index}}">
+            <image bindtap="goSwiperDetail" lazy-load="{{true}}" src="{{item.img || '/static/default_swipe.jpg' }}"></image>
           </swiper-item>
         </swiper>
       </view>
