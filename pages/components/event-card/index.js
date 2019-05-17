@@ -26,6 +26,7 @@ Component({
    */
   data: {
     user: {},
+    hovered: false,
   },
 
   attached() {
@@ -98,5 +99,19 @@ Component({
         urls: this.data.event.images
       })
     },
-  }
+
+    setHoverStatus(status) {
+      if (this.data.hovered === status) return
+      this.setData({
+        hovered: status
+      })
+    },
+
+    hoverCard() {
+      this.setHoverStatus(true)
+    },
+    unHoverCard() {
+      this.setHoverStatus(false)
+    }
+   }
 })

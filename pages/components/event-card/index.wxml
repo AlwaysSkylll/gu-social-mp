@@ -1,5 +1,5 @@
 <!--pages/components/event-card/index.wxml-->
-<view class="event-card" hover-class="event-card_hovered" bindtap="toDetail">
+<view class="event-card {{hovered ? 'event-card_hovered' : ''}}" bindlongtap="hoverCard" bindtouchend="unHoverCard" bindtap="toDetail">
   <view class="event-card_user">
     <image lazy-load="{{true}}" class="avatar" src="{{ event.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
     <view class="event-card_ground-info">
