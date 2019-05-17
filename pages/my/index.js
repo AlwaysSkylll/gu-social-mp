@@ -4,8 +4,8 @@ Page({
     data: {
       tabs: [
         "罍小说",
-        "我的消息",
-        "个人中心"
+        // "我的消息",
+        // "个人中心"
       ],
       tabIndex: 0,
       myEvents: [],
@@ -19,6 +19,7 @@ Page({
     },
     onReady() {
       wx.hideTabBar({})
+      console.log(11111)
     },
     myTabHandler(e) {
       const tabIndex = e.detail.tabIndex
@@ -31,14 +32,14 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+      // this.getData();
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-      // this.getData();
+      this.getMyEvents()
     },
 
     getData() {

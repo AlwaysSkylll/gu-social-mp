@@ -42,7 +42,8 @@
   <!-- 我的 腿儿 -->
   <view class="my_footer">
     <view class="my_footer-tab-container">
-      <gu-tab tabs="{{tabs}}" width="50%" bindselectmytab="myTabHandler"></gu-tab>
+      <!-- <gu-tab tabs="{{tabs}}" width="50%" bindselectmytab="myTabHandler"></gu-tab> -->
+      <gu-tab tabs="{{tabs}}" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
       <view class="light-gray-bottom"></view>
       <view wx:if="{{tabIndex == 0}}">
         <view class="home-gorund-item gray-buttom" wx:for="{{myEvents}}" wx:key="{{index}}">
