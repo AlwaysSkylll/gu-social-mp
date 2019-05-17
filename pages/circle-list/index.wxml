@@ -7,7 +7,7 @@
       <view class="topic-desc">{{item.participant_num}}人参与了讨论</view>
     </view>
     <view class="item-right">
-      <image class="topic-bg" src="{{item.covers[0] || '/static/circle_card.jpg'}}"></image>
+      <image mode="aspectFill" class="topic-bg" src="{{item.covers[0] || '/static/circle_card.jpg'}}"></image>
     </view>
   </view>
 </view>

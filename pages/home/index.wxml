@@ -30,7 +30,7 @@
       <view class="home-swiper-container gray-buttom">
         <swiper circular="{{true}}" previous-margin="30rpx" next-margin="110rpx">
           <swiper-item class="home-swiper-item" wx:for="{{swipers}}" wx:key="{{index}}">
-            <image bindtap="goSwiperDetail" lazy-load="{{true}}" src="{{item.img || '/static/default_swipe.jpg' }}"></image>
+            <image bind="aspectFill" bindtap="goSwiperDetail" lazy-load="{{true}}" src="{{item.img || '/static/default_swipe.jpg' }}"></image>
           </swiper-item>
         </swiper>
       </view>

@@ -1,6 +1,6 @@
 <!--pages/topic-detail/index.wxml-->
 <view class="topic-detail">
-  <image class="topic-detail_bg" src="{{subject.covers[0] || '/static/topic_bg.jpg'}}"></image>
+  <image mode="aspectFill" class="topic-detail_bg" src="{{subject.covers[0] || '/static/topic_bg.jpg'}}"></image>
   <image class="topic-detail_share" src="/static/share.png"></image>
   <view class="topic-detail_info light-gray-bottom">
     <text class="info-title">#{{subject.title}}#</text>
