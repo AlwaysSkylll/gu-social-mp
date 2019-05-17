@@ -18,11 +18,17 @@ Page({
     },
     onLoad: function () {
       wx.hideTabBar({})
+      this.setData({
+        circles: [],
+        topics: [],
+        events: [],
+        swipers: [1, 2, 3],
+      })
+      this.getData();
       app.userInfoReadyCallback = this.getData
     },
     onReady() {
-      wx.hideTabBar({})
-      this.getData();
+      
     },
     mainTabHandler(e) {
       const tabIndex = e.detail.tabIndex
@@ -56,6 +62,7 @@ Page({
      * 获取页面所有数据
      */
     getData() {
+      console.log('home getData')
       this.getCircleData()
       this.getTopicData()
       this.getEventsData()
