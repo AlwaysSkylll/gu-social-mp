@@ -119,7 +119,7 @@ Page({
       target_user_id: this.data.comment.target_user_id,
     }).then(res => {
       this.setData({
-        [`comment.context`]: '',
+        // [`comment.context`]: '',
         ['comments']: [res, ...this.data.comments],
         focusArea: false,
       })

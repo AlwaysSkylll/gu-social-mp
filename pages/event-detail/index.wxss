@@ -18,7 +18,7 @@
   position: fixed;
   box-sizing: border-box;
   bottom: 0;
-  height: 100rpx;
+  /* height: 100rpx; */
   width: 100%;
   padding: 20rpx 50rpx;
   display: flex;
@@ -32,9 +32,8 @@
   padding: 20rpx 0;
   display: block;
   z-index: 999;
-  height: 300rpx;
   pointer-events: none;
-  bottom: -300rpx;
+  bottom: -1000rpx;
   transition: all 0.3s ease-in-out 0s;
 }
 
@@ -48,14 +47,15 @@
 
 .real-comment {
   height: 100rpx;
-  width: 670rpx;
+  width: 100vw;
+  box-sizing: border-box;
   padding: 0 50rpx;
   font-size:14px;
 }
 
 .comment-tools {
   overflow: hidden;
-  margin: 30rpx;
+  margin: 0rpx 30rpx 20rpx 0;
 }
 
 .mention-btn, .send-btn {
@@ -65,10 +65,12 @@
   color: #fff;
   font-size: 14px;
   border-radius: 30rpx;
+  margin-left: 20rpx;
 }
 
 .mention-btn {
-  float: left;
+  float: right;
+  background: #e5e5e5;
 }
 
 .send-btn {
