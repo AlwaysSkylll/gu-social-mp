@@ -13,3 +13,9 @@
   <view class="publish-btn {{btnStatus ? '' : 'disabled'}}" bindtap="publish">确认发布</view>
 </view>
 
+<view class="cu-modal {{true ? 'show' : ''}}" bindtap="hidePublishHandler">
+  <view class="topic-list-container">
+    <topic-list topics="{{topics}}"></topic-list>
+  </view>
+</view>
+

@@ -16,6 +16,7 @@ Page({
       description: '',
     },
     btnStatus: false,
+    topics: [],
   },
 
   /**

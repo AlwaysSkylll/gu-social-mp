@@ -87,3 +87,9 @@
   background: #5cd4ea;
   border-radius: 10rpx;
 }
+
+.topic-list-container {
+  display: inline-block;
+  width: 675rpx;
+  background: #ffffff;
+}

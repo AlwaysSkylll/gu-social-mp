@@ -1,0 +1,11 @@
+<!--pages/components/topic-list/index.wxml-->
+<view class="topic-list">
+  <view class="topic-item" wx:for="{{topics}}" wx:key="{{index}}">
+    <image class="topic-bg" src="/static/default_avatar.jpg"></image>
+    <view class="topic-middle">
+      <view class="topic-title text-overflow">item.title</view>
+      <view class="topic-desc text-overflow">讨论54万  {{item.description}}</view>
+    </view>
+    <view class="topic-right"><text>#话题</text></view>
+  </view>
+</view>

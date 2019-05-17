@@ -1,0 +1,63 @@
+/* pages/components/topic-list/index.wxss */
+.text-overflow {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.topic-list {
+  margin: 30rpx;
+  height: 100%;
+  overflow: scroll;
+}
+
+.topic-item {
+  box-sizing:content-box;
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+  background: #f8f8f8;
+  align-items: center;
+}
+
+.topic-item:first-child {
+  margin-top: 0;
+}
+
+.topic-bg {
+  width: 80rpx;
+  height: 80rpx;
+  flex:0 0 80rpx;
+}
+
+.topic-title {
+  font-size: 12px;
+}
+
+.topic-desc {
+  max-width: 100%;
+  font-size: 9px;
+  color: #979797;
+}
+
+.topic-middle {
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  max-width: 445rpx;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-align: left;
+}
+
+.topic-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: center;
+  flex:0 0 60rpx;
+  font-size: 10px;
+  color: #979797;
+}

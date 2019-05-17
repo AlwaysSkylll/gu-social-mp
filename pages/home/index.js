@@ -6,7 +6,7 @@ Page({
       mainTabs: [
         "推荐",
         "广场",
-        "活动"
+        // "活动"
       ],
       tabIndex: 0,
       activityTabIndex: 0,
