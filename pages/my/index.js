@@ -90,4 +90,48 @@ Page({
         })
       })
     },
+    
+    /**
+     * 上传图片
+     */
+    uploadImg(e) {
+      const self = this
+
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        success: (e) => {
+          console.log(e, 'success')
+          const toBase64Images = 'data:image/jpeg;base64,' + wx.getFileSystemManager().readFileSync(e.tempFilePaths[0], 'base64')
+          api.uploadImage({ image: toBase64Images }).then(({url}) => {
+            console.log(url, 'uploadImage')
+            api.setUserInfo({
+              background: url
+            }).then(res => {
+              this.setData({
+                ['userInfo.background']: url
+              })
+              console.log(res, 'modified userinfo')
+            })
+          })
+        },
+        fail: (e) => {
+          console.log(e, 'fail')
+        }
+      })
+    },
+    /**
+     * 预览图片
+     */
+    preview(e) {
+      const index = e.currentTarget.dataset.index
+      const imgLink = this.data.topic.images[index]
+      if (!imgLink) {
+        return;
+      }
+      wx.previewImage({
+        current: imgLink,
+        urls: this.data.topic.images
+      })
+    },
 });
