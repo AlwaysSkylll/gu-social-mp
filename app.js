@@ -59,6 +59,7 @@ App({
           }).then(res => {
             console.log(res)
             wx.setStorageSync('userInfo', res.user)
+            wx.setStorageSync('token', res.token.token)
             self.globalData.userInfo = res.user
             self.globalData.tokenBody = res.token
             self.globalData.logining = false;

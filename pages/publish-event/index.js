@@ -167,6 +167,7 @@ Page({
           url: '/pages/my/index',
           success: function (e) {
             let page = getCurrentPages().pop();
+            console.log(page, 'switchTab')
             if (page == undefined || page == null) return;
             page.onLoad();
           }

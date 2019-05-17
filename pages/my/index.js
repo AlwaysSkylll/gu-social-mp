@@ -9,12 +9,19 @@ Page({
       ],
       tabIndex: 0,
       myEvents: [],
+      offset: 0,
       limit: 10,
       finish: false,
       userInfo: {},
     },
     onLoad: function () {
+      console.log('onload my index')
       wx.hideTabBar({})
+      this.setData({
+        finish: false,
+        offset: 0,
+        myEvents: []
+      })
       this.getData()
     },
     onReady() {

@@ -13,7 +13,7 @@ module.exports.request = function (url, method, data) {
       data: data,
       header: {
         'content-type': 'application/json',
-        'X-Auth-Token': app.globalData.tokenBody.token
+        'X-Auth-Token': wx.getStorageSync('token'),
         // 'X-Auth-Token': app.globalData.testToken
       },
       method: method || 'GET',
