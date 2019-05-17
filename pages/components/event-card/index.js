@@ -83,6 +83,20 @@ Component({
           callback(praise_num--)
         })
       }
-    }
+    },
+    /**
+    * 预览图片
+    */
+    preview(e) {
+      const index = e.currentTarget.dataset.index
+      const imgLink = this.data.event.images[index]
+      if (!imgLink) {
+        return;
+      }
+      wx.previewImage({
+        current: imgLink,
+        urls: this.data.event.images
+      })
+    },
   }
 })

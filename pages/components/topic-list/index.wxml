@@ -1,11 +1,11 @@
 <!--pages/components/topic-list/index.wxml-->
-<view class="topic-list">
-  <view class="topic-item" catchtap="selectItem" data-index="{{index}}" wx:for="{{topics}}" wx:key="{{index}}">
-    <image class="topic-bg" src="/static/default_avatar.jpg"></image>
-    <view class="topic-middle">
-      <view class="topic-title text-overflow">{{item.title}}</view>
-      <view class="topic-desc text-overflow">讨论54万  {{item.description}}</view>
-    </view>
-    <view class="topic-right"><text>#话题</text></view>
-  </view>
-</view>
+<cover-view class="topic-list">
+  <cover-view class="topic-item" catchtap="selectItem" data-index="{{index}}" wx:for="{{topics}}" wx:key="{{index}}">
+    <cover-image class="topic-bg" src="/static/default_avatar.jpg"></cover-image>
+    <cover-view class="topic-middle">
+      <cover-view class="topic-title text-overflow">{{item.title}}</cover-view>
+      <cover-view class="topic-desc text-overflow">讨论54万  {{item.description}}</cover-view>
+    </cover-view>
+    <cover-view class="topic-right"><text>#话题</text></cover-view>
+  </cover-view>
+</cover-view>
