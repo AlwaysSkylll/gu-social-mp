@@ -125,6 +125,7 @@ Page({
    * }
    */
   publish() {
+    if (!this.data.btnStatus) return;
     api.postSubject({
       title: this.data.topic.title,
       description: this.data.topic.description,
@@ -132,14 +133,14 @@ Page({
       covers: this.data.topic.images,
     }).then((e) => {
       wx.showToast({
-        title: '发布成功',
+        title: '发布成功，请等待审核结果',
       })
       setTimeout(() => {
-        wx.navigateTo({
+        wx.switchTab({
           url: '/pages/home/index',
           mask: true
         })
-      }, 2000)
+      }, 1500)
     })
   }
 })

@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -95,6 +95,13 @@
 					"id": 7,
 					"name": "发布",
 					"pathName": "pages/publish-topic/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布说说",
+					"pathName": "pages/publish-event/index",
 					"query": "",
 					"scene": null
 				}

@@ -126,6 +126,7 @@ Page({
    * }
    */
   publish() {
+    if (!this.data.btnStatus) return;
     api.postSubject({
       title: this.data.topic.title,
       description: this.data.topic.description,
