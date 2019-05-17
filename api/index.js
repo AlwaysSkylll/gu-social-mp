@@ -111,7 +111,7 @@ module.exports.getCommentsDetail = (data, id) => commonRequest.request(`/api/com
  *    location_longitude  位置经度
  * }
  */
-module.exports.postEvents = (data) => commonRequest.request('/api/events', 'POST', data)
+module.exports.publishEvent = (data) => commonRequest.request('/api/events', 'POST', data)
 
 // ------------------------- 圈子  ----------------------／／
 

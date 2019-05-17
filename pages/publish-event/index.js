@@ -10,13 +10,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topic: {
+    event: {
       images: [],
-      title: '',
-      description: '',
+      content: '',
+      subject_id: 0,
+      notify_user_ids: [],
+      location_name: '',
+      location_address: '',
+      location_latitude: '',
+      location_longitude: ''
     },
     btnStatus: false,
     topics: [],
+    selectTopic: {},
+    showModal: false,
   },
 
   /**
@@ -62,14 +69,13 @@ Page({
     console.log(e)
     const type = e.currentTarget.dataset.type
     this.setData({
-      [`topic.${type}`]: e.detail.value
+      [`event.content`]: e.detail.value
     })
-    const btnStatus = this.data.topic.title && this.data.topic.description
+    const btnStatus = this.data.event.content
     this.setBtnStatus(btnStatus)
   },
 
   setBtnStatus(status) {
-    console.log(status, 88888)
     if (status == this.data.btnStatus) return
     this.setData({ btnStatus: status })
   },
@@ -79,7 +85,7 @@ Page({
    */
   uploadImg(e) {
     const self = this
-    const count = 4 - this.data.topic.images.length
+    const count = 4 - this.data.event.images.length
 
     wx.chooseImage({
       count,
@@ -88,12 +94,12 @@ Page({
         console.log(e, 'success')
         const toBase64Images = e.tempFilePaths.map(filePath => 'data:image/jpeg;base64,' + wx.getFileSystemManager().readFileSync(filePath, 'base64'))
         this.setData({
-          ['topic.images']: [...this.data.topic.images, ...toBase64Images]
+          ['event.images']: [...this.data.event.images, ...toBase64Images]
         })
         // toBase64Images.map(image => {
         //   api.uploadImage({ image }).then(({url}) => {
         //     this.setData({
-        //       ['topic.images']: [...this.data.topic.images, url]
+        //       ['event.images']: [...this.data.event.images, url]
         //     })
         //   })
         // })
@@ -108,41 +114,61 @@ Page({
    */
   preview(e) {
     const index = e.currentTarget.dataset.index
-    const imgLink = this.data.topic.images[index]
+    const imgLink = this.data.event.images[index]
     if (!imgLink) {
       return;
     }
     wx.previewImage({
       current: imgLink,
-      urls: this.data.topic.images
+      urls: this.data.event.images
     })
   },
 
   /**
    * 发布
-   * param {
-   *    title
-   *    description
-   *    notify_user_ids[]
-   * }
    */
   publish() {
     if (!this.data.btnStatus) return;
-    api.postSubject({
-      title: this.data.topic.title,
-      description: this.data.topic.description,
-      circles_id: 8,
-      covers: this.data.topic.images,
-    }).then((e) => {
+    api.publishEvent(this.data.event).then((e) => {
       wx.showToast({
         title: '发布成功',
       })
       setTimeout(() => {
-        wx.navigateTo({
+        wx.switchTab({
           url: '/pages/home/index',
           mask: true
         })
-      }, 2000)
+      }, 1500)
     })
+  },
+
+  showModal() {
+    if (!this.data.topics.length) {
+      api.searchSubject({}).then(({data}) => {
+        this.setData({
+          topics: data,
+          showModal: true
+        })
+      })
+    } else {
+      this.setData({
+        showModal: true
+      })
+    }
+  },
+
+  hideModal() {
+    this.setData({
+      showModal: false
+    })
+  },
+
+  selectTopic(e) {
+    const topic = e.detail
+    this.setData({
+      ['event.subject_id']: topic.id,
+      selectTopic: topic
+    })
+    this.hideModal();
   }
 })

@@ -1,5 +1,10 @@
 /* pages/publish-event/index.wxss */
-/* pages/publish/index.wxss */
+.text-overflow {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
 .publish {
   padding-top: 30rpx;
 }
@@ -86,6 +91,7 @@
   color: #ffffff;
   background: #5cd4ea;
   border-radius: 10rpx;
+  max-width: 100%;
 }
 
 .topic-list-container {

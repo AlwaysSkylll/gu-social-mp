@@ -21,6 +21,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    selectItem(e) {
+      const index = e.currentTarget.dataset.index
+      this.triggerEvent('selecttopic', this.data.topics[index])
+    }
   }
 })
