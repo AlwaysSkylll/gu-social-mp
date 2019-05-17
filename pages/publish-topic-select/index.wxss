@@ -1,4 +1,4 @@
-/* pages/components/topic-list/index.wxss */
+/* pages/publish-topic-select/index.wxss */
 .text-overflow {
   text-overflow:ellipsis;
   overflow:hidden;
@@ -45,7 +45,7 @@
 .topic-middle {
   box-sizing: border-box;
   padding: 0 20rpx;
-  max-width: 445rpx;
+  max-width: 540rpx;
   display: flex;
   flex: 1;
   flex-direction: column;

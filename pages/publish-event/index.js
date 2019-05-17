@@ -176,32 +176,15 @@ Page({
   },
 
   showModal() {
-    if (!this.data.topics.length) {
-      api.searchSubject({}).then(({data}) => {
-        this.setData({
-          topics: data,
-          showModal: true
-        })
-      })
-    } else {
-      this.setData({
-        showModal: true
-      })
-    }
-  },
-
-  hideModal() {
-    this.setData({
-      showModal: false
+    wx.navigateTo({
+      url: '/pages/publish-topic-select/index',
     })
   },
 
-  selectTopic(e) {
-    const topic = e.detail
+  selectTopic(topic) {
     this.setData({
       ['event.subject_id']: topic.id,
       selectTopic: topic
     })
-    this.hideModal();
   }
 })

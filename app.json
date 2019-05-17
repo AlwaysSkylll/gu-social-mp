@@ -9,7 +9,8 @@
     "pages/circle-list/index",
     "pages/topic-list/index",
     "pages/publish-topic/index",
-    "pages/publish-event/index"
+    "pages/publish-event/index",
+    "pages/publish-topic-select/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

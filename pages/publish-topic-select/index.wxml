@@ -1,4 +1,4 @@
-<!--pages/components/topic-list/index.wxml-->
+<!--pages/publish-topic-select/index.wxml-->
 <view class="topic-list">
   <view class="topic-item" catchtap="selectItem" data-index="{{index}}" wx:for="{{topics}}" wx:key="{{index}}">
     <image class="topic-bg" src="/static/default_avatar.jpg"></image>
@@ -9,3 +9,4 @@
     <view class="topic-right"><text>#话题</text></view>
   </view>
 </view>
+

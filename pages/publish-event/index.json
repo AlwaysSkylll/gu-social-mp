@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "topic-list": "/pages/components/topic-list/index"
   },
   "navigationBarTitleText": "发布说说"
 }

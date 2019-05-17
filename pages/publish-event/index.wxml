@@ -17,10 +17,3 @@
   <view class="publish-label location-label">@</view>
   <view class="publish-btn {{btnStatus ? '' : 'disabled'}}" bindtap="publish">确认发布</view>
 </view>
-
-<view class="cu-modal {{showModal ? 'show' : ''}}" bindtap="hideModal">
-  <view class="topic-list-container">
-    <topic-list topics="{{topics}}" bindselecttopic="selectTopic"></topic-list>
-  </view>
-</view>
-
