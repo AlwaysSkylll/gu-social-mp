@@ -10,6 +10,12 @@ Page({
     item: null,
     total: 0,
     comments: [],
+    focusArea: false,
+    comment: {
+      context: '',
+      event_id: '',
+      target_user_id: ''
+    },
   },
 
   /**
@@ -78,5 +84,58 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  showRealComment() {
+    this.setData({
+      focusArea: true
+    })
+  },
+
+  hideRealComment() {
+    this.setData({
+      focusArea: false
+    })
+  },
+
+  toolOperation(e) {
+    const target = e.currentTarget
+    console.log(target)
+    return;
+  },
+
+  mention(e) {
+    console.log(e, 'mention')
+  },
+
+  send(e) {
+    console.log(e, 'send')
+    if (!this.data.comment.context) {
+      return;
+    }
+    api.commentEvent({
+      content: this.data.comment.context,
+      event_id: this.data.item.id,
+      target_user_id: this.data.comment.target_user_id,
+    }).then(res => {
+      this.setData({
+        [`comment.context`]: '',
+        ['comments']: [res, ...this.data.comments],
+        focusArea: false,
+      })
+      wx.showToast({
+        title: '评论成功',
+      })
+    })
+  },
+
+  /**
+   * 更新文本
+   */
+  updateContext(e) {
+    console.log(e)
+    this.setData({
+      [`comment.context`]: e.detail.value
+    })
+  },
 })

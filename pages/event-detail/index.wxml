@@ -1,9 +1,23 @@
 <!--pages/topic-detail/index.wxml-->
-<view>
+<view class="event-detail">
   <event-card event="{{item}}" callback="{{false}}"></event-card>
   <view class="gray-buttom"></view>
   <view class="event-detail_comment-list">
     <view>评论 <text class="comment-num">({{total}})</text></view>
     <comment-item class="comment-item" item="{{item}}" wx:for="{{comments}}" wx:key="{{index}}"></comment-item>
+  </view>
+</view>
+<view class="comment-area fake-comment-area">
+  <image class="comment-icon" src="/static/comment.png"></image>
+  <view class="fake-comment" bindtap="showRealComment">说点儿什么吧</view>
+</view>
+
+<view class="modal {{focusArea ? 'show' : ''}}" bindtap="hideRealComment">
+  <view class="comment-area real-comment-area" catchtap="toolOperation">
+    <textarea show-confirm-bar="{{false}}" class="real-comment" placeholder="说点儿什么吧~" bindinput="updateContext"></textarea>
+    <view class="comment-tools">
+      <view class="mention-btn"  catchtap="mention">@</view>
+      <view class="send-btn"  catchtap="send">发送</view>
+    </view>
   </view>
 </view>

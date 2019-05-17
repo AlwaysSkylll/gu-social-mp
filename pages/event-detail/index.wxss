@@ -9,3 +9,101 @@
   font-size: 10px;
   margin-left: 10rpx;
 }
+
+.event-detail {
+  padding-bottom: 100rpx;
+}
+
+.comment-area {
+  position: fixed;
+  box-sizing: border-box;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  padding: 20rpx 50rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px -1px 5px gainsboro;
+  background: #ffffff;
+}
+
+.real-comment-area {
+  opacity: 0;
+  padding: 20rpx 0;
+  display: block;
+  z-index: 999;
+  height: 300rpx;
+  pointer-events: none;
+  bottom: -300rpx;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.show .real-comment-area {
+  height: auto;
+  bottom: 0;
+  opacity: 1;
+  transition: all 0.3s ease-in-out 0s;
+  pointer-events: auto;
+}
+
+.real-comment {
+  height: 100rpx;
+  width: 670rpx;
+  padding: 0 50rpx;
+  font-size:14px;
+}
+
+.comment-tools {
+  overflow: hidden;
+  margin: 30rpx;
+}
+
+.mention-btn, .send-btn {
+  background: #5cd4ea;
+  display: inline-block;
+  padding: 10rpx 20rpx;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 30rpx;
+}
+
+.mention-btn {
+  float: left;
+}
+
+.send-btn {
+  float: right;
+}
+
+.fake-comment {
+  font-size: 14px;
+  width: 640rpx;
+  color: #979797;
+}
+
+.comment-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 200;
+	backface-visibility: hidden;
+	perspective: 2000rpx;
+	background: rgba(0, 0, 0, 0.6);
+	pointer-events: none;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.3s ease-in-out 0s;
+}
