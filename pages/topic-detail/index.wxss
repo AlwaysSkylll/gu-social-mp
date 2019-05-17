@@ -20,9 +20,9 @@
   box-sizing: border-box;
   position: relative;
   min-height: 100rpx;
-  line-height: 100rpx;
+  line-height: 30rpx;
   font-size: 14px;
-  padding: 0 30rpx;
+  padding: 35rpx 30rpx;
   color: #000000;
 }
 
