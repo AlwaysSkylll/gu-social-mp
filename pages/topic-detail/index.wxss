@@ -9,9 +9,26 @@
 }
 
 .topic-detail_share {
+  display: flex;
   position: absolute;
-  top: 20rpx;
-  right: 30rpx;
+  top: 0;
+  right: 0;
+  height: 80rpx;
+  width: 100rpx;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  line-height: 0;
+  border-radius: 0;
+}
+
+.topic-detail_share::after {
+  border: none;
+  border-radius: 0;
+}
+
+.topic-detail_share-icon {
   height: 35rpx;
   width: 40rpx;
 }
