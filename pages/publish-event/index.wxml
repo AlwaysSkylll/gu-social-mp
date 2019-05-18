@@ -10,9 +10,9 @@
     </view>
     <view class="publish-label text-overflow" bindtap="showModal">#{{ selectTopic.title ||'请选择话题'}}</view>
   </view>
-  <view class="publish-label location-label">
-    <image class="location-icon" src="/static/location.png"></image>
-    <view>{{ event.location_address ? event.location_name + '·' + event.location_address  : '你在那里？' }}</view>
+  <view class="publish-label location-label {{event.location_latitude ? 'active' : ''}}" catchtap="getLocation">
+    <image class="location-icon" src="{{event.location_latitude ? '/static/location_active.png' : '/static/location.png'}}"></image>
+    <view class="location-content text-overflow">{{ !event.location_name ? (event.location_latitude ? event.location_latitude + ',' + event.location_longitude : '你在哪里？')  : event.location_name }}</view>
   </view>
   <view class="publish-label location-label">@</view>
   <view class="publish-btn {{btnStatus ? '' : 'disabled'}}" bindtap="publish">确认发布</view>
