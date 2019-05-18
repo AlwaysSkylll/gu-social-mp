@@ -30,6 +30,7 @@ Component({
     ],
     showBar: true,
     publishModalShow: false,
+    touchStartTime: 0,
   },
   attached() {
     // const pageList = getCurrentPages()
@@ -55,10 +56,25 @@ Component({
       this.hidePublishHandler()
       const data = e.currentTarget.dataset
       const url = data.path
-      if (data.index === this.data.selected) {
+      if (data.index == this.data.selected) {
+        console.log(e.timeStamp, this.data.touchStartTime)
+        if (e.timeStamp - this.data.touchStartTime < 400) {
+          // 双击，进入
+          this.doubleTouchTab()
+        }
+        this.setData({
+          touchStartTime: e.timeStamp
+        })
         return;
       }
       wx.switchTab({ url })
+    },
+
+    doubleTouchTab() {
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 0
+      })
     },
     /**
     * 展示发布按钮
