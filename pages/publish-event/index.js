@@ -22,6 +22,7 @@ Page({
     },
     btnStatus: false,
     topics: [],
+    eventType: '',
     selectTopic: {
       title: ''
     },
@@ -32,11 +33,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (!options) return
     const title = options.subjectTitle || ''
     const subjectId = options.subjectId || 0
+    const type = options.type || ''
     this.setData({
       ['selectTopic.title']: title,
-      ['event.subject_id']: subjectId
+      ['event.subject_id']: subjectId,
+      eventType: type
     })
   },
 
@@ -164,7 +168,20 @@ Page({
    */
   publish() {
     if (!this.data.btnStatus) return;
-    api.publishEvent(this.data.event).then((e) => {
+    let param = this.data.event
+    if (this.data.eventType == 'Circle') {
+      param = {
+        images: param.images,
+        content: param.content,
+        circle_id: param.subject_id,
+        notify_user_ids: param.notify_user_ids,
+        location_name: param.location_name,
+        location_address: param.location_address,
+        location_latitude: param.location_latitude,
+        location_longitude: param.location_longitude,
+      }
+    }
+    api.publishEvent(param).then((e) => {
       wx.showToast({
         title: '发布成功',
         mask: true,
@@ -185,7 +202,7 @@ Page({
 
   showModal() {
     wx.navigateTo({
-      url: '/pages/publish-topic-select/index',
+      url: `/pages/publish-topic-select/index?type=${this.data.eventType}`,
     })
   },
 

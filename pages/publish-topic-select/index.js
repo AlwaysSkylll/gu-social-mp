@@ -7,13 +7,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topics: []
+    topics: [],
+    type: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const type = options.type || ''
+    if (type === 'Circle') {
+      api.getCircles({}).then(({ data }) => {
+        this.setData({
+          topics: data,
+          showModal: true
+        })
+      })
+      return;
+    }
     api.searchSubject({}).then(({data}) => {
       this.setData({
         topics: data,

@@ -1,7 +1,7 @@
 <!--pages/publish-topic-select/index.wxml-->
 <view class="topic-list">
   <view class="topic-item" catchtap="selectItem" data-index="{{index}}" wx:for="{{topics}}" wx:key="{{index}}">
-    <image class="topic-bg" src="/static/default_avatar.jpg"></image>
+    <image class="topic-bg" mode="aspectFill" src="{{item.covers[0]}}"></image>
     <view class="topic-middle">
       <view class="topic-title text-overflow">{{item.title}}</view>
       <view class="topic-desc text-overflow">讨论54万  {{item.description}}</view>

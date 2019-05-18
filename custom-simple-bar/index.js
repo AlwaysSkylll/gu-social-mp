@@ -46,6 +46,8 @@ Component({
      */
     goPublishPage(e) {
       const type = e.currentTarget.dataset.type
+      const eventType = this.data.type
+
       // 角色不是kol不能发布话题
       const userInfo = wx.getStorageSync('userInfo')
       if (userInfo.role !== 'kol' && type === 'topic') {
@@ -56,13 +58,9 @@ Component({
         return
       }
       let param = ''
-      if (type == 'event') {
-        param = `subjectTitle=${this.data.subject.title}&subjectId=${this.data.subject.id}`
-      } else if (type == 'topic') {
-        param = `circlesId=${this.data.subject.id}`
-      }
+      param = `subjectTitle=${this.data.subject.title}&subjectId=${this.data.subject.id}&type=${eventType}`
       wx.navigateTo({
-        url: `/pages/publish-${type}/index?${param}`,
+        url: `/pages/publish-event/index?${param}`,
       })
     },
   }
