@@ -26,7 +26,6 @@ Page({
     selectTopic: {
       title: ''
     },
-    showModal: false,
   },
 
   /**

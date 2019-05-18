@@ -19,12 +19,14 @@
 }
 
 .publish_desc {
+  position: relative;
   box-sizing: border-box;
   margin: 30rpx;
   border: 1rpx solid #c9c9c9;
   border-radius: 5rpx;
   padding: 30rpx;
   font-size: 14px;
+  overflow: hidden;
 }
 
 .publish_desc-area {
@@ -78,4 +80,14 @@
 
 .publish-btn.disabled {
   background: #979797
+}
+.publish-label {
+  float: right;
+  padding: 5rpx 15rpx;
+  margin-top: 30rpx;
+  font-size: 10px;
+  color: #ffffff;
+  background: #5cd4ea;
+  border-radius: 10rpx;
+  max-width: 100%;
 }

@@ -11,6 +11,7 @@
         <image wx:else class="preview-img" mode="widthFit" src="{{topic.images[index]}}" data-index="{{index}}" catchtap="preview"></image>
       </view>
     </view>
+    <view class="publish-label text-overflow" bindtap="showModal">#{{ selectTopic.title ||'请选择话题'}}</view>
   </view>
   <view class="publish-btn {{btnStatus ? '' : 'disabled'}}" bindtap="publish">确认发布</view>
 </view>

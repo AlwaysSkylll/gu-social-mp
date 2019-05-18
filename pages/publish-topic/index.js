@@ -15,16 +15,13 @@ Page({
       description: '',
     },
     btnStatus: false,
-    circlesId: 1,
+    selectTopic: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      circlesId: options.circlesId || this.data.circlesId
-    })
   },
 
   /**
@@ -127,11 +124,18 @@ Page({
    * }
    */
   publish() {
+    if (!this.data.selectTopic.id) {
+      wx.showToast({
+        icon: 'none',
+        title: '请选择圈子',
+      })
+      return
+    }
     if (!this.data.btnStatus) return;
     api.postSubject({
       title: this.data.topic.title,
       description: this.data.topic.description,
-      circles_id: this.data.circlesId,
+      circles_id: this.data.selectTopic.id,
       covers: this.data.topic.images,
     }).then((e) => {
       wx.showToast({
@@ -147,6 +151,17 @@ Page({
           }
         })
       }, 1500)
+    })
+  },
+  showModal() {
+    wx.navigateTo({
+      url: `/pages/publish-topic-select/index?type=Circle`,
+    })
+  },
+
+  selectTopic(topic) {
+    this.setData({
+      selectTopic: topic,
     })
   }
 })
