@@ -160,7 +160,7 @@ Page({
       if (this.data.finish[index]) return
       const param = {
         offset: this.data.events[index].length,
-        sort: index === 1 ? 'hot' : ''
+        sort: index === 0 ? 'hot' : ''
       }
       api.getEvents(param).then(res => {
         const events = [...this.data.events[index], ...res.data]
