@@ -90,6 +90,7 @@
 }
 
 .topic-desc {
+  min-height: 160rpx;
   font-size: 11px;
   color: #000;
 }
