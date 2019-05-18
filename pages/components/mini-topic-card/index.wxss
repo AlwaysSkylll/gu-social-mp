@@ -20,14 +20,14 @@
   bottom: 0;
   background: #FFFFFF;
   opacity: 0.5;
-  height: 45rpx;
+  height: 50rpx;
   width: 100%;
   padding: 0 10rpx;
   box-sizing: border-box;
   align-items: center;
   text-align: right;
-  font-size: 12px;
-  line-height: 45rpx;
+  font-size: 14px;
+  line-height: 50rpx;
 }
 
 .text-overflow {

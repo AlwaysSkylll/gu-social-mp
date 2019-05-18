@@ -18,7 +18,7 @@ Component({
     },
     fontSize: {
       type: Number,
-      value: 13
+      value: 16
     },
     initialIndex: {
       type: Number,

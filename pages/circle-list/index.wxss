@@ -17,18 +17,18 @@
 }
 
 .circle-list_item .topic {
-  font-size: 12px;
+  font-size: 15px;
   color: #000000;
 }
 
 .circle-list_item .topic-content {
-  font-size: 9px;
+  font-size: 13px;
   color: #000000;
-  line-height: 15px;
+  line-height: 18px;
 }
 
 .circle-list_item .topic-desc {
-  font-size: 9px;
+  font-size: 10px;
   color: #979797;
   line-height: 15px;
 }

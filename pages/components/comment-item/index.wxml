@@ -5,12 +5,12 @@
     <view class="event-card_ground-info">
       <view class="event-card_info1">
         <text>{{item.user.nickname}}</text>
-        <text>等级1</text>
+        <!-- <text>等级1</text> -->
       </view>
-      <view class="event-card_info2">
+      <view class="event-card_info2 text-overflow">
         <text>{{item.create_time}}</text>
         <text>来自</text>
-        <text>神秘星球</text>
+        <text>神秘星球神秘星球神秘星球神秘星球神秘星球神秘星球</text>
       </view>
     </view>
     <view class="thumbsup-info {{item.praise ? 'active' : ''}}" catchtap="setPraise">

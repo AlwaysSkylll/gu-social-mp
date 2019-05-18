@@ -9,7 +9,7 @@
 .activity-card_title {
   display: flex;
   margin-top: 20rpx; 
-  font-size: 13px;
+  font-size: 15px;
   color: #000000;
   padding-right: 100rpx;
   align-items: center;
@@ -32,14 +32,14 @@
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 9px;
+  font-size: 11px;
   color: #e8204f;
   align-items: center;
 }
 
 .activity-card_sub-info {
   margin-top: 15rpx; 
-  font-size: 8px;
+  font-size: 10px;
   color: #979797;
 }
 

@@ -1,4 +1,10 @@
 /* pages/components/comment-item/index.wxss */
+.text-overflow {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
 .comment-item {
   padding: 20rpx 0;
 }
@@ -30,7 +36,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .thumbsup-info.active {
@@ -65,13 +71,13 @@
 }
 
 .event-card_info2 {
-  line-height: 10px;
+  line-height: 16px;
+  font-size: 10px;
 }
 
 .event-card_info2 text {
   margin-left: 15rpx;
   color: #979797;
-  font-size: 8px;
 }
 
 .event-card_info2 text:first-child {
@@ -88,5 +94,5 @@
 
 .comment-item_content {
   padding: 0 120rpx;
-  font-size: 10px;
+  font-size: 13px;
 }

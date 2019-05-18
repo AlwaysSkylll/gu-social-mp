@@ -60,13 +60,13 @@
 }
 
 .event-card_info2 {
-  line-height: 10px;
+  line-height: 16px;
 }
 
 .event-card_info2 text {
   margin-left: 15rpx;
   color: #979797;
-  font-size: 8px;
+  font-size: 10px;
 }
 
 .event-card_info2 text:first-child {
@@ -110,11 +110,11 @@
 .event-card-footer {
   position: relative;
   margin-top: 20rpx;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .event-card-footer .topic-title {
-  max-width: 240rpx;
+  max-width: 450rpx;
   display: inline-block;
   padding: 10rpx;
   background: #eeeeee;
@@ -130,6 +130,7 @@
   right: 20rpx;
   bottom: 15rpx;
   max-width: 480rpx;
+  font-size: 11px;
 }
 
 .footer-operations .operation {

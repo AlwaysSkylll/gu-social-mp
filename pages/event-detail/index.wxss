@@ -2,11 +2,11 @@
 .event-detail_comment-list {
   padding: 30rpx;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .event-detail_comment-list .comment-num {
-  font-size: 10px;
+  font-size: 12px;
   margin-left: 10rpx;
 }
 

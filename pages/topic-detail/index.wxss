@@ -38,13 +38,17 @@
   position: relative;
   min-height: 100rpx;
   line-height: 30rpx;
-  font-size: 14px;
+  font-size: 15px;
   padding: 35rpx 30rpx;
   color: #000000;
 }
 
+.topic-detail_info .info-title {
+  line-height: 40rpx;
+}
+
 .topic-detail_info .info-desc {
-  font-size: 10px;
+  font-size: 13px;
   margin-left: 15rpx;
 }
 
@@ -55,7 +59,7 @@
   position: absolute;
   right: 30rpx;
   bottom: 10rpx;
-  font-size: 9px;
+  font-size: 11px;
   color: #979797;
 }
 

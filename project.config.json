@@ -82,7 +82,7 @@
 					"id": 5,
 					"name": "话题详情",
 					"pathName": "pages/topic-detail/index",
-					"query": "id=1&type=Subject",
+					"query": "id=38&type=Subject",
 					"scene": null
 				},
 				{

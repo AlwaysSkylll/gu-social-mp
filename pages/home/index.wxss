@@ -10,7 +10,7 @@
   float: right;
   margin-top: 20rpx;
   margin-right: 45rpx;
-  font-size: 10px;
+  font-size: 12px;
   color: #5cd4ea;
 }
 
