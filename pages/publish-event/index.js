@@ -48,39 +48,8 @@ Page({
    */
   onReady: function () {
     const self = this
-    // wx.showToast({
-    //   icon: 'loading',
-    // })
-    wx.getLocation({
-      success: (res) => {
-        // console.log(res)
-        // wx.request({
-        //   url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${res.latitude},${res.longitude}&key=CLKBZ-FZ26X-S2I4I-7BXMC-USQ53-KUFOM`,
-        //   success: ({ data }) => {
-        //     const result = data.result
-        //     console.log(data) 
-        //     if (!result) {
-        //       wx.showToast({
-        //         icon: 'none',
-        //         title: '获取地理位置失败'
-        //       })
-        //       return;
-        //     }
-        //     wx.hideToast()
-        //     self.setData({
-        //       ['event.location_name']: result.address_component.city,
-        //       ['event.location_address']: result.address_component.district + result.address_component.street,
-        //       ['event.location_latitude']: res.latitude,
-        //       ['event.location_longitude']: res.longitude,
-        //     })
-        //   } 
-        // })
-      },
-      fail: () => {
-        wx.hideToast()
-        self.checkLocation()
-      }
-    })
+    
+    wx.getLocation({})
   },
 
   /**
