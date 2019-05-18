@@ -92,6 +92,7 @@
   background: #5cd4ea;
   border-radius: 10rpx;
   max-width: 100%;
+  line-height: 45rpx;
 }
 
 .topic-list-container {
@@ -101,7 +102,7 @@
 }
 
 .location-content {
-  max-width: 40vw;
+  max-width: 30vw;
 }
 
 .location-label {
