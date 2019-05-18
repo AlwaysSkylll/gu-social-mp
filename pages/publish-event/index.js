@@ -48,34 +48,38 @@ Page({
    */
   onReady: function () {
     const self = this
-    wx.showToast({
-      icon: 'loading',
-    })
+    // wx.showToast({
+    //   icon: 'loading',
+    // })
     wx.getLocation({
       success: (res) => {
-        console.log(res)
-        wx.request({
-          url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${res.latitude},${res.longitude}&key=CLKBZ-FZ26X-S2I4I-7BXMC-USQ53-KUFOM`,
-          success: ({ data }) => {
-            const result = data.result
-            console.log(data) 
-            if (!result) {
-              wx.showToast({
-                icon: 'none',
-                title: '获取地理位置失败'
-              })
-              return;
-            }
-            wx.hideToast()
-            self.setData({
-              ['event.location_name']: result.address_component.city,
-              ['event.location_address']: result.address_component.district + result.address_component.street,
-              ['event.location_latitude']: res.latitude,
-              ['event.location_longitude']: res.longitude,
-            })
-          } 
-        })
+        // console.log(res)
+        // wx.request({
+        //   url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${res.latitude},${res.longitude}&key=CLKBZ-FZ26X-S2I4I-7BXMC-USQ53-KUFOM`,
+        //   success: ({ data }) => {
+        //     const result = data.result
+        //     console.log(data) 
+        //     if (!result) {
+        //       wx.showToast({
+        //         icon: 'none',
+        //         title: '获取地理位置失败'
+        //       })
+        //       return;
+        //     }
+        //     wx.hideToast()
+        //     self.setData({
+        //       ['event.location_name']: result.address_component.city,
+        //       ['event.location_address']: result.address_component.district + result.address_component.street,
+        //       ['event.location_latitude']: res.latitude,
+        //       ['event.location_longitude']: res.longitude,
+        //     })
+        //   } 
+        // })
       },
+      fail: () => {
+        wx.hideToast()
+        self.checkLocation()
+      }
     })
   },
 
@@ -210,5 +214,52 @@ Page({
       ['event.subject_id']: topic.id,
       selectTopic: topic
     })
+  },
+
+  getLocation() {
+    this.checkLocation()
+  },
+
+  checkLocation() {
+    const self = this
+    //判断是否获得了用户地理位置授权
+    wx.getSetting({
+      success: (res) => {
+        if (!res.authSetting['scope.userLocation']) {
+          self.confirmLocation()
+          return
+        }
+        wx.chooseLocation({
+          success: function(res) {
+            self.setData({
+              ['event.location_name']: res.name,
+              ['event.location_address']: res.address,
+              ['event.location_latitude']: res.latitude,
+              ['event.location_longitude']: res.longitude,
+            })
+          },
+        })
+      }
+    })
+  },
+
+  confirmLocation() {
+    wx.showModal({
+      content: '检测到您没打开定位权限，是否去设置打开？',
+      confirmText: "确认",
+      cancelText: "取消",
+      success: function (res) {
+        console.log(res);
+        //点击“确认”时打开设置页面
+        if (res.confirm) {
+          console.log('用户点击确认')
+          wx.openSetting({
+            success: (res) => { }
+          })
+        } else {
+          console.log('用户点击取消')
+        }
+      }
+    });
   }
 })

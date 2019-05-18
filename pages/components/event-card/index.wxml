@@ -10,7 +10,7 @@
       <view class="event-card_info2">
         <text>{{event.create_time}}</text>
         <text>来自</text>
-        <text>{{event.location_name}}.{{event.location_address}}</text>
+        <text>{{event.location_name}}</text>
       </view>
     </view>
     <view class="event-card_btn">
