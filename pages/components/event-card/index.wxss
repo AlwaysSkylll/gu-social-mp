@@ -61,12 +61,12 @@
 
 .event-card_info2 {
   line-height: 16px;
+  font-size: 10px;
 }
 
 .event-card_info2 text {
   margin-left: 15rpx;
   color: #979797;
-  font-size: 10px;
 }
 
 .event-card_info2 text:first-child {

@@ -9,8 +9,8 @@
       </view>
       <view class="event-card_info2 text-overflow">
         <text>{{item.create_time}}</text>
-        <text>来自</text>
-        <text>神秘星球神秘星球神秘星球神秘星球神秘星球神秘星球</text>
+        <text></text>
+        <text></text>
       </view>
     </view>
     <view class="thumbsup-info {{item.praise ? 'active' : ''}}" catchtap="setPraise">
