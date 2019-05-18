@@ -61,6 +61,12 @@
   color: #ffffff;
 }
 
+.png-circle {
+  margin-top: 100rpx;
+  line-height: 0;
+  border-radius: none;
+}
+
 .circle-hovered {
   opacity: 0.9
 }
