@@ -81,13 +81,23 @@
 .publish-btn.disabled {
   background: #979797
 }
+
+.topic-label {
+  max-width: 600rpx;
+  background: #e5e5e5;
+  color: #979797;
+}
+
+.topic-label.active {
+  background: #5cd4ea;
+  color: #ffffff;  
+}
+
 .publish-label {
   float: right;
   padding: 5rpx 15rpx;
   margin-top: 30rpx;
   font-size: 20rpx;
-  color: #ffffff;
-  background: #5cd4ea;
   border-radius: 10rpx;
-  max-width: 100%;
+  line-height: 45rpx;
 }
