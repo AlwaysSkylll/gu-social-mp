@@ -6,13 +6,14 @@
   </button>
   <view class="topic-detail_info light-gray-bottom">
     <text class="info-title">#{{subject.title}}#</text>
-    <text class="info-desc">{{subject.description}}</text>
+    <view class="info-time">{{subject.create_time}}</view>
     <view class="topic-detail_datas">
       <image class="data-icon fire" src="/static/icon_chanyu@2x.png"></image>{{subject.participant_num}}
       <image class="data-icon share" src="/static/icon_xihuan@2x.png"></image>{{subject.praise_num}}
       <image class="data-icon comment" src="/static/icon_ping@2x.png"></image>{{subject.comment_num}}
     </view>
   </view>
+  <view class="topic-detail_desc light-gray-bottom">{{subject.description}}</view>
   <view class="gray-buttom" wx:for="{{events}}" wx:key="{{index}}">
     <event-card event="{{item}}" type="subjects"></event-card>
   </view>

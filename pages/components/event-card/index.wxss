@@ -122,6 +122,12 @@
   border-radius: 5rpx;
 }
 
+.event-card-footer .topic-icon {
+  vertical-align: middle;
+  width: 28rpx;
+  height: 26rpx;
+}
+
 .footer-operations {
   position: absolute;
   display: flex;

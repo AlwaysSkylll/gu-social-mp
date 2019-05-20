@@ -25,7 +25,10 @@
     </view>
   </view>
   <view class="event-card-footer">
-    <text class="topic-title text-overflow" catchtap="goSubjectDetail">#{{event.subject.title}}</text>
+    <view class="topic-title text-overflow" catchtap="goSubjectDetail">
+      <image class="topic-icon" src="/static/icon_huati@2x.png"></image>
+      #{{event.subject.title}}
+    </view>
     <view class="footer-operations">
       <!-- <view class="operation">
         <image class="operation-icon" wx:if="{{event.praise}}" src="/static/flower.png"></image>
