@@ -35,7 +35,7 @@
 }
 .mini-circle-card .desc {
   max-width: 100%;
-  line-height: 12rpx;
+  line-height: 22rpx;
   font-size: 22rpx;
   color: #979797;
 }
