@@ -45,7 +45,7 @@
 }
 
 .tab-bar-item .tab-bar-item_view {
-  font-size: 10px;
+  font-size: 20rpx;
 }
 
 .circle {

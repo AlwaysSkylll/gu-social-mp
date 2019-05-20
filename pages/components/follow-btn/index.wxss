@@ -7,7 +7,7 @@
   border-radius: 30rpx;
   color: #FFFFFF;
   text-align: center;
-  font-size: 14px;
+  font-size: 28rpx;
   background-color: #5cd4ea;
 }
 

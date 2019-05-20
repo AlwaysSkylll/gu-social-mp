@@ -13,24 +13,24 @@
   border-radius: 30rpx;
   border-top-left-radius: 0;
   overflow: hidden;
-  box-shadow: -1px 1px 5px gainsboro;
+  box-shadow: -2rpx 2rpx 10rpx gainsboro;
 }
 
 .circle-list_item .topic {
-  font-size: 15px;
+  font-size: 30rpx;
   color: #000000;
 }
 
 .circle-list_item .topic-content {
-  font-size: 13px;
+  font-size: 26rpx;
   color: #000000;
-  line-height: 18px;
+  line-height: 36rpx;
 }
 
 .circle-list_item .topic-desc {
-  font-size: 10px;
+  font-size: 20rpx;
   color: #979797;
-  line-height: 15px;
+  line-height: 30rpx;
 }
 
 .circle-list_item .topic-bg {

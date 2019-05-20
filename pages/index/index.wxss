@@ -27,7 +27,7 @@
 .gu-permission-content {
   margin-top: 60rpx;
   text-align: center;
-  font-size: 15px;
+  font-size: 30rpx;
   color: #777777;
   line-height: 50rpx;
 }

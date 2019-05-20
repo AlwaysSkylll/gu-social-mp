@@ -45,23 +45,23 @@
 }
 
 .event-card_info1 {
-  line-height: 12px;
+  line-height: 24rpx;
   box-sizing: border-box;
   padding-top: 30rpx;
 }
 
 .event-card_info1 text {
   margin-left: 20rpx;
-  font-size: 10px;
+  font-size: 20rpx;
 }
 
 .event-card_info1 text:first-child {
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .event-card_info2 {
-  line-height: 16px;
-  font-size: 10px;
+  line-height: 34rpx;
+  font-size: 20rpx;
 }
 
 .event-card_info2 text {
@@ -82,8 +82,8 @@
 }
 
 .event-card_content, .event-card_content text {
-  line-height: 18px;
-  font-size: 13px;
+  line-height: 36rpx;
+  font-size: 26rpx;
 }
 
 .event-card_content .image-box {
@@ -110,7 +110,7 @@
 .event-card-footer {
   position: relative;
   margin-top: 20rpx;
-  font-size: 12px;
+  font-size: 24rpx;
 }
 
 .event-card-footer .topic-title {
@@ -130,7 +130,7 @@
   right: 20rpx;
   bottom: 15rpx;
   max-width: 480rpx;
-  font-size: 11px;
+  font-size: 22rpx;
 }
 
 .footer-operations .operation {

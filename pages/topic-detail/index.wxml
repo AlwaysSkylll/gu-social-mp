@@ -8,9 +8,9 @@
     <text class="info-title">#{{subject.title}}#</text>
     <text class="info-desc">{{subject.description}}</text>
     <view class="topic-detail_datas">
-      <image class="data-icon fire" src="/static/fire.png"></image>{{subject.participant_num}}
-      <image class="data-icon share" src="/static/red_share.png"></image>{{subject.share_num}}
-      <image class="data-icon comment" src="/static/red_comment.png"></image>{{subject.comment_num}}
+      <image class="data-icon fire" src="/static/icon_chanyu@2x.png"></image>{{subject.participant_num}}
+      <image class="data-icon share" src="/static/icon_xihuan@2x.png"></image>{{subject.praise_num}}
+      <image class="data-icon comment" src="/static/icon_ping@2x.png"></image>{{subject.comment_num}}
     </view>
   </view>
   <view class="gray-buttom" wx:for="{{events}}" wx:key="{{index}}">

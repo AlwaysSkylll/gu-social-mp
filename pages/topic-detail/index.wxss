@@ -38,7 +38,7 @@
   position: relative;
   min-height: 100rpx;
   line-height: 30rpx;
-  font-size: 15px;
+  font-size: 30rpx;
   padding: 35rpx 30rpx;
   color: #000000;
 }
@@ -48,18 +48,18 @@
 }
 
 .topic-detail_info .info-desc {
-  font-size: 13px;
+  font-size: 26rpx;
   margin-left: 15rpx;
 }
 
 .topic-detail_datas {
   display: flex;
   align-items: center;
-  line-height: 12px;
+  line-height: 24rpx;
   position: absolute;
   right: 30rpx;
   bottom: 10rpx;
-  font-size: 11px;
+  font-size: 22rpx;
   color: #979797;
 }
 
@@ -70,8 +70,8 @@
 }
 
 .topic-detail_datas .data-icon.fire {
-  width: 18rpx;
-  height: 25rpx;
+  width: 27rpx;
+  height: 18rpx;
 }
 .topic-detail_datas .data-icon.share {
 

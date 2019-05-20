@@ -25,7 +25,7 @@
 }
 
 .gu-tab-name {
-  font-size: 13px;
+  font-size: 26rpx;
   line-height: 80rpx;
 }
 

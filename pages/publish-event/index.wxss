@@ -11,7 +11,7 @@
 
 .publish_topic {
   margin: 0 30rpx;
-  font-size: 14px;
+  font-size: 28rpx;
   line-height: 50rpx;
   box-sizing: border-box;
   padding: 10rpx 30rpx;
@@ -26,7 +26,7 @@
   border: 1rpx solid #c9c9c9;
   border-radius: 5rpx;
   padding: 30rpx;
-  font-size: 14px;
+  font-size: 28rpx;
   overflow: hidden;
 }
 
@@ -74,7 +74,7 @@
   height: 90rpx;
   background: #5cd4ea;
   line-height: 90rpx;
-  font-size: 14px;
+  font-size: 28rpx;
   text-align: center;
   color: #ffffff;
 }
@@ -87,7 +87,7 @@
   float: right;
   padding: 5rpx 15rpx;
   margin-top: 30rpx;
-  font-size: 10px;
+  font-size: 20rpx;
   color: #ffffff;
   background: #5cd4ea;
   border-radius: 10rpx;

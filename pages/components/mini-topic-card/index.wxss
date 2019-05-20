@@ -26,7 +26,7 @@
   box-sizing: border-box;
   align-items: center;
   text-align: right;
-  font-size: 14px;
+  font-size: 28rpx;
   line-height: 50rpx;
 }
 

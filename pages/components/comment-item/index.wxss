@@ -10,7 +10,7 @@
 }
 
 .comment-item {
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 2rpx solid #f5f5f5;
 }
 
 .avatar {
@@ -36,7 +36,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 11px;
+  font-size: 22rpx;
 }
 
 .thumbsup-info.active {
@@ -56,23 +56,23 @@
 }
 
 .event-card_info1 {
-  line-height: 12px;
+  line-height: 24rpx;
   box-sizing: border-box;
   padding-top: 30rpx;
 }
 
 .event-card_info1 text {
   margin-left: 20rpx;
-  font-size: 10px;
+  font-size: 20rpx;
 }
 
 .event-card_info1 text:first-child {
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .event-card_info2 {
-  line-height: 16px;
-  font-size: 10px;
+  line-height: 34rpx;
+  font-size: 20rpx;
 }
 
 .event-card_info2 text {
@@ -94,5 +94,5 @@
 
 .comment-item_content {
   padding: 0 120rpx;
-  font-size: 13px;
+  font-size: 26rpx;
 }

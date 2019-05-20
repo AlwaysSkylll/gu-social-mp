@@ -15,7 +15,7 @@
   box-sizing:content-box;
   display: flex;
   width: 100%;
-  height: 100rpx;
+  height: 120rpx;
   margin-top: 20rpx;
   border-radius: 5rpx;
   background: #f8f8f8;
@@ -27,25 +27,25 @@
 }
 
 .topic-bg {
-  width: 80rpx;
-  height: 80rpx;
-  flex:0 0 80rpx;
+  width: 100rpx;
+  height: 100rpx;
+  flex:0 0 100rpx;
 }
 
 .topic-title {
-  font-size: 12px;
+  font-size: 24rpx;
 }
 
 .topic-desc {
   max-width: 100%;
-  font-size: 9px;
+  font-size: 18rpx;
   color: #979797;
 }
 
 .topic-middle {
   box-sizing: border-box;
   padding: 0 20rpx;
-  max-width: 540rpx;
+  max-width: 500rpx;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -58,6 +58,6 @@
   align-items: flex-start;
   justify-items: center;
   flex:0 0 60rpx;
-  font-size: 10px;
+  font-size: 20rpx;
   color: #979797;
 }

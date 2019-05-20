@@ -9,7 +9,7 @@
 .activity-card_title {
   display: flex;
   margin-top: 20rpx; 
-  font-size: 15px;
+  font-size: 30rpx;
   color: #000000;
   padding-right: 100rpx;
   align-items: center;
@@ -18,13 +18,13 @@
 .activity-card_line .fire {
   height: 26rpx;
   width: 20rpx;
-  margin-right: 2px;
+  margin-right: 4rpx;
 }
 
 .activity-card_line .gift {
   height: 28rpx;
   width: 28rpx;
-  margin-right: 2px;
+  margin-right: 4rpx;
 }
 
 .activity-card_num {
@@ -32,14 +32,14 @@
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 11px;
+  font-size: 22rpx;
   color: #e8204f;
   align-items: center;
 }
 
 .activity-card_sub-info {
   margin-top: 15rpx; 
-  font-size: 10px;
+  font-size: 20rpx;
   color: #979797;
 }
 
