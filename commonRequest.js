@@ -5,7 +5,8 @@ module.exports.request = function (url, method, data) {
   wx.showToast({
     icon: 'loading',
     title: '加载中',
-    mask: true
+    mask: true,
+    duration: 5000
   })
   return new Promise(function (resolve, reject) {
     wx.request({

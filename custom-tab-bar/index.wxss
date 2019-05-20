@@ -61,6 +61,10 @@
   color: #ffffff;
 }
 
+.circle.disabled {
+  background: #979797;
+}
+
 .png-circle {
   margin-top: 100rpx;
   line-height: 0;

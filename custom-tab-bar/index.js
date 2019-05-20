@@ -31,23 +31,17 @@ Component({
     showBar: true,
     publishModalShow: false,
     touchStartTime: 0,
+    userInfo: {},
   },
   attached() {
-    // const pageList = getCurrentPages()
-    // const pageLength = pageList.length
-    // const page = pageList[pageLength - 1]
-    // this.setData({
-    //   showBar: page && this.data.showTabList.indexOf(page.route) != -1 || false
-    // })
-    // wx.showToast({
-    //   title: String(pageLength) + 'attached',
-    // })
   },
   ready() {
     const pageList = getCurrentPages()
     const pageLength = pageList.length
     const page = pageList[pageLength - 1]
+    const userInfo = wx.getStorageSync('userInfo')
     this.setData({
+      userInfo,
       showBar: page && this.data.showTabList.indexOf(page.route) != -1 || false
     })
   },
@@ -98,11 +92,10 @@ Component({
     goPublishPage(e) {
       const type = e.currentTarget.dataset.type
       // 角色不是kol不能发布话题
-      const userInfo = wx.getStorageSync('userInfo')
-      if (userInfo.role !== 'kol' && type === 'topic') {
+      if (this.data.userInfo.role !== 'kol' && type === 'topic') {
         wx.showToast({
           icon: 'none',
-          title: '缺少权限',
+          title: '成为KOL才可以发布',
         })
         return
       }
