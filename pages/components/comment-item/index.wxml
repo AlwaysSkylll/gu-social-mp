@@ -1,4 +1,6 @@
 <!--pages/components/comment-item/index.wxml-->
+<wxs src="../../../utils/time-tools.wxs" module="timeTools" />
+
 <view class="comment-item">
   <view class="event-card_user">
     <image lazy-load="{{true}}" class="avatar" src="{{ item.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
@@ -8,7 +10,7 @@
         <!-- <text>等级1</text> -->
       </view>
       <view class="event-card_info2 text-overflow">
-        <text>{{item.create_time}}</text>
+        <text>{{timeTools.formatTime(item.create_time)}}</text>
         <text></text>
         <text></text>
       </view>

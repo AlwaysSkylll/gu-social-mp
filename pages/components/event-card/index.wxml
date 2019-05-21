@@ -1,4 +1,6 @@
 <!--pages/components/event-card/index.wxml-->
+<wxs src="../../../utils/time-tools.wxs" module="timeTools" />
+
 <view class="event-card {{hovered ? 'event-card_hovered' : ''}}" bindlongtap="hoverCard" bindtouchend="unHoverCard">
   <view class="event-card_user" bindtap="toDetail">
     <image lazy-load="{{true}}" class="avatar" src="{{ event.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
@@ -8,8 +10,8 @@
         <!-- <text>等级1</text> -->
       </view>
       <view class="event-card_info2 text-overflow">
-        <text>{{event.create_time}}</text>
-        <text>来自</text>
+        <text>{{timeTools.formatTime(event.create_time)}}</text>
+        <text>{{event.location_name ? '来自' : ''}}</text>
         <text>{{event.location_name}}</text>
       </view>
     </view>

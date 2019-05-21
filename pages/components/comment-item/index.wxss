@@ -56,9 +56,9 @@
 }
 
 .event-card_info1 {
-  line-height: 24rpx;
+  line-height: 28rpx;
   box-sizing: border-box;
-  padding-top: 30rpx;
+  padding-top: 20rpx;
 }
 
 .event-card_info1 text {

@@ -23,7 +23,7 @@
   padding: 20rpx 50rpx;
   display: flex;
   align-items: center;
-  box-shadow: 0rpx -2rpx 10rpx gainsboro;
+  box-shadow: 0rpx -1rpx 2rpx gainsboro;
   background: #ffffff;
 }
 
@@ -35,6 +35,7 @@
   pointer-events: none;
   bottom: -1000rpx;
   transition: all 0.3s ease-in-out 0s;
+  box-shadow: none;
 }
 
 .show .real-comment-area {
@@ -55,7 +56,7 @@
 
 .comment-tools {
   overflow: hidden;
-  margin: 0rpx 30rpx 20rpx 0;
+  margin: 20rpx 30rpx 0 30rpx;
 }
 
 .mention-btn, .send-btn {
@@ -69,7 +70,7 @@
 }
 
 .mention-btn {
-  float: right;
+  float: left;
   background: #e5e5e5;
 }
 

@@ -1,4 +1,6 @@
 <!--pages/topic-detail/index.wxml-->
+<wxs src="../../utils/time-tools.wxs" module="timeTools" />
+
 <view class="topic-detail">
   <image mode="aspectFill" class="topic-detail_bg" src="{{subject.covers[0] || '/static/topic_bg.jpg'}}"></image>
   <button class="topic-detail_share" open-type="share">
@@ -6,7 +8,7 @@
   </button>
   <view class="topic-detail_info light-gray-bottom">
     <text class="info-title">#{{subject.title}}#</text>
-    <view class="info-time">{{subject.create_time}}</view>
+    <view class="info-time">{{timeTools.formatTime(subject.create_time)}}</view>
     <view class="topic-detail_datas">
       <image class="data-icon fire" src="/static/icon_chanyu@2x.png"></image>{{subject.participant_num}}
       <image class="data-icon share" src="/static/icon_xihuan@2x.png"></image>{{subject.praise_num}}

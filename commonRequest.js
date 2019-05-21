@@ -6,7 +6,7 @@ module.exports.request = function (url, method, data) {
     icon: 'loading',
     title: '加载中',
     mask: true,
-    duration: 5000
+    duration: 10000
   })
   return new Promise(function (resolve, reject) {
     wx.request({
@@ -37,6 +37,10 @@ module.exports.request = function (url, method, data) {
         }
       },
       fail: function (res) {
+        wx.showToast({
+          title: '网络错误',
+          icon: 'none',
+        })
         reject(res)
       }
     })

@@ -14,10 +14,10 @@
 
 <view class="modal {{focusArea ? 'show' : ''}}" bindtap="hideRealComment">
   <view class="comment-area real-comment-area" catchtap="toolOperation">
+    <textarea cursor-spacing="80" show-confirm-bar="{{false}}" class="real-comment" placeholder="说点儿什么吧~" bindinput="updateContext"></textarea>
     <view class="comment-tools">
       <view class="send-btn"  catchtap="send">发送</view>
       <view class="mention-btn"  catchtap="mention">@</view>
     </view>
-    <textarea auto-height="{{true}}" show-confirm-bar="{{false}}" class="real-comment" placeholder="说点儿什么吧~" bindinput="updateContext"></textarea>
   </view>
 </view>

@@ -1,4 +1,6 @@
 <!--pages/topic-list/index.wxml-->
+<wxs src="../../utils/time-tools.wxs" module="timeTools" />
+
 <view class="topic-list">
   <view class="gray-buttom" wx:for="{{topics}}" wx:key="{{index}}">
     <view class="topic-item" wx:if="{{item.status == 'published'}}" bindtap="goDetail" data-id="{{item.id}}">
@@ -12,7 +14,7 @@
           <view class="topic-desc">【#{{item.title}}#：{{item.description}}】</view>
           <view class="topic-relation">
             <view>@</view>
-            <view>{{item.create_time}}</view>
+            <view>{{timeTools.formatTime(item.create_time)}}</view>
           </view>
         </view>
         <view class="item-body_right">
