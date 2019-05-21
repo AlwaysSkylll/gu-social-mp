@@ -145,7 +145,7 @@ Page({
       param = {
         images: param.images,
         content: param.content,
-        circle_id: param.subject_id,
+        circles_id: param.subject_id,
         notify_user_ids: param.notify_user_ids,
         location_name: param.location_name,
         location_address: param.location_address,

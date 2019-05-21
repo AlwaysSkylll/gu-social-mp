@@ -75,7 +75,7 @@
 
 .topic-detail_datas .data-icon {
   width: 25rpx;
-  height: 20rpx;
+  height: 22rpx;
   margin: 0 10rpx 0 20rpx;
 }
 

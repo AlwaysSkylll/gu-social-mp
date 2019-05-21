@@ -62,6 +62,7 @@
 .event-card_info2 {
   line-height: 34rpx;
   font-size: 20rpx;
+  color: #5cd4ea;
 }
 
 .event-card_info2 text {

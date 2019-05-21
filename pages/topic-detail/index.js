@@ -21,6 +21,11 @@ Page({
       id: options.id,
       type: options.type
     })
+
+    wx.setNavigationBarTitle({
+      title: options.type === 'Circle' ? '圈子' : '话题'
+    })    
+
     this.getData()
   },
 
