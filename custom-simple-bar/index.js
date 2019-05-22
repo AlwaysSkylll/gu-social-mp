@@ -58,7 +58,7 @@ Component({
         return
       }
       let param = ''
-      param = `subjectTitle=${this.data.subject.title}&subjectId=${this.data.subject.id}&type=${eventType}`
+      param = `title=${this.data.subject.title}&id=${this.data.subject.id}&type=${eventType}`
       wx.navigateTo({
         url: `/pages/publish-event/index?${param}`,
       })

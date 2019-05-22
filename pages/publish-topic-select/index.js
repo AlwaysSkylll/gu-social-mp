@@ -16,19 +16,12 @@ Page({
    */
   onLoad: function (options) {
     const type = options.type || ''
-    if (type === 'Circle') {
-      api.getCircles({}).then(({ data }) => {
-        this.setData({
-          topics: data,
-          showModal: true
-        })
-      })
-      return;
-    }
-    api.searchSubject({}).then(({data}) => {
+    const id = options.id || 0
+    const param = type === 'Circle' ? { circles_id: id } : {}
+
+    api.searchSubject(param).then(({data}) => {
       this.setData({
         topics: data,
-        showModal: true
       })
     })
   },

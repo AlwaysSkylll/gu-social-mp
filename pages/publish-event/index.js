@@ -33,12 +33,15 @@ Page({
    */
   onLoad: function (options) {
     if (!options) return
-    const title = options.subjectTitle || ''
-    const subjectId = options.subjectId || 0
+    const id = options.id || ''
     const type = options.type || ''
+    const isCircleType = type === 'Circle'
+    const title = isCircleType ? '' : (options.title || '')
+
     this.setData({
       ['selectTopic.title']: title,
-      ['event.subject_id']: subjectId,
+      ['event.subject_id']: isCircleType ? '' : id,
+      ['event.circles_id']: isCircleType ? id : '',
       eventType: type
     })
   },
@@ -141,18 +144,7 @@ Page({
   publish() {
     if (!this.data.btnStatus) return;
     let param = this.data.event
-    if (this.data.eventType == 'Circle') {
-      param = {
-        images: param.images,
-        content: param.content,
-        circles_id: param.subject_id,
-        notify_user_ids: param.notify_user_ids,
-        location_name: param.location_name,
-        location_address: param.location_address,
-        location_latitude: param.location_latitude,
-        location_longitude: param.location_longitude,
-      }
-    }
+    
     api.publishEvent(param).then((e) => {
       wx.showToast({
         title: '发布成功',
@@ -173,8 +165,12 @@ Page({
   },
 
   showModal() {
+    const eventType = this.data.eventType
+    const isCircleType = eventType === 'Circle'
+
+    const query = isCircleType ? `type=${eventType}&id=${this.data.event.circles_id}` : `type=${eventType}`
     wx.navigateTo({
-      url: `/pages/publish-topic-select/index?type=${this.data.eventType}`,
+      url: `/pages/publish-topic-select/index?${query}`,
     })
   },
 
