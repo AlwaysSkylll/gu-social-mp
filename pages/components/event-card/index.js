@@ -30,7 +30,8 @@ Component({
     user: wx.getStorageSync('userInfo'),
     hovered: false,
     shareEventShow: false,
-    imageWidth: wx.getSystemInfoSync().windowWidth
+    imageWidth: wx.getSystemInfoSync().windowWidth,
+    tapNum: 0,
   },
 
   attached() {
@@ -75,7 +76,8 @@ Component({
       const callback = (praiseNum) => {
         this.setData({
           ['event.praise']: status,
-          ['event.praise_num']: praise_num < 0 ? 0 : praise_num
+          ['event.praise_num']: praise_num < 0 ? 0 : praise_num,
+          tapNum: ++ this.data.tapNum
         })
       }
       const param = {
