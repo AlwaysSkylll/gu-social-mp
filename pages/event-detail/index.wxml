@@ -1,6 +1,6 @@
 <!--pages/topic-detail/index.wxml-->
 <view class="event-detail">
-  <event-card event="{{item}}" callback="{{false}}"></event-card>
+  <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" callback="{{false}}"></event-card>
   <view class="gray-buttom"></view>
   <view class="event-detail_comment-list">
     <view>评论 <text class="comment-num">({{item.comment_num || 0}})</text></view>

@@ -37,7 +37,7 @@
         <image class="operation-icon" wx:else src="/static/normal_flower.png"></image>
         {{event.participant_num}}
       </view> -->
-      <view class="operation" catchtap="shareEvent">
+      <view class="operation" catchtap="shareEvent" catchtap="shareEvent">
         <image class="operation-icon" src="/static/normal_share.png"></image>
         {{event.share_num}}
       </view>
@@ -53,3 +53,14 @@
     </view>
   </view>
 </view>
+
+<view class="cu-modal {{shareEventShow ? 'show' : ''}}" bindtap="hideEvent">
+  <view class="share-paper-card" style="width: 570rpx;height:665rpx;" catchtap="previewImg">
+    <image style="width: 570rpx;height:570rpx;" src="{{sharePaperPath}}" class="share-img"></image>
+    <view class="share-button">
+      <view class="btn" catchtap="saveImage">一键保存</view>
+    </view>
+  </view>
+</view>
+
+<canvas class="share-canvas" style="width: 570rpx;height:570rpx;" canvas-id="myeventcanvas"/>
