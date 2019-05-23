@@ -101,7 +101,7 @@
 	-ms-transform: scale(1);
 	transform: scale(1);
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: hidden;
 	pointer-events: auto;
 }
 
@@ -110,3 +110,52 @@
   overflow:hidden;
   white-space:nowrap;
 }
+
+.share-paper-card {
+  display: inline-block;
+  width: 575rpx;
+  height: 815rpx;
+  margin-top: 165rpx;
+  position: relative;
+  background: #ffffff;
+  border-radius: 5rpx;
+  overflow:hidden;
+}
+
+.share-img, .share-canvas {
+  display: inline-block;
+  width: 575rpx;
+  height: 765rpx;
+}
+
+.share-canvas {
+  position: fixed;
+  top: 9999999px;
+}
+
+.share-button, .copy-button {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.share-button {
+  bottom: 30rpx;
+}
+
+.copy-button {
+  top: 300rpx;
+}
+
+.share-button .btn {
+  padding: 10rpx 20rpx;
+  font-size: 22rpx;
+  background: #3ad0ec;
+}
+
+.copy-button .btn {
+  padding: 10rpx 20rpx;
+  font-size: 22rpx;
+  background: #33dddb;
+}
+

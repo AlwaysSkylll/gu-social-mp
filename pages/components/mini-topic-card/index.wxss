@@ -19,7 +19,7 @@
   position: absolute;
   bottom: 0;
   background: #FFFFFF;
-  opacity: 0.5;
+  opacity: 0.8;
   height: 50rpx;
   width: 100%;
   padding: 0 10rpx;

@@ -3,7 +3,7 @@
 
 <view class="topic-detail">
   <image mode="aspectFill" class="topic-detail_bg" src="{{subject.covers[0]}}"></image>
-  <button class="topic-detail_share" open-type="share">
+  <button class="topic-detail_share" bindtap="createCanvas">
     <image class="topic-detail_share-icon" src="/static/share.png"></image>
   </button>
   <view class="topic-detail_info light-gray-bottom">
@@ -22,3 +22,18 @@
 </view>
 
 <custom-simple-bar type="{{type}}" subject="{{subject}}"></custom-simple-bar>
+
+<view class="cu-modal {{shareCardShow ? 'show' : ''}}" bindtap="hideCard">
+  <view class="share-paper-card" catchtap="previewImg">
+    <image src="{{sharePaperPath}}" class="share-img"></image>
+    <view class="copy-button">
+      <view class="btn" catchtap="copyDesc">一键复制</view>
+    </view>
+    <view class="share-button">
+      <view class="btn" catchtap="saveImage">一键保存</view>
+    </view>
+  </view>
+</view>
+
+<canvas class="share-canvas" canvas-id="mycanvas"/>
+

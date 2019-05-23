@@ -46,8 +46,8 @@
         {{event.comment_num}}
       </view>
       <view class="operation" catchtap="setPraise">
-        <image class="operation-icon" wx:if="{{event.praise}}" src="/static/red_like.png"></image>
-        <image class="operation-icon" wx:else src="/static/normal_like.png"></image>
+        <image class="operation-icon like-icon" wx:if="{{event.praise}}" src="/static/red_like.png"></image>
+        <image class="operation-icon unlike-icon" wx:else src="/static/normal_like.png"></image>
         {{event.praise_num}}
       </view> 
     </view>

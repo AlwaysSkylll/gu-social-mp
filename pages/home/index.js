@@ -18,7 +18,7 @@ Page({
         []
       ],
       finish: [false, false],
-      swipers: [1,2,3],
+      swipers: [],
       isIpx: app.globalData.isIpx
     },
     onLoad() {
@@ -38,7 +38,7 @@ Page({
         this.setData({
           circles: [],
           topics: [],
-          swipers: [1, 2, 3],
+          swipers: [],
         })
         this.getCircleData()
         this.getTopicData()
@@ -99,7 +99,18 @@ Page({
     },
 
     goSwiperDetail(e) {
-      
+      const index = e.currentTarget.dataset.index
+      if (!(this.data.swipers[index].target && this.data.swipers[index].target.id)) return
+      if (this.data.swipers[index].target_type === 'circles') {
+        wx.navigateTo({
+          url: `/pages/topic-detail/index?id=${this.data.swipers[index].target.id}&type=Circle`
+        })
+      }
+      if (this.data.swipers[index].target_type === 'subjects') {
+        wx.navigateTo({
+          url: `/pages/topic-detail/index?id=${this.data.swipers[index].target.id}&type=Subject`
+        })
+      }
     },
     /**
      * 获取页面所有数据
@@ -111,7 +122,7 @@ Page({
         topics: [],
         events: [[], []],
         finish: [false, false],
-        swipers: [1, 2, 3],
+        swipers: [],
       })
       this.getCircleData()
       this.getTopicData()
@@ -121,9 +132,13 @@ Page({
     },
 
     getSwiper() {
-      // api.homeSwiper(res => {
+      api.homeSwiper().then(res => {
+        console.log(res, 99999)
 
-      // })
+        this.setData({
+          swipers: res.data
+        })
+      })
     },
 
     /**

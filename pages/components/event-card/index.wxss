@@ -131,6 +131,7 @@
 }
 
 .footer-operations {
+  height: 44rpx;
   position: absolute;
   display: flex;
   justify-content: flex-end;
@@ -150,6 +151,16 @@
   margin: 0 20rpx 0 30rpx;
   width: 30rpx;
   height: 30rpx;
+}
+
+.footer-operations .like-icon {
+  width: 30rpx;
+  height: 50rpx;
+}
+
+.footer-operations .unlike-icon {
+  width: 30rpx;
+  height: 40rpx;
 }
 
 .footer-operations .operation-icon:nth-child(3) {

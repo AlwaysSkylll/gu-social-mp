@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -80,9 +80,9 @@
 				},
 				{
 					"id": 5,
-					"name": "话题详情",
+					"name": "圈子详情",
 					"pathName": "pages/topic-detail/index",
-					"query": "id=38&type=Subject",
+					"query": "id=9&type=Circle",
 					"scene": null
 				},
 				{
