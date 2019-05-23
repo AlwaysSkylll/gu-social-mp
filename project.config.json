@@ -82,7 +82,7 @@
 					"id": 5,
 					"name": "圈子详情",
 					"pathName": "pages/topic-detail/index",
-					"query": "id=9&type=Circle",
+					"query": "id=39&type=Subject",
 					"scene": null
 				},
 				{

@@ -56,11 +56,11 @@
 
 <view class="cu-modal {{shareEventShow ? 'show' : ''}}" bindtap="hideEvent">
   <view class="share-paper-card" style="width: 570rpx;height:665rpx;" catchtap="previewImg">
-    <image style="width: 570rpx;height:570rpx;" src="{{sharePaperPath}}" class="share-img"></image>
+    <image style="width: 570rpx;height:600rpx;" src="{{sharePaperPath}}" class="share-img"></image>
     <view class="share-button">
       <view class="btn" catchtap="saveImage">一键保存</view>
     </view>
   </view>
 </view>
 
-<canvas class="share-canvas" style="width: 570rpx;height:570rpx;" canvas-id="myeventcanvas"/>
+<canvas class="share-canvas" style="width: 570rpx;height:600rpx;" canvas-id="myeventcanvas"/>

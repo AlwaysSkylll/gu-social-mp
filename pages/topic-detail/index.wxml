@@ -24,7 +24,7 @@
 <custom-simple-bar type="{{type}}" subject="{{subject}}"></custom-simple-bar>
 
 <view class="cu-modal {{shareCardShow ? 'show' : ''}}" bindtap="hideCard">
-  <view class="share-paper-card" catchtap="previewImg">
+  <view class="share-paper-card" style="height: {{type == 'Subject' ? 845 : 815}}rpx" catchtap="previewImg">
     <image src="{{sharePaperPath}}" class="share-img"></image>
     <view class="copy-button">
       <view class="btn" catchtap="copyDesc">一键复制</view>

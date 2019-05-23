@@ -114,6 +114,33 @@ Page({
       context.clip()
       context.drawImage(images[1], canvasWidth - this.rpx2px(120), detailY + this.rpx2px(200), this.rpx2px(90), this.rpx2px(90));
       context.restore()
+
+      if (this.data.type === 'Subject') {
+        let title = this.data.subject.title
+        title = title.length < 8 ? title : title.slice(0, 8) + '...'
+        context.setFontSize(this.rpx2px(22))
+        context.setFillStyle('#979797')
+        const titleWidth = context.measureText(title + '#').width
+        context.save()
+        context.setFillStyle('#eeeeee')
+        context.fillRect(this.rpx2px(30), this.rpx2px(690), titleWidth, this.rpx2px(36))
+        context.restore()
+        context.fillText('#' + title, this.rpx2px(30), this.rpx2px(710))
+
+
+        context.save()
+        context.setTextAlign('center')
+        context.setFillStyle('#000000')
+        context.setFontSize(this.rpx2px(12))
+        context.fillText(this.data.subject.comment_num, this.rpx2px(530), this.rpx2px(710))
+        context.fillText(this.data.subject.praise_num, this.rpx2px(455), this.rpx2px(710))
+        context.fillText(this.data.subject.participant_num, this.rpx2px(375), this.rpx2px(710))
+        context.drawImage('/static/icon_chanyu@2x.png', this.rpx2px(325), this.rpx2px(700), this.rpx2px(27), this.rpx2px(18));
+        context.drawImage('/static/icon_xihuan@2x.png', this.rpx2px(410), this.rpx2px(700), this.rpx2px(25), this.rpx2px(22));
+        context.drawImage('/static/icon_ping@2x.png', this.rpx2px(480), this.rpx2px(700), this.rpx2px(25), this.rpx2px(22));
+      }
+      context.restore()
+
       context.draw()
 
       setTimeout(() => {
