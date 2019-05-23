@@ -52,9 +52,9 @@ Page({
     }
     app.globalData.userInfo = userInfo
     app.getToken(userInfo, () => {
-      wx.switchTab({
-        url: '/pages/home/index',
-      })
+      // wx.switchTab({
+      //   url: '/pages/home/index',
+      // })
     })
   },
 })

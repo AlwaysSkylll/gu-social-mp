@@ -75,6 +75,13 @@ App({
             self.globalData.logining = false;
             callback && callback()
             self.userInfoReadyCallback && self.userInfoReadyCallback()
+            
+            wx.navigateBack({
+              succrss: () => {
+                let pages = getCurrentPages(); //当前页面栈
+                let prevPage = pages.pop();//当前页面
+              }
+            })
           })
         } else {
           self.globalData.logining = false;

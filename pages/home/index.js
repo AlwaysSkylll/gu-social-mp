@@ -23,11 +23,12 @@ Page({
     },
     onLoad() {
       wx.hideTabBar({})
-      this.getData();
-      app.userInfoReadyCallback = this.getData
     },
     onReady() {
       
+    },
+    onShow() {
+      this.getData();
     },
 
     /**
