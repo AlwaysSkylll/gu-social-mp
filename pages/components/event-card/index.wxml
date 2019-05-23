@@ -37,7 +37,7 @@
         <image class="operation-icon" wx:else src="/static/normal_flower.png"></image>
         {{event.participant_num}}
       </view> -->
-      <view class="operation">
+      <view class="operation" catchtap="shareEvent">
         <image class="operation-icon" src="/static/normal_share.png"></image>
         {{event.share_num}}
       </view>

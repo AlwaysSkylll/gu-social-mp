@@ -17,7 +17,7 @@
   </view>
   <view class="topic-detail_desc light-gray-bottom">{{subject.description}}</view>
   <view class="gray-buttom" wx:for="{{events}}" wx:key="{{index}}">
-    <event-card event="{{item}}" type="subjects"></event-card>
+    <event-card event="{{item}}" type="subjects" bindshareEvent="shareEvent"></event-card>
   </view>
 </view>
 
@@ -54,5 +54,15 @@
   </view>
 </view>
 
+<view class="cu-modal {{shareEventShow ? 'show' : ''}}" bindtap="hideEvent">
+  <view class="share-paper-card" style="width: 570rpx;height:665rpx;" catchtap="previewImg">
+    <image style="width: 570rpx;height:570rpx;" src="{{sharePaperPath}}" class="share-img"></image>
+    <view class="share-button">
+      <view class="btn" catchtap="saveImage">一键保存</view>
+    </view>
+  </view>
+</view>
+
 <canvas class="share-canvas" canvas-id="mycanvas"/>
+<canvas class="share-canvas" style="width: 570rpx;height:570rpx;" canvas-id="myeventcanvas"/>
 

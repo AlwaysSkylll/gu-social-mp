@@ -61,6 +61,9 @@ Component({
         ['event.user.follow']: status
       })
     },
+    shareEvent() {
+      this.triggerEvent('shareEvent', this.data.event)
+    },
     setPraise() {
       const status = !this.data.event.praise
       let praise_num = this.data.event.praise_num || 0
