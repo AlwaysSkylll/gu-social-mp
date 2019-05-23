@@ -115,7 +115,7 @@
 }
 
 .event-card-footer .topic-title {
-  max-width: 450rpx;
+  max-width: 380rpx;
   display: inline-block;
   padding: 10rpx;
   background: #eeeeee;
@@ -136,7 +136,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  right: 20rpx;
+  right: 0;
   bottom: 15rpx;
   max-width: 480rpx;
   font-size: 22rpx;
@@ -145,10 +145,11 @@
 .footer-operations .operation {
   display: flex;
   align-items: center;
+  margin: 10rpx 15rpx;
 }
 
 .footer-operations .operation-icon {
-  margin: 0 20rpx 0 30rpx;
+  margin: 0 20rpx 0 0;
   width: 30rpx;
   height: 30rpx;
 }
