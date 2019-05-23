@@ -13,7 +13,8 @@ Page({
     type: '',
     imageWidth: 0,
     sharePaperPath: '',
-    shareCardShow: false
+    shareCardShow: false,
+    shareChoiceShow: false
   },
 
   /**
@@ -49,11 +50,24 @@ Page({
     })
   },
 
+  showShareChoice() {
+    this.setData({
+      shareChoiceShow: true,
+    })
+  },
+
+  hideShareChoice() {
+    this.setData({
+      shareChoiceShow: false,
+    })
+  },
+
   px2rpx(num) {
     return Math.round(this.data.imageWidth / 750 * num)
   },
 
   createCanvas() {
+    this.hideShareChoice()
     if (this.data.sharePaperPath) {
       this.showCard()
       return

@@ -89,3 +89,45 @@
 .topic-detail_datas .data-icon.comment {
   width: 25rpx;
 }
+
+.share-choice {
+  position: absolute;
+  width: 100%;
+  height: 290rpx;
+  bottom: -290rpx;
+  background: #fff;
+  transition: all 0.3s ease-in-out 0s;
+  font-size: 28rpx;
+}
+
+.show .share-choice {
+  bottom: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.share-chioce_item {
+  margin-top: 40rpx;
+  width: 90rpx;
+  font-size: 22rpx;
+  padding: 0;
+  border-radius: 0;
+  background:transparent;
+  border: none;
+  text-align: center;
+  line-height: 30rpx;
+  overflow: auto;
+  float:left;
+  margin-left:40rpx;
+}
+
+.share-chioce_item::after {
+  border: none;
+  border-radius: 0;
+}
+
+
+.share-chioce_item image {
+  width: 90rpx;
+  height: 90rpx;
+  margin-bottom: 30rpx;
+}

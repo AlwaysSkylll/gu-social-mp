@@ -16,6 +16,7 @@ Page({
       event_id: '',
       target_user_id: ''
     },
+    placeholder: ''
   },
 
   /**
@@ -23,6 +24,14 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+
+    const randomPlace = ['有想法？别藏着', '想说什么就说什么', '别矜持，随便整几句', '评论是建立友谊的第一步']
+    const randomIndex = Math.floor(Math.random() * 4)
+
+    this.setData({
+      placeholder: randomPlace[randomIndex],
+    })
+
     api.getEventDetail({}, options.id).then(res => {
       this.setData({
         item: res

@@ -9,12 +9,12 @@
 </view>
 <view class="comment-area fake-comment-area">
   <image class="comment-icon" src="/static/comment.png"></image>
-  <view class="fake-comment" bindtap="showRealComment">说点儿什么吧</view>
+  <view class="fake-comment" bindtap="showRealComment">{{placeholder}}</view>
 </view>
 
 <view class="modal {{focusArea ? 'show' : ''}}" bindtap="hideRealComment">
   <view class="comment-area real-comment-area" catchtap="toolOperation">
-    <textarea cursor-spacing="80" show-confirm-bar="{{false}}" class="real-comment" placeholder="说点儿什么吧~" bindinput="updateContext"></textarea>
+    <textarea cursor-spacing="80" show-confirm-bar="{{false}}" class="real-comment" placeholder="{{placeholder}}" bindinput="updateContext"></textarea>
     <view class="comment-tools">
       <view class="send-btn"  catchtap="send">发送</view>
       <view class="mention-btn"  catchtap="mention">@</view>
