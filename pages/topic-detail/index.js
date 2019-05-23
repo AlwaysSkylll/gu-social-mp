@@ -1,5 +1,6 @@
 // pages/topic-detail/index.js
 const api = require('../../api/index.js')
+const app = getApp()
 const { formatTime } = require('../../utils/util.js')
 
 Page({
@@ -237,6 +238,11 @@ Page({
           }, fail: function (res) {
           }
         })
+      },
+      fail: function (res) {
+        if (res.errMsg === "saveImageToPhotosAlbum:fail auth deny" || res.errMsg === "saveImageToPhotosAlbum:fail:auth denied") {
+          app.requestSaveImgPermission()
+        }
       }
     })
   },

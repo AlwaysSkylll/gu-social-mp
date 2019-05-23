@@ -1,0 +1,40 @@
+/* pages/invite/index.wxss */
+.invite-page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.invite-img {
+  width: 100vw;
+  height: 100vh;
+}
+
+.invite-btn {
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 24rpx;
+  color: #000000;
+  bottom: 350rpx;
+  left: 290rpx;
+  display: flex;
+  align-items: center;
+}
+
+.invite-text {
+  margin-left: 10rpx;
+  display: inline-block;
+}
+
+.invite-icon {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.invite-canvas {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 9999999px;
+}

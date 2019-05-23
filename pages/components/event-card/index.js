@@ -1,7 +1,7 @@
 // pages/components/event-card/index.js
 const api = require('../../../api/index.js')
 const { formatTime } = require('../../../utils/util.js')
-
+const app = getApp()
 
 Component({
   externalClasses: ['cu-modal', 'show', 'share-paper-card', 'share-img', 'share-button', 'btn', 'share-canvas'],
@@ -207,14 +207,13 @@ Component({
             confirmText: '好的',
             confirmColor: '#333',
             success: function (res) {
-              if (res.confirm) {
-                that.setData({
-                  maskHidden: false
-                })
-              }
-            }, fail: function (res) {
             }
           })
+        },
+        fail: function (res) {
+          if (res.errMsg === "saveImageToPhotosAlbum:fail auth deny" || res.errMsg === "saveImageToPhotosAlbum:fail:auth denied") {
+            app.requestSaveImgPermission()
+          }
         }
       })
     },
@@ -250,9 +249,6 @@ Component({
       context.setLineJoin('round')
       context.setStrokeStyle('#979797')
       context.strokeRect(this.rpx2px(30), this.rpx2px(30), this.rpx2px(520), this.rpx2px(535))
-
-      console.log(this.rpx2px(30), this.rpx2px(30), this.rpx2px(520), this.rpx2px(535))
-
 
       // 用户信息
       const location = event.location_name.length < 14 ? event.location_name : event.location_name.slice(0, 14) + '...'

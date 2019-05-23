@@ -11,7 +11,8 @@
     "pages/topic-list/index",
     "pages/publish-topic/index",
     "pages/publish-event/index",
-    "pages/publish-topic-select/index"
+    "pages/publish-topic-select/index",
+    "pages/invite/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

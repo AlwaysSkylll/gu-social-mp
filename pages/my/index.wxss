@@ -94,3 +94,16 @@
   flex-direction: column;
   color: #FFFFFF;
 }
+
+.my_share-icon {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 35rpx;
+  width: 40rpx;
+  padding: 20rpx;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}

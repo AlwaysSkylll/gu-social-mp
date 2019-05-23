@@ -37,6 +37,9 @@
         <view></view>
       </view>
     </view>
+
+    <!-- 分享名片 -->
+    <image class="my_share-icon" src="/static/share.png" bindtap="goInvite"></image>
   </view>
 
   <!-- 我的 腿儿 -->
