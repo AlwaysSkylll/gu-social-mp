@@ -75,7 +75,8 @@ App({
             self.globalData.logining = false;
             callback && callback()
             self.userInfoReadyCallback && self.userInfoReadyCallback()
-            
+            self.globalData.needRefresh = true
+
             wx.navigateBack({
               succrss: () => {
                 let pages = getCurrentPages(); //当前页面栈
@@ -144,6 +145,7 @@ App({
   },
   globalData: {
     logining: false,
+    needRefresh: false,
     userInfo: null,
     testToken: 'lGV0HK8F8fKIJCvW4pyY6QSU4xAtXq4n',
     tokenBody: {},

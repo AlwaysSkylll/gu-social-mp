@@ -23,12 +23,16 @@ Page({
     },
     onLoad() {
       wx.hideTabBar({})
+      this.getData();
     },
     onReady() {
       
     },
     onShow() {
-      this.getData();
+      if (app.globalData.needRefresh === true) {
+        app.globalData.needRefresh = false
+        this.getData()
+      }
     },
 
     /**

@@ -1,5 +1,6 @@
 // pages/circle-list/index.js
 const api = require('../../api/index.js')
+const app = getApp()
 
 Page({
 
@@ -16,6 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getData()
   },
 
   /**
@@ -29,7 +31,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData()
+    if (app.globalData.needRefresh === true) {
+      app.globalData.needRefresh = false
+      this.getData()
+    }
   },
 
   /**

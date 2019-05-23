@@ -31,6 +31,7 @@ Page({
     wx.setNavigationBarTitle({
       title: options.type === 'Circle' ? '圈子' : '话题'
     })
+    this.getData()
   },
 
   previewImg() {
@@ -258,7 +259,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData()
+    if (app.globalData.needRefresh === true) {
+      app.globalData.needRefresh = false
+      this.getData()
+    }
   },
 
   /**

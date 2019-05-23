@@ -17,13 +17,18 @@ Page({
     isIpx: app.globalData.isIpx
   },
   onLoad: function () {
+    this.getData()
   },
   onReady() {
     wx.hideTabBar({})
   },
   onShow() {
     wx.hideTabBar({})
-    this.getData()
+
+    if (app.globalData.needRefresh === true) {
+      app.globalData.needRefresh = false
+      this.getData()
+    }
   },
   myTabHandler(e) {
     const tabIndex = e.detail.tabIndex

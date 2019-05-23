@@ -1,5 +1,6 @@
 // pages/topic-detail/index.js
 const api = require('../../api/index.js')
+const app = getApp()
 
 Page({
 
@@ -32,13 +33,18 @@ Page({
       placeholder: randomPlace[randomIndex],
     })
 
-    api.getEventDetail({}, options.id).then(res => {
+    this.getData(options.id)
+
+  },
+
+  getData(id) {
+    api.getEventDetail({}, id).then(res => {
       this.setData({
         item: res
       })
     })
 
-    api.getEventsComments({}, options.id).then(res => {
+    api.getEventsComments({}, id).then(res => {
       this.setData({
         comments: res.data,
         total: res.paging.total
@@ -57,7 +63,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (app.globalData.needRefresh === true) {
+      app.globalData.needRefresh = false
+      this.getData()
+    }
   },
 
   /**
