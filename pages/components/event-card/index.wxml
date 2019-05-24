@@ -3,7 +3,7 @@
 
 <view class="event-card {{hovered ? 'event-card_hovered' : ''}}" bindlongtap="hoverCard" bindtouchend="unHoverCard">
   <view class="event-card_user" bindtap="toDetail">
-    <image lazy-load="{{true}}" class="avatar" src="{{ event.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
+    <image lazy-load="{{true}}" class="avatar" src="{{ event.user.avatar_url }}"></image>
     <view class="event-card_ground-info">
       <view class="event-card_info1">
         <text>{{event.user.nickname}}</text>
