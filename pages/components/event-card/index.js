@@ -154,8 +154,13 @@ Component({
 
       row.push(temp);
 
-      for (var b = 0; b < row.length; b++) {
-        context.fillText(row[b], x, y + (b + 1) * this.rpx2px(30));
+      for (let b = 0; b < row.length; b++) {
+        if (b == 7) {
+          context.fillText(row[b].slice(0, -2) + '...', x, y + (b + 1) * this.rpx2px(30));
+          return 8
+        } else {
+          context.fillText(row[b], x, y + (b + 1) * this.rpx2px(30));
+        }
       }
 
       return row.length
