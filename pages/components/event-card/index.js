@@ -192,6 +192,7 @@ Component({
           wx.hideLoading()
           let tempFilePath = res.tempFilePath;
           this.setData({
+            startDrawCanvas: false,
             sharePaperPath: tempFilePath,
             [canvasShowProperty]: true
           });
@@ -238,6 +239,9 @@ Component({
     },
 
     shareEvent() {
+      this.setData({
+        startDrawCanvas: true
+      })
       const event = this.data.event
       wx.showLoading({
         title: '海报生成中',
