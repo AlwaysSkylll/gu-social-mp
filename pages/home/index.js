@@ -111,7 +111,7 @@ Page({
           url: `/pages/topic-detail/index?id=${this.data.swipers[index].target.id}&type=Circle`
         })
       }
-      if (this.data.swipers[index].target_type === 'subjects') {
+      if (this.data.swipers[index].target_type === 'subject') {
         wx.navigateTo({
           url: `/pages/topic-detail/index?id=${this.data.swipers[index].target.id}&type=Subject`
         })

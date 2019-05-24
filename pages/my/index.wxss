@@ -109,9 +109,11 @@
 }
 
 .bg-default-text {
-  position:absolute;
-  top:40%;
+  font-size: 24rpx;
   text-align:center;
-  width:100%;
   color:#fff;
+  background: #000;
+  border-radius: 50rpx;
+  opacity: 0.5;
+  padding: 10rpx 20rpx;
 }
