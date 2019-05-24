@@ -92,6 +92,8 @@
 
 .share-choice {
   position: absolute;
+  box-sizing: border-box;
+  padding-top: 30rpx;
   width: 100%;
   height: 290rpx;
   bottom: -290rpx;
@@ -106,10 +108,10 @@
 }
 
 .share-chioce_item {
-  margin-top: 40rpx;
+  padding: 30rpx 30rpx;
   width: 90rpx;
+  box-sizing: unset;
   font-size: 22rpx;
-  padding: 0;
   border-radius: 0;
   background:transparent;
   border: none;
@@ -117,7 +119,6 @@
   line-height: 30rpx;
   overflow: auto;
   float:left;
-  margin-left:40rpx;
 }
 
 .share-chioce_item::after {
