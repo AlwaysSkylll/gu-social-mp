@@ -107,3 +107,11 @@
   align-items: center;
   line-height: 0;
 }
+
+.bg-default-text {
+  position:absolute;
+  top:40%;
+  text-align:center;
+  width:100%;
+  color:#fff;
+}
