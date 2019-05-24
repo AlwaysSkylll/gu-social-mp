@@ -41,6 +41,7 @@
 }
 
 .tab-bar-item .tab-bar-publish {
+  pointer-events: auto;
   width: 80rpx;
   height: 80rpx;
   border-radius: 40rpx;
