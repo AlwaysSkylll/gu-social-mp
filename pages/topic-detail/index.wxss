@@ -29,8 +29,12 @@
 }
 
 .topic-detail_share-icon {
-  height: 35rpx;
+  height: 40rpx;
   width: 40rpx;
+  background:#000;
+  padding:10rpx;
+  border-radius:40rpx;
+  opacity:0.6;
 }
 
 .topic-detail_info {

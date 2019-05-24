@@ -17,6 +17,7 @@ Page({
     sharePaperPath: '',
     shareCardShow: false,
     shareChoiceShow: false,
+    showHomeBtn: false,
   },
 
   /**
@@ -26,7 +27,8 @@ Page({
     this.setData({
       id: options.id,
       type: options.type,
-      imageWidth: wx.getSystemInfoSync().windowWidth
+      imageWidth: wx.getSystemInfoSync().windowWidth,
+      showHomeBtn: getCurrentPages().length === 1
     })
     wx.setNavigationBarTitle({
       title: options.type === 'Circle' ? '圈子' : '话题'
@@ -36,6 +38,12 @@ Page({
 
   previewImg() {
 
+  },
+
+  homePage() {
+    wx.switchTab({
+      url: '/pages/home/index',
+    })
   },
 
   hideCard() {

@@ -6,6 +6,8 @@
   <button class="topic-detail_share" bindtap="showShareChoice">
     <image class="topic-detail_share-icon" src="/static/share.png"></image>
   </button>
+  <!-- <view class="home-btn" wx:if="{{showHomeBtn}}" catchtap="homePage">首页</view> -->
+
   <view class="topic-detail_info light-gray-bottom">
     <text class="info-title">#{{subject.title}}#</text>
     <view class="info-time">{{timeTools.formatTime(subject.create_time)}}</view>
