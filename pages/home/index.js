@@ -178,15 +178,16 @@ Page({
      */
     getEventsData(index) {
       if (this.data.finish[index]) return
+      const page = this.data.events[index].length
       const param = {
-        offset: this.data.events[index].length,
+        offset: this.data.events[index].length * 10,
         sort: index === 0 ? 'hot' : ''
       }
       api.getEvents(param).then(res => {
-        const events = [...this.data.events[index], ...res.data]
-        const finish = res.paging.total <= this.data.events[index].length
+        const events = res.data
+        const finish = res.paging.total <= (parseInt(res.paging.offset) + res.data.length)
         this.setData({
-          [`events[${index}]`]: events,
+          [`events[${index}][${page}]`]: events,
           [`finish[${index}]`]: finish,
         })
       })

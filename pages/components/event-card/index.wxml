@@ -54,7 +54,7 @@
   </view>
 </view>
 
-<view class="cu-modal {{shareEventShow ? 'show' : ''}}" bindtap="hideEvent">
+<view wx:if="{{shareEventShow}}" class="cu-modal show" bindtap="hideEvent">
   <view class="share-paper-card" style="width: 570rpx;height:665rpx;" catchtap="previewImg">
     <image style="width: 570rpx;height:600rpx;" src="{{sharePaperPath}}" class="share-img"></image>
     <view class="share-button">

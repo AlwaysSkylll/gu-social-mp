@@ -61,12 +61,16 @@
       </view>
       <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
       <view class="light-gray-bottom"></view>
-      <view wx:if="{{groundTabIndex == 0}}" class="home-gorund-item gray-buttom" wx:for="{{events[0]}}" wx:key="{{index}}">
-        <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
-      </view>
-      <view wx:if="{{groundTabIndex == 1}}" class="home-gorund-item gray-buttom" wx:for="{{events[1]}}" wx:key="{{index}}">
-        <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
-      </view>
+      <block wx:if="{{groundTabIndex == 0}}" wx:for="{{events[0]}}" wx:key="{{index}}" wx:for-item="hotPageData">
+        <view class="home-gorund-item gray-buttom" wx:for="{{hotPageData}}" wx:for-index="hotPage" wx:key="{{hotPage}}">
+          <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
+        </view>
+      </block>
+      <block wx:if="{{groundTabIndex == 1}}" wx:for="{{events[1]}}" wx:key="{{index}}" wx:for-item="newPageData">
+        <view class="home-gorund-item gray-buttom" wx:for="{{newPageData}}" wx:for-index="newPage" wx:key="{{newPage}}">
+          <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
+        </view>
+      </block>
     </view>
   </view>
 </view>
