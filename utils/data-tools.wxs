@@ -1,0 +1,11 @@
+var eventContent = function (content) {
+  if (content && content.length > 250) {
+    return content.slice(0, 250)
+  } else {
+    return content
+  }
+}
+
+module.exports = {
+  eventContent: eventContent
+}

@@ -1,5 +1,6 @@
 <!--pages/components/event-card/index.wxml-->
 <wxs src="../../../utils/time-tools.wxs" module="timeTools" />
+<wxs src="../../../utils/data-tools.wxs" module="dataTools" />
 
 <view class="event-card {{hovered ? 'event-card_hovered' : ''}}" bindlongtap="hoverCard" bindtouchend="unHoverCard">
   <view class="event-card_user" bindtap="toDetail">
@@ -21,7 +22,7 @@
     </view>
   </view>
   <view class="event-card_content" bindtap="toDetail">
-    <text>{{event.content}}</text>
+    <text>{{dataTools.eventContent(event.content)}}</text><view wx:if="{{callback && event.content.length > 250}}" class="load-more">查看全文</view>
     <view class="image-box" style="width: {{ event.images.length == 1 ? '60%'  : '100%'}};">
       <image class="event-card_img" style="height: {{ event.images.length > 1 ? 90 / event.images.length : 40}}vw;" wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="aspectFill" src="{{ img }}" catchtap="preview"></image>
     </view>

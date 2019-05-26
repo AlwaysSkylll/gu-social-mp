@@ -188,3 +188,9 @@
       transform: scale(1)
     }
 }
+
+.load-more {
+  display: inline-block;
+  margin-left: 10rpx;
+  color: #5cd4ea;
+}
