@@ -1,4 +1,5 @@
 // stick-button/index.js
+const app = getApp()
 
 Component({
   /**
@@ -12,10 +13,14 @@ Component({
    * 组件的初始数据
    */
   data: {
-    showHomeBtn: false
+    showHomeBtn: false,
+    isIpx: false
   },
 
   attached() {
+    this.setData({
+      isIpx: app.globalData.isIpx
+    })
     const pages = getCurrentPages()
     const showList = [
       'pages/home/index',
