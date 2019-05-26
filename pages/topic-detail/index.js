@@ -118,12 +118,13 @@ Page({
         title = title.length < 8 ? title : title.slice(0, 8) + '...'
         context.setFontSize(drawTools.rpx2px(22))
         context.setFillStyle('#979797')
-        const titleWidth = context.measureText(title + '#').width
+        const titleWidth = context.measureText(title + '#').width + 30
         context.save()
         context.setFillStyle('#eeeeee')
         context.fillRect(drawTools.rpx2px(30), drawTools.rpx2px(335), titleWidth, drawTools.rpx2px(36))
         context.restore()
-        context.fillText('#' + title, drawTools.rpx2px(30), drawTools.rpx2px(360))
+        context.drawImage('/static/icon_huati@2x.png', drawTools.rpx2px(40), drawTools.rpx2px(340), drawTools.rpx2px(24), drawTools.rpx2px(22));
+        context.fillText('#' + title, drawTools.rpx2px(70), drawTools.rpx2px(360))
 
         context.setStrokeStyle('#979797');
         context.beginPath()
