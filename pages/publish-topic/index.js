@@ -71,12 +71,38 @@ Page({
     this.setData({ btnStatus: status })
   },
 
+  deleteImg(e) {
+    const index = e.currentTarget.dataset.index
+    const images = this.data.topic.images
+    this.setData({
+      [`topic.images`]: []
+    })
+    for (let i = 0; i < images.length; i++) {
+      if (i === index && i === 0) {
+        continue
+      }
+      if (i === index) {
+        continue
+      }
+      if (i > index) {
+        this.setData({
+          [`topic.images[${i - 1}]`]: images[i]
+        })
+      } else if (i < index) {
+        this.setData({
+          [`topic.images[${i}]`]: images[i]
+        })
+      }
+    }
+  },
+
   /**
    * 上传图片
    */
   uploadImg(e) {
     const self = this
-    const count = 4 - this.data.topic.images.length
+    const alreadyCount = this.data.topic.images.length
+    const count = 9 - alreadyCount
 
     wx.chooseImage({
       count,
@@ -85,9 +111,12 @@ Page({
       success: (e) => {
         console.log(e, 'success')
         const toBase64Images = e.tempFilePaths.map(filePath => 'data:image/jpeg;base64,' + wx.getFileSystemManager().readFileSync(filePath, 'base64'))
-        this.setData({
-          ['topic.images']: [...this.data.topic.images, ...toBase64Images]
-        })
+        const imgCount = e.tempFilePaths.length
+        for (let i = 0; i < imgCount; i++) {
+          this.setData({
+            [`topic.images[${alreadyCount + i}]`]: toBase64Images[i]
+          })
+        }
         // toBase64Images.map(image => {
         //   api.uploadImage({ image }).then(({url}) => {
         //     this.setData({

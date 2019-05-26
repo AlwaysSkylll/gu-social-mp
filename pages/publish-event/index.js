@@ -94,13 +94,38 @@ Page({
     this.setData({ btnStatus: status })
   },
 
+  deleteImg(e) {
+    const index = e.currentTarget.dataset.index
+    const images = this.data.event.images
+    this.setData({
+      [`event.images`]: []
+    })
+    for (let i = 0; i < images.length; i++) {
+      if (i === index && i === 0) {
+        continue
+      }
+      if (i === index) {
+        continue
+      }
+      if (i > index) {
+        this.setData({
+          [`event.images[${i - 1}]`]: images[i]
+        })
+      } else if (i < index) {
+        this.setData({
+          [`event.images[${i}]`]: images[i]
+        })
+      }
+    }
+  },
+
   /**
    * 上传图片
    */
   uploadImg(e) {
     const self = this
     const alreadyCount = this.data.event.images.length
-    const count = 4 - alreadyCount
+    const count = 9 - alreadyCount
 
     wx.chooseImage({
       count,
