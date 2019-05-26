@@ -1,5 +1,6 @@
 // pages/topic-list/index.js
 const api = require('../../api/index.js')
+const app = getApp()
 
 Page({
 

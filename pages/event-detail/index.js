@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id: 0,
     item: null,
     total: 0,
     comments: [],
@@ -31,20 +32,21 @@ Page({
 
     this.setData({
       placeholder: randomPlace[randomIndex],
+      id: options.id
     })
 
-    this.getData(options.id)
+    this.getData()
 
   },
 
-  getData(id) {
-    api.getEventDetail({}, id).then(res => {
+  getData() {
+    api.getEventDetail({}, this.data.id).then(res => {
       this.setData({
         item: res
       })
     })
 
-    api.getEventsComments({}, id).then(res => {
+    api.getEventsComments({}, this.data.id).then(res => {
       this.setData({
         comments: res.data,
         total: res.paging.total

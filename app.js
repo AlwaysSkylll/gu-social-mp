@@ -75,7 +75,8 @@ App({
 
             const pages = getCurrentPages()
             if (pages.length === 1) {
-              pages[0].onLoad()
+              self.globalData.needRefresh = true
+              pages[0].onShow()
             } else {
               self.globalData.needRefresh = true
               wx.navigateBack({
