@@ -194,3 +194,8 @@
   margin-left: 10rpx;
   color: #5cd4ea;
 }
+
+.load-more-hovered {
+  background: #5cd4ea;
+  color: #fff;
+}
