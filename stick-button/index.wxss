@@ -4,8 +4,8 @@
   position: fixed;
   bottom: 135rpx;
   right: 35rpx;
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   background: #5cd4ea;
   border-radius: 10rpx;
   box-shadow: 0rpx 0rpx 5rpx #888888;
@@ -35,9 +35,9 @@
 .home-icon {
   position: fixed;
   bottom: 325rpx;
-  right: 15rpx;
-  width: 110rpx;
-  height: 110rpx;
+  right: 25rpx;
+  width: 80rpx;
+  height: 80rpx;
   z-index: 100;
   border-radius: 10rpx;
   box-shadow: 0rpx 0rpx 5rpx #888888;

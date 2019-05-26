@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -111,6 +111,13 @@
 					"name": "邀请",
 					"pathName": "pages/invite/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "话题详情",
+					"pathName": "pages/topic-detail/index",
+					"query": "id=39&type=Subject",
 					"scene": null
 				}
 			]

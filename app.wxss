@@ -114,7 +114,6 @@
 .share-paper-card {
   display: inline-block;
   width: 575rpx;
-  height: 815rpx;
   margin-top: 165rpx;
   position: relative;
   background: #ffffff;
@@ -125,7 +124,7 @@
 .share-img, .share-canvas {
   display: inline-block;
   width: 575rpx;
-  height: 765rpx;
+  height: 780rpx;
 }
 
 .share-canvas {
@@ -140,11 +139,11 @@
 }
 
 .share-button {
-  bottom: 30rpx;
+  bottom: 25rpx;
 }
 
 .copy-button {
-  top: 300rpx;
+  top: 525rpx;
 }
 
 .share-button .btn {

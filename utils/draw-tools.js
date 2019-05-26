@@ -1,6 +1,6 @@
 const imageWidth = wx.getSystemInfoSync().windowWidth
 
-var drawText = function(ctx, t, x, y, w) {
+var drawText = function(ctx, t, x, y, w, maxRow) {
   let context = ctx
   let temp = "";
   let row = [];
@@ -18,9 +18,10 @@ var drawText = function(ctx, t, x, y, w) {
   row.push(temp)
 
   for (let b = 0; b < row.length; b++) {
-    if (b == 7) {
+    const maxRowLength = maxRow || 8
+    if (b == maxRowLength - 1) {
       context.fillText(row[b].slice(0, -2) + '...', x, y + (b + 1) * rpx2px(30))
-      return 8
+      return maxRowLength
     } else {
       context.fillText(row[b], x, y + (b + 1) * rpx2px(30))
     }

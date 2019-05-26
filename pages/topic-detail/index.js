@@ -87,35 +87,31 @@ Page({
     context.setFillStyle("#ffffff")
     context.fillRect(0, 0, canvasWidth, canvasHeight)
     
-
-    // 分享
-    const titleY = drawTools.rpx2px(30) + drawTools.rpx2px(15)
-    context.setFontSize(drawTools.rpx2px(30));
-    context.setFillStyle('#5cd4ea');
-    context.setTextAlign('center');
-    context.setTextBaseline('middle');
-    context.fillText('分享', canvasWidth / 2, titleY);
-    context.stroke();
-
     // 描述区域
-    const descY = titleY + drawTools.rpx2px(30)
+    const descY = this.data.type === 'Subject' ? drawTools.rpx2px(400) : drawTools.rpx2px(360)
     const desc = this.data.subject.description
     context.setTextAlign('left');
     context.setFillStyle('#000000');
     context.setFontSize(drawTools.rpx2px(22));
-    const descRowLen = drawTools.drawText(context, desc, drawTools.rpx2px(30), descY, canvasWidth - drawTools.rpx2px(60))
+    const descRowLen = drawTools.drawText(context, desc, drawTools.rpx2px(50), descY, canvasWidth - drawTools.rpx2px(100), 3)
+
+    // 虚线
+    context.setLineWidth(drawTools.rpx2px(1))
+    context.save()
+    context.setStrokeStyle('#eeeeee');
+    context.setLineDash([drawTools.rpx2px(10), drawTools.rpx2px(3)], 0)
+    context.beginPath()
+    context.moveTo(0, drawTools.rpx2px(600))
+    context.lineTo(drawTools.rpx2px(575), drawTools.rpx2px(600))
+    context.stroke()
+    context.restore()
+
 
     // 话题区域
-    const detailY = descY + drawTools.rpx2px(210) + drawTools.rpx2px(110)
 
     Promise.all([drawTools.imgToTempImg(this.data.subject.covers[0]), drawTools.imgToTempImg(this.data.subject.qrcode)]).then(images => {
-      context.drawImage(images[0], drawTools.rpx2px(30), detailY, drawTools.rpx2px(520), drawTools.rpx2px(290));
-      context.save()
-      context.beginPath()
-      context.arc(canvasWidth - drawTools.rpx2px(75), detailY + drawTools.rpx2px(245), drawTools.rpx2px(45), 0, 2 * Math.PI)
-      context.clip()
-      context.drawImage(images[1], canvasWidth - drawTools.rpx2px(120), detailY + drawTools.rpx2px(200), drawTools.rpx2px(90), drawTools.rpx2px(90));
-      context.restore()
+      context.drawImage(images[0], 0, 0, drawTools.rpx2px(575), drawTools.rpx2px(320));
+      context.drawImage(images[1], drawTools.rpx2px(217), drawTools.rpx2px(620), drawTools.rpx2px(140), drawTools.rpx2px(140));
 
       if (this.data.type === 'Subject') {
         let title = this.data.subject.title
@@ -125,21 +121,42 @@ Page({
         const titleWidth = context.measureText(title + '#').width
         context.save()
         context.setFillStyle('#eeeeee')
-        context.fillRect(drawTools.rpx2px(30), drawTools.rpx2px(690), titleWidth, drawTools.rpx2px(36))
+        context.fillRect(drawTools.rpx2px(30), drawTools.rpx2px(335), titleWidth, drawTools.rpx2px(36))
         context.restore()
-        context.fillText('#' + title, drawTools.rpx2px(30), drawTools.rpx2px(710))
+        context.fillText('#' + title, drawTools.rpx2px(30), drawTools.rpx2px(360))
 
+        context.setStrokeStyle('#979797');
+        context.beginPath()
+        context.moveTo(0, drawTools.rpx2px(385))
+        context.lineTo(drawTools.rpx2px(575), drawTools.rpx2px(385))
+        context.stroke()
 
         context.save()
         context.setTextAlign('center')
         context.setFillStyle('#000000')
-        context.setFontSize(drawTools.rpx2px(12))
-        context.fillText(this.data.subject.comment_num, drawTools.rpx2px(530), drawTools.rpx2px(710))
-        context.fillText(this.data.subject.praise_num, drawTools.rpx2px(455), drawTools.rpx2px(710))
-        context.fillText(this.data.subject.participant_num, drawTools.rpx2px(375), drawTools.rpx2px(710))
-        context.drawImage('/static/icon_chanyu@2x.png', drawTools.rpx2px(325), drawTools.rpx2px(700), drawTools.rpx2px(27), drawTools.rpx2px(18));
-        context.drawImage('/static/icon_xihuan@2x.png', drawTools.rpx2px(410), drawTools.rpx2px(700), drawTools.rpx2px(25), drawTools.rpx2px(22));
-        context.drawImage('/static/icon_ping@2x.png', drawTools.rpx2px(480), drawTools.rpx2px(700), drawTools.rpx2px(25), drawTools.rpx2px(22));
+        context.setFontSize(drawTools.rpx2px(16))
+        context.fillText(this.data.subject.comment_num, drawTools.rpx2px(530), drawTools.rpx2px(360))
+        context.fillText(this.data.subject.praise_num, drawTools.rpx2px(455), drawTools.rpx2px(360))
+        context.fillText(this.data.subject.participant_num, drawTools.rpx2px(375), drawTools.rpx2px(360))
+        context.drawImage('/static/icon_chanyu@2x.png', drawTools.rpx2px(325), drawTools.rpx2px(345), drawTools.rpx2px(27), drawTools.rpx2px(18));
+        context.drawImage('/static/icon_xihuan@2x.png', drawTools.rpx2px(410), drawTools.rpx2px(345), drawTools.rpx2px(25), drawTools.rpx2px(22));
+        context.drawImage('/static/icon_ping@2x.png', drawTools.rpx2px(480), drawTools.rpx2px(345), drawTools.rpx2px(25), drawTools.rpx2px(22));
+      } else {
+        context.save()
+        context.setFillStyle('#5dd4ea')
+        context.beginPath()
+        context.moveTo(0, 0)
+        context.lineTo(0, drawTools.rpx2px(75))
+        context.lineTo(drawTools.rpx2px(75), 0)
+        context.lineTo(0, 0)
+        context.fill()
+        context.restore()
+
+        context.save()
+        context.setFillStyle('#ffffff')
+        context.rotate(-45 * Math.PI / 180)
+        context.translate(drawTools.rpx2px(-20), drawTools.rpx2px(60))
+        context.fillText('圈子', drawTools.rpx2px(0), drawTools.rpx2px(-20))
       }
       context.restore()
 

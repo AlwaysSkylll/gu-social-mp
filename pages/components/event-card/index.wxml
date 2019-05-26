@@ -63,4 +63,4 @@
   </view>
 </view>
 
-<canvas wx:if="{{startDrawCanvas}}" class="share-canvas" style="width: 570rpx;height:600rpx;" canvas-id="myeventcanvas"/>
+<canvas wx:if="{{startDrawCanvas}}" class="share-canvas" style="width: 570rpx;height:620rpx;" canvas-id="myeventcanvas"/>
