@@ -1,10 +1,10 @@
 <!--pages/publish/index.wxml-->
 <view class="publish">
   <view class="publish_topic">
-    <input class="publish_topic-input" placeholder="#创建你的话题#" bindinput="updateContext" data-type="title" maxlength="20" focus="{{true}}"></input>
+    <input class="publish_topic-input" placeholder="#创建你的话题#" bindinput="updateContext" data-type="title" maxlength="100" focus="{{true}}"></input>
   </view>
   <view class="publish_desc">
-    <textarea placeholder="描述你的话题" class="publish_desc-area" bindinput="updateContext" data-type="description" maxlength="60"></textarea>
+    <textarea placeholder="描述你的话题" class="publish_desc-area" bindinput="updateContext" data-type="description" maxlength="1000"></textarea>
     <view class="preview-img-list">
       <view class="preview-img-item {{topic.images[index] ? 'full-width' : ''}}" wx:for="{{[1,2, 3, 4]}}" wx:key="{{index}}" bindtap="uploadImg">
         <image wx:if="{{!topic.images[index]}}" class="preview-img" mode="widthFit" src="/static/upload.png"></image>
