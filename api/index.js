@@ -216,3 +216,6 @@ module.exports.unpraise = (data) => commonRequest.request('/api/praise', 'DELETE
  * 首页轮播
  */
 module.exports.homeSwiper = (data) => commonRequest.request('/api/index/slides', 'GET', data)
+
+// 广场页banner
+module.exports.exploreSwiper = (data) => commonRequest.request('/api/square/banners', 'GET', data)

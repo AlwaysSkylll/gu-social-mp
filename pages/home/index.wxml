@@ -57,7 +57,7 @@
     <!-- 广场页 -->
     <view wx:if="{{ tabIndex == 1 }}">
       <view class="home_banner-container">
-        <image lazy-load="{{true}}" class="home_banner" src="/static/default_banner.jpg"></image>
+        <image lazy-load="{{true}}" class="home_banner" src="{{banner.img ? banner.img : '/static/default_banner.jpg'}}" catchtap="goBannerDetail"></image>
       </view>
       <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
       <view class="light-gray-bottom"></view>

@@ -19,6 +19,7 @@ Page({
       ],
       finish: [false, false],
       swipers: [],
+      banner: {},
       isIpx: app.globalData.isIpx
     },
     onLoad() {
@@ -103,6 +104,22 @@ Page({
       })
     },
 
+    // 广场页banner详情
+    goBannerDetail() {
+      if (!(this.data.banner.target && this.data.banner.target.id)) return
+      if (this.data.banner.target_type === 'circles') {
+        wx.navigateTo({
+          url: `/pages/topic-detail/index?id=${this.data.banner.target.id}&type=Circle`
+        })
+      }
+      if (this.data.banner.target_type === 'subject') {
+        wx.navigateTo({
+          url: `/pages/topic-detail/index?id=${this.data.banner.target.id}&type=Subject`
+        })
+      }
+    },
+
+    // 推荐页轮播详情
     goSwiperDetail(e) {
       const index = e.currentTarget.dataset.index
       if (!(this.data.swipers[index].target && this.data.swipers[index].target.id)) return
@@ -117,6 +134,7 @@ Page({
         })
       }
     },
+
     /**
      * 获取页面所有数据
      */
@@ -140,6 +158,12 @@ Page({
       api.homeSwiper().then(res => {
         this.setData({
           swipers: res.data
+        })
+      })
+
+      api.exploreSwiper().then(res => {
+        this.setData({
+          banner: res
         })
       })
     },

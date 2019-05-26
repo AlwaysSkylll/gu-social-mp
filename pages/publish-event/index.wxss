@@ -55,8 +55,6 @@
 .preview-img-item {
   display: inline-block;
   border: 1rpx dashed #c9c9c9;
-  box-sizing: border-box;
-  padding: 5rpx 25rpx;
   /* height: 106rpx;
   width: 84rpx; */
   border-radius: 5rpx;
@@ -64,6 +62,7 @@
 }
 
 .preview-img {
+  padding: 5rpx 25rpx;
 
 }
 

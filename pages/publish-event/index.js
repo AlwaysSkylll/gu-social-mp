@@ -99,7 +99,8 @@ Page({
    */
   uploadImg(e) {
     const self = this
-    const count = 4 - this.data.event.images.length
+    const alreadyCount = this.data.event.images.length
+    const count = 4 - alreadyCount
 
     wx.chooseImage({
       count,
@@ -108,9 +109,12 @@ Page({
       success: (e) => {
         console.log(e, 'success')
         const toBase64Images = e.tempFilePaths.map(filePath => 'data:image/jpeg;base64,' + wx.getFileSystemManager().readFileSync(filePath, 'base64'))
-        this.setData({
-          ['event.images']: [...this.data.event.images, ...toBase64Images]
-        })
+        const imgCount = e.tempFilePaths.length
+        for (let i = 0; i < imgCount; i++) {
+          this.setData({
+            [`event.images[${alreadyCount + i}]`]: toBase64Images[i]
+          })
+        }
         // toBase64Images.map(image => {
         //   api.uploadImage({ image }).then(({url}) => {
         //     this.setData({
