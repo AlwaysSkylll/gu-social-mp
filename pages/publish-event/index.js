@@ -104,6 +104,7 @@ Page({
     wx.chooseImage({
       count,
       sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
       success: (e) => {
         console.log(e, 'success')
         const toBase64Images = e.tempFilePaths.map(filePath => 'data:image/jpeg;base64,' + wx.getFileSystemManager().readFileSync(filePath, 'base64'))

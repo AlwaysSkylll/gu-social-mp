@@ -277,7 +277,6 @@ Page({
       for (let img of images) {
         context.drawImage(img, x, y, width, height);
         x = width + gap
-        console.log(img, x, y, width)
       }
 
       return images

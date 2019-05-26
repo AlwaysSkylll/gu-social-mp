@@ -138,8 +138,6 @@ Page({
 
     getSwiper() {
       api.homeSwiper().then(res => {
-        console.log(res, 99999)
-
         this.setData({
           swipers: res.data
         })
