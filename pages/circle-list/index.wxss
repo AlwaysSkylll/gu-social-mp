@@ -34,8 +34,10 @@
 }
 
 .circle-list_item .topic-bg {
-  width: 100%;
+  width: 214rpx;
   height: 100%;
+  border-radius: 30rpx;
+  border-top-left-radius: 0;
 }
 
 .item-left {
@@ -45,6 +47,8 @@
 
 .item-right {
   flex: 25;
+  display: flex;
+  justify-content: flex-end;
   border-bottom-left-radius: 30rpx;  
   overflow: hidden;
 }

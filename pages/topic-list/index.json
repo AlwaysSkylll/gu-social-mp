@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "stick-button": "/stick-button/index"
+  },
   "enablePullDownRefresh": true,
   "navigationBarTitleText": "话题列表"
 }
