@@ -1,6 +1,7 @@
 // pages/components/event-card/index.js
 const api = require('../../../api/index.js')
 const { formatTime } = require('../../../utils/util.js')
+const drawTools = require('../../../utils/draw-tools.js')
 const app = getApp()
 
 Component({
@@ -30,7 +31,6 @@ Component({
     user: wx.getStorageSync('userInfo'),
     hovered: false,
     shareEventShow: false,
-    imageWidth: wx.getSystemInfoSync().windowWidth,
     tapNum: 0,
   },
 
@@ -133,57 +133,6 @@ Component({
         url: `/pages/topic-detail/index?id=${id}&type=${type}`,
       })
     },
-    rpx2px(num) {
-      return Math.round(this.data.imageWidth / 750 * num)
-    },
-
-    drawText(ctx, t, x, y, w) {
-      let context = ctx
-      let temp = "";
-      let row = [];
-      let height = 0
-
-      for (let char of t) {
-        if (context.measureText(temp).width > w) {
-          row.push(temp);
-          temp = "";
-          height = context.measureText(temp).height
-        }
-        temp += char;
-      }
-
-      row.push(temp);
-
-      for (let b = 0; b < row.length; b++) {
-        if (b == 7) {
-          context.fillText(row[b].slice(0, -2) + '...', x, y + (b + 1) * this.rpx2px(30));
-          return 8
-        } else {
-          context.fillText(row[b], x, y + (b + 1) * this.rpx2px(30));
-        }
-      }
-
-      return row.length
-    },
-
-    imgToTempImg(src) {
-      return new Promise((resolve, reject) => {
-        wx.getImageInfo({
-          src,
-          success: function (res) {
-            if (res.path) {
-              resolve(res.path)
-            } else {
-              reject()
-            }
-          },
-          fail() {
-            reject()
-          }
-        })
-      })
-
-    },
 
     createImage(canvasId, canvasShowProperty) {
       wx.canvasToTempFilePath({
@@ -248,8 +197,8 @@ Component({
       })
       const that = this
       const context = wx.createCanvasContext('myeventcanvas', this);
-      const canvasHeight = this.rpx2px(570)
-      const canvasWidth = this.rpx2px(570)
+      const canvasHeight = drawTools.rpx2px(570)
+      const canvasWidth = drawTools.rpx2px(570)
       context.setTextBaseline('top')
       context.setFillStyle("#ffffff")
       context.fillRect(0, 0, canvasWidth, canvasHeight)
@@ -259,7 +208,7 @@ Component({
       context.setLineCap('round')
       context.setLineJoin('round')
       context.setStrokeStyle('#979797')
-      context.strokeRect(this.rpx2px(30), this.rpx2px(30), this.rpx2px(520), this.rpx2px(535))
+      context.strokeRect(drawTools.rpx2px(30), drawTools.rpx2px(30), drawTools.rpx2px(520), drawTools.rpx2px(535))
 
       // 用户信息
       const location = event.location_name.length < 14 ? event.location_name : event.location_name.slice(0, 14) + '...'
@@ -270,51 +219,51 @@ Component({
       }
 
       context.setFillStyle('#000000');
-      context.setFontSize(this.rpx2px(22))
-      context.fillText(event.user.nickname, this.rpx2px(115), this.rpx2px(50))
+      context.setFontSize(drawTools.rpx2px(22))
+      context.fillText(event.user.nickname, drawTools.rpx2px(115), drawTools.rpx2px(50))
       context.setFillStyle('#979797')
       const titleWidth = context.measureText(title + '#').width
       context.save()
       context.setFillStyle('#eeeeee')
-      context.fillRect(this.rpx2px(50), this.rpx2px(365), titleWidth, this.rpx2px(36))
+      context.fillRect(drawTools.rpx2px(50), drawTools.rpx2px(365), titleWidth, drawTools.rpx2px(36))
       context.restore()
-      context.fillText('#' + title, this.rpx2px(50), this.rpx2px(370))
+      context.fillText('#' + title, drawTools.rpx2px(50), drawTools.rpx2px(370))
 
-      context.setFontSize(this.rpx2px(16))
-      context.fillText(time, this.rpx2px(115), this.rpx2px(80))
+      context.setFontSize(drawTools.rpx2px(16))
+      context.fillText(time, drawTools.rpx2px(115), drawTools.rpx2px(80))
 
       context.setFillStyle('#5cd4ea');
-      context.fillText(location, this.rpx2px(220), this.rpx2px(80))
+      context.fillText(location, drawTools.rpx2px(220), drawTools.rpx2px(80))
 
 
       // 说说内容
       let desc = event.content.length < 18 ? event.content : event.content.slice(0, 18) + '...'
-      desc = !!event.images.length ? desc : event.content
+      desc = !!event.images.length ? desc.split('\n')[0] : event.content
       context.setFillStyle('#000000')
-      context.setFontSize(this.rpx2px(22))
-      const descRowLen = this.drawText(context, desc, this.rpx2px(45), this.rpx2px(90), this.rpx2px(460))
+      context.setFontSize(drawTools.rpx2px(22))
+      const descRowLen = drawTools.drawText(context, desc, drawTools.rpx2px(45), drawTools.rpx2px(90), drawTools.rpx2px(460))
 
 
       // 图片部分
       const avatar = event.user.avatar_url
       const qrcode = event.qrcode
 
-      Promise.all([this.imgToTempImg(avatar), this.imgToTempImg(qrcode)]).then((images) => {
+      Promise.all([drawTools.imgToTempImg(avatar), drawTools.imgToTempImg(qrcode)]).then((images) => {
         const avatarUrl = images[0]
         const qrcode = images[1]
 
         context.save()
         context.beginPath()
-        context.arc(this.rpx2px(75), this.rpx2px(75), this.rpx2px(30), 0, 2 * Math.PI)
+        context.arc(drawTools.rpx2px(75), drawTools.rpx2px(75), drawTools.rpx2px(30), 0, 2 * Math.PI)
         context.clip()
-        context.drawImage(avatarUrl, this.rpx2px(45), this.rpx2px(45), this.rpx2px(60), this.rpx2px(60));
+        context.drawImage(avatarUrl, drawTools.rpx2px(45), drawTools.rpx2px(45), drawTools.rpx2px(60), drawTools.rpx2px(60));
         context.restore()
-        context.drawImage(qrcode, this.rpx2px(225), this.rpx2px(430), this.rpx2px(120), this.rpx2px(120));
+        context.drawImage(qrcode, drawTools.rpx2px(225), drawTools.rpx2px(430), drawTools.rpx2px(120), drawTools.rpx2px(120));
 
         if (event.images.length) {
           let imagesPromiseArray = []
           for (let img of event.images) {
-            imagesPromiseArray.push(this.imgToTempImg(img))
+            imagesPromiseArray.push(drawTools.imgToTempImg(img))
           }
           return Promise.all(imagesPromiseArray)
         } else {
@@ -323,16 +272,15 @@ Component({
 
       }).then((images) => {
         const length = images.length
-        const width = this.rpx2px(Math.min(450 / length, 300))
-        const height = this.rpx2px(180)
-        const gap = this.rpx2px(60)
-        let x = this.rpx2px(45)
-        let y = this.rpx2px(160)
+        const width = drawTools.rpx2px(Math.min(450 / length, 300))
+        const height = drawTools.rpx2px(180)
+        const gap = drawTools.rpx2px(60)
+        let x = drawTools.rpx2px(45)
+        let y = drawTools.rpx2px(160)
 
         for (let img of images) {
           context.drawImage(img, x, y, width, height);
           x = width + gap
-          console.log(img, x, y, width)
         }
 
         return images
@@ -340,17 +288,17 @@ Component({
         context.save()
         context.setTextAlign('center')
         context.setFillStyle('#000000')
-        context.setFontSize(this.rpx2px(12))
-        context.fillText(event.praise_num, this.rpx2px(530), this.rpx2px(380))
-        context.fillText(event.comment_num, this.rpx2px(455), this.rpx2px(380))
-        context.fillText(event.share_num, this.rpx2px(375), this.rpx2px(380))
+        context.setFontSize(drawTools.rpx2px(12))
+        context.fillText(event.praise_num, drawTools.rpx2px(530), drawTools.rpx2px(380))
+        context.fillText(event.comment_num, drawTools.rpx2px(455), drawTools.rpx2px(380))
+        context.fillText(event.share_num, drawTools.rpx2px(375), drawTools.rpx2px(380))
         if (event.praise) {
-          context.drawImage('/static/red_like.png', this.rpx2px(480), this.rpx2px(365), this.rpx2px(20), this.rpx2px(35));
+          context.drawImage('/static/red_like.png', drawTools.rpx2px(480), drawTools.rpx2px(365), drawTools.rpx2px(20), drawTools.rpx2px(35));
         } else {
-          context.drawImage('/static/normal_like.png', this.rpx2px(480), this.rpx2px(375), this.rpx2px(20), this.rpx2px(25));
+          context.drawImage('/static/normal_like.png', drawTools.rpx2px(480), drawTools.rpx2px(375), drawTools.rpx2px(20), drawTools.rpx2px(25));
         }
-        context.drawImage('/static/normal_comment.png', this.rpx2px(410), this.rpx2px(380), this.rpx2px(20), this.rpx2px(15));
-        context.drawImage('/static/normal_share.png', this.rpx2px(325), this.rpx2px(380), this.rpx2px(20), this.rpx2px(15));
+        context.drawImage('/static/normal_comment.png', drawTools.rpx2px(410), drawTools.rpx2px(380), drawTools.rpx2px(20), drawTools.rpx2px(15));
+        context.drawImage('/static/normal_share.png', drawTools.rpx2px(325), drawTools.rpx2px(380), drawTools.rpx2px(20), drawTools.rpx2px(15));
         context.restore()
 
         context.draw()

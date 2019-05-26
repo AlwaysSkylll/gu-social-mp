@@ -22,8 +22,6 @@ App({
   },
   login(callback) {
     const self = this
-    if (self.globalData.logining) return
-    self.globalData.logining = true;
     // 登录
     // wx.login({
     //   success: res => {
@@ -69,20 +67,21 @@ App({
           }).then(res => {
             console.log(res)
             wx.setStorageSync('userInfo', res.user)
-            wx.setStorageSync('token', res.token.token)
             self.globalData.userInfo = res.user
             self.globalData.tokenBody = res.token
             self.globalData.logining = false;
             callback && callback()
             self.userInfoReadyCallback && self.userInfoReadyCallback()
-            self.globalData.needRefresh = true
 
-            wx.navigateBack({
-              succrss: () => {
-                let pages = getCurrentPages(); //当前页面栈
-                let prevPage = pages.pop();//当前页面
-              }
-            })
+            const pages = getCurrentPages()
+            if (pages.length === 1) {
+              pages[0].onLoad()
+            } else {
+              self.globalData.needRefresh = true
+              wx.navigateBack({
+                delta: 1
+              })
+            }
           })
         } else {
           self.globalData.logining = false;

@@ -16,7 +16,7 @@
         <view class="my_header-info_center"></view>
         <view class="my_header-info_right">
           <!-- <follow-btn text="关注"></follow-btn> -->
-          <view wx:if="{{!userInfo.background}}" class="bg-default-text" catchtap="uploadImg">更换背景</view>
+          <view class="bg-default-text" catchtap="uploadImg">更换背景</view>
         </view>
       </view>
 

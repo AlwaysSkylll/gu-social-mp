@@ -1,21 +1,26 @@
 var app = getApp()
 var host = require('./config.js').host
 
-module.exports.request = function (url, method, data) {
+
+
+const request = function (url, method, data) {
   wx.showToast({
     icon: 'loading',
     title: '加载中',
     mask: true,
     duration: 10000
   })
+  if (app.globalData.logining) return Promise.reject()
+  if (!app.globalData.tokenBody.token) {
+    app.globalData.logining = true;
+  }
   return new Promise(function (resolve, reject) {
     wx.request({
       url: host + url,
       data: data,
       header: {
         'content-type': 'application/json',
-        'X-Auth-Token': wx.getStorageSync('token'),
-        // 'X-Auth-Token': app.globalData.testToken
+        'X-Auth-Token': app.globalData.tokenBody.token
       },
       method: method || 'GET',
       success: function (response) {
@@ -46,3 +51,5 @@ module.exports.request = function (url, method, data) {
     })
   })
 }
+
+module.exports.request = request

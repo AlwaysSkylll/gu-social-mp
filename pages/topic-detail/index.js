@@ -2,6 +2,7 @@
 const api = require('../../api/index.js')
 const app = getApp()
 const { formatTime } = require('../../utils/util.js')
+const drawTools = require('../../utils/draw-tools.js')
 
 Page({
 
@@ -13,7 +14,6 @@ Page({
     events: [],
     id: 0,
     type: '',
-    imageWidth: 0,
     sharePaperPath: '',
     shareCardShow: false,
     shareChoiceShow: false,
@@ -27,7 +27,6 @@ Page({
     this.setData({
       id: options.id,
       type: options.type,
-      imageWidth: wx.getSystemInfoSync().windowWidth,
       showHomeBtn: getCurrentPages().length === 1
     })
     wx.setNavigationBarTitle({
@@ -70,10 +69,6 @@ Page({
     })
   },
 
-  rpx2px(num) {
-    return Math.round(this.data.imageWidth / 750 * num)
-  },
-
   createCanvas() {
     this.hideShareChoice()
     if (this.data.sharePaperPath) {
@@ -87,15 +82,15 @@ Page({
     })
     const that = this
     const context = wx.createCanvasContext('mycanvas');
-    const canvasHeight = this.rpx2px(865)
-    const canvasWidth = this.rpx2px(575)
+    const canvasHeight = drawTools.rpx2px(865)
+    const canvasWidth = drawTools.rpx2px(575)
     context.setFillStyle("#ffffff")
     context.fillRect(0, 0, canvasWidth, canvasHeight)
     
 
     // 分享
-    const titleY = this.rpx2px(30) + this.rpx2px(15)
-    context.setFontSize(this.rpx2px(30));
+    const titleY = drawTools.rpx2px(30) + drawTools.rpx2px(15)
+    context.setFontSize(drawTools.rpx2px(30));
     context.setFillStyle('#5cd4ea');
     context.setTextAlign('center');
     context.setTextBaseline('middle');
@@ -103,48 +98,48 @@ Page({
     context.stroke();
 
     // 描述区域
-    const descY = titleY + this.rpx2px(30)
+    const descY = titleY + drawTools.rpx2px(30)
     const desc = this.data.subject.description
     context.setTextAlign('left');
     context.setFillStyle('#000000');
-    context.setFontSize(this.rpx2px(22));
-    const descRowLen = this.drawText(context, desc, this.rpx2px(30), descY, canvasWidth - this.rpx2px(60))
+    context.setFontSize(drawTools.rpx2px(22));
+    const descRowLen = drawTools.drawText(context, desc, drawTools.rpx2px(30), descY, canvasWidth - drawTools.rpx2px(60))
 
     // 话题区域
-    const detailY = descY + this.rpx2px(210) + this.rpx2px(110)
+    const detailY = descY + drawTools.rpx2px(210) + drawTools.rpx2px(110)
 
-    Promise.all([this.imgToTempImg(this.data.subject.covers[0]), this.imgToTempImg(this.data.subject.qrcode)]).then(images => {
-      context.drawImage(images[0], this.rpx2px(30), detailY, this.rpx2px(520), this.rpx2px(290));
+    Promise.all([drawTools.imgToTempImg(this.data.subject.covers[0]), drawTools.imgToTempImg(this.data.subject.qrcode)]).then(images => {
+      context.drawImage(images[0], drawTools.rpx2px(30), detailY, drawTools.rpx2px(520), drawTools.rpx2px(290));
       context.save()
       context.beginPath()
-      context.arc(canvasWidth - this.rpx2px(75), detailY + this.rpx2px(245), this.rpx2px(45), 0, 2 * Math.PI)
+      context.arc(canvasWidth - drawTools.rpx2px(75), detailY + drawTools.rpx2px(245), drawTools.rpx2px(45), 0, 2 * Math.PI)
       context.clip()
-      context.drawImage(images[1], canvasWidth - this.rpx2px(120), detailY + this.rpx2px(200), this.rpx2px(90), this.rpx2px(90));
+      context.drawImage(images[1], canvasWidth - drawTools.rpx2px(120), detailY + drawTools.rpx2px(200), drawTools.rpx2px(90), drawTools.rpx2px(90));
       context.restore()
 
       if (this.data.type === 'Subject') {
         let title = this.data.subject.title
         title = title.length < 8 ? title : title.slice(0, 8) + '...'
-        context.setFontSize(this.rpx2px(22))
+        context.setFontSize(drawTools.rpx2px(22))
         context.setFillStyle('#979797')
         const titleWidth = context.measureText(title + '#').width
         context.save()
         context.setFillStyle('#eeeeee')
-        context.fillRect(this.rpx2px(30), this.rpx2px(690), titleWidth, this.rpx2px(36))
+        context.fillRect(drawTools.rpx2px(30), drawTools.rpx2px(690), titleWidth, drawTools.rpx2px(36))
         context.restore()
-        context.fillText('#' + title, this.rpx2px(30), this.rpx2px(710))
+        context.fillText('#' + title, drawTools.rpx2px(30), drawTools.rpx2px(710))
 
 
         context.save()
         context.setTextAlign('center')
         context.setFillStyle('#000000')
-        context.setFontSize(this.rpx2px(12))
-        context.fillText(this.data.subject.comment_num, this.rpx2px(530), this.rpx2px(710))
-        context.fillText(this.data.subject.praise_num, this.rpx2px(455), this.rpx2px(710))
-        context.fillText(this.data.subject.participant_num, this.rpx2px(375), this.rpx2px(710))
-        context.drawImage('/static/icon_chanyu@2x.png', this.rpx2px(325), this.rpx2px(700), this.rpx2px(27), this.rpx2px(18));
-        context.drawImage('/static/icon_xihuan@2x.png', this.rpx2px(410), this.rpx2px(700), this.rpx2px(25), this.rpx2px(22));
-        context.drawImage('/static/icon_ping@2x.png', this.rpx2px(480), this.rpx2px(700), this.rpx2px(25), this.rpx2px(22));
+        context.setFontSize(drawTools.rpx2px(12))
+        context.fillText(this.data.subject.comment_num, drawTools.rpx2px(530), drawTools.rpx2px(710))
+        context.fillText(this.data.subject.praise_num, drawTools.rpx2px(455), drawTools.rpx2px(710))
+        context.fillText(this.data.subject.participant_num, drawTools.rpx2px(375), drawTools.rpx2px(710))
+        context.drawImage('/static/icon_chanyu@2x.png', drawTools.rpx2px(325), drawTools.rpx2px(700), drawTools.rpx2px(27), drawTools.rpx2px(18));
+        context.drawImage('/static/icon_xihuan@2x.png', drawTools.rpx2px(410), drawTools.rpx2px(700), drawTools.rpx2px(25), drawTools.rpx2px(22));
+        context.drawImage('/static/icon_ping@2x.png', drawTools.rpx2px(480), drawTools.rpx2px(700), drawTools.rpx2px(25), drawTools.rpx2px(22));
       }
       context.restore()
 
@@ -154,49 +149,6 @@ Page({
         this.createImage('mycanvas', 'shareCardShow')
       }, 200)
     })
-  },
-
-  drawText(ctx, t, x, y, w) {
-    let context = ctx
-    let temp = "";
-    let row = [];
-    let height = 0
-
-    for (let char of t) {
-      if (context.measureText(temp).width > w) {
-        row.push(temp);
-        temp = "";
-        height = context.measureText(temp).height
-      }
-      temp += char;
-    }
-
-    row.push(temp);
-    
-    for (var b = 0; b < row.length; b++) {
-      context.fillText(row[b], x, y + (b + 1) * this.rpx2px(30));
-    }
-
-    return row.length
-  },
-
-  imgToTempImg(src) {
-    return new Promise((resolve, reject) => {
-      wx.getImageInfo({
-        src,
-        success: function (res) {
-          if (res.path) {
-            resolve(res.path)
-          } else {
-            reject()
-          }
-        },
-        fail() {
-          reject()
-        }
-      })
-    })
-
   },
 
   copyDesc() {

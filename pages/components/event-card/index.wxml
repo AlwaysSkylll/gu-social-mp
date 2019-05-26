@@ -21,9 +21,9 @@
     </view>
   </view>
   <view class="event-card_content" bindtap="toDetail">
-    {{event.content}}
+    <text>{{event.content}}</text>
     <view class="image-box" style="width: {{ event.images.length == 1 ? '60%'  : '100%'}};">
-      <image style="height: {{ event.images.length > 1 ? 90 / event.images.length : 40}}vw;" wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="aspectFill" src="{{ img }}" catchtap="preview"></image>
+      <image class="event-card_img" style="height: {{ event.images.length > 1 ? 90 / event.images.length : 40}}vw;" wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="aspectFill" src="{{ img }}" catchtap="preview"></image>
     </view>
   </view>
   <view class="event-card-footer">

@@ -93,13 +93,13 @@
   justify-content: space-between;
 }
 
-.event-card_content image {
+.event-card_content .event-card_img {
   flex: 1;
   margin-top: 10rpx;
   border-radius: 5rpx;
 }
 
-.event-card_content image:not(:first-child) {
+.event-card_content .event-card_img:not(:first-child) {
   margin-left: 15rpx;
 }
 
