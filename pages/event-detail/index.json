@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "event-card": "/pages/components/event-card/index",
-    "comment-item": "/pages/components/comment-item/index"
+    "comment-item": "/pages/components/comment-item/index",
+    "stick-button": "/stick-button/index"
   },
   "navigationBarTitleText": "查看评论"
 }

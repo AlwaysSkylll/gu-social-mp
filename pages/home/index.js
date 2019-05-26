@@ -24,7 +24,7 @@ Page({
     },
     onLoad() {
       wx.hideTabBar({})
-      this.getData();
+      this.getData()
     },
     onReady() {
       

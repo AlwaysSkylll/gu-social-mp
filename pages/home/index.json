@@ -5,7 +5,8 @@
     "mini-circle-card": "/pages/components/mini-circle-card/index",
     "mini-topic-card": "/pages/components/mini-topic-card/index",
     "event-card": "/pages/components/event-card/index",
-    "custom-tab-bar": "/custom-tab-bar/index"
+    "custom-tab-bar": "/custom-tab-bar/index",
+    "stick-button": "/stick-button/index"
   },
   "enablePullDownRefresh": true
 }

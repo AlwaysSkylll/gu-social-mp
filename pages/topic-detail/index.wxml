@@ -57,3 +57,5 @@
 </view>
 
 <canvas class="share-canvas" canvas-id="mycanvas"/>
+
+<stick-button></stick-button>

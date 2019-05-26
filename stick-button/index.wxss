@@ -1,0 +1,44 @@
+/* stick-button/index.wxss */
+
+.assist-bg {
+  position: fixed;
+  bottom: 135rpx;
+  right: 35rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #5cd4ea;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 5rpx #888888;
+  transform: rotate(45deg);
+  transform-origin: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.assist-icon {
+  width: 60rpx;
+  height: 55rpx;
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+
+.assist-btn {
+  padding: 0;
+}
+
+.assist-btn::after {
+  border: none;
+}
+
+.home-icon {
+  position: fixed;
+  bottom: 325rpx;
+  right: 15rpx;
+  width: 110rpx;
+  height: 110rpx;
+  z-index: 100;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 5rpx #888888;
+}
