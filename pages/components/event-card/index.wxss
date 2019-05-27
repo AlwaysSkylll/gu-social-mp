@@ -91,16 +91,16 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .event-card_content .event-card_img {
-  flex: 1;
-  margin-top: 10rpx;
+  margin: 15rpx 0;
   border-radius: 5rpx;
 }
 
 .event-card_content .event-card_img:not(:first-child) {
-  margin-left: 15rpx;
+  /* margin-left: 15rpx; */
 }
 
 .event-card_btn {

@@ -262,7 +262,7 @@ Component({
 
         if (event.images.length) {
           let imagesPromiseArray = []
-          for (let img of event.images) {
+          for (let img of event.images.slice(0, 3)) {
             imagesPromiseArray.push(drawTools.imgToTempImg(img))
           }
           return Promise.all(imagesPromiseArray)

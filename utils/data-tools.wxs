@@ -6,6 +6,36 @@ var eventContent = function (content) {
   }
 }
 
+var eventWidth = function (eventNum) {
+  if (eventNum === 1) {
+    return '100%';
+  } if (eventNum === 2) {
+    return '30vw';
+  } 
+  return '31%'
+}
+
+var eventHeight = function (eventNum) {
+  if (eventNum === 1) {
+    return '40vw';
+  } if (eventNum === 1) {
+    return '30vw';
+  }
+  return '20vw'
+}
+
+var boxWidth = function (eventNum) {
+  if (eventNum === 1) {
+    return '40vw';
+  }
+  if (eventNum === 2) {
+    return '70vw'
+  }
+}
+
 module.exports = {
-  eventContent: eventContent
+  eventContent: eventContent,
+  eventWidth: eventWidth,
+  eventHeight: eventHeight,
+  boxWidth: boxWidth
 }

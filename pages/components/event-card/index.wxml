@@ -24,8 +24,8 @@
   <view class="event-card_content" bindtap="toDetail">
     <text wx:if="{{callback && event.content.length > 250}}">{{dataTools.eventContent(event.content)}}</text><view wx:if="{{callback && event.content.length > 250}}" class="load-more" hover-class="load-more-hovered">查看全文</view>
     <text wx:if="{{!callback || event.content.length <= 250}}">{{event.content}}</text>
-    <view class="image-box" style="width: {{ event.images.length == 1 ? '60%'  : '100%'}};">
-      <image class="event-card_img" style="height: {{ event.images.length > 1 ? 90 / event.images.length : 40}}vw;" wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="aspectFill" src="{{ img }}" catchtap="preview"></image>
+    <view class="image-box" style="width:{{ dataTools.boxWidth(event.images.length)}} ">
+      <image class="event-card_img" style="height: {{ dataTools.eventHeight(event.images.length)}};width: {{dataTools.eventWidth(event.images.length)}};" wx:for="{{event.images}}" binderror="imgLoadError" data-index="{{index}}" wx:key="{{index}}" wx:for-item="img" lazy-load="{{true}}" mode="aspectFill" src="{{ img }}" catchtap="preview"></image>
     </view>
   </view>
   <view class="event-card-footer">
