@@ -197,18 +197,11 @@ Component({
       })
       const that = this
       const context = wx.createCanvasContext('myeventcanvas', this);
-      const canvasHeight = drawTools.rpx2px(570)
-      const canvasWidth = drawTools.rpx2px(570)
+      const canvasHeight = drawTools.rpx2px(885)
+      const canvasWidth = drawTools.rpx2px(575)
       context.setTextBaseline('top')
       context.setFillStyle("#ffffff")
       context.fillRect(0, 0, canvasWidth, canvasHeight)
-
-      // 边框
-      context.setLineWidth(1)
-      context.setLineCap('round')
-      context.setLineJoin('round')
-      context.setStrokeStyle('#979797')
-      context.strokeRect(drawTools.rpx2px(30), drawTools.rpx2px(30), drawTools.rpx2px(520), drawTools.rpx2px(535))
 
       // 用户信息
       const location = event.location_name.length < 14 ? event.location_name : event.location_name.slice(0, 14) + '...'
@@ -220,20 +213,20 @@ Component({
 
       context.setFillStyle('#000000');
       context.setFontSize(drawTools.rpx2px(22))
-      context.fillText(event.user.nickname, drawTools.rpx2px(115), drawTools.rpx2px(50))
+      context.fillText(event.user.nickname, drawTools.rpx2px(115), drawTools.rpx2px(340))
       context.setFillStyle('#979797')
-      const titleWidth = context.measureText(title + '#').width
+      const titleWidth = context.measureText(title + '#').width + drawTools.rpx2px(20)
       context.save()
       context.setFillStyle('#eeeeee')
-      context.fillRect(drawTools.rpx2px(50), drawTools.rpx2px(365), titleWidth, drawTools.rpx2px(36))
+      context.fillRect(drawTools.rpx2px(45), drawTools.rpx2px(595), titleWidth, drawTools.rpx2px(36))
       context.restore()
-      context.fillText('#' + title, drawTools.rpx2px(50), drawTools.rpx2px(370))
+      context.fillText('#' + title, drawTools.rpx2px(50), drawTools.rpx2px(600))
 
       context.setFontSize(drawTools.rpx2px(16))
-      context.fillText(time, drawTools.rpx2px(115), drawTools.rpx2px(80))
+      context.fillText(time, drawTools.rpx2px(115), drawTools.rpx2px(370))
 
       context.setFillStyle('#5cd4ea');
-      context.fillText(location, drawTools.rpx2px(220), drawTools.rpx2px(80))
+      context.fillText(location, drawTools.rpx2px(220), drawTools.rpx2px(370))
 
 
       // 说说内容
@@ -241,7 +234,18 @@ Component({
       desc = !!event.images.length ? desc.split('\n')[0] : event.content
       context.setFillStyle('#000000')
       context.setFontSize(drawTools.rpx2px(22))
-      const descRowLen = drawTools.drawText(context, desc, drawTools.rpx2px(45), drawTools.rpx2px(90), drawTools.rpx2px(460))
+      const descRowLen = drawTools.drawText(context, desc, drawTools.rpx2px(45), drawTools.rpx2px(380), drawTools.rpx2px(470), 6)
+
+      // 虚线
+      context.save()
+      context.setLineWidth(drawTools.rpx2px(1))
+      context.setStrokeStyle('#eeeeee');
+      context.setLineDash([drawTools.rpx2px(10), drawTools.rpx2px(3)], 0)
+      context.beginPath()
+      context.moveTo(0, drawTools.rpx2px(650))
+      context.lineTo(drawTools.rpx2px(575), drawTools.rpx2px(650))
+      context.stroke()
+      context.restore()
 
 
       // 图片部分
@@ -254,11 +258,11 @@ Component({
 
         context.save()
         context.beginPath()
-        context.arc(drawTools.rpx2px(75), drawTools.rpx2px(75), drawTools.rpx2px(30), 0, 2 * Math.PI)
+        context.arc(drawTools.rpx2px(75), drawTools.rpx2px(365), drawTools.rpx2px(30), 0, 2 * Math.PI)
         context.clip()
-        context.drawImage(avatarUrl, drawTools.rpx2px(45), drawTools.rpx2px(45), drawTools.rpx2px(60), drawTools.rpx2px(60));
+        context.drawImage(avatarUrl, drawTools.rpx2px(45), drawTools.rpx2px(335), drawTools.rpx2px(60), drawTools.rpx2px(60));
         context.restore()
-        context.drawImage(qrcode, drawTools.rpx2px(225), drawTools.rpx2px(430), drawTools.rpx2px(120), drawTools.rpx2px(120));
+        context.drawImage(qrcode, drawTools.rpx2px(217), drawTools.rpx2px(670), drawTools.rpx2px(140), drawTools.rpx2px(140));
 
         if (event.images.length) {
           let imagesPromiseArray = []
@@ -272,11 +276,11 @@ Component({
 
       }).then((images) => {
         const length = images.length
-        const width = drawTools.rpx2px(Math.min(450 / length, 300))
-        const height = drawTools.rpx2px(180)
+        const width = drawTools.rpx2px(160)
+        const height = drawTools.rpx2px(120)
         const gap = drawTools.rpx2px(60)
         let x = drawTools.rpx2px(45)
-        let y = drawTools.rpx2px(160)
+        let y = drawTools.rpx2px(460)
 
         for (let img of images) {
           context.drawImage(img, x, y, width, height);
@@ -285,20 +289,31 @@ Component({
 
         return images
       }).then(() => {
+        if (event.subject && event.subject.covers && event.subject.covers[0]) {
+          return drawTools.imgToTempImg(event.subject.covers[0])
+        } else {
+          return api.exploreSwiper().then((res) => res.img)
+        }
+      }).then((cover) => {
+        if (cover) {
+          context.drawImage(cover, drawTools.rpx2px(0), drawTools.rpx2px(0), drawTools.rpx2px(575), drawTools.rpx2px(320));
+        } else {
+          context.drawImage('/static/default_banner.jpg', drawTools.rpx2px(0), drawTools.rpx2px(0), drawTools.rpx2px(575), drawTools.rpx2px(320));
+        }
         context.save()
         context.setTextAlign('center')
         context.setFillStyle('#000000')
-        context.setFontSize(drawTools.rpx2px(12))
-        context.fillText(event.praise_num, drawTools.rpx2px(530), drawTools.rpx2px(380))
-        context.fillText(event.comment_num, drawTools.rpx2px(455), drawTools.rpx2px(380))
-        context.fillText(event.share_num, drawTools.rpx2px(375), drawTools.rpx2px(380))
+        context.setFontSize(drawTools.rpx2px(14))
+        context.fillText(event.praise_num, drawTools.rpx2px(530), drawTools.rpx2px(610))
+        context.fillText(event.comment_num, drawTools.rpx2px(455), drawTools.rpx2px(610))
+        context.fillText(event.share_num, drawTools.rpx2px(375), drawTools.rpx2px(610))
         if (event.praise) {
-          context.drawImage('/static/red_like.png', drawTools.rpx2px(480), drawTools.rpx2px(365), drawTools.rpx2px(20), drawTools.rpx2px(35));
+          context.drawImage('/static/red_like.png', drawTools.rpx2px(480), drawTools.rpx2px(595), drawTools.rpx2px(20), drawTools.rpx2px(35));
         } else {
-          context.drawImage('/static/normal_like.png', drawTools.rpx2px(480), drawTools.rpx2px(375), drawTools.rpx2px(20), drawTools.rpx2px(25));
+          context.drawImage('/static/normal_like.png', drawTools.rpx2px(480), drawTools.rpx2px(605), drawTools.rpx2px(20), drawTools.rpx2px(25));
         }
-        context.drawImage('/static/normal_comment.png', drawTools.rpx2px(410), drawTools.rpx2px(380), drawTools.rpx2px(20), drawTools.rpx2px(15));
-        context.drawImage('/static/normal_share.png', drawTools.rpx2px(325), drawTools.rpx2px(380), drawTools.rpx2px(20), drawTools.rpx2px(15));
+        context.drawImage('/static/normal_comment.png', drawTools.rpx2px(410), drawTools.rpx2px(610), drawTools.rpx2px(20), drawTools.rpx2px(15));
+        context.drawImage('/static/normal_share.png', drawTools.rpx2px(325), drawTools.rpx2px(610), drawTools.rpx2px(20), drawTools.rpx2px(15));
         context.restore()
 
         context.draw()

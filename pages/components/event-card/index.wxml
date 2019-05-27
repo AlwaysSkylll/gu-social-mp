@@ -57,12 +57,12 @@
 </view>
 
 <view wx:if="{{shareEventShow}}" class="cu-modal show" bindtap="hideEvent">
-  <view class="share-paper-card" style="width: 570rpx;height:665rpx;" catchtap="previewImg">
-    <image style="width: 570rpx;height:600rpx;" src="{{sharePaperPath}}" class="share-img"></image>
+  <view class="share-paper-card" style="height:920rpx;" catchtap="previewImg">
+    <image src="{{sharePaperPath}}" style="height: 820rpx" class="share-img"></image>
     <view class="share-button">
       <view class="btn" catchtap="saveImage">一键保存</view>
     </view>
   </view>
 </view>
 
-<canvas wx:if="{{startDrawCanvas}}" class="share-canvas" style="width: 570rpx;height:620rpx;" canvas-id="myeventcanvas"/>
+<canvas wx:if="{{startDrawCanvas}}" class="share-canvas" style="height: 820rpx" canvas-id="myeventcanvas"/>

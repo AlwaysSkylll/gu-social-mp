@@ -96,8 +96,8 @@ Page({
     const descRowLen = drawTools.drawText(context, desc, drawTools.rpx2px(50), descY, canvasWidth - drawTools.rpx2px(100), 3)
 
     // 虚线
-    context.setLineWidth(drawTools.rpx2px(1))
     context.save()
+    context.setLineWidth(drawTools.rpx2px(1))
     context.setStrokeStyle('#eeeeee');
     context.setLineDash([drawTools.rpx2px(10), drawTools.rpx2px(3)], 0)
     context.beginPath()
