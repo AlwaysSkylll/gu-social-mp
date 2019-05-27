@@ -20,6 +20,7 @@
 .assist-icon {
   width: 50rpx;
   height: 55rpx;
+  padding-bottom: 10rpx;
   transform-origin: center;
   transform: rotate(-45deg);
 }
