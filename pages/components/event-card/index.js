@@ -292,7 +292,7 @@ Component({
         if (event.subject && event.subject.covers && event.subject.covers[0]) {
           return drawTools.imgToTempImg(event.subject.covers[0])
         } else {
-          return api.exploreSwiper().then((res) => res.img)
+          return api.exploreSwiper().then((res) => drawTools.imgToTempImg(res.img))
         }
       }).then((cover) => {
         if (cover) {
