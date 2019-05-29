@@ -18,6 +18,8 @@ Page({
     shareCardShow: false,
     shareChoiceShow: false,
     showHomeBtn: false,
+    offset: 0,
+    finish: false
   },
 
   /**
@@ -268,7 +270,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getData()
   },
 
   /**
@@ -279,17 +281,25 @@ Page({
   },
 
   getData() {
-    this.getEvents()
-    this.getDetail()
+    if (this.data.finish) return
+    const param = {
+      offset: this.data.events.length,
+      limit: 5
+    }
+    this.getEvents(param)
+    this.getDetail(param)
   },
   
   /**
    * 获取话题下的说手
    */
-  getEvents() {
-    api[`get${this.data.type}Events`]({}, this.data.id).then(res => {
+  getEvents(param) {
+    api[`get${this.data.type}Events`](param, this.data.id).then(res => {
+      const events = [...this.data.events, ...res.data]
+      const finish = res.paging.total <= events.length
       this.setData({
-        events: res.data
+        events,
+        finish
       })
     })
   },
@@ -297,7 +307,7 @@ Page({
   /**
    * 获取话题
    */
-  getDetail() {
+  getDetail(param) {
     api[`get${this.data.type}Detail`]({}, this.data.id).then(res => {
       this.setData({
         subject: res
