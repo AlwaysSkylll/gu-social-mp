@@ -1,0 +1,40 @@
+<!--pages/my/info/index.wxml-->
+<template name="simple-list-picker">
+  <view class="simple-list" data-name="{{item.name}}" data-path="{{item.path}}" data-type="{{item.type}}" bindtap="simpleListHandler">
+    <view class="simple-list_name">{{item.name}}</view>
+    <view class="simple-list_addon">
+      <block wx:if="{{item.type === 'birthday'}}">
+        <picker class="addon-left" mode="date" value="{{userInfo.birthday || date}}" start="1920-01-01" end="{{date}}" bindchange="bindDateChange">{{userInfo.birthday || '填写你的生日'}}</picker>
+      </block>
+
+      <block wx:if="{{item.type === 'gender_name'}}">
+        <picker class="addon-left" mode="selector" range="{{genderList}}" value="{{userInfo.gender_name === '男' ? 1 : 0}}"  bindchange="bindGenderChange">{{userInfo.gender_name || '未知'}}</picker>
+      </block>
+
+      <block wx:if="{{item.type === 'nickname'}}">
+        <view class="addon-left">{{userInfo.nickname}}</view>
+      </block>
+
+      <block wx:if="{{item.type === 'school'}}">
+        <view class="addon-left">{{userInfo.school || '请填写你的学校'}}</view>
+      </block>
+
+      <block wx:if="{{item.type === 'position'}}">
+        <view class="addon-left">{{userInfo.position || '请填写你的职位'}}</view>
+      </block>
+
+      <block wx:if="{{item.type === 'hobby'}}">
+        <view class="addon-left">{{userInfo.hobby || '请填写你的爱好'}}</view>
+      </block>
+
+      <image class="right-arrow" src="/static/right_arrow.png"></image>
+    </view>
+  </view>
+</template>
+
+
+<block wx:for="{{infoList}}" wx:key="{{index}}">
+  <template is="simple-list-picker" data="{{item, userInfo, genderList, date}}"/>
+</block>
+
+<view class="my-editinfo__btn {{value.length === 0 ? 'disabled' : ''}}" bindtap="saveHandler">确认保存</view>

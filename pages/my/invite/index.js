@@ -1,7 +1,7 @@
 // pages/invite/index.js
-const { formatTime } = require('../../utils/util.js')
+const { formatTime } = require('../../../utils/util.js')
 const app = getApp()
-const drawTools = require('../../utils/draw-tools.js')
+const drawTools = require('../../../utils/draw-tools.js')
 
 Page({
 

@@ -53,6 +53,7 @@
 }
 
 .topic-detail_desc {
+  display: block;
   padding: 30rpx;
   font-size: 26rpx;
   line-height: 38rpx;

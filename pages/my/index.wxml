@@ -1,3 +1,18 @@
+<import src="/template/simple-list.wxml" />
+
+<template name="msg-list">
+  <navigator url="{{item.path}}">
+    <view class="msg-item">
+      <image class="msg-icon" lazy-load="{{true}}" mode="aspectFill" src="{{item.icon}}"></image>
+      <view class="msg-item_content">
+        <view class="title">{{item.name}} <view wx:if="{{item.badge}}" class="badge">{{item.badge}}</view></view>
+        <view class="latest">{{item.empty}}</view>
+      </view>
+      <view class="time">16:48</view>
+    </view>
+  </navigator>
+</template>
+
 <view class="container my" style="padding-bottom: {{isIpx ? '180rpx': '100rpx'}}">
 
   <!-- 我的 头 -->
@@ -37,21 +52,28 @@
         <view></view>
       </view>
     </view>
-
-    <!-- 分享名片 -->
-    <!-- <image class="my_share-icon" src="/static/share.png" bindtap="goInvite"></image> -->
   </view>
 
   <!-- 我的 腿儿 -->
   <view class="my_footer">
     <view class="my_footer-tab-container">
-      <!-- <gu-tab tabs="{{tabs}}" width="50%" bindselectmytab="myTabHandler"></gu-tab> -->
-      <gu-tab tabs="{{tabs}}" fontSize="32" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
+      <gu-tab tabs="{{tabs}}" fontSize="32" width="60%" bindselectmytab="myTabHandler"></gu-tab>
+      <!-- <gu-tab tabs="{{tabs}}" fontSize="32" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab> -->
       <view class="light-gray-bottom"></view>
-      <view wx:if="{{tabIndex == 0}}">
+      <view hidden="{{tabIndex != 0}}">
         <view class="home-gorund-item gray-buttom" wx:for="{{myEvents}}" wx:key="{{index}}">
-        <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas" event="{{item}}" type="events"></event-card>
+          <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas" event="{{item}}" type="events"></event-card>
+        </view>
       </view>
+      <view hidden="{{tabIndex != 1}}">
+        <block wx:for="{{messageList}}" wx:key="{{index}}">
+          <template is="msg-list" data="{{item}}"></template>
+        </block>
+      </view>
+      <view hidden="{{tabIndex != 2}}">
+        <block wx:for="{{profileList}}" wx:key="{{index}}">
+          <template is="simple-list" data="{{item}}"></template>
+        </block>
       </view>
     </view>
   </view>

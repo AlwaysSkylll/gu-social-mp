@@ -17,7 +17,7 @@
       <image class="data-icon comment" src="/static/icon_ping@2x.png"></image>{{subject.comment_num}}
     </view>
   </view>
-  <view class="topic-detail_desc gray-buttom">{{subject.description}}</view>
+  <text class="topic-detail_desc gray-buttom">{{subject.description}}</text>
   <view class="gray-buttom" wx:for="{{events}}" wx:key="{{index}}">
     <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
   </view>

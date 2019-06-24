@@ -1,0 +1,149 @@
+/* pages/my/exchange/index.wxss */
+/* template */
+.activity-item {
+  display: flex;
+  margin: 20rpx 30rpx 0 30rpx;
+  border-radius: 30rpx;
+  overflow: hidden;
+  box-shadow: 0px 1px 5px gainsboro;
+  height: 160rpx;
+}
+
+.activity-item.disabled {
+  filter: grayscale(0.9);
+}
+
+.activity-item__left {
+  /* flex: 2; */
+  width: 225rpx;
+  height: 100%;
+  border-radius: 30rpx;
+}
+
+.activity-item__middle {
+  flex: 2;
+  padding: 20rpx;
+  line-height: 30rpx;
+}
+
+.activity-item__middle .title {
+  font-size: 28rpx;
+}
+
+.activity-item__middle .desc {
+  font-size: 20rpx;
+}
+
+.activity-item__middle .num {
+  font-size: 18rpx;
+}
+
+.activity-item__middle .time {
+  font-size: 18rpx;
+  color: #979797;
+  margin-top: 20rpx;
+}
+
+.activity-item__middle .hot .fire {
+  margin-top: 10rpx;
+  margin-right: 5rpx;
+  height: 26rpx;
+  width: 20rpx;
+}
+
+.activity-item__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10rpx 0;
+  margin-bottom: 15rpx;
+  margin-right: 15rpx;
+}
+
+.activity-item .btn {
+  line-height: 50rpx;
+  padding: 0 10rpx;
+}
+
+.wrap-conatiner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.good-item {
+  width: 330rpx;
+  height: 450rpx;
+  box-shadow: 0px 1px 5px gainsboro;
+  margin: 30rpx 0 30rpx 30rpx;
+  border-radius: 5rpx;
+  overflow: hidden;
+}
+
+.good-item_img {
+  display: block;
+  width: 100%;
+  height: 325rpx;
+  border-radius: 5rpx;
+}
+
+.good-item_content {
+  margin: 20rpx;
+}
+
+.good-item_content .title {
+  font-size: 26rpx;
+  margin: 10rpx 0;
+}
+
+.change-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+}
+
+.change-info .change-info_left {
+  color: #e8204f;
+  font-size: 30rpx;
+}
+
+.change-info_left .flower {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.good-item_content .btn {
+
+}
+
+.exchange-banner {
+  display: flex;
+  height: 200rpx;
+  background-image: linear-gradient(to right , #19d6e0, #2cebe0);
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 26rpx;
+  padding: 0 30rpx;
+}
+
+.exchange-banner .avatar {
+  flex: 1;
+}
+
+.exchange-banner .nickname {
+  flex: 3;
+  margin: 0 20rpx;
+}
+
+.exchange-banner .gift {
+  flex: 2;
+  margin: 0 20rpx;
+  text-align: right;
+}
+
+.exchange-banner .num {
+  font-size: 50rpx;
+}

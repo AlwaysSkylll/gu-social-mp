@@ -1,0 +1,46 @@
+/* pages/my/activity-msg/index.wxss */
+/* template */
+
+.msg-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30rpx;
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.msg-item:first-child {
+  margin-top: 30rpx;
+}
+
+.msg-item:last-child {
+  margin-bottom: 30rpx;
+}
+
+.msg-item .msg-item_img {
+  width: 110rpx;
+  height: 120rpx;
+  border-radius: 5rpx;
+}
+
+.msg-item .msg-item_content {
+
+}
+
+.msg-item_content .title {
+  font-size: 26rpx;
+}
+
+.msg-item_content .desc {
+  font-size: 20rpx;
+  color: #979797;
+}
+
+.msg-item .btn {
+  padding: 10rpx 8rpx;
+  font-size: 26rpx;
+  margin-right: 5rpx;
+}

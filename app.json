@@ -12,7 +12,22 @@
     "pages/publish-topic/index",
     "pages/publish-event/index",
     "pages/publish-topic-select/index",
-    "pages/invite/index"
+    "pages/my/invite/index",
+    "pages/my/exchange/index",
+    "pages/my/activity/index",
+    "pages/my/tag/index",
+    "pages/my/follow/index",
+    "pages/my/info/index",
+    "pages/my/gift/index",
+    "pages/my/editinfo/index",
+    "pages/activity/index",
+    "pages/my/activity-rewards/index",
+    "pages/my/activity-address/index",
+    "pages/my/system-msg/index",
+    "pages/my/comment-msg/index",
+    "pages/my/thumbs-msg/index",
+    "pages/my/gift-msg/index",
+    "pages/my/activity-msg/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

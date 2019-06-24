@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "scroll-tab": "/pages/components/scroll-tab/index"
+  },
+  "navigationBarTitleText": "兑换中心"
+}

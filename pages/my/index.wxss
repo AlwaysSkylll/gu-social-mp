@@ -25,7 +25,6 @@
 }
 
 .my_footer-tab-container {
-  border-bottom: 2rpx solid #eeeeee;
 }
 
 .my_footer .custom-tab {
@@ -116,4 +115,55 @@
   border-radius: 50rpx;
   opacity: 0.5;
   padding: 10rpx 20rpx;
+}
+
+
+/* template */
+
+.msg-item {
+  display: flex;
+  margin: 0 30rpx;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.msg-item .msg-icon {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.msg-item .msg-item_content {
+  display: flex;
+  flex: 1;
+  margin-left: 20rpx;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.msg-item_content .title {
+  font-size: 30rpx;
+}
+
+.msg-item_content .latest {
+  font-size: 22rpx;
+  color: #979797;
+}
+
+.msg-item .time {
+  margin-top: 10rpx;
+  font-size: 20rpx;
+  color: #979797;
+}
+
+.badge {
+  position: relative;
+  margin-left: 10rpx;
+  top: -5rpx;
+  float: right;
+  background: #f71321;
+  color: #ffffff;
+  font-size: 18rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 10rpx;
 }

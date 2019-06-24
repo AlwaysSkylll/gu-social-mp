@@ -1,0 +1,7 @@
+<!--pages/my/editinfo/index.wxml-->
+<view class="my-editinfo">
+  <input value="{{value}}" class="my-editinfo__input" maxlength="20" bindinput="bindKeyInput" placeholder="请输入{{name}}~"></input>
+  <view class="my-editinfo__desc">{{typeArray[type]}}</view>
+</view>
+
+<view class="my-editinfo__btn {{value.length === 0 ? 'disabled' : ''}}" bindtap="saveHandler">保存</view>

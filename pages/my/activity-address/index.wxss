@@ -1,0 +1,114 @@
+/* pages/my/address/index.wxss */
+.activity-address {
+  background: #eeeeee;
+  height: 100vh;
+}
+
+.address {
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+  border-top: 1rpx solid #eeeeee;
+  font-size: 30rpx;
+  justify-content: space-around;
+  background: #ffffff;
+}
+
+.address-left {
+  flex: 1;
+}
+
+.address-right {
+  width: 20rpx;
+  height: 30rpx;
+}
+
+.activity-form-item {
+  padding: 30rpx 30rpx 30rpx 0;
+}
+
+.activity-form-item:not(:first-child) {
+  border-top: 1px solid #eeeeee;
+}
+
+.address-line {
+  width: 100%;
+  height: 10rpx;
+  display: block;
+}
+
+.order-info {
+  margin-top: 10rpx;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.goods-info {
+  display: flex;
+  margin: 30rpx;
+  padding: 30rpx 20rpx;
+  background: #eeeeee;
+  color: #000000;
+  border-radius: 5rpx;
+  overflow: hidden;
+}
+
+.goods-info_img {
+  width: 160rpx;
+  height: 160rpx;
+  background: red;
+  border-radius: 5rpx;
+}
+
+.goods-info_content {
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.goods-info_content .title {
+  font-size: 26rpx;
+}
+
+.goods-info_content .time {
+  font-size: 20rpx;
+  color: #f19a12
+}
+
+.goods-info_content .num {
+  font-size: 20rpx;
+}
+
+.order-info_addition {
+
+}
+
+.order-info_addition-item {
+  font-size: 26rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30rpx;
+  margin-right: 40rpx;
+  margin-top: 20rpx;
+  line-height: 70rpx;
+}
+
+.order-comment {
+  flex: 1;
+  margin-left: 25rpx;
+  display: inline-block;
+  line-height: 70rpx;
+}
+
+.my-editinfo__btn {
+  color: #ffffff;
+  background: #64c4d9;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+}

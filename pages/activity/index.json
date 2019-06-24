@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "event-card": "/pages/components/event-card/index",
+    "custom-simple-bar": "/custom-simple-bar/index",
+    "stick-button": "/stick-button/index"
+  },
+  "navigationBarTitleText": "活动主题"
+}

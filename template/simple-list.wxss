@@ -1,0 +1,31 @@
+/* 列表 template */
+.simple-list {
+  display: flex;
+  height: 90rpx;
+  margin: 0 30rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+}
+
+.simple-list_hovered {
+  opacity: 0.7;
+}
+
+.simple-list .right-arrow {
+  height: 30rpx;
+  width: 20rpx;
+}
+
+.simple-list_addon {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #979797;
+}
+
+
+.addon-left {
+  margin-right: 20rpx;
+}

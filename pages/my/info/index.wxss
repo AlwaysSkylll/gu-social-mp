@@ -1,0 +1,11 @@
+/* pages/my/info/index.wxss */
+.my-editinfo__btn {
+  color: #ffffff;
+  background: #64c4d9;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+}

@@ -1,0 +1,49 @@
+/* pages/my/gift/index.wxss */
+.gift-manage_banner {
+  display: flex;
+  flex-direction: column;
+  height: 200rpx;
+  background-image: linear-gradient(to right , #19d6e0, #2cebe0);
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.banner-top {
+  font-size: 60rpx;
+}
+
+.banner-bottom {
+  font-size: 24rpx;
+}
+
+/* template */
+.gift-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.gift-item:nth-of-type(even) {
+  background: #f5f5f5;
+}
+
+.gift-item view {
+  flex: 3;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.gift-item .to {
+  flex: 5;
+}
+
+.gift-item .time{
+  font-size: 22rpx;
+}
+
+.gift-item .cost {
+  flex: 2;
+  color: #5cd4ea;
+}

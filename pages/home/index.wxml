@@ -6,27 +6,27 @@
   </view>
   <view class="home_body">
     <!-- 活动页 -->
-    <view wx:if="{{ tabIndex == 2 }}">
+    <view hidden="{{ tabIndex != 2 }}">
       <view class="home_banner-container">
         <image lazy-load="{{true}}" class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
       <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
 
-      <view wx:if="{{ activityTabIndex == 0 }}" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+      <view hidden="{{ activityTabIndex != 0 }}" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
         <activity-card></activity-card>
       </view>
 
-      <view wx:if="{{ activityTabIndex == 1 }}" wx:for="{{[1]}}" wx:key="{{index}}">
+      <view hidden="{{ activityTabIndex != 1 }}" wx:for="{{[1]}}" wx:key="{{index}}">
         <activity-card objection="{{true}}"></activity-card>
       </view>
 
-      <view wx:if="{{ activityTabIndex == 2 }}" wx:for="{{[1, 2]}}" wx:key="{{index}}">
+      <view hidden="{{ activityTabIndex != 2 }}" wx:for="{{[1, 2]}}" wx:key="{{index}}">
         <activity-card></activity-card>
       </view>
     </view>
     
     <!-- 推荐页 -->
-    <view wx:if="{{ tabIndex == 0 }}">
+    <view hidden="{{ tabIndex != 0 }}">
       <view class="home-swiper-container gray-buttom">
         <swiper circular="{{true}}" previous-margin="30rpx" next-margin="110rpx">
           <swiper-item class="home-swiper-item" wx:for="{{swipers}}" wx:key="{{index}}">
@@ -55,18 +55,18 @@
     </view>
 
     <!-- 广场页 -->
-    <view wx:if="{{ tabIndex == 1 }}">
+    <view hidden="{{ tabIndex != 1 }}">
       <view class="home_banner-container">
         <image lazy-load="{{true}}" class="home_banner" src="{{banner.img ? banner.img : '/static/default_banner.jpg'}}" catchtap="goBannerDetail"></image>
       </view>
       <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
       <view class="light-gray-bottom"></view>
-      <block wx:if="{{groundTabIndex == 0}}" wx:for="{{events[0]}}" wx:key="{{index}}" wx:for-item="hotPageData">
+      <block hidden="{{groundTabIndex != 0}}" wx:for="{{events[0]}}" wx:key="{{index}}" wx:for-item="hotPageData">
         <view class="home-gorund-item gray-buttom" wx:for="{{hotPageData}}" wx:for-index="hotPage" wx:key="{{hotPage}}">
           <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
         </view>
       </block>
-      <block wx:if="{{groundTabIndex == 1}}" wx:for="{{events[1]}}" wx:key="{{index}}" wx:for-item="newPageData">
+      <block hidden="{{groundTabIndex != 1}}" wx:for="{{events[1]}}" wx:key="{{index}}" wx:for-item="newPageData">
         <view class="home-gorund-item gray-buttom" wx:for="{{newPageData}}" wx:for-index="newPage" wx:key="{{newPage}}">
           <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
         </view>

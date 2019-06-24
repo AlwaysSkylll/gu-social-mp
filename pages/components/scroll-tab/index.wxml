@@ -1,0 +1,19 @@
+<!--pages/components/scroll-tab/index.wxml-->
+<view class="scroll-tab__label">
+	<block wx:for="{{ tabItems }}" wx:for-item="tabItem" wx:key="{{ tabView }}-label">
+  	<text class="scroll-tab__title {{ index === currentTabIndex ? 'active' : '' }}"
+  		style="width: {{ 100 / tabItems.length }}%"
+  		bindtap="switchTab" data-index="{{ index }}">{{ tabItem.label }}</text>
+	</block>
+</view>
+
+<swiper class="scroll-tab__container" current="{{currentTabIndex}}" duration="300" bindchange="switchTab" style="height: {{ scrollHeight - 45 }}px;">
+  <swiper-item wx:for="{{ tabItems }}" wx:for-item="tabItem" wx:key="{{ tabItem }}-slot-name">
+    <scroll-view class="scroll-tab__item" scroll-y="true" style="height: 100%"
+      enable-back-to-top="true" scroll-with-animation="true"
+      bindscrolltolower="scrolltolower">
+    	<slot name="{{ tabItem.slotName }}"></slot>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+

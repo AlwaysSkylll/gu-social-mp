@@ -1,0 +1,9 @@
+<template name="simple-list">
+  <view class="simple-list" hover-class="simple-list_hovered" data-path="{{item.path}}" bindtap="simpleListHandler">
+    <view class="simple-list_name">{{item.name}}</view>
+    <view class="simple-list_addon">
+      <slot></slot>
+      <image class="right-arrow" src="/static/right_arrow.png"></image>
+    </view>
+  </view>
+</template>

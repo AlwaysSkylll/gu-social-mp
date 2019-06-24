@@ -1,0 +1,84 @@
+/* pages/my/comment-msg/index.wxss */
+page {
+  background: #f7f7f7;
+}
+
+.body-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.body-item:first-child {
+  margin-top: 30rpx;
+}
+
+.body-item:last-child {
+  margin-bottom: 30rpx;
+}
+
+.body-item .body-item_img {
+  width: 110rpx;
+  height: 120rpx;
+  border-radius: 5rpx;
+}
+
+.body-item .body-item_content {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.body-item_content .title {
+  font-size: 26rpx;
+}
+
+.body-item_content .desc {
+  font-size: 20rpx;
+  color: #979797;
+}
+
+.body-item .time {
+  font-size: 18rpx;
+  padding-bottom: 30rpx;
+  padding-right: 10rpx;
+}
+
+.msg-item {
+  margin-top: 10rpx;
+  background: #ffffff;
+  padding: 20rpx 30rpx;
+}
+
+.msg-item:first-child {
+  margin-top: 0;
+}
+
+.msg-item .msg-item_head {
+  display: flex;
+
+}
+
+.msg-item .msg-item_head .userinfo {
+  display: flex;
+  margin-left: 20rpx;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.msg-item .msg-item_head .nickname {
+  font-size: 24rpx;
+}
+
+.msg-item .msg-item_head .time {
+  font-size: 16rpx;
+  color: #979797;
+}
+
+.msg-item .msg-item_content {
+  font-size: 24rpx;
+}

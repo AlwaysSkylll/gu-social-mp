@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "event-card": "/pages/components/event-card/index"
+  },
+  "navigationBarTitleText": "我的关注"
+}

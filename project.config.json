@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 16,
 			"list": [
 				{
 					"id": -1,
@@ -118,6 +118,47 @@
 					"name": "话题详情",
 					"pathName": "pages/topic-detail/index",
 					"query": "id=56&type=Subject",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人信息",
+					"pathName": "pages/my/info/index",
+					"query": "id=9&type=Circle",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动",
+					"pathName": "pages/activity/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动管理",
+					"pathName": "pages/my/activity/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动兑换地址",
+					"pathName": "pages/my/activity-address/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "礼物管理",
+					"pathName": "pages/my/gift/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换中心",
+					"pathName": "pages/my/exchange/index",
 					"scene": null
 				}
 			]

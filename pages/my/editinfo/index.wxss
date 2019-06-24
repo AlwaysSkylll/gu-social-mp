@@ -1,0 +1,31 @@
+/* pages/my/editinfo/index.wxss */
+.my-editinfo {
+}
+
+.my-editinfo__input {
+  padding: 30rpx 30rpx;
+  font-size: 30rpx;
+  color: #000000;
+}
+
+.my-editinfo__desc {
+  padding: 15rpx 30rpx;
+  border-top: 1rpx solid #dcdcdc;
+  font-size: 26rpx;
+  color: #979797;
+}
+
+.my-editinfo__btn {
+  color: #ffffff;
+  background: #64c4d9;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.my-editinfo__btn.disabled {
+  background: #979797;
+}

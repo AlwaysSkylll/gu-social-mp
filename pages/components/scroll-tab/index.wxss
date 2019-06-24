@@ -1,0 +1,16 @@
+/* pages/components/scroll-tab/index.wxss */
+.scroll-tab__label {
+	border-bottom: 1px solid #EEEEEE;
+}
+.scroll-tab__label .scroll-tab__title {
+	display: inline-block;
+	padding: 30rpx 0;
+	color: #2B333B;
+	text-align: center;
+	font-weight: bold;
+	font-size: 30rpx;
+}
+.scroll-tab__label .scroll-tab__title.active {
+	border-bottom: 4rpx solid #5cd4ea;
+  color: #5cd4ea;
+}

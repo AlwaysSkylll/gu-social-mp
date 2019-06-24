@@ -1,0 +1,31 @@
+<!--pages/my/gift/index.wxml-->
+<template name="item">
+  <view class="gift-item">
+    <view class="time">
+      <view>2019/02/17</view>
+      <view>12:11:01</view>
+    </view>
+    <view class="to">赠送给浪漫土耳其</view>
+    <view class="cost">-1</view>
+  </view>
+</template>
+
+
+<view class="gift-manage_banner">
+  <view class="banner-top">12</view>
+  <view class="banner-bottom">目前礼物数量</view>
+</view>
+
+<scroll-tab tabItems="{{ tabItems }}" scrollHeight="{{ scrollHeight }}"
+  bindswitch="switchTabListener" bindscrolltolower="scrolltolowerListener">
+  <view slot="{{ tabItems[0].slotName }}">
+    <block wx:for="{{ fromList }}" wx:key="{{ index }}">
+      <template is="item"/>
+    </block>
+  </view>
+  <view slot="{{ tabItems[1].slotName }}">
+    <block wx:for="{{ sendList }}" wx:key="{{ index }}">
+      <template is="item"/>
+    </block>
+  </view>
+</scroll-tab>
