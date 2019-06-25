@@ -28,4 +28,7 @@
 
 .addon-left {
   margin-right: 20rpx;
+  min-width: 70vw;
+  text-align: right;
+  line-height: 70rpx;
 }

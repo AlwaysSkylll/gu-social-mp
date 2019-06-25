@@ -91,12 +91,14 @@ Page({
     const self = this
     const { type, value } = self.data
     if (value.length === 0) return
+    const pages = getCurrentPages()
+    const beforePage = pages[pages.length - 2]
     wx.navigateBack({
       success() {
-        const page = getCurrentPages().pop()
-        page.setData({
+        beforePage.setData({
           [`userInfo.${type}`]: value
         })
+        console.log(page, value)
       }
     })
   }

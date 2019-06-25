@@ -10,11 +10,12 @@ Page({
    */
   data: {
     infoList: [
+      // {
+      //   name: '头像',
+      //   type: 'avatar',
+      //   path: ''
+      // }, 
       {
-        name: '头像',
-        type: 'avatar',
-        path: ''
-      }, {
         name: '昵称',
         type: 'nickname',
         path: ''
@@ -41,7 +42,7 @@ Page({
       }
     ],
     date: '2019-07-01',
-    genderList: ['女', '男'],
+    genderList: ['未知', '男', '女'],
     userInfo: {}
   },
 
@@ -126,11 +127,11 @@ Page({
   },
 
   bindGenderChange(e) {
-    const genderName = e.detail.value == 1 ? '男' : '女'
-    console.log(e.detail.value)
+    const gender = parseInt(e.detail.value)
+    console.log(gender)
+    debugger
     this.setData({
-      ['userInfo.gender']: e.detail.value,
-      ['userInfo.gender_name']: genderName
+      ['userInfo.gender']: gender,
     })
   },
 

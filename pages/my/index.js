@@ -15,10 +15,12 @@ Page({
       }, {
         name: '个人信息',
         path: '/pages/my/info/index'
-      }, {
-        name: '标签管理',
-        path: '/pages/my/tag/index'
-      }, {
+      }, 
+      // {
+      //   name: '标签管理',
+      //   path: '/pages/my/tag/index'
+      // }, 
+      {
         name: '活动管理',
         path: '/pages/my/activity/index'
       }, {

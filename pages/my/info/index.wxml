@@ -8,7 +8,7 @@
       </block>
 
       <block wx:if="{{item.type === 'gender_name'}}">
-        <picker class="addon-left" mode="selector" range="{{genderList}}" value="{{userInfo.gender_name === '男' ? 1 : 0}}"  bindchange="bindGenderChange">{{userInfo.gender_name || '未知'}}</picker>
+        <picker class="addon-left" mode="selector" range="{{genderList}}" value="{{userInfo.gender}}"  bindchange="bindGenderChange">{{genderList[userInfo.gender]}}</picker>
       </block>
 
       <block wx:if="{{item.type === 'nickname'}}">

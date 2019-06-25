@@ -1,3 +1,5 @@
+<official-account style="width: 100%;height:200px;"></official-account>
+
 <view class="container home" style="padding-bottom: {{isIpx ? '180rpx': '100rpx'}}">
   <view class="home_header">
     <view class="home_header-top">
