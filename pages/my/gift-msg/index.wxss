@@ -37,6 +37,7 @@ page {
 }
 
 .body-item_content .desc {
+  margin-top: 10rpx;
   font-size: 20rpx;
   color: #979797;
 }
