@@ -1,18 +1,18 @@
 <!--pages/components/activity-card/index.wxml-->
 <view class="activity-card">
   <view class="activity-card_img-container">
-   <image lazy-load="{{true}}" class="activity-card_img" src="/static/default_card.jpg"></image>
+   <image lazy-load class="activity-card_img" src="/static/default_card.jpg"></image>
   </view>
   <view class="activity-card_info">
     <view class="activity-card_line {{objection ? 'objection' : ''}}">
       <view class="activity-card_title">
-        <image lazy-load="{{true}}" class="fire" src="/static/fire.png"></image>
-        <image lazy-load="{{true}}" class="fire" src="/static/fire.png"></image>
-        <image lazy-load="{{true}}" class="fire" src="/static/fire.png"></image>
+        <image lazy-load class="fire" src="/static/fire.png"></image>
+        <image lazy-load class="fire" src="/static/fire.png"></image>
+        <image lazy-load class="fire" src="/static/fire.png"></image>
         <text>嘻嘻嘻嘻嘻嘻</text>
       </view>
       <view class="activity-card_num">
-        <image lazy-load="{{true}}" class="gift" src="/static/gift.png"></image>
+        <image lazy-load class="gift" src="/static/gift.png"></image>
         <text>15</text>
       </view>
     </view>

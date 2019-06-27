@@ -1,11 +1,11 @@
 <!--pages/components/mini-circle-card/index.wxml-->
 <view class="mini-circle-card" hover-class="mini-circle-card_hovered" bindtap="toDetail">
-  <image lazy-load="{{true}}" mode="aspectFill" class="mini-circle-card_img" src="{{ item.covers[0] || '/static/circle_card.jpg'}}"></image>
+  <image lazy-load mode="aspectFill" class="mini-circle-card_img" src="{{ item.covers[0] || '/static/circle_card.jpg'}}"></image>
   <view class="mini-card_info">
     <text class="title text-overflow">{{item.title}}</text>
     <text class="desc text-overflow">{{item.description}}</text>
     <view class="btn">
-      <image src="/static/join.png" lazy-load="{{true}}" class="btn_join-img"></image>
+      <image src="/static/join.png" lazy-load class="btn_join-img"></image>
       <text>进入</text>
     </view>
   </view>

@@ -10,7 +10,7 @@
     <!-- 活动页 -->
     <view hidden="{{ tabIndex != 2 }}">
       <view class="home_banner-container">
-        <image lazy-load="{{true}}" class="home_banner" src="/static/default_banner.jpg"></image>
+        <image lazy-load class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
       <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
 
@@ -32,7 +32,7 @@
       <view class="home-swiper-container gray-buttom">
         <swiper circular="{{true}}" previous-margin="30rpx" next-margin="110rpx">
           <swiper-item class="home-swiper-item" wx:for="{{swipers}}" wx:key="{{index}}">
-            <image mode="aspectFit" bind="aspectFill" bindtap="goSwiperDetail" lazy-load="{{true}}" src="{{item.img || '/static/default_swipe.jpg' }}" data-index="{{index}}"></image>
+            <image mode="aspectFit" bind="aspectFill" bindtap="goSwiperDetail" lazy-load src="{{item.img || '/static/default_swipe.jpg' }}" data-index="{{index}}"></image>
           </swiper-item>
         </swiper>
       </view>
@@ -59,7 +59,7 @@
     <!-- 广场页 -->
     <view hidden="{{ tabIndex != 1 }}">
       <view class="home_banner-container">
-        <image lazy-load="{{true}}" class="home_banner" src="{{banner.img ? banner.img : '/static/default_banner.jpg'}}" catchtap="goBannerDetail"></image>
+        <image lazy-load class="home_banner" src="{{banner.img ? banner.img : '/static/default_banner.jpg'}}" catchtap="goBannerDetail"></image>
       </view>
       <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
       <view class="light-gray-bottom"></view>

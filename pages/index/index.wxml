@@ -1,12 +1,12 @@
 <!--index.wxml-->
 <view class="gu-permission-container">
-  <image lazy-load="{{true}}" class="gu-permission-bg" src="/static/request_permission.jpeg"></image>
+  <image lazy-load class="gu-permission-bg" src="/static/request_permission.jpeg"></image>
   <view class="gu-permission-body animation-slide-bottom">
     <view class="gu-permission-content">
       <view>亲，您还没有授权登陆</view>
       <view>目前无法使用这个小程序哦！</view>
       <view class="gu-permission-logo">
-        <!-- <image lazy-load="{{true}}" class="logo-image" src=""></image> -->
+        <!-- <image lazy-load class="logo-image" src=""></image> -->
         <open-data class="logo-image" mode='aspectFit' type="userAvatarUrl"></open-data>
       </view>
     </view>

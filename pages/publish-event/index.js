@@ -171,13 +171,15 @@ Page({
   /**
    * 发布
    */
-  publish() {
+  publish(e) {
+    console.log(e.detail.formId, 'formid')
+    const formid = e.detail.formId
     if (!this.data.btnStatus) return;
     let param = this.data.event
     
-    api.publishEvent(param).then((e) => {
+    api.publishEvent({ ...param, formid}).then((e) => {
       wx.showToast({
-        title: '发布成功',
+        title: '发布成功，请等待审核结果',
         mask: true,
       })
       setTimeout(() => {

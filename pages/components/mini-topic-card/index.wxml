@@ -1,6 +1,6 @@
 <!--pages/components/mini-topic-card/index.wxml-->
 <view class="mini-topic-card" hover-class="mini-topic-card_hovered" bindtap="toDetail">
-  <image mode="aspectFill" lazy-load="{{true}}" class="mini-topic-card_img" src="{{ item.covers[0] || '/static/default_topic.png' }}" class="mini-topic-card_img"></image>
+  <image mode="aspectFill" lazy-load class="mini-topic-card_img" src="{{ item.covers[0] || '/static/default_topic.png' }}" class="mini-topic-card_img"></image>
   <view class="mini-topic-card_title text-overflow">
     #{{item.title}}#
   </view>

@@ -21,12 +21,12 @@
 
 <template name="good">
   <view class="good-item">
-    <image class="good-item_img" lazy-load="{{true}}" mode="aspectFill" src="/static/circle_card.jpg"></image>
+    <image class="good-item_img" lazy-load mode="aspectFill" src="/static/circle_card.jpg"></image>
     <view class="good-item_content">
       <view class="title">古井贡酒</view>
       <view class="change-info">
         <view class="change-info_left">
-          <image class="flower" lazy-load="{{true}}" src="/static/flower.png"></image>
+          <image class="flower" lazy-load src="/static/flower.png"></image>
           25
         </view>
         <view class="btn">兑换</view>
@@ -36,7 +36,7 @@
 </template>
 
 <view class="exchange-banner">
-  <image class="avatar" src="{{userInfo.avatar_url}}" lazy-load="{{true}}" mode="aspectFill"></image>
+  <image class="avatar" src="{{userInfo.avatar_url}}" lazy-load mode="aspectFill"></image>
   <view class="nickname">{{userInfo.nickname}}</view>
   <view class="gift">礼物： <text class="num">12</text> </view>
 </view>

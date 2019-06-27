@@ -1,7 +1,7 @@
 <!--pages/my/activity-msg/index.wxml-->
 <template name="msg">
   <view class="msg-item">
-    <image class="msg-item_img" lazy-load="{{true}}" mode="aspectFill" src="/static/circle_card.jpg"></image>
+    <image class="msg-item_img" lazy-load mode="aspectFill" src="/static/circle_card.jpg"></image>
     <view class="msg-item_content">
       <view class="title">复仇者联盟强势回归活动已经开启！</view>
       <view class="desc">复仇者联盟是什么什么什么</view>

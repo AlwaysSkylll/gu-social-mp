@@ -14,5 +14,7 @@
     </view>
     <view class="publish-label topic-label {{selectTopic.title ? 'active' : ''}} text-overflow" bindtap="showModal">#{{ selectTopic.title ||'选择圈子'}}</view>
   </view>
-  <view class="publish-btn {{btnStatus ? '' : 'disabled'}}" bindtap="publish">确认发布</view>
+  <form report-submit bindsubmit="publish">
+    <button form-type="submit" class="publish-btn {{btnStatus ? '' : 'disabled'}}">确认发布</button>
+  </form>
 </view>

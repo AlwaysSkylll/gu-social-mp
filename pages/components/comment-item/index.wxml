@@ -3,7 +3,7 @@
 
 <view class="comment-item">
   <view class="event-card_user">
-    <image lazy-load="{{true}}" class="avatar" src="{{ item.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
+    <image lazy-load class="avatar" src="{{ item.user.avatar_url || '/static/default_avatar.jpg' }}"></image>
     <view class="event-card_ground-info">
       <view class="event-card_info1">
         <text>{{item.user.nickname}}</text>

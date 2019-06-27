@@ -153,7 +153,9 @@ Page({
    *    notify_user_ids[]
    * }
    */
-  publish() {
+  publish(e) {
+    console.log(e.detail.formId, 'formid')
+    const formid = e.detail.formId
     if (!this.data.selectTopic.id) {
       wx.showToast({
         icon: 'none',
@@ -167,6 +169,7 @@ Page({
       description: this.data.topic.description,
       circles_id: this.data.selectTopic.id,
       covers: this.data.topic.images,
+      formid
     }).then((e) => {
       wx.showToast({
         title: '发布成功，请等待审核结果',

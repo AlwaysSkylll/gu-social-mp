@@ -16,5 +16,7 @@
     <view class="location-content text-overflow">{{ !event.location_name ? (event.location_latitude ? event.location_latitude + ',' + event.location_longitude : '你在哪里？')  : event.location_name }}</view>
   </view>
   <view class="publish-label location-label">@</view>
-  <view class="publish-btn {{btnStatus ? '' : 'disabled'}}" bindtap="publish">确认发布</view>
+  <form report-submit bindsubmit="publish">
+    <button form-type="submit" class="publish-btn {{btnStatus ? '' : 'disabled'}}">确认发布</button>
+  </form>
 </view>

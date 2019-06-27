@@ -8,6 +8,10 @@
   /* padding-bottom: 100rpx; */
 } 
 
+button {
+  border-radius: 0;
+}
+
 .text-8 {
   font-size: 8px;
 }
