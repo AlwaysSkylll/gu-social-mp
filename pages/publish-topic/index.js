@@ -172,7 +172,7 @@ Page({
       formid
     }).then((e) => {
       wx.showToast({
-        title: '发布成功，请等待审核结果',
+        title: '请等待审核结果',
       })
       setTimeout(() => {
         wx.switchTab({
