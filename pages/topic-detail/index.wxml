@@ -58,4 +58,4 @@
 
 <canvas class="share-canvas" canvas-id="mycanvas"/>
 
-<stick-button></stick-button>
+<stick-button scrollDown="{{scrollDown}}"></stick-button>

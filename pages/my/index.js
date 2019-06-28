@@ -2,6 +2,7 @@ const api = require('../../api/index.js')
 const app = getApp()
 
 Page({
+  mixins: [require('../../mixins/stick-btn-mixin/index.js')],
   data: {
     tabs: [
       "罍小说",

@@ -80,4 +80,4 @@
 </view>
 <custom-tab-bar selected="{{1}}"></custom-tab-bar>
 
-<stick-button></stick-button>
+<stick-button scrollDown="{{scrollDown}}"></stick-button>

@@ -5,7 +5,7 @@ const { formatTime } = require('../../utils/util.js')
 const drawTools = require('../../utils/draw-tools.js')
 
 Page({
-
+  mixins: [require('../../mixins/stick-btn-mixin/index.js')],
   /**
    * 页面的初始数据
    */

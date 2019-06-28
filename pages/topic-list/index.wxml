@@ -25,4 +25,5 @@
   </view>
 </view>
 
-<stick-button></stick-button>
+<stick-button scrollDown="{{scrollDown}}"></stick-button>
+

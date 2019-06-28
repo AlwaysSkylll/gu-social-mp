@@ -70,8 +70,19 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+// 节流工具类
+let timeoutId = null
+
+const throtting = (callback, delay = 200) => {
+  if (timeoutId) {
+    clearTimeout(timeoutId)
+  }
+  timeoutId = setTimeout(callback, delay)
+}
+
 module.exports = {
   formatTime,
   formatFullTime,
-  formatSimpleDate
+  formatSimpleDate,
+  throtting
 }

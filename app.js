@@ -1,5 +1,6 @@
 //app.js
 var host = require('./config.js').host
+require('./utils/mixin.js')
 
 App({
   onLaunch: function () {
