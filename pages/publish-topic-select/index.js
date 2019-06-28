@@ -19,6 +19,15 @@ Page({
     const id = options.id || 0
     const param = type === 'Circle' ? { circles_id: id } : {}
 
+    if (type === 'Circle') {
+      api.getCircles().then(({ data }) => {
+        this.setData({
+          topics: data,
+        })
+      })
+      return
+    }
+
     api.searchSubject(param).then(({data}) => {
       this.setData({
         topics: data,
