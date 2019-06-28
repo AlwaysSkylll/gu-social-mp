@@ -129,7 +129,6 @@ Page({
   bindGenderChange(e) {
     const gender = parseInt(e.detail.value)
     console.log(gender)
-    debugger
     this.setData({
       ['userInfo.gender']: gender,
     })

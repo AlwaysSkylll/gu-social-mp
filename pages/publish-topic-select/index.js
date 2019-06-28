@@ -20,6 +20,9 @@ Page({
     const param = type === 'Circle' ? { circles_id: id } : {}
 
     if (type === 'Circle') {
+      wx.setNavigationBarTitle({
+        title: '选择圈子'
+      })
       api.getCircles().then(({ data }) => {
         this.setData({
           topics: data,
@@ -27,6 +30,10 @@ Page({
       })
       return
     }
+    
+    wx.setNavigationBarTitle({
+      title: '选择话题'
+    })
 
     api.searchSubject(param).then(({data}) => {
       this.setData({

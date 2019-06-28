@@ -27,6 +27,10 @@ Component({
     inlineBlock: {
       type: Boolean,
       value: false
+    },
+    activeBg: {
+      type: String,
+      value: 'bubble'
     }
   },
 

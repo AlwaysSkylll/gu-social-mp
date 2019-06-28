@@ -9,6 +9,7 @@
 }
 
 .gu-tab-item {
+  position: relative;
   color: #979797;
   flex: 1;
   justify-content: center;
@@ -22,6 +23,26 @@
   animation-name: active;
   animation-duration: .2s;
   animation-timing-function: linear
+}
+
+.gu-tab-item.bubble:after {
+  content: '';
+  opacity: 0.6;
+  position: absolute;
+  top: 20%;
+  right: 20rpx;
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 10rpx;
+  background: #5cd4ea;
+  transform: scale3d(0,0,0);
+  transition: transform .5s;
+}
+
+.gu-tab-item.active.bubble:after {
+  transform: scale3d(1,1,1);
+  transition: transform .5s;
 }
 
 .gu-tab-name {

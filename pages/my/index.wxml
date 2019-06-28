@@ -57,7 +57,7 @@
   <!-- 我的 腿儿 -->
   <view class="my_footer">
     <view class="my_footer-tab-container">
-      <gu-tab tabs="{{tabs}}" fontSize="32" width="60%" bindselectmytab="myTabHandler"></gu-tab>
+      <gu-tab tabs="{{tabs}}" activeBg="none" fontSize="32" width="60%" bindselectmytab="myTabHandler"></gu-tab>
       <!-- <gu-tab tabs="{{tabs}}" fontSize="32" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab> -->
       <view class="light-gray-bottom"></view>
       <view hidden="{{tabIndex != 0}}">
