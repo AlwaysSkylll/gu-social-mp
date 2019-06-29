@@ -19,7 +19,9 @@ Page({
     shareChoiceShow: false,
     showHomeBtn: false,
     offset: 0,
-    finish: false
+    finish: false,
+    tabIndex: 0,
+    hotEvents: []
   },
 
   /**
@@ -236,6 +238,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    if (this.data.tabIndex === 1)  return
     this.getData()
   },
 
@@ -254,6 +257,7 @@ Page({
     }
     this.getEvents(param)
     this.getDetail()
+    this.getHotEvents()
   },
 
   /**
@@ -270,6 +274,15 @@ Page({
     })
   },
 
+  getHotEvents() {
+    api.getActivityEvents({ hot: 1, limit: 10 }, this.data.id).then(res => {
+      const hotEvents = [{}, ...res.data]
+      this.setData({
+        hotEvents
+      })
+    })
+  },
+
   /**
    * 获取话题
    */
@@ -279,5 +292,12 @@ Page({
         subject: res
       })
     })
-  }
+  },
+
+  tabHandler(e) {
+    const tabIndex = e.detail.tabIndex
+    this.setData({
+      tabIndex
+    })
+  },
 })

@@ -1,7 +1,7 @@
 <!--pages/components/activity-card/index.wxml-->
 <view class="activity-card" bindtap="goDetail">
   <view class="activity-card_img-container">
-   <image lazy-load mode="aspectFit" class="activity-card_img" src="{{item.covers[0]}}"></image>
+   <image lazy-load mode="widthFix" class="activity-card_img" src="{{item.covers[0]}}"></image>
   </view>
   <view class="activity-card_info">
     <view class="activity-card_line {{objection ? 'objection' : ''}}">

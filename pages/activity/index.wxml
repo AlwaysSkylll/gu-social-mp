@@ -19,9 +19,29 @@
   </view>
   <text class="info-title">{{subject.title}}</text>
   <text class="topic-detail_desc gray-buttom">{{subject.description}}</text>
-  <gu-tab fontSize="32" tabs="{{['互动']}}" width="15%" initialIndex="0" inlineBlock="{{true}}"></gu-tab>
-  <view class="gray-buttom" wx:for="{{events}}" wx:key="{{index}}">
-    <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
+  <view class="light-gray-bottom">
+    <gu-tab bindselectmytab="tabHandler" fontSize="32" tabs="{{['互动', '排行榜']}}" width="30%" initialIndex="0" activeBg="none"></gu-tab>
+  </view>
+  <view hidden="{{tabIndex !== 0}}">
+    <view class="gray-buttom" wx:for="{{events}}" wx:key="{{index}}">
+      <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
+    </view>
+  </view>
+
+  <view hidden="{{tabIndex !== 1}}">
+    <view wx:for="{{hotEvents}}" wx:key="{{index}}">
+      <view wx:if="{{index !== 0}}" class="user-item light-gray-bottom">
+        <view class="left-content {{index < 4 ? 'red' : ''}}">{{index}}.</view>
+        <view class="middle-content">{{item.user.nickname}}</view>
+        
+        <view class="right-content">
+          <image wx:if="{{index < 4}}" lazy-load class="fire" src="/static/fire.png"></image>
+          <image wx:if="{{index < 3}}" lazy-load class="fire" src="/static/fire.png"></image>
+          <image wx:if="{{index < 2}}" lazy-load class="fire" src="/static/fire.png"></image>
+          <view>{{item.participant_num}}</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
 

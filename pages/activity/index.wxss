@@ -137,3 +137,40 @@
   height: 90rpx;
   margin-bottom: 30rpx;
 }
+
+.user-item {
+  display: flex;
+  font-size: 28rpx;
+  padding: 20rpx 30rpx;
+  line-height: 30rpx;
+}
+
+.user-item .left-content {
+  flex: 1;
+}
+
+.user-item .middle-content {
+  flex: 4;  
+}
+
+.user-item .right-content {
+  flex: 2;  
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.user-item .right-content .fire {
+  display: block;
+  margin-right: 8rpx;
+  height: 36rpx;
+  width: 26rpx;
+}
+
+.user-item .right-content .fire:nth-last-child(2) {
+  margin-right: 16rpx;
+}
+
+.red {
+  color: red;
+}
