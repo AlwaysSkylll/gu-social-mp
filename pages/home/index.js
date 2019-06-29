@@ -106,6 +106,12 @@ Page({
     // 广场无限加载
     if (this.data.tabIndex === 1) {
       this.getEventsData(this.data.groundTabIndex)
+    } else if (this.data.tabIndex === 2) {
+      if (this.data.activityTabIndex === 0) {
+        this.getLatestActivity()
+      } else if (this.data.activityTabIndex === 1) {
+        this.getExpiredActivity()
+      }
     }
   },
 
@@ -209,11 +215,13 @@ Page({
   },
 
   getLatestActivity() {
+    if (this.data.activity.expired.finish) return
     const { offset, limit } = this.data.activity.latest
     api.getActivities({ offset, limit, expired: 0 }).then(res => {
       const data = [...this.data.activity.latest.data, ...res.data]
-      const finish = res.paging.total <= this.data.activity.latest.data.length
+      const finish = res.paging.total <= data.length
       this.setData({
+        ['activity.latest.offset']: data.length,
         ['activity.latest.data']: data,
         ['activity.latest.finish']: finish
       })
@@ -221,11 +229,13 @@ Page({
   },
 
   getExpiredActivity() {
+    if (this.data.activity.expired.finish) return
     const { offset, limit } = this.data.activity.expired
     api.getActivities({ offset, limit, expired: 1 }).then(res => {
       const data = [...this.data.activity.expired.data, ...res.data]
-      const finish = res.paging.total <= this.data.activity.expired.data.length
+      const finish = res.paging.total <= data.length
       this.setData({
+        ['activity.expired.offset']: data.length,
         ['activity.expired.data']: data,
         ['activity.expired.finish']: finish
       })

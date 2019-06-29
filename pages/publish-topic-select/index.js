@@ -18,7 +18,9 @@ Page({
     const type = options.type || ''
     const id = options.id || 0
     const param = type === 'Circle' ? { circles_id: id } : {}
-
+    this.setData({
+      type
+    })
     if (type === 'Circle') {
       wx.setNavigationBarTitle({
         title: '选择圈子'
@@ -29,17 +31,27 @@ Page({
         })
       })
       return
-    }
-    
-    wx.setNavigationBarTitle({
-      title: '选择话题'
-    })
-
-    api.searchSubject(param).then(({data}) => {
-      this.setData({
-        topics: data,
+    } else if (type === 'Subject') {
+      wx.setNavigationBarTitle({
+        title: '选择话题'
       })
-    })
+
+      api.searchSubject(param).then(({ data }) => {
+        this.setData({
+          topics: data,
+        })
+      })
+    } else if (type === 'Activity') {
+      wx.setNavigationBarTitle({
+        title: '选择活动'
+      })
+
+      api.getActivities().then(({ data }) => {
+        this.setData({
+          topics: data,
+        })
+      })
+    }
   },
 
   /**

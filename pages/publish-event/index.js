@@ -13,7 +13,6 @@ Page({
     event: {
       images: [],
       content: '',
-      subject_id: 0,
       notify_user_ids: [],
       location_name: '',
       location_address: '',
@@ -34,14 +33,24 @@ Page({
   onLoad: function (options) {
     if (!options) return
     const id = options.id || ''
-    const type = options.type || ''
+    const type = options.type || 'Subject'
     const isCircleType = type === 'Circle'
+    const isActivityType = type === 'Activity'
     const title = isCircleType ? '' : (options.title || '')
+
+    if (!isActivityType) {
+      this.setData({
+        ['selectTopic.title']: title,
+        ['event.subject_id']: isCircleType ? '' : id,
+        ['event.circles_id']: isCircleType ? id : '',
+        eventType: type
+      })
+      return
+    }
 
     this.setData({
       ['selectTopic.title']: title,
-      ['event.subject_id']: isCircleType ? '' : id,
-      ['event.circles_id']: isCircleType ? id : '',
+      ['event.activity_id']: id,
       eventType: type
     })
   },
@@ -207,6 +216,13 @@ Page({
   },
 
   selectTopic(topic) {
+    if (this.data.eventType === 'Activity') {
+      this.setData({
+        ['event.activity_id']: topic.id,
+        selectTopic: topic
+      })
+      return
+    }
     this.setData({
       ['event.subject_id']: topic.id,
       selectTopic: topic

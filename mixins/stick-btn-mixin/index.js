@@ -14,7 +14,6 @@ module.exports = {
       this.setData({
         lastScrollTop: e.scrollTop
       })
-      console.log('change', 222)
     })
 
     if (scrollDown === this.data.scrollDown) return

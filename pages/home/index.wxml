@@ -17,8 +17,6 @@
 
       <view hidden="{{ activityTabIndex != 0 }}" wx:for="{{activity.latest.data}}" wx:key="{{index}}">
         <activity-card item="{{item}}"></activity-card>
-        <activity-card item="{{item}}"></activity-card>
-        <activity-card item="{{item}}"></activity-card>
       </view>
 
       <view hidden="{{ activityTabIndex != 1 }}" wx:for="{{activity.expired.data}}" wx:key="{{index}}">

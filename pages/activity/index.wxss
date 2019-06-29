@@ -40,16 +40,16 @@
 .topic-detail_info {
   box-sizing: border-box;
   position: relative;
-  min-height: 160rpx;
   line-height: 30rpx;
   font-size: 30rpx;
   padding: 35rpx 30rpx 45rpx 30rpx;
   color: #000000;
 }
 
-.topic-detail_info .info-title {
-  font-weight: bold;
-  line-height: 40rpx;
+.info-title {
+  display: inline-block;
+  padding: 35rpx 30rpx 10rpx 30rpx;
+  font-size: 30rpx;
 }
 
 .topic-detail_desc {

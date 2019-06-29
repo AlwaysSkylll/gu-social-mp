@@ -30,7 +30,6 @@ Component({
       'pages/index/index',
       'pages/my/index',
     ]
-    console.log('123', pages, pages.length === 1, showList.indexOf(pages[0].route) === -1)
 
     if (pages.length === 1 && showList.indexOf(pages[0].route) === -1) {
       this.setData({
