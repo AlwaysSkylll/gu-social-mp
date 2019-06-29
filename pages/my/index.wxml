@@ -57,7 +57,7 @@
   <!-- 我的 腿儿 -->
   <view class="my_footer">
     <view class="my_footer-tab-container">
-      <gu-tab tabs="{{tabs}}" activeBg="none" fontSize="32" width="60%" bindselectmytab="myTabHandler"></gu-tab>
+      <gu-tab tabs="{{tabs}}" activeBg="none" fontSize="32" width="40%" bindselectmytab="myTabHandler"></gu-tab>
       <!-- <gu-tab tabs="{{tabs}}" fontSize="32" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab> -->
       <view class="light-gray-bottom"></view>
       <view hidden="{{tabIndex != 0}}">
@@ -65,12 +65,13 @@
           <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas" event="{{item}}" type="events"></event-card>
         </view>
       </view>
-      <view hidden="{{tabIndex != 1}}">
+      <!-- <view hidden="{{tabIndex != 1}}">
         <block wx:for="{{messageList}}" wx:key="{{index}}">
           <template is="msg-list" data="{{item}}"></template>
         </block>
-      </view>
-      <view hidden="{{tabIndex != 2}}">
+      </view> -->
+      <!-- <view hidden="{{tabIndex != 2}}"> -->
+      <view hidden="{{tabIndex != 1}}">
         <block wx:for="{{profileList}}" wx:key="{{index}}">
           <template is="simple-list" data="{{item}}"></template>
         </block>

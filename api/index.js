@@ -113,6 +113,36 @@ module.exports.getCommentsDetail = (data, id) => commonRequest.request(`/api/com
  */
 module.exports.publishEvent = (data) => commonRequest.request('/api/events', 'POST', data)
 
+
+// ------------------------- 活动  ----------------------／／
+
+/**
+ * 获取活动
+ * param {
+ *    sort
+ *    expired
+ *    limit
+ *    offset
+ * }
+ */
+module.exports.getActivities = (data) => commonRequest.request('/api/activities', 'GET', data)
+
+/**
+ * 活动信息
+ */
+module.exports.getActivityDetail = (data, id) => commonRequest.request(`/api/activities/${id}`, 'GET', data)
+
+/**
+ * 获取活动下的说说
+ * param {
+ *    offset
+ *    limit
+ *    hot
+ * }
+ */
+module.exports.getActivityEvents = (data, id) => commonRequest.request(`/api/activities/${id}/events`, 'GET', data)
+
+
 // ------------------------- 圈子  ----------------------／／
 
 /**

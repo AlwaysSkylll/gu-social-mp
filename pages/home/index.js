@@ -22,6 +22,20 @@ Page({
     swipers: [],
     banner: {},
     isIpx: app.globalData.isIpx,
+    activity: {
+      latest: {
+        offset: 0,
+        limit: 10,
+        data: [],
+        finish: false,
+      },
+      expired: {
+        offset: 0,
+        limit: 10,
+        data: [],
+        finish: false,
+      }
+    }
   },
   onLoad() {
     wx.hideTabBar({})
@@ -55,9 +69,31 @@ Page({
       this.setData({
         events: [[], []],
         finish: [false, false],
+        banner: {},
       })
+      this.getBanner()
       this.getEventsData(0)
       this.getEventsData(1)
+      wx.stopPullDownRefresh()
+    } else if (this.data.tabIndex === 2) {
+      this.setData({
+        activity: {
+          latest: {
+            offset: 0,
+            limit: 10,
+            data: [],
+            finish: false,
+          },
+          expired: {
+            offset: 0,
+            limit: 10,
+            data: [],
+            finish: false,
+          }
+        },
+      })
+      this.getLatestActivity()
+      this.getExpiredActivity()
       wx.stopPullDownRefresh()
     }
   },
@@ -147,12 +183,53 @@ Page({
       events: [[], []],
       finish: [false, false],
       swipers: [],
+      activity: {
+        latest: {
+          offset: 0,
+          limit: 10,
+          data: [],
+          finish: false,
+        },
+        expired: {
+          offset: 0,
+          limit: 10,
+          data: [],
+          finish: false,
+        }
+      }
     })
     this.getCircleData()
     this.getTopicData()
     this.getEventsData(0)
     this.getEventsData(1)
     this.getSwiper()
+    this.getBanner()
+    this.getLatestActivity()
+    this.getExpiredActivity()
+  },
+
+  getLatestActivity() {
+    const { offset, limit } = this.data.activity.latest
+    api.getActivities({ offset, limit, expired: 0 }).then(res => {
+      const data = [...this.data.activity.latest.data, ...res.data]
+      const finish = res.paging.total <= this.data.activity.latest.data.length
+      this.setData({
+        ['activity.latest.data']: data,
+        ['activity.latest.finish']: finish
+      })
+    })
+  },
+
+  getExpiredActivity() {
+    const { offset, limit } = this.data.activity.expired
+    api.getActivities({ offset, limit, expired: 1 }).then(res => {
+      const data = [...this.data.activity.expired.data, ...res.data]
+      const finish = res.paging.total <= this.data.activity.expired.data.length
+      this.setData({
+        ['activity.expired.data']: data,
+        ['activity.expired.finish']: finish
+      })
+    })
   },
 
   getSwiper() {
@@ -161,7 +238,9 @@ Page({
         swipers: res.data
       })
     })
+  },
 
+  getBanner() {
     api.exploreSwiper().then(res => {
       this.setData({
         banner: res

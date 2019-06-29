@@ -12,19 +12,22 @@
       <view class="home_banner-container">
         <image lazy-load class="home_banner" src="/static/default_banner.jpg"></image>
       </view>
-      <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
+      <!-- <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab> -->
+      <gu-tab tabs="{{['最新', '往期']}}" width="30%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
 
-      <view hidden="{{ activityTabIndex != 0 }}" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+      <view hidden="{{ activityTabIndex != 0 }}" wx:for="{{activity.latest.data}}" wx:key="{{index}}">
+        <activity-card item="{{item}}"></activity-card>
+        <activity-card item="{{item}}"></activity-card>
+        <activity-card item="{{item}}"></activity-card>
+      </view>
+
+      <view hidden="{{ activityTabIndex != 1 }}" wx:for="{{activity.expired.data}}" wx:key="{{index}}">
+        <activity-card item="{{item}}" objection="{{true}}"></activity-card>
+      </view>
+
+      <!-- <view hidden="{{ activityTabIndex != 2 }}" wx:for="{{[1, 2]}}" wx:key="{{index}}">
         <activity-card></activity-card>
-      </view>
-
-      <view hidden="{{ activityTabIndex != 1 }}" wx:for="{{[1]}}" wx:key="{{index}}">
-        <activity-card objection="{{true}}"></activity-card>
-      </view>
-
-      <view hidden="{{ activityTabIndex != 2 }}" wx:for="{{[1, 2]}}" wx:key="{{index}}">
-        <activity-card></activity-card>
-      </view>
+      </view> -->
     </view>
     
     <!-- 推荐页 -->

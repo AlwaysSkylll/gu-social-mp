@@ -7,6 +7,10 @@ Component({
     objection: {
       type: Boolean,
       value: false
+    },
+    item: {
+      type: Object,
+      value: {}
     }
   },
 
@@ -21,6 +25,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goDetail() {
+      wx.navigateTo({
+        url: `/pages/activity/index?id=${this.properties.item.id}`,
+      })
+    }
   }
 })

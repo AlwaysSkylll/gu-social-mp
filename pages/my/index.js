@@ -6,7 +6,7 @@ Page({
   data: {
     tabs: [
       "罍小说",
-      "我的消息",
+      // "我的消息",
       "个人中心"
     ],
     profileList: [
@@ -24,13 +24,16 @@ Page({
       {
         name: '活动管理',
         path: '/pages/my/activity/index'
-      }, {
-        name: '礼物管理',
-        path: '/pages/my/gift/index'
-      }, {
-        name: '兑换中心',
-        path: '/pages/my/exchange/index'
-      }, {
+      },
+      // {
+      //   name: '礼物管理',
+      //   path: '/pages/my/gift/index'
+      // },
+      // {
+      //   name: '兑换中心',
+      //   path: '/pages/my/exchange/index'
+      // },
+      {
         name: '邀请好友',
         path: '/pages/my/invite/index'
       }
