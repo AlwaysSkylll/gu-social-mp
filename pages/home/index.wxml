@@ -14,6 +14,7 @@
       </view>
       <!-- <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab> -->
       <gu-tab tabs="{{['最新', '往期']}}" width="30%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
+      <view class="light-gray-bottom"></view>
 
       <view hidden="{{ activityTabIndex != 0 }}" wx:for="{{activity.latest.data}}" wx:key="{{index}}">
         <activity-card item="{{item}}"></activity-card>
