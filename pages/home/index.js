@@ -341,22 +341,33 @@ Page({
    * 弹窗（一天一次）86400000 
    */
   showGuid() {
-    const oneDay = 86400000 
+    const oneDay = 86400000
     const nowTime = Date.parse(new Date())
     let expiredTime = wx.getStorageSync('guid_expired_time')
+    const setState = (item) => {
+      const itemExist = item && item.target && item.target.id
+      if (itemExist) {
+        this.setData({
+          showGuid: true,
+          guidItem: item
+        }) 
+      }
+      return itemExist
+    }
+    const setStorage = () => {
+      expiredTime = nowTime + oneDay
+      wx.setStorageSync('guid_expired_time', expiredTime)
+    }
+
+    // 有效期内不显示
     if (expiredTime && expiredTime - nowTime > 0) return
 
     api.homeModal({}).then(res => {
-      if (expiredTime && res.target && res.target.id) {
-        this.setData({
-          showGuid: true,
-          guidItem: res
-        })
-      }
-      return
-    }).then(() => {
-      expiredTime = nowTime + oneDay
-      wx.setStorageSync('guid_expired_time', expiredTime)
+      return setState(res)
+    }).then((itemExist) => {
+      // 弹窗无数据，不刷新过期时间，下次进入会再次请求弹窗接口数据
+      if (!itemExist) return
+      setStorage()
     })
   },
 
