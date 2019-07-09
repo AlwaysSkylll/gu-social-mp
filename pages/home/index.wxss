@@ -92,3 +92,19 @@
 .home-gorund-item {
   
 }
+
+/* 弹窗引导图片 */
+.guid-img {
+  display: block;
+  margin-top: 10vh;
+  width: 80vw;
+  height: 60vh;
+}
+
+.close-img {
+  width: 60rpx;
+  height: 60rpx;
+}
+.guid-container {
+  display: inline-block;
+}

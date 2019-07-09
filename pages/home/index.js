@@ -41,7 +41,9 @@ Page({
         data: [],
         finish: false,
       }
-    }
+    },
+    showGuid: false,
+    guidItem: {}
   },
   onLoad() {
     wx.hideTabBar({})
@@ -174,26 +176,28 @@ Page({
     }
   },
 
+  /**
+   * 弹窗跳转详情
+   */
+  goGuidDetail() {
+    this.goDetail(this.data.guidItem)
+  },
+
   // 广场页banner详情
   goGroundBannerDetail() {
-    const groundBanner = this.data.groundBanner
-    
-    this.goDetail(groundBanner)
+    this.goDetail(this.data.groundBanner)
   },
 
   // 活动页banner详情
   goActivityBannerDetail() {
-    const activityBanner = this.data.activityBanner
-
-    this.goDetail(activityBanner)
+    this.goDetail(this.data.activityBanner)
   },
 
   // 推荐页轮播详情
   goSwiperDetail(e) {
     const index = e.currentTarget.dataset.index
-    const swiper = this.data.swipers[index]
 
-    this.goDetail(swiper)
+    this.goDetail(this.data.swipers[index])
   },
 
   /**
@@ -231,6 +235,7 @@ Page({
     this.getActivityBanner()
     this.getLatestActivity()
     this.getExpiredActivity()
+    this.showGuid()
   },
 
   getLatestActivity() {
@@ -329,6 +334,35 @@ Page({
         [`events[${index}][${page}]`]: events,
         [`finish[${index}]`]: finish,
       })
+    })
+  },
+
+  /**
+   * 弹窗（一天一次）86400000 
+   */
+  showGuid() {
+    const oneDay = 86400000 
+    const nowTime = Date.parse(new Date())
+    let expiredTime = wx.getStorageSync('guid_expired_time')
+    if (expiredTime && expiredTime - nowTime > 0) return
+
+    api.homeModal({}).then(res => {
+      if (expiredTime && res.target && res.target.id) {
+        this.setData({
+          showGuid: true,
+          guidItem: res
+        })
+      }
+      return
+    }).then(() => {
+      expiredTime = nowTime + oneDay
+      wx.setStorageSync('guid_expired_time', expiredTime)
+    })
+  },
+
+  closeGuid() {
+    this.setData({
+      showGuid: false
     })
   },
 });
