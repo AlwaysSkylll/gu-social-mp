@@ -155,43 +155,45 @@ Page({
     })
   },
 
+  goDetail(item) {
+    if (!(item.target && item.target.id)) return
+
+    const type = item.target_type === 'circles' ? 'Circle' : 'Subject'
+
+    if (['circles', 'subject'].includes(item.target_type)) {
+      wx.navigateTo({
+        url: `/pages/topic-detail/index?id=${item.target.id}&type=${type}`
+      })
+      return
+    }
+    if (item.target_type === 'activity') {
+      wx.navigateTo({
+        url: `/pages/activity/index?id=${item.target.id}`
+      })
+      return
+    }
+  },
+
   // 广场页banner详情
   goGroundBannerDetail() {
-    if (!(this.data.groundBanner.target && this.data.groundBanner.target.id)) return
-    if (this.data.groundBanner.target_type === 'circles') {
-      wx.navigateTo({
-        url: `/pages/topic-detail/index?id=${this.data.groundBanner.target.id}&type=Circle`
-      })
-    }
-    if (this.data.groundBanner.target_type === 'subject') {
-      wx.navigateTo({
-        url: `/pages/topic-detail/index?id=${this.data.groundBanner.target.id}&type=Subject`
-      })
-    }
+    const groundBanner = this.data.groundBanner
+    
+    this.goDetail(groundBanner)
   },
 
   // 活动页banner详情
   goActivityBannerDetail() {
-    if (!(this.data.activityBanner.target && this.data.activityBanner.target.id)) return
-    wx.navigateTo({
-      url: `/pages/activity/index?id=${this.data.groundBanner.target.id}`
-    })
+    const activityBanner = this.data.activityBanner
+
+    this.goDetail(activityBanner)
   },
 
   // 推荐页轮播详情
   goSwiperDetail(e) {
     const index = e.currentTarget.dataset.index
-    if (!(this.data.swipers[index].target && this.data.swipers[index].target.id)) return
-    if (this.data.swipers[index].target_type === 'circles') {
-      wx.navigateTo({
-        url: `/pages/topic-detail/index?id=${this.data.swipers[index].target.id}&type=Circle`
-      })
-    }
-    if (this.data.swipers[index].target_type === 'subject') {
-      wx.navigateTo({
-        url: `/pages/topic-detail/index?id=${this.data.swipers[index].target.id}&type=Subject`
-      })
-    }
+    const swiper = this.data.swipers[index]
+
+    this.goDetail(swiper)
   },
 
   /**
