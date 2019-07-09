@@ -83,7 +83,7 @@
 
 <view class="cu-modal {{showGuid ? 'show': ''}}">
   <view class="guid-container">
-    <image mode="aspectFit" lazy-load catchtap="goGuidDetail" class="guid-img" src="{{ activityBanner ? activityBanner.img : '/static/default_banner.jpg'}}"></image>
-    <image mode="aspectFit" class="close-img" lazy-load catchtap="closeGuid" src="/static/close.png"></image>
+    <image mode="aspectFit" catchtap="goGuidDetail" class="guid-img" src="{{ guidItem ? guidItem.img : '/static/default_banner.jpg'}}"></image>
+    <image mode="aspectFit" class="close-img" catchtap="closeGuid" src="/static/close.png"></image>
   </view>
 </view>
