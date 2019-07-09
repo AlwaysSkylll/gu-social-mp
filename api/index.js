@@ -247,5 +247,12 @@ module.exports.unpraise = (data) => commonRequest.request('/api/praise', 'DELETE
  */
 module.exports.homeSwiper = (data) => commonRequest.request('/api/index/slides', 'GET', data)
 
-// 广场页banner
+/**
+ * 广场页banner
+ */
 module.exports.exploreSwiper = (data) => commonRequest.request('/api/square/banners', 'GET', data)
+
+/**
+ * 活动页banner
+ */
+module.exports.activityBanner = (data) => commonRequest.request('/api/activities/banners', 'GET', data)

@@ -10,7 +10,7 @@
     <!-- 活动页 -->
     <view hidden="{{ tabIndex != 2 }}">
       <view class="home_banner-container">
-        <image lazy-load class="home_banner" src="/static/default_banner.jpg"></image>
+        <image mode="aspectFit" lazy-load bindtap="goActivityBannerDetail" class="home_banner" src="{{ activityBanner ? activityBanner.img : '/static/default_banner.jpg'}}"></image>
       </view>
       <!-- <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab> -->
       <gu-tab tabs="{{['最新', '往期']}}" width="30%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
@@ -60,7 +60,7 @@
     <!-- 广场页 -->
     <view hidden="{{ tabIndex != 1 }}">
       <view class="home_banner-container">
-        <image lazy-load class="home_banner" src="{{banner.img ? banner.img : '/static/default_banner.jpg'}}" catchtap="goBannerDetail"></image>
+        <image lazy-load class="home_banner" src="{{groundBanner.img ? groundBanner.img : '/static/default_banner.jpg'}}" catchtap="goGroundBannerDetail"></image>
       </view>
       <gu-tab tabs="{{['热门', '最新']}}" width="30%" bindselectmytab="tempTabHandler" data-type="ground" initialIndex="{{groundTabIndex}}"></gu-tab>
       <view class="light-gray-bottom"></view>

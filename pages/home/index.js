@@ -1,5 +1,10 @@
 const api = require('../../api/index.js')
 const app = getApp()
+const HOME_TAB = {
+  RECOMMEND: 0,
+  PLAY_GROUND: 1,
+  ACTIVITY: 2
+}
 
 Page({
   mixins: [require('../../mixins/stick-btn-mixin/index.js')],
@@ -20,7 +25,8 @@ Page({
     ],
     finish: [false, false],
     swipers: [],
-    banner: {},
+    groundBanner: {},
+    activityBanner: {},
     isIpx: app.globalData.isIpx,
     activity: {
       latest: {
@@ -55,7 +61,7 @@ Page({
   * 页面相关事件处理函数--监听用户下拉动作
   */
   onPullDownRefresh() {
-    if (this.data.tabIndex === 0) {
+    if (this.data.tabIndex === HOME_TAB.RECOMMEND) {
       this.setData({
         circles: [],
         topics: [],
@@ -65,17 +71,17 @@ Page({
       this.getTopicData()
       this.getSwiper()
       wx.stopPullDownRefresh()
-    } else if (this.data.tabIndex === 1) {
+    } else if (this.data.tabIndex === HOME_TAB.PLAY_GROUND) {
       this.setData({
         events: [[], []],
         finish: [false, false],
-        banner: {},
+        groundBanner: {},
       })
-      this.getBanner()
+      this.getGroundBanner()
       this.getEventsData(0)
       this.getEventsData(1)
       wx.stopPullDownRefresh()
-    } else if (this.data.tabIndex === 2) {
+    } else if (this.data.tabIndex === HOME_TAB.ACTIVITY) {
       this.setData({
         activity: {
           latest: {
@@ -91,9 +97,11 @@ Page({
             finish: false,
           }
         },
+        activityBanner: {}
       })
       this.getLatestActivity()
       this.getExpiredActivity()
+      this.getActivityBanner()
       wx.stopPullDownRefresh()
     }
   },
@@ -148,18 +156,26 @@ Page({
   },
 
   // 广场页banner详情
-  goBannerDetail() {
-    if (!(this.data.banner.target && this.data.banner.target.id)) return
-    if (this.data.banner.target_type === 'circles') {
+  goGroundBannerDetail() {
+    if (!(this.data.groundBanner.target && this.data.groundBanner.target.id)) return
+    if (this.data.groundBanner.target_type === 'circles') {
       wx.navigateTo({
-        url: `/pages/topic-detail/index?id=${this.data.banner.target.id}&type=Circle`
+        url: `/pages/topic-detail/index?id=${this.data.groundBanner.target.id}&type=Circle`
       })
     }
-    if (this.data.banner.target_type === 'subject') {
+    if (this.data.groundBanner.target_type === 'subject') {
       wx.navigateTo({
-        url: `/pages/topic-detail/index?id=${this.data.banner.target.id}&type=Subject`
+        url: `/pages/topic-detail/index?id=${this.data.groundBanner.target.id}&type=Subject`
       })
     }
+  },
+
+  // 活动页banner详情
+  goActivityBannerDetail() {
+    if (!(this.data.activityBanner.target && this.data.activityBanner.target.id)) return
+    wx.navigateTo({
+      url: `/pages/activity/index?id=${this.data.groundBanner.target.id}`
+    })
   },
 
   // 推荐页轮播详情
@@ -209,7 +225,8 @@ Page({
     this.getEventsData(0)
     this.getEventsData(1)
     this.getSwiper()
-    this.getBanner()
+    this.getGroundBanner()
+    this.getActivityBanner()
     this.getLatestActivity()
     this.getExpiredActivity()
   },
@@ -250,10 +267,18 @@ Page({
     })
   },
 
-  getBanner() {
+  getGroundBanner() {
     api.exploreSwiper().then(res => {
       this.setData({
-        banner: res
+        groundBanner: res
+      })
+    })
+  },
+
+  getActivityBanner() {
+    api.activityBanner().then(res => {
+      this.setData({
+        activityBanner: res
       })
     })
   },
