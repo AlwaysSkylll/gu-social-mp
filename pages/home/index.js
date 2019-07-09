@@ -226,6 +226,7 @@ Page({
         }
       }
     })
+    this.showGuid()
     this.getCircleData()
     this.getTopicData()
     this.getEventsData(0)
@@ -235,7 +236,6 @@ Page({
     this.getActivityBanner()
     this.getLatestActivity()
     this.getExpiredActivity()
-    this.showGuid()
   },
 
   getLatestActivity() {
