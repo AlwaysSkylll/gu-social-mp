@@ -39,9 +39,7 @@ Component({
     const pageList = getCurrentPages()
     const pageLength = pageList.length
     const page = pageList[pageLength - 1]
-    const userInfo = wx.getStorageSync('userInfo')
     this.setData({
-      userInfo,
       showBar: page && this.data.showTabList.indexOf(page.route) != -1 || false
     })
   },
@@ -74,8 +72,10 @@ Component({
     * 展示发布按钮
     */
     showPublishHandler() {
+      const userInfo = wx.getStorageSync('userInfo')
       this.setData({
-        publishModalShow: true
+        publishModalShow: true,
+        userInfo
       })
     },
     /**
