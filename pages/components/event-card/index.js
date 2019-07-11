@@ -118,6 +118,20 @@ Component({
 
     hoverCard() {
       this.setHoverStatus(true)
+
+      const page = getCurrentPages().pop();
+
+      if (page.route.indexOf('event-detail') === -1) return
+
+      // 说说详情页长按复制内容到剪切板
+      wx.setClipboardData({
+        data: this.data.event.content,
+        success: () => {
+          wx.showToast({
+            title: '已复制到剪切板',
+          })
+        }
+      })
     },
     unHoverCard() {
       this.setHoverStatus(false)
