@@ -154,6 +154,7 @@ Page({
   getUserInfo() {
     api.getUserInfo({}).then(res => {
       const userInfo = res
+      wx.setStorageSync('userInfo', res)
 
       this.setData({
         userInfo,
