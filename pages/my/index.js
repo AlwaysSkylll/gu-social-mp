@@ -6,7 +6,7 @@ Page({
   data: {
     tabs: [
       "罍小说",
-      // "我的消息",
+      "我的消息",
       "个人中心"
     ],
     profileList: [
@@ -25,14 +25,14 @@ Page({
         name: '活动管理',
         path: '/pages/my/activity/index'
       },
-      // {
-      //   name: '礼物管理',
-      //   path: '/pages/my/gift/index'
-      // },
-      // {
-      //   name: '兑换中心',
-      //   path: '/pages/my/exchange/index'
-      // },
+      {
+        name: '礼物管理',
+        path: '/pages/my/gift/index'
+      },
+      {
+        name: '兑换中心',
+        path: '/pages/my/exchange/index'
+      },
       {
         name: '邀请好友',
         path: '/pages/my/invite/index'
@@ -42,31 +42,31 @@ Page({
       {
         name: '系统消息',
         empty: '美好的一天从评论开始',
-        path: '/pages/my/system-msg/index',
+        path: '',
         icon: '/static/system_msg.png',
-        badge: 11
+        badge: 0
       }, {
         name: '评论消息',
-        path: '/pages/my/comment-msg/index',
+        path: '',
         empty: '暂无关于评论消息',
         icon: '/static/comment_msg.png',
         badge: 0
       }, {
         name: '点赞消息',
-        empty: '柠萌超级好吃点赞了你',
-        path: '/pages/my/thumbs-msg/index',
+        empty: '暂无关于点赞消息',
+        path: '',
         icon: '/static/thumbs_msg.png',
         badge: 0
       }, {
         name: '送礼消息',
-        empty: '吃瓜群众送礼物给你',
-        path: '/pages/my/gift-msg/index',
+        empty: '暂无关于送礼消息',
+        path: '',
         icon: '/static/gift_msg.png',
-        badge: 5
+        badge: 0
       }, {
         name: '活动消息',
         empty: '最新活动消息已上线',
-        path: '/pages/my/activity-msg/index',
+        path: '',
         icon: '/static/activity_msg.png',
         badge: 0
       }

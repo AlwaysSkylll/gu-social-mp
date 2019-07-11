@@ -15,8 +15,8 @@ Page({
         slotName: 'sendList'
       }
     ],
-    fromList: [1, 2, 3,3,1,1,1,1,1,2,3,3,,3,3,3],
-    sendList: [1, 2, 3],
+    fromList: [],
+    sendList: [],
     paging: undefined,
     activeTabIndex: 0,
   },

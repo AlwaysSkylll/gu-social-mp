@@ -2,7 +2,7 @@
 <template name="item">
   <view class="gift-item">
     <view class="time">
-      <view>2019/02/17</view>
+      <view>2019/07/01</view>
       <view>12:11:01</view>
     </view>
     <view class="to">赠送给浪漫土耳其</view>
@@ -12,7 +12,7 @@
 
 
 <view class="gift-manage_banner">
-  <view class="banner-top">12</view>
+  <view class="banner-top">0</view>
   <view class="banner-bottom">目前礼物数量</view>
 </view>
 

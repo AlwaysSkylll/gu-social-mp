@@ -15,8 +15,8 @@ Page({
         slotName: 'mychange'
       }
     ],
-    goods: [1, 2, 3, 4, 4, 4, 1, 1, 1, 1, 1],
-    mychange: [1, 2, 3,1,1,1,1,1,11,1],
+    goods: [],
+    mychange: [],
     paging: undefined,
     activeTabIndex: 0,
     userInfo: {}

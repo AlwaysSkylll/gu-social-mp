@@ -15,8 +15,8 @@ Page({
         slotName: 'compelete'
       }
     ],
-    ongoing: [1, 2, 3,4,4,4,1,1,1,1,1],
-    compelete: [1,2,3],
+    ongoing: [],
+    compelete: [],
     paging: undefined,
     activeTabIndex: 0,
   },
