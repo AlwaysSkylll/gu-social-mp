@@ -1,0 +1,17 @@
+/* pages/components/popover-item/index.wxss */
+.popover-item {
+  flex: 1;
+  padding: 10px;
+  font-size: 22rpx;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 999;
+}
+.popover-item-hover {
+  background-color: #EEE;
+}
+.underline{
+  border-bottom:1px #EEE solid;
+}

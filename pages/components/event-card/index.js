@@ -339,6 +339,27 @@ Component({
     },
     previewImg() {
 
+    },
+
+    sendGift(e) {
+      const popover = this.selectComponent('#popover');
+      const id = e.target.id;
+      this.createSelectorQuery().select('#' + id).boundingClientRect(res => {
+        // 调用自定义组件 popover 中的 onDisplay 方法
+        popover.onDisplay(res);
+      }).exec();
+    },
+
+    // 响应popover组件中的子元素点击事件
+    onClickA (e) {
+      const popover = this.selectComponent('#popover');
+
+      wx.showToast({
+        title: '你点击了A',
+        icon: 'none'
+      });
+      // 调用自定义组件 popover 中的 onHide 方法
+      this.popover.onHide();
     }
    }
 })

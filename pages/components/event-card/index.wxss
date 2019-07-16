@@ -109,13 +109,12 @@
 }
 
 .event-card-footer {
-  position: relative;
   margin-top: 20rpx;
   font-size: 24rpx;
 }
 
 .event-card-footer .topic-title {
-  max-width: 380rpx;
+  max-width: 310rpx;
   display: inline-block;
   padding: 10rpx;
   background: #eeeeee;

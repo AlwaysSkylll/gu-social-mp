@@ -1,0 +1,4 @@
+<!--pages/components/popover-item/index.wxml-->
+<view class='popover-item {{hasline ? "underline" : ""}}' hover-class='popover-item-hover' catchtap='onClick' style='height:{{height}};line-height:{{height}};'>
+  <slot/>
+</view>
