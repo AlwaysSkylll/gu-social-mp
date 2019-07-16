@@ -1,4 +1,6 @@
 <!--pages/my/exchange/index.wxml-->
+<import src="/template/empty.wxml" />
+
 <template name="activity">
   <view class="activity-item">
     <image lazy-load="true" mode="widthFit" class="activity-item__left" src="/static/circle_card.jpg"></image>
@@ -48,11 +50,13 @@
       <block wx:for="{{ goods }}" wx:key="{{ index }}">
         <template is="good"/>
       </block>
+      <template wx:if="{{ !goods.length }}" is="empty"/>
     </view>
   </view>
   <view slot="{{ tabItems[1].slotName }}">
     <block wx:for="{{ mychange }}" wx:key="{{ index }}">
       <template is="activity"/>
     </block>
+    <template wx:if="{{ !mychange.length }}" is="empty"/>
   </view>
 </scroll-tab>

@@ -1,4 +1,5 @@
 <!--pages/activity/index.wxml-->
+<import src="/template/empty.wxml" />
 <wxs src="../../utils/time-tools.wxs" module="timeTools" />
 
 <view class="topic-detail">
@@ -18,7 +19,7 @@
     </view>
   </view>
   <text class="info-title">{{subject.title}}</text>
-  <text class="topic-detail_desc gray-buttom">{{subject.description}}</text>
+  <text class="topic-detail_desc gray-buttom">{{subject.rule}}</text>
   <view class="light-gray-bottom">
     <gu-tab bindselectmytab="tabHandler" fontSize="32" tabs="{{['互动', '排行榜']}}" width="30%" initialIndex="0" activeBg="none"></gu-tab>
   </view>
@@ -26,6 +27,7 @@
     <view class="gray-buttom" wx:for="{{events}}" wx:key="{{index}}">
       <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects"></event-card>
     </view>
+    <template wx:if="{{ !events.length }}" is="empty" data="{{ text: '暂无互动' }}"/>
   </view>
 
   <view hidden="{{tabIndex !== 1}}">
@@ -42,6 +44,7 @@
         </view>
       </view>
     </view>
+    <template wx:if="{{ !hotEvents.length }}" is="empty" data="{{ text: '暂无排行榜' }}"/>
   </view>
 </view>
 

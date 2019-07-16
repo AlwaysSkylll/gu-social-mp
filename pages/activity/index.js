@@ -283,7 +283,7 @@ Page({
 
   getHotEvents() {
     api.getActivityEvents({ hot: 1, limit: 10 }, this.data.id).then(res => {
-      const hotEvents = [{}, ...res.data]
+      const hotEvents = res.data
       this.setData({
         hotEvents
       })

@@ -1,4 +1,5 @@
 <import src="/template/simple-list.wxml" />
+<import src="/template/empty.wxml" />
 
 <template name="msg-list">
   <navigator url="{{item.path}}">
@@ -64,6 +65,7 @@
         <view class="home-gorund-item gray-buttom" wx:for="{{myEvents}}" wx:key="{{index}}">
           <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas" event="{{item}}" type="events"></event-card>
         </view>
+        <template wx:if="{{ !myEvents.length }}" is="empty"/>
       </view>
       <view hidden="{{tabIndex != 1}}">
         <block wx:for="{{messageList}}" wx:key="{{index}}">

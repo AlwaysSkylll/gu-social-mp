@@ -2,10 +2,11 @@
   filter: grayscale(0.7);
   opacity: 0.5;
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 100rpx;
+  padding: 240rpx 0;
 }
 
 .empty-container .empty-img {

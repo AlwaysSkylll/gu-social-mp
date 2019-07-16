@@ -1,4 +1,6 @@
 <!--pages/my/gift/index.wxml-->
+<import src="/template/empty.wxml" />
+
 <template name="item">
   <view class="gift-item">
     <view class="time">
@@ -22,10 +24,12 @@
     <block wx:for="{{ fromList }}" wx:key="{{ index }}">
       <template is="item"/>
     </block>
+    <template wx:if="{{ !fromList.length }}" is="empty"/>
   </view>
   <view slot="{{ tabItems[1].slotName }}">
     <block wx:for="{{ sendList }}" wx:key="{{ index }}">
       <template is="item"/>
     </block>
+    <template wx:if="{{ !sendList.length }}" is="empty"/>
   </view>
 </scroll-tab>
