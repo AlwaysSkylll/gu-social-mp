@@ -56,8 +56,8 @@
         {{event.comment_num}}
       </view>
       <view class="operation" catchtap="setPraise">
-        <image mode="aspectFit" class="operation-icon like-icon {{event.praise && tapNum ? 'like-animate' : ''}}" wx:if="{{event.praise}}" src="/static/red_like.png"></image>
-        <image mode="aspectFit" class="operation-icon unlike-icon  {{!event.praise && tapNum ? 'unlike-animate' : ''}}" wx:else src="/static/normal_like.png"></image>
+        <image mode="aspectFit" class="operation-icon like-icon {{event.praise && tapNum ? 'like-animate' : ''}}" hidden="{{ !event.praise }}" src="/static/red_like.png"></image>
+        <image mode="aspectFit" class="operation-icon unlike-icon  {{!event.praise && tapNum ? 'unlike-animate' : ''}}" hidden="{{ event.praise }}" src="/static/normal_like.png"></image>
         {{event.praise_num}}
       </view> 
     </view>
