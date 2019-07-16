@@ -165,7 +165,7 @@
   animation-timing-function: linear;
 }
 
-.unlike-icon {
+.unlike-animate {
   position: relative;
   animation-name: shake;
   animation-duration: .8s;
