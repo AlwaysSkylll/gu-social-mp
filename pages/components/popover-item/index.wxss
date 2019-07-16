@@ -1,6 +1,6 @@
 /* pages/components/popover-item/index.wxss */
 .popover-item {
-  flex: 1;
+  box-sizing: border-box;
   padding: 10px;
   font-size: 22rpx;
   text-align: center;

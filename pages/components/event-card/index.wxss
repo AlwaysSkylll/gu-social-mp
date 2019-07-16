@@ -162,7 +162,14 @@
 .like-animate {
   animation-name: like-animate;
   animation-duration: .8s;
-  animation-timing-function: linear
+  animation-timing-function: linear;
+}
+
+.unlike-icon {
+  position: relative;
+  animation-name: shake;
+  animation-duration: .8s;
+  animation-timing-function: linear;
 }
 
 .footer-operations .unlike-icon {
@@ -176,11 +183,11 @@
 
 @keyframes like-animate {
     0% {
-      transform: scale(0.8)
+      transform: scale(0)
     }
 
     50% {
-      transform: scale(1.2)
+      transform: scale(0.7)
     }
 
     100% {

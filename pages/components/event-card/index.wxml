@@ -30,16 +30,16 @@
   </view>
   <view class="event-card-footer">
     <view class="topic-title text-overflow" catchtap="goSubjectDetail">
-      <image class="topic-icon" src="/static/icon_huati@2x.png"></image>
+      <image mode="aspectFit" class="topic-icon" src="/static/icon_huati@2x.png"></image>
       #{{event.subject.title}}
     </view>
     <view class="footer-operations">
       <view class="operation">
-        <image id="flower-{{event.id}}" class="operation-icon" src="/static/flower.png" catchtap="sendGift"></image>
+        <image wx:if="{{ user.id != event.user.id }}" mode="aspectFit" id="flower-{{event.id}}" class="operation-icon" src="/static/flower.png" catchtap="sendGift" style="margin-right: 0;"></image>
         <!-- <image class="operation-icon" wx:else src="/static/normal_flower.png"></image> -->
         <!-- {{event.participant_num}} -->
         <popover id="popover">
-          <popover-item wx:for="{{[{num: 1},{num: 5},{num: 10},{num: 15},{num: 20},{num: 30}]}}" wx:key="{{index}}">
+          <popover-item style="width: 25%;" wx:for="{{[{num: 1},{num: 5},{num: 10},{num: 15},{num: 20},{num: 30}]}}" wx:key="{{index}}">
             <view style="display: flex;flex-direction:column;align-item:center;justify-content:space-bettwen;">
               <image mode="aspectFit" style="width: 30px;height: 40px;margin: 0 auto;" lazy-load src="/static/gift{{item.num}}.png"></image>
               <view style="font-size:24rpx;line-height: 26rpx;">{{item.num}}个古币</view>
@@ -48,7 +48,7 @@
         </popover>
       </view>
       <view class="operation" catchtap="shareEvent" catchtap="shareEvent">
-        <image class="operation-icon" src="/static/normal_share.png"></image>
+        <image mode="aspectFit" class="operation-icon" src="/static/normal_share.png"></image>
         {{event.share_num}}
       </view>
       <view class="operation" catchtap="toDetail">
@@ -56,8 +56,8 @@
         {{event.comment_num}}
       </view>
       <view class="operation" catchtap="setPraise">
-        <image class="operation-icon like-icon {{event.praise && tapNum ? 'like-animate' : ''}}" wx:if="{{event.praise}}" src="/static/red_like.png"></image>
-        <image class="operation-icon unlike-icon" wx:else src="/static/normal_like.png"></image>
+        <image mode="aspectFit" class="operation-icon like-icon {{event.praise && tapNum ? 'like-animate' : ''}}" wx:if="{{event.praise}}" src="/static/red_like.png"></image>
+        <image mode="aspectFit" class="operation-icon unlike-icon" wx:else src="/static/normal_like.png"></image>
         {{event.praise_num}}
       </view> 
     </view>
