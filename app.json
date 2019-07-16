@@ -30,7 +30,7 @@
     "pages/my/activity-msg/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "罍小馆",
     "navigationBarTextStyle": "black"

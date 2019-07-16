@@ -10,6 +10,7 @@ const request = function (url, method, data) {
     mask: true,
     duration: 10000
   })
+  wx.showNavigationBarLoading()
   if (app.globalData.logining) return Promise.reject()
   if (!app.globalData.tokenBody.token) {
     app.globalData.logining = true;
@@ -25,6 +26,7 @@ const request = function (url, method, data) {
       method: method || 'GET',
       success: function (response) {
         wx.hideToast()
+        wx.hideNavigationBarLoading()
         const res = response.data
         console.log(response)
         if (response.statusCode == 403) {
@@ -36,12 +38,11 @@ const request = function (url, method, data) {
             title: res.error.message,
             icon: 'none',
           })
-          reject(res)
-        } else {
-          resolve(res)
         }
+        resolve(res)
       },
       fail: function (res) {
+        wx.hideNavigationBarLoading()
         wx.showToast({
           title: '网络错误',
           icon: 'none',
