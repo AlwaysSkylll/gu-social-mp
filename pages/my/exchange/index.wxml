@@ -41,6 +41,7 @@
   <image class="avatar" src="{{userInfo.avatar_url}}" lazy-load mode="aspectFill"></image>
   <view class="nickname">{{userInfo.nickname}}</view>
   <view class="gift">礼物： <text class="num">0</text> </view>
+  <image src="/static/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 
 <scroll-tab tabItems="{{ tabItems }}" scrollHeight="{{ scrollHeight }}"

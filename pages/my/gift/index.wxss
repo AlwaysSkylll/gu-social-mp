@@ -1,5 +1,6 @@
 /* pages/my/gift/index.wxss */
 .gift-manage_banner {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 200rpx;
@@ -46,4 +47,14 @@
 .gift-item .cost {
   flex: 2;
   color: #5cd4ea;
+}
+
+.gift-manage_banner .gif-wave{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;  
+  height: 100rpx;   
 }

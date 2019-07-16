@@ -119,6 +119,7 @@
 }
 
 .exchange-banner {
+  position: relative;
   display: flex;
   height: 200rpx;
   background-image: linear-gradient(to right , #19d6e0, #2cebe0);
@@ -146,4 +147,14 @@
 
 .exchange-banner .num {
   font-size: 50rpx;
+}
+
+.exchange-banner .gif-wave{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;  
+  height: 100rpx;   
 }

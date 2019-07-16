@@ -16,6 +16,7 @@
 <view class="gift-manage_banner">
   <view class="banner-top">0</view>
   <view class="banner-bottom">目前礼物数量</view>
+  <image src="/static/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 
 <scroll-tab tabItems="{{ tabItems }}" scrollHeight="{{ scrollHeight }}"
