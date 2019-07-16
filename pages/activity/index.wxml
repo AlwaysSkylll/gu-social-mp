@@ -2,7 +2,7 @@
 <wxs src="../../utils/time-tools.wxs" module="timeTools" />
 
 <view class="topic-detail">
-  <image mode="aspectFit" class="topic-detail_bg" src="{{subject.covers[0]}}"></image>
+  <image mode="aspectFit" class="topic-detail_bg" src="{{subject.covers[0]}}" catchtap="previewImg"></image>
   <button class="topic-detail_share" bindtap="showShareChoice">
     <image class="topic-detail_share-icon" src="/static/share.png"></image>
   </button>
@@ -48,7 +48,7 @@
 <custom-simple-bar type="{{type}}" subject="{{subject}}"></custom-simple-bar>
 
 <view class="cu-modal {{shareCardShow ? 'show' : ''}}" bindtap="hideCard">
-  <view class="share-paper-card" style="height: {{type == 'Subject' ? 845 : 855}}rpx" catchtap="previewImg">
+  <view class="share-paper-card" style="height: {{type == 'Subject' ? 845 : 855}}rpx">
     <image src="{{sharePaperPath}}" class="share-img"></image>
     <view class="copy-button">
       <view class="btn" catchtap="copyDesc">一键复制</view>

@@ -38,7 +38,14 @@ Page({
   },
 
   previewImg() {
-
+    const imgLink = this.data.subject.covers
+    if (!imgLink.length) {
+      return;
+    }
+    wx.previewImage({
+      current: imgLink,
+      urls: imgLink
+    })
   },
 
   homePage() {
