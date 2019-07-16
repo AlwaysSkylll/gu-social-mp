@@ -1,4 +1,6 @@
 <!--pages/my/activity/index.wxml-->
+<import src="/template/empty.wxml" />
+
 <template name="activity">
   <view class="activity-item">
     <image lazy-load="true" mode="widthFit" class="activity-item__left" src="/static/circle_card.jpg"></image>
@@ -26,10 +28,12 @@
     <block wx:for="{{ ongoing }}" wx:key="{{ index }}">
       <template is="activity"/>
     </block>
+    <template wx:if="{{ !ongoing.length }}" is="empty"/>
   </view>
   <view slot="{{ tabItems[1].slotName }}">
     <block wx:for="{{ compelete }}" wx:key="{{ index }}">
       <template is="activity"/>
     </block>
+    <template wx:if="{{ !compelete.length }}" is="empty"/>
   </view>
 </scroll-tab>
