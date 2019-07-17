@@ -36,6 +36,7 @@ const request = function (url, method, data) {
             title: res.error.message,
             icon: 'none',
           })
+          reject(res)
         }
         resolve(res)
       },

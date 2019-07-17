@@ -20,7 +20,7 @@
   </view>
   <text class="topic-detail_desc gray-buttom">{{subject.description}}</text>
   <view class="gray-buttom" wx:for="{{events}}" wx:key="{{index}}">
-    <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects" bindsendgift="sendGift"></event-card>
+    <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" type="subjects" bindsendgift="showGiftList"></event-card>
   </view>
   <template wx:if="{{ !events.length }}" is="empty" data="{{ text: '发布说说，参与讨论吧～' }}"/>
 </view>
@@ -63,9 +63,9 @@
 <stick-button scrollDown="{{scrollDown}}"></stick-button>
 
 <popover id="popover">
-  <popover-item style="width: 25%;" wx:for="{{ giftList }}" wx:key="{{index}}" catchtap="onClickA">
+  <popover-item style="width: 25%;" wx:for="{{ giftList }}" wx:key="{{index}}">
     <view class="gift-item">
-      <image mode="aspectFit" style="width: 30px;height: 40px;margin: 0 auto;" lazy-load src="{{item.icon}}"></image>
+      <image mode="aspectFit" class="gift-item_img" lazy-load src="{{item.icon}}"></image>
       <view class="gift-item_text">{{item.score}}个古币</view>
     </view>
   </popover-item>

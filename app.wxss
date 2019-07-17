@@ -194,3 +194,9 @@ button {
   font-size:24rpx;
   line-height: 26rpx;
 }
+
+.gift-item .gift-item_img {
+  width: 30px;
+  height: 40px;
+  margin: 0 auto;
+}

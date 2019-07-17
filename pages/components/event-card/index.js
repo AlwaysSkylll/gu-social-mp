@@ -340,36 +340,20 @@ Component({
     previewImg() {
 
     },
-    
-    sendGift(e) {
+    /**
+     * 显示礼物菜单
+     * @param  {[type]} e [description]
+     * @return {[type]}   [description]
+     */
+    showGiftList(e) {
       console.log(this.data.event.id, e, 'event id')
       this.createSelectorQuery().select('#' + e.currentTarget.id).boundingClientRect(res => {
         // 调用自定义组件 popover 中的 onDisplay 方法
         this.triggerEvent('sendgift', {
-          giftId: this.data.event.id,
+          eventId: this.data.event.id,
           popoverRes: res
         })
       }).exec();
     },
-    // sendGift(e) {
-    //   const popover = this.selectComponent('#popover');
-    //   const id = e.target.id;
-    //   this.createSelectorQuery().select('#' + id).boundingClientRect(res => {
-    //     // 调用自定义组件 popover 中的 onDisplay 方法
-    //     popover.onDisplay(res);
-    //   }).exec();
-    // },
-
-    // // 响应popover组件中的子元素点击事件
-    // onClickA (e) {
-    //   const popover = this.selectComponent('#popover');
-
-    //   wx.showToast({
-    //     title: '你点击了A',
-    //     icon: 'none'
-    //   });
-    //   // 调用自定义组件 popover 中的 onHide 方法
-    //   popover.onHide();
-    // }
   }
 })
