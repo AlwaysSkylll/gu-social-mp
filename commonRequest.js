@@ -1,8 +1,6 @@
 var app = getApp()
 var host = require('./config.js').host
 
-
-
 const request = function (url, method, data) {
   wx.showToast({
     icon: 'loading',

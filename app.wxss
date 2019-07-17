@@ -181,3 +181,16 @@ button {
   font-size: 24rpx;
   color: #ffffff;
 }
+
+.gift-item {
+  display: flex;
+  flex-direction:column;
+  align-item: center;
+  justify-content:space-bettwen;
+}
+
+.gift-item .gift-item_text {
+  margin-top: 10rpx;
+  font-size:24rpx;
+  line-height: 26rpx;
+}

@@ -63,10 +63,10 @@
 <stick-button scrollDown="{{scrollDown}}"></stick-button>
 
 <popover id="popover">
-  <popover-item style="width: 25%;" wx:for="{{[{num: 1},{num: 5},{num: 10},{num: 15},{num: 20},{num: 30}]}}" wx:key="{{index}}" catchtap="onClickA">
-    <view style="display: flex;flex-direction:column;align-item:center;justify-content:space-bettwen;">
-      <image mode="aspectFit" style="width: 30px;height: 40px;margin: 0 auto;" lazy-load src="/static/gift{{item.num}}.png"></image>
-      <view style="font-size:24rpx;line-height: 26rpx;">{{item.num}}个古币</view>
+  <popover-item style="width: 25%;" wx:for="{{ giftList }}" wx:key="{{index}}" catchtap="onClickA">
+    <view class="gift-item">
+      <image mode="aspectFit" style="width: 30px;height: 40px;margin: 0 auto;" lazy-load src="{{item.icon}}"></image>
+      <view class="gift-item_text">{{item.score}}个古币</view>
     </view>
   </popover-item>
 </popover>

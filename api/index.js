@@ -261,3 +261,9 @@ module.exports.exploreSwiper = (data) => commonRequest.request('/api/square/bann
  * 活动页banner
  */
 module.exports.activityBanner = (data) => commonRequest.request('/api/activities/banners', 'GET', data)
+
+
+/**
+ * 获取礼物列表
+ */
+module.exports.getGiftList = (data) => commonRequest.request('/api/gifts', 'GET', {})
