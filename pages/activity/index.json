@@ -3,7 +3,9 @@
     "event-card": "/pages/components/event-card/index",
     "custom-simple-bar": "/custom-simple-bar/index",
     "stick-button": "/stick-button/index",
-    "gu-tab": "/pages/components/gu-tab/index"
+    "gu-tab": "/pages/components/gu-tab/index",
+    "popover-item": "/pages/components/popover-item/index",
+    "popover": "/pages/components/popover/index"
   },
   "navigationBarTitleText": "活动主题"
 }

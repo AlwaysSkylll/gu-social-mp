@@ -3,7 +3,10 @@ const api = require('../../api/index.js')
 const app = getApp()
 
 Page({
-  mixins: [require('../../mixins/stick-btn-mixin/index.js')],
+  mixins: [
+    require('../../mixins/gift-mixin/index.js'),
+    require('../../mixins/stick-btn-mixin/index.js')
+  ],
   /**
    * 页面的初始数据
    */

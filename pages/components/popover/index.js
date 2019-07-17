@@ -25,22 +25,21 @@ Component({
     // 垂直方向 top/bottom
     vertical: '',
     // 水平方向 left/center/right
-    align: ''
+    align: '',
+    last: '',
   },
 
   methods: {
     onDisplay: function (e) {
       let self = this;
-      console.log(e, 88887777)
-      console.log(this.data)
 
-      if (self.last && self.last === e.id) {
+      if (self.data.last && self.data.last === e.id) {
         self.setData({
           visible: !self.data.visible
         });
       } else {
-        wx.createSelectorQuery().selectViewport().scrollOffset(view => {
-          console.log(view, 888888)
+        this.createSelectorQuery().selectViewport().scrollOffset(view => {
+
           let { pw, ph, px, py, vertical, align } = self.data;
 
           let pOverW = (pw - e.width) / 2;
@@ -64,13 +63,13 @@ Component({
             if (px == 0) px += 5;
           }
 
-          if (offsetB >= (ph + trangleHeight)) {
+          // if (offsetB >= (ph + trangleHeight)) {
             vertical = 'bottom';
             py = view.scrollTop + e.bottom + trangleHeight;
-          } else {
-            vertical = 'top';
-            py = view.scrollTop + e.top - ph - trangleHeight;
-          }
+          // } else {
+          //   vertical = 'top';
+          //   py = view.scrollTop + e.top - ph - trangleHeight;
+          // }
 
           self.setData({
             visible: true,
@@ -83,7 +82,9 @@ Component({
         }).exec();
       }
       // 记录上一次点击的元素
-      self.last = e.id;
+      this.setData({
+        last: e.id
+      })
     },
     onHide: function () {
       this.setData({

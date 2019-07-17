@@ -6,7 +6,9 @@
     "mini-topic-card": "/pages/components/mini-topic-card/index",
     "event-card": "/pages/components/event-card/index",
     "custom-tab-bar": "/custom-tab-bar/index",
-    "stick-button": "/stick-button/index"
+    "stick-button": "/stick-button/index",
+    "popover-item": "/pages/components/popover-item/index",
+    "popover": "/pages/components/popover/index"
   },
   "enablePullDownRefresh": true
 }

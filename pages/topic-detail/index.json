@@ -2,6 +2,8 @@
   "usingComponents": {
     "event-card": "/pages/components/event-card/index",
     "custom-simple-bar": "/custom-simple-bar/index",
-    "stick-button": "/stick-button/index"
+    "stick-button": "/stick-button/index",
+    "popover-item": "/pages/components/popover-item/index",
+    "popover": "/pages/components/popover/index"
   }
 }

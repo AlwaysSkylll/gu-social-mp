@@ -7,7 +7,10 @@ const HOME_TAB = {
 }
 
 Page({
-  mixins: [require('../../mixins/stick-btn-mixin/index.js')],
+  mixins: [
+    require('../../mixins/gift-mixin/index.js'),
+    require('../../mixins/stick-btn-mixin/index.js')
+  ],
   data: {
     mainTabs: [
       "推荐",

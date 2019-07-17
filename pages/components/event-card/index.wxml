@@ -34,18 +34,18 @@
       #{{event.subject.title}}
     </view>
     <view class="footer-operations">
-      <view class="operation">
-        <image wx:if="{{ user.id != event.user.id }}" mode="aspectFit" id="flower-{{event.id}}" class="operation-icon" src="/static/flower.png" catchtap="sendGift" style="margin-right: 0;"></image>
+      <view class="operation" catchtap="sendGift" id="flower-{{event.id}}">
+        <image wx:if="{{ user.id != event.user.id }}" mode="aspectFit" class="operation-icon" src="/static/flower.png" style="margin-right: 0;"></image>
         <!-- <image class="operation-icon" wx:else src="/static/normal_flower.png"></image> -->
         <!-- {{event.participant_num}} -->
-        <popover id="popover">
-          <popover-item style="width: 25%;" wx:for="{{[{num: 1},{num: 5},{num: 10},{num: 15},{num: 20},{num: 30}]}}" wx:key="{{index}}">
+        <!-- <popover id="popover">
+          <popover-item style="width: 25%;" wx:for="{{[{num: 1},{num: 5},{num: 10},{num: 15},{num: 20},{num: 30}]}}" wx:key="{{index}}" catchtap="onClickA">
             <view style="display: flex;flex-direction:column;align-item:center;justify-content:space-bettwen;">
               <image mode="aspectFit" style="width: 30px;height: 40px;margin: 0 auto;" lazy-load src="/static/gift{{item.num}}.png"></image>
               <view style="font-size:24rpx;line-height: 26rpx;">{{item.num}}个古币</view>
             </view>
           </popover-item>
-        </popover>
+        </popover> -->
       </view>
       <view class="operation" catchtap="shareEvent" catchtap="shareEvent">
         <image mode="aspectFit" class="operation-icon" src="/static/normal_share.png"></image>

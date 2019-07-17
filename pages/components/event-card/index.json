@@ -1,8 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "follow-btn": "/pages/components/follow-btn/index",
-    "popover-item": "/pages/components/popover-item/index",
-    "popover": "/pages/components/popover/index"
+    "follow-btn": "/pages/components/follow-btn/index"
   }
 }

@@ -2,7 +2,9 @@
   "usingComponents": {
     "event-card": "/pages/components/event-card/index",
     "comment-item": "/pages/components/comment-item/index",
-    "stick-button": "/stick-button/index"
+    "stick-button": "/stick-button/index",
+    "popover-item": "/pages/components/popover-item/index",
+    "popover": "/pages/components/popover/index"
   },
   "navigationBarTitleText": "查看评论"
 }

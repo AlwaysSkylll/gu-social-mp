@@ -2,7 +2,7 @@
 <import src="/template/empty.wxml" />
 
 <view class="event-detail">
-  <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" callback="{{false}}"></event-card>
+  <event-card cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}" callback="{{false}}" bindsendgift="sendGift" ></event-card>
   <view class="gray-buttom"></view>
   <view class="event-detail_comment-list">
     <view>评论 <text class="comment-num">({{item.comment_num || 0}})</text></view>
@@ -26,3 +26,12 @@
 </view>
 
 <stick-button scrollDown="{{scrollDown}}"></stick-button>
+
+<popover id="popover">
+  <popover-item style="width: 25%;" wx:for="{{[{num: 1},{num: 5},{num: 10},{num: 15},{num: 20},{num: 30}]}}" wx:key="{{index}}" catchtap="onClickA">
+    <view style="display: flex;flex-direction:column;align-item:center;justify-content:space-bettwen;">
+      <image mode="aspectFit" style="width: 30px;height: 40px;margin: 0 auto;" lazy-load src="/static/gift{{item.num}}.png"></image>
+      <view style="font-size:24rpx;line-height: 26rpx;">{{item.num}}个古币</view>
+    </view>
+  </popover-item>
+</popover>
