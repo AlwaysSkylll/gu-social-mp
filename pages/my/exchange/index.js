@@ -1,4 +1,6 @@
 // pages/my/exchange/index.js
+const api = require('../../../api/index.js')
+
 Page({
 
   /**

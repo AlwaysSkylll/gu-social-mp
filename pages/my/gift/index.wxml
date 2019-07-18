@@ -2,12 +2,11 @@
 <import src="/template/empty.wxml" />
 
 <template name="item">
-  <view class="gift-item">
+  <view class="gift-history-item">
     <view class="time">
-      <view>2019/07/01</view>
-      <view>12:11:01</view>
+      <view>{{ item.create_time }}</view>
     </view>
-    <view class="to">赠送给浪漫土耳其</view>
+    <view class="to">{{ isSend ? '赠送给' : '来自' }}{{ item.to_user.nickname }}</view>
     <view class="cost">-1</view>
   </view>
 </template>
@@ -22,15 +21,15 @@
 <scroll-tab tabItems="{{ tabItems }}" scrollHeight="{{ scrollHeight }}"
   bindswitch="switchTabListener" bindscrolltolower="scrolltolowerListener">
   <view slot="{{ tabItems[0].slotName }}">
-    <block wx:for="{{ fromList }}" wx:key="{{ index }}">
-      <template is="item"/>
+    <block wx:for="{{ received }}" wx:key="{{ index }}">
+      <template is="item" data="{{ item, isSend: false }}"/>
     </block>
-    <template wx:if="{{ !fromList.length }}" is="empty"/>
+    <template wx:if="{{ !received.length }}" is="empty"/>
   </view>
   <view slot="{{ tabItems[1].slotName }}">
-    <block wx:for="{{ sendList }}" wx:key="{{ index }}">
-      <template is="item"/>
+    <block wx:for="{{ give }}" wx:key="{{ index }}">
+      <template is="item" data="{{ item, isSend: true }}"/>
     </block>
-    <template wx:if="{{ !sendList.length }}" is="empty"/>
+    <template wx:if="{{ !give.length }}" is="empty"/>
   </view>
 </scroll-tab>

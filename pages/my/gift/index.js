@@ -1,4 +1,6 @@
 // pages/my/gift/index.js
+const api = require('../../../api/index.js')
+
 Page({
 
   /**
@@ -8,15 +10,15 @@ Page({
     tabItems: [
       {
         label: '礼物来源记录',
-        slotName: 'fromList'
+        slotName: 'received'
       },
       {
         label: '赠送兑换记录',
-        slotName: 'sendList'
+        slotName: 'give'
       }
     ],
-    fromList: [],
-    sendList: [],
+    received: [],
+    give: [],
     paging: undefined,
     activeTabIndex: 0,
   },
@@ -34,8 +36,8 @@ Page({
       }
     })
 
-    this.getList('ongoing', 0)
-    this.getList('compelete', 0);
+    this.getList('received', 0)
+    this.getList('give', 0);
   },
 
   /**
@@ -71,10 +73,10 @@ Page({
    */
   onPullDownRefresh: function () {
     // 发起请求，更新订单活动列表
-    this.data.ongoing = []
-    this.data.compelete = []
-    this.getList('ongoing', 0)
-    this.getList('compelete', 0);
+    this.data.received = []
+    this.data.give = []
+    this.getList('received', 0)
+    this.getList('give', 0);
   },
 
   /**
@@ -128,10 +130,10 @@ Page({
     }
 
     if (type === tabItems[0].slotName) {
-      // return orderController('getOrders', offset).success(callBack)
+      return api.myGift({ offset, type: 'received' }).then(callBack)
     }
     if (type === tabItems[1].slotName) {
-      // return marketingController('getActivities', offset).success(callBack)
+      return api.myGift({ offset, type: 'give' }).then(callBack)
     }
   },
 })

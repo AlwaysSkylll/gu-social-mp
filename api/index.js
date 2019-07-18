@@ -265,9 +265,14 @@ module.exports.activityBanner = (data) => commonRequest.request('/api/activities
 /**
  * 获取礼物列表
  */
-module.exports.getGiftList = (data) => commonRequest.request('/api/gifts', 'GET', {})
+module.exports.getGiftList = (data) => commonRequest.request('/api/gifts', 'GET', data)
 
 /**
  * 说说送礼物
  */
 module.exports.sendGift = (data, eventId, giftId) => commonRequest.request(`/api/events/${eventId}/gifts/${giftId}`, 'POST', {})
+
+/**
+ * 礼物管理
+ */
+module.exports.myGift = (data) => commonRequest.request('/api/me/gifts', 'GET', data)
