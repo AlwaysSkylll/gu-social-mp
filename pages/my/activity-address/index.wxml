@@ -1,41 +1,41 @@
 <!--pages/my/activity-address/index.wxml-->
-<view class="activity-address">
-  <view class="address" bindtap="chooseAddress">
+<view class="activity-address" bindtap="chooseAddress">
+  <view class="address">
     <view class="address-left">
       <view class="activity-form-item">
-        收货人：<text>高先生</text>
+        收货人：<text>{{ address.userName }}</text>
       </view>
       <view class="activity-form-item">
-        手机：<text>15726817231</text>
+        手机：<text>{{ address.telNumber }}</text>
       </view>
       <view class="activity-form-item">
-        收货地址：<text>撒打算打算打算xxxx</text>
+        收货地址：<text>{{ address.provinceName }}{{ address.cityName }}{{ address.countyName }}{{ address.detailInfo }}</text>
       </view>
     </view>
 
-    <image class="address-right" src="/static/right_arrow.png"></image>
+    <image class="address-right" src="/static/right_arrow.png" bindtap="chooseAddress"></image>
   </view>
 
   <image class="address-line" src="/static/address_line.jpg"></image>
 
   <view class="order-info">
     <view class="goods-info">
-      <image class="goods-info_img"></image>
+      <image class="goods-info_img" mode="aspectFit" src="{{ product.thumb }}"></image>
       <view class="goods-info_content">
-        <view class="title">古井贡酒</view>
+        <view class="title">{{ product.title }}</view>
         <view class="time">发货时间：卖家承诺48小时</view>
         <view class="num">x1</view>
       </view>
     </view>
 
     <view class="order-info_addition">
-      <view class="order-info_addition-item">
+      <!-- <view class="order-info_addition-item">
         <view>配送方式</view>
         <view>快递¥5.00</view>
-      </view>
+      </view> -->
       <view class="order-info_addition-item">
         <view>买家留言</view>
-        <input class="order-comment" placeholder="选填，请先和商家协商一致"></input>
+        <input class="order-comment" placeholder="选填，请先和商家协商一致" bindinput="updateContext"></input>
       </view>
     </view>
   </view>

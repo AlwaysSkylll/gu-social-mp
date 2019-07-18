@@ -36,15 +36,8 @@ Page({
         })
       }
     })
-
     const userInfo = wx.getStorageSync('userInfo')
-
-    this.setData({
-      userInfo
-    })
-
-    this.getList('goods', 0)
-    this.getList('mychange', 0);
+    this.setData({ userInfo })
   },
 
   /**
@@ -58,7 +51,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getUserInfo();
+    this.setData({
+      goods: [],
+      mychange: [],
+      paging: undefined,
+    })
 
+    this.getList('goods', 0)
+    this.getList('mychange', 0);
   },
 
   /**
@@ -137,10 +138,32 @@ Page({
     }
 
     if (type === tabItems[0].slotName) {
-      // return orderController('getOrders', offset).success(callBack)
+      return api.getProducts({ offset }).then(callBack)
     }
     if (type === tabItems[1].slotName) {
-      // return marketingController('getActivities', offset).success(callBack)
+      return api.getOrders({ offset }).then(callBack)
     }
+  },
+
+  buyProduct(e) {
+    const id = e.currentTarget.dataset.id;
+    console.log(e)
+    wx.navigateTo({
+      url: `/pages/my/activity-address/index?id=${id}`,
+    })
+  },
+
+  /**
+   * 获取用户信息
+   */
+  getUserInfo() {
+    api.getUserInfo({}).then(res => {
+      const userInfo = res
+      wx.setStorageSync('userInfo', res)
+
+      this.setData({
+        userInfo,
+      })
+    })
   },
 })

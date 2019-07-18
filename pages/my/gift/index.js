@@ -36,11 +36,7 @@ Page({
         })
       }
     })
-    const userInfo = wx.getStorageSync('userInfo')
-    this.setData({
-      userInfo
-    })
-
+    this.getUserInfo()
     this.getList('received', 0)
     this.getList('give', 0);
   },
@@ -140,5 +136,19 @@ Page({
     if (type === tabItems[1].slotName) {
       return api.myGift({ offset, type: 'give' }).then(callBack)
     }
+  },
+
+  /**
+   * 获取用户信息
+   */
+  getUserInfo() {
+    api.getUserInfo({}).then(res => {
+      const userInfo = res
+      wx.setStorageSync('userInfo', res)
+
+      this.setData({
+        userInfo,
+      })
+    })
   },
 })

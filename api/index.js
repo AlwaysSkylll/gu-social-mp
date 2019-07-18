@@ -276,3 +276,24 @@ module.exports.sendGift = (data, eventId, giftId) => commonRequest.request(`/api
  * 礼物管理
  */
 module.exports.myGift = (data) => commonRequest.request('/api/me/gifts', 'GET', data)
+
+
+/**
+ * 积分商城商品
+ */
+module.exports.getProducts = (data) => commonRequest.request('/api/score_mall/products', 'GET', data)
+
+/**
+ * 积分商城订单
+ */
+module.exports.getOrders = (data) => commonRequest.request('/api/me/score_orders', 'GET', data)
+
+/**
+ * 商城商品详情
+ */
+module.exports.getProductInfo = (data, id) => commonRequest.request(`/api/score_mall/products/${id}`, 'GET', data)
+
+/**
+ * 兑换礼物订单提交
+ */
+module.exports.createOrder = (data, id) => commonRequest.request(`/api/score_mall/products/${id}`, 'POST', data)

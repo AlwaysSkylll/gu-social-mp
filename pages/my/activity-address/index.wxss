@@ -56,7 +56,6 @@
 .goods-info_img {
   width: 160rpx;
   height: 160rpx;
-  background: red;
   border-radius: 5rpx;
 }
 

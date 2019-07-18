@@ -7,7 +7,7 @@
       <view>{{ item.create_time }}</view>
     </view>
     <view class="to">{{ isSend ? '赠送给' : '来自' }}{{ item.to_user.nickname }}</view>
-    <view class="cost">-1</view>
+    <view class="cost">{{ isSend ? '-' : '+' }}{{ item.num }}</view>
   </view>
 </template>
 
