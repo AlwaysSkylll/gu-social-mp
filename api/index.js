@@ -128,6 +128,11 @@ module.exports.publishEvent = (data) => commonRequest.request('/api/events', 'PO
 module.exports.getActivities = (data) => commonRequest.request('/api/activities', 'GET', data)
 
 /**
+ * 我的活动
+ */
+module.exports.getMyActivities = (data) => commonRequest.request('/api/me/activities', 'GET', data)
+
+/**
  * 活动信息
  */
 module.exports.getActivityDetail = (data, id) => commonRequest.request(`/api/activities/${id}`, 'GET', data)

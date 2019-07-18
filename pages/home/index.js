@@ -43,6 +43,12 @@ Page({
         limit: 10,
         data: [],
         finish: false,
+      },
+      my: {
+        offset: 0,
+        limit: 10,
+        data: [],
+        finish: false,
       }
     },
     showGuid: false,
@@ -50,7 +56,6 @@ Page({
   },
   onLoad(options) {
     wx.hideTabBar({})
-    console.error(options, 88888)
     options.tab != undefined && this.setData({ tabIndex: options.tab })
     this.getData()
   },
@@ -102,12 +107,19 @@ Page({
             limit: 10,
             data: [],
             finish: false,
+          },
+          my: {
+            offset: 0,
+            limit: 10,
+            data: [],
+            finish: false,
           }
         },
         activityBanner: {}
       })
       this.getLatestActivity()
       this.getExpiredActivity()
+      this.getMyActivity()
       this.getActivityBanner()
       wx.stopPullDownRefresh()
     }
@@ -126,6 +138,8 @@ Page({
         this.getLatestActivity()
       } else if (this.data.activityTabIndex === 1) {
         this.getExpiredActivity()
+      } else {
+        this.getMyActivity()
       }
     }
   },
@@ -228,6 +242,12 @@ Page({
           limit: 10,
           data: [],
           finish: false,
+        },
+        my: {
+          offset: 0,
+          limit: 10,
+          data: [],
+          finish: false,
         }
       }
     })
@@ -241,6 +261,7 @@ Page({
     this.getActivityBanner()
     this.getLatestActivity()
     this.getExpiredActivity()
+    this.getMyActivity()
   },
 
   getLatestActivity() {
@@ -267,6 +288,20 @@ Page({
         ['activity.expired.offset']: data.length,
         ['activity.expired.data']: data,
         ['activity.expired.finish']: finish
+      })
+    })
+  },
+
+  getMyActivity() {
+    if (this.data.activity.my.finish) return
+    const { offset, limit } = this.data.activity.my
+    api.getMyActivities({ offset, limit }).then(res => {
+      const data = [...this.data.activity.my.data, ...res.data]
+      const finish = res.paging.total <= data.length
+      this.setData({
+        ['activity.my.offset']: data.length,
+        ['activity.my.data']: data,
+        ['activity.my.finish']: finish
       })
     })
   },

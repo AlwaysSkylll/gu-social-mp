@@ -336,7 +336,6 @@ Page({
       _status = this.data._statusList.end
       this.setData({ _status, _timeText })
       app.removeIntervalEvent(this.data.uuid)
-      console.log('活动已结束', 'from page')
       return
     }
 
@@ -345,7 +344,6 @@ Page({
       _status = this.data._statusList.ready
       _timeText = prefix + dateTimeDown(startTime)
       this.setData({ _status, _timeText })
-      console.log(_timeText, 'from page')
       return
     }
 
@@ -354,7 +352,6 @@ Page({
       _status = this.data._statusList.going
       _timeText = prefix + dateTimeDown(endTime)
       this.setData({ _status, _timeText })
-      console.log(_timeText, 'from page')
       return
     }
   }

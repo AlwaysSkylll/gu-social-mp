@@ -5,7 +5,7 @@
     <view class="status-text {{ _status == 0 ? 'ready' : (_status == 1 ? 'going' : 'end') }}">{{ _timeText }}</view>
   </view>
   <view class="activity-card_info">
-    <view class="activity-card_line {{objection ? 'objection' : ''}}">
+    <view class="activity-card_line {{ _status == 2 ? 'objection' : ''}}">
       <view class="activity-card_title">
         <image lazy-load class="fire" src="/static/fire.png"></image>
         <image lazy-load class="fire" src="/static/fire.png"></image>

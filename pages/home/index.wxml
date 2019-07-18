@@ -15,7 +15,7 @@
         <image mode="aspectFit" lazy-load bindtap="goActivityBannerDetail" class="home_banner" src="{{ activityBanner ? activityBanner.img : '/static/default_banner.jpg'}}"></image>
       </view>
       <!-- <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab> -->
-      <gu-tab tabs="{{['最新', '往期']}}" width="30%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
+      <gu-tab tabs="{{['最新', '往期', '我的']}}" width="45%" bindselectmytab="tempTabHandler" data-type="activity" initialIndex="{{activityTabIndex}}"></gu-tab>
       <view class="light-gray-bottom"></view>
 
       <view hidden="{{ activityTabIndex != 0 }}">
@@ -32,9 +32,12 @@
         <template wx:if="{{ !activity.expired.data.length }}" is="empty" data="{{ text: '暂无更多活动' }}"/>
       </view>
 
-      <!-- <view hidden="{{ activityTabIndex != 2 }}" wx:for="{{[1, 2]}}" wx:key="{{index}}">
-        <activity-card></activity-card>
-      </view> -->
+      <view hidden="{{ activityTabIndex != 2 }}">
+        <view wx:for="{{activity.my.data}}" wx:key="{{index}}">
+          <activity-card item="{{item}}" objection="{{true}}"></activity-card>
+        </view>
+        <template wx:if="{{ !activity.my.data.length }}" is="empty" data="{{ text: '暂无更多活动' }}"/>
+      </view>
     </view>
     
     <!-- 推荐页 -->

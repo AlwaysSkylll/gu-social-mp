@@ -80,7 +80,6 @@ Component({
         _status = this.data._statusList.ready
         _timeText = prefix + dateTimeDown(startTime)
         this.setData({ _status, _timeText })
-        console.log(_timeText, 'from card')
         return
       }
 
@@ -89,7 +88,6 @@ Component({
         _status = this.data._statusList.going
         _timeText = prefix + dateTimeDown(endTime)
         this.setData({ _status, _timeText })
-        console.log(_timeText, 'from card')
         return
       }
     },
