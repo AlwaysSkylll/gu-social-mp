@@ -6,15 +6,15 @@
     <view class="time">
       <view>{{ item.create_time }}</view>
     </view>
-    <view class="to">{{ isSend ? '赠送给' : '来自' }}{{ item.to_user.nickname }}</view>
+    <view class="to">{{ isSend ? '赠送给' : '来自' }}{{ isSend ? item.to_user.nickname : item.user.nickname }}</view>
     <view class="cost">{{ isSend ? '-' : '+' }}{{ item.num }}</view>
   </view>
 </template>
 
 
 <view class="gift-manage_banner">
-  <view class="banner-top">{{ userInfo.score }}</view>
-  <view class="banner-bottom">目前古币数量</view>
+  <view class="banner-top">{{ userInfo.gift_num }}</view>
+  <view class="banner-bottom">目前礼物数量</view>
   <image src="/static/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 

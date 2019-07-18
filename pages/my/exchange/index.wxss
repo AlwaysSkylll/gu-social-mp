@@ -21,13 +21,16 @@
 }
 
 .activity-item__middle {
-  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20rpx;
   line-height: 30rpx;
 }
 
 .activity-item__middle .title {
   font-size: 28rpx;
+  color: gray;
 }
 
 .activity-item__middle .desc {
