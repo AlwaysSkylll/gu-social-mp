@@ -1,7 +1,8 @@
 <!--pages/components/activity-card/index.wxml-->
 <view class="activity-card" bindtap="goDetail">
   <view class="activity-card_img-container">
-   <image lazy-load mode="widthFix" class="activity-card_img" src="{{item.covers[0]}}"></image>
+    <image lazy-load mode="widthFix" class="activity-card_img" src="{{item.covers[0]}}"></image>
+    <view class="status-text {{ _status == 0 ? 'ready' : (_status == 1 ? 'going' : 'end') }}">{{ _timeText }}</view>
   </view>
   <view class="activity-card_info">
     <view class="activity-card_line {{objection ? 'objection' : ''}}">
@@ -14,7 +15,9 @@
       <view class="activity-card_num">
         <!-- <image lazy-load class="gift" src="/static/gift.png"></image>
         <text>15</text> -->
-        <view class="btn">查看</view>
+        <view wx:if="{{ _status != 0 }}" class="btn {{ _status == 0 ? 'ready' : (_status == 1 ? 'going' : 'end') }}">
+          {{ _status == 0 ? '参与活动' : (_status == 1 ? '我要参与' : '查看') }}
+        </view>
       </view>
     </view>
     <view class="activity-card_sub-info">{{item.participant_num}}人参与活动</view>

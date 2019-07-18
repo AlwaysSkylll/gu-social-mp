@@ -1,7 +1,8 @@
 // pages/activity/index.js
 const api = require('../../api/index.js')
 const app = getApp()
-const { formatTime } = require('../../utils/util.js')
+const { dateTimeDown } = require('../../utils/time-toolkit.js')
+const { formatTime, uuid } = require('../../utils/util.js')
 const drawTools = require('../../utils/draw-tools.js')
 
 Page({
@@ -24,7 +25,17 @@ Page({
     offset: 0,
     finish: false,
     tabIndex: 0,
-    hotEvents: []
+    hotEvents: [],
+
+    // 倒计时文案
+    _timeText: '',
+    _status: 0,
+    _statusList: {
+      ready: 0,
+      going: 1,
+      end: 2,
+    },
+    uuid: '',
   },
 
   /**
@@ -34,7 +45,8 @@ Page({
     this.setData({
       id: options.id,
       type: 'Activity',
-      showHomeBtn: getCurrentPages().length === 1
+      showHomeBtn: getCurrentPages().length === 1,
+      uuid: uuid()
     })
     this.getData()
   },
@@ -210,7 +222,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
@@ -221,20 +232,21 @@ Page({
       app.globalData.needRefresh = false
       this.getData()
     }
+    app.addIntervalEvent(this.timeCreator, this, this.data.uuid)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    app.removeIntervalEvent(this.data.uuid)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    app.removeIntervalEvent(this.data.uuid)
   },
 
   /**
@@ -310,4 +322,40 @@ Page({
       tabIndex
     })
   },
+
+  // 倒计时
+  timeCreator() {
+    const startTime = new Date(this.data.subject.start_time)
+    const endTime = new Date(this.data.subject.end_time)
+    const nowTime = new Date()
+    let prefix = ''
+    let _status = this.data._status
+    let _timeText = '活动已结束'
+
+    if (nowTime - endTime >= 0) {
+      _status = this.data._statusList.end
+      this.setData({ _status, _timeText })
+      app.removeIntervalEvent(this.data.uuid)
+      console.log('活动已结束', 'from page')
+      return
+    }
+
+    if (startTime - nowTime > 0) {
+      prefix = '活动即将开始 距开始 '
+      _status = this.data._statusList.ready
+      _timeText = prefix + dateTimeDown(startTime)
+      this.setData({ _status, _timeText })
+      console.log(_timeText, 'from page')
+      return
+    }
+
+    if (endTime - nowTime > 0) {
+      prefix = '活动正在进行 距结束 '
+      _status = this.data._statusList.going
+      _timeText = prefix + dateTimeDown(endTime)
+      this.setData({ _status, _timeText })
+      console.log(_timeText, 'from page')
+      return
+    }
+  }
 })

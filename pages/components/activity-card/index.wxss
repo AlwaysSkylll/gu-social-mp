@@ -57,6 +57,7 @@
 }
 
 .activity-card_img-container {
+  position: relative;
   height: 380rpx;
   overflow: hidden;
 }
@@ -65,6 +66,29 @@
   border-radius: 5rpx;
   width: 100%;
   height: 100%;
+}
+
+.activity-card_img-container .status-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 26rpx;
+  padding: 5rpx 10rpx;
+  color: #ffffff;
+  display: inline-block;
+  border-radius: 5rpx;
+}
+
+.status-text.ready {
+  background: #5cd4ea;
+}
+
+.status-text.going {
+  background: #e8204f;
+}
+
+.status-text.end {
+  background: gray;
 }
 
 .btn {
@@ -76,4 +100,16 @@
   text-align: center;
   font-size: 26rpx;
   background-color: #5cd4ea;
+}
+
+.btn.ready {
+  background: #5cd4ea;
+}
+
+.btn.going {
+  background: #e8204f;
+}
+
+.btn.end {
+  background: gray;
 }

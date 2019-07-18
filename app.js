@@ -20,7 +20,40 @@ App({
         self.globalData.isIpx = model.search('iPhone X') != -1;
       }
     })
+
+    self.globalData.intervalId = setInterval(() => {
+      self.globalData.intervalList.map(item => {
+        item.callback.call(item.self)
+      })
+    }, 1000);
   },
+
+  addIntervalEvent(callback, self, uuid) {
+    for (let [key, value] of this.globalData.intervalList.entries()) {
+      if (value.uuid === uuid) {
+        return;
+      }
+    }
+    this.globalData.intervalList.push({
+      callback,
+      self,
+      uuid
+    })
+    console.log(this.globalData.intervalList, 'add intervalList')
+
+  },
+
+  removeIntervalEvent(uuid) {
+    for (let [key, value] of this.globalData.intervalList.entries()) {
+      console.log(key, uuid, 'compare uuid')
+      console.log(value.uuid, uuid, 'compare uuid')
+      if (value.uuid === uuid) {
+        this.globalData.intervalList.splice(key, 1)
+      }
+    }
+    console.log(this.globalData.intervalList, 'remove intervalList')
+  },
+
   login(callback) {
     const self = this
     // 登录
@@ -150,5 +183,7 @@ App({
     userInfo: null,
     testToken: 'lGV0HK8F8fKIJCvW4pyY6QSU4xAtXq4n',
     tokenBody: {},
+    intervalId: 0,
+    intervalList: [],
   }
 })
