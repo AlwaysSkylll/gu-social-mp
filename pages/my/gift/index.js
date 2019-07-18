@@ -21,6 +21,7 @@ Page({
     give: [],
     paging: undefined,
     activeTabIndex: 0,
+    userInfo: {}
   },
 
   /**
@@ -34,6 +35,10 @@ Page({
           scrollHeight,
         })
       }
+    })
+    const userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo
     })
 
     this.getList('received', 0)
