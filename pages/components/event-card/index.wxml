@@ -34,8 +34,13 @@
       #{{event.subject.title}}
     </view>
     <view class="footer-operations">
-      <view class="operation" catchtap="showGiftList" id="flower-{{event.id}}">
-        <image wx:if="{{ user.id != event.user.id }}" mode="aspectFit" class="operation-icon" src="/static/flower.png" style="margin-right: 0;"></image>
+      <view wx:if="{{ user.id != event.user.id }}" class="operation" catchtap="showGiftList" id="flower-{{event.id}}">
+        <image mode="aspectFit" class="operation-icon" src="/static/flower.png"></image>
+        {{event.gift_num}}
+      </view>
+      <view wx:if="{{ user.id == event.user.id }}" class="operation" id="flower-{{event.id}}">
+        <image mode="aspectFit" class="operation-icon" src="/static/flower.png"></image>
+        {{event.gift_num}}
       </view>
       <view class="operation" catchtap="shareEvent" catchtap="shareEvent">
         <image mode="aspectFit" class="operation-icon" src="/static/normal_share.png"></image>
