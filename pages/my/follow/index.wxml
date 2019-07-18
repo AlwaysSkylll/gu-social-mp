@@ -9,7 +9,7 @@
 
 <popover id="popover">
   <popover-item style="width: 25%;" wx:for="{{ giftList }}" wx:key="{{index}}">
-    <view class="gift-item">
+    <view class="gift-item" catchtap="sendGift" data-id="{{ item.id }}">
       <image mode="aspectFit" class="gift-item_img" lazy-load src="{{item.icon}}"></image>
       <view class="gift-item_text">{{item.score}}个古币</view>
     </view>
