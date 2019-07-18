@@ -36,24 +36,24 @@
     <view class="footer-operations">
       <view wx:if="{{ user.id != event.user.id }}" class="operation" catchtap="showGiftList" id="flower-{{event.id}}">
         <image mode="aspectFit" class="operation-icon" src="/static/flower.png"></image>
-        {{event.gift_num}}
+        <view class="icon-number">{{event.gift_num}}</view>
       </view>
       <view wx:if="{{ user.id == event.user.id }}" class="operation">
         <image mode="aspectFit" class="operation-icon" src="/static/flower.png"></image>
-        {{event.gift_num}}
+        <view class="icon-number">{{event.gift_num}}</view>
       </view>
       <view class="operation" catchtap="shareEvent" catchtap="shareEvent">
         <image mode="aspectFit" class="operation-icon" src="/static/normal_share.png"></image>
-        {{event.share_num}}
+        <view class="icon-number">{{event.share_num}}</view>
       </view>
       <view class="operation" catchtap="toDetail">
         <image class="operation-icon" src="/static/normal_comment.png"></image>
-        {{event.comment_num}}
+        <view class="icon-number">{{event.comment_num}}</view>
       </view>
       <view class="operation" catchtap="setPraise">
         <image mode="aspectFit" class="operation-icon like-icon {{event.praise && tapNum ? 'like-animate' : ''}}" hidden="{{ !event.praise }}" src="/static/red_like.png"></image>
         <image mode="aspectFit" class="operation-icon unlike-icon  {{!event.praise && tapNum ? 'unlike-animate' : ''}}" hidden="{{ event.praise }}" src="/static/normal_like.png"></image>
-        {{event.praise_num}}
+        <view class="icon-number">{{event.praise_num}}</view>
       </view> 
     </view>
   </view>
