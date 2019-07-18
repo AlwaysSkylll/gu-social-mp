@@ -1,6 +1,6 @@
 <!--pages/my/activity-address/index.wxml-->
-<view class="activity-address" bindtap="chooseAddress">
-  <view class="address">
+<view class="activity-address">
+  <view class="address" bindtap="chooseAddress">
     <view class="address-left">
       <view class="activity-form-item">
         收货人：<text>{{ address.userName }}</text>
