@@ -1,3 +1,5 @@
+const api = require('../../../api/index.js')
+
 // pages/my/activity/index.js
 Page({
 
@@ -128,7 +130,7 @@ Page({
     }
 
     if (type === tabItems[0].slotName) {
-      // return orderController('getOrders', offset).success(callBack)
+      // return api.getMyActivities().then(callBack)
     }
     if (type === tabItems[1].slotName) {
       // return marketingController('getActivities', offset).success(callBack)
