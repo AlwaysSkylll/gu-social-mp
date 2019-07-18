@@ -192,15 +192,35 @@ Page({
         mask: true,
       })
       setTimeout(() => {
-        wx.switchTab({
-          url: '/pages/my/index',
-          success: function (e) {
-            let page = getCurrentPages().pop();
-            console.log(page, 'switchTab')
-            if (page == undefined || page == null) return;
-            page.onLoad();
-          }
-        })
+        // 话题说说
+        if (this.data.eventType === 'Subject' && this.data.event.subject_id) {
+          wx.navigateBack({})
+          return;
+        }
+        // 圈子说说
+        if (this.data.eventType === 'Circle' && this.data.event.circles_id) {
+          wx.navigateBack({})
+          return;
+        }
+        // 广场说说
+        if (this.data.eventType === 'Subject') {
+          wx.switchTab({
+            url: '/pages/home/index?tab=1',
+            success: function (e) {
+              let page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad({ tab: 1 });
+            }
+          })
+          return;
+        }
+        // 活动说说
+        if (this.data.eventType === 'Activity' && this.data.event.activity_id) {
+          wx.redirectTo({
+            url: `/pages/activity/index?id=${this.data.event.activity_id}`,
+          })
+          return;
+        }
       }, 1500)
     })
   },

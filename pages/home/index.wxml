@@ -5,7 +5,7 @@
 <view class="container home" style="padding-bottom: {{isIpx ? '180rpx': '100rpx'}}">
   <view class="home_header">
     <view class="home_header-top">
-      <gu-tab tabs="{{mainTabs}}" activeBg="none" width="50%" center="{{true}}" bindselectmytab="mainTabHandler" fontSize="32"></gu-tab>
+      <gu-tab tabs="{{mainTabs}}" activeBg="none" width="50%" center="{{true}}" bindselectmytab="mainTabHandler" fontSize="32" initialIndex="{{ tabIndex }}"></gu-tab>
     </view>
   </view>
   <view class="home_body">

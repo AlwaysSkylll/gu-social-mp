@@ -92,6 +92,13 @@ Component({
         console.log(_timeText, 'from card')
         return
       }
-    }
+    },
+
+    quickPublish() {
+      if (this._status == 0) return
+      wx.navigateTo({
+        url: `/pages/publish-event/index?title=${this.data.item.title}&id=${this.data.item.id}&type=Activity`,
+      })
+    },
   }
 })

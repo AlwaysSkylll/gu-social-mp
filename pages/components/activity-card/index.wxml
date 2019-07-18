@@ -15,7 +15,7 @@
       <view class="activity-card_num">
         <!-- <image lazy-load class="gift" src="/static/gift.png"></image>
         <text>15</text> -->
-        <view wx:if="{{ _status != 0 }}" class="btn {{ _status == 0 ? 'ready' : (_status == 1 ? 'going' : 'end') }}">
+        <view wx:if="{{ _status != 0 }}" class="btn {{ _status == 0 ? 'ready' : (_status == 1 ? 'going' : 'end') }}" catchtap="quickPublish">
           {{ _status == 0 ? '参与活动' : (_status == 1 ? '我要参与' : '查看') }}
         </view>
       </view>

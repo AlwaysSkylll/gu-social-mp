@@ -48,8 +48,10 @@ Page({
     showGuid: false,
     guidItem: {}
   },
-  onLoad() {
+  onLoad(options) {
     wx.hideTabBar({})
+    console.error(options, 88888)
+    options.tab != undefined && this.setData({ tabIndex: options.tab })
     this.getData()
   },
   onReady() {
