@@ -38,7 +38,7 @@
         <image mode="aspectFit" class="operation-icon" src="/static/flower.png"></image>
         {{event.gift_num}}
       </view>
-      <view wx:if="{{ user.id == event.user.id }}" class="operation" id="flower-{{event.id}}">
+      <view wx:if="{{ user.id == event.user.id }}" class="operation">
         <image mode="aspectFit" class="operation-icon" src="/static/flower.png"></image>
         {{event.gift_num}}
       </view>
