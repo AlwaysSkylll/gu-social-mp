@@ -1,6 +1,6 @@
 <!--pages/my/activity-address/index.wxml-->
 <view class="activity-address">
-  <view class="address" bindtap="chooseAddress">
+  <button class="address" bindtap="chooseAddress" open-type="{{openSetting}}" bindopensetting="chooseAddress">
     <view class="address-left">
       <view class="activity-form-item">
         收货人：<text>{{ address.userName }}</text>
@@ -13,8 +13,8 @@
       </view>
     </view>
 
-    <image class="address-right" src="/static/right_arrow.png" bindtap="chooseAddress"></image>
-  </view>
+    <image class="address-right" src="/static/right_arrow.png"></image>
+  </button>
 
   <image class="address-line" src="/static/address_line.jpg"></image>
 

@@ -6,6 +6,7 @@
 
 .address {
   display: flex;
+  text-align: left;
   padding: 0 30rpx;
   align-items: center;
   border-top: 1rpx solid #eeeeee;

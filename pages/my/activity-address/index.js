@@ -12,6 +12,7 @@ Page({
     address: {},
     remark: '',
     btnStatus: true,
+    openSetting: '',
   },
 
   /**
@@ -83,43 +84,28 @@ Page({
     const self = this;
     wx.getSetting({
       success: (res) => {
-        // if (!res.authSetting['scope.address']) {
-        //   self.confirmLocation()
-        //   return
-        // }
+        if (!res.authSetting['scope.address']) {
+          wx.authorize({
+            scope: 'scope.address',
+            success: () => {},
+            fail: (res) => {
+              console.log(res, 'fail')
+              self.setData({
+                openSetting: 'openSetting'
+              })
+            }
+          })
+          return
+        }
         wx.chooseAddress({
           success(res) {
             console.log(res)
-            self.setData({ address: res })
+            self.setData({ address: res, openSetting: '' })
           },
         })
-      }
+      },
     })
   },
-
-  // confirmLocation() {
-  //   wx.showModal({
-  //     content: '检测到您没打开获取通讯地址权限，是否去设置打开？',
-  //     confirmText: "确认",
-  //     cancelText: "取消",
-  //     success: function (res) {
-  //       console.log(res);
-  //       //点击“确认”时打开设置页面
-  //       if (res.confirm) {
-  //         console.log('用户点击确认')
-  //         wx.openSetting({
-  //           success: (res) => {
-  //             res.authSetting = {
-  //               "scope.address": true,
-  //             }
-  //           }
-  //         })
-  //       } else {
-  //         console.log('用户点击取消')
-  //       }
-  //     }
-  //   });
-  // },
 
   /**
    * 更新文本
