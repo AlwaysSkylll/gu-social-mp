@@ -33,9 +33,15 @@ var boxWidth = function (eventNum) {
   }
 }
 
+var currentIndex = function (index) {
+  return index + 1;
+}
+
+
 module.exports = {
   eventContent: eventContent,
   eventWidth: eventWidth,
   eventHeight: eventHeight,
-  boxWidth: boxWidth
+  boxWidth: boxWidth,
+  currentIndex: currentIndex,
 }
