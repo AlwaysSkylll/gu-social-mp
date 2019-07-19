@@ -12,10 +12,10 @@ Page({
         label: '进行中',
         slotName: 'ongoing'
       },
-      {
-        label: '已完成',
-        slotName: 'compelete'
-      }
+      // {
+      //   label: '已完成',
+      //   slotName: 'compelete'
+      // }
     ],
     ongoing: [],
     compelete: [],
@@ -130,10 +130,10 @@ Page({
     }
 
     if (type === tabItems[0].slotName) {
-      // return api.getMyActivities().then(callBack)
+      return api.getMyActivities().then(callBack)
     }
-    if (type === tabItems[1].slotName) {
+    // if (type === tabItems[1].slotName) {
       // return marketingController('getActivities', offset).success(callBack)
-    }
+    // }
   },
 })
