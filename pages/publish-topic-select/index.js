@@ -9,6 +9,9 @@ Page({
   data: {
     topics: [],
     type: '',
+    id: '',
+    offset: 0,
+    finish: false,
   },
 
   /**
@@ -19,37 +22,48 @@ Page({
     const id = options.id || 0
     const param = type === 'Circle' ? { circles_id: id } : {}
     this.setData({
-      type
+      type,
+      id,
+        
     })
-    if (type === 'Circle') {
+
+    this.getData()
+  },
+
+  getData() {
+    if (this.data.finish) return
+    if (this.data.type === 'Circle') {
       wx.setNavigationBarTitle({
         title: '选择圈子'
       })
-      api.getCircles().then(({ data }) => {
-        this.setData({
-          topics: data,
-        })
+      api.getCircles({ ...this.data.param, offset: this.data.offset }).then(({ data, paging }) => {
+        const topics = [...this.data.topics, ...data]
+        const offset = topics.length
+        const finish = paging.total <= offset
+        this.setData({ topics, offset, finish })
       })
       return
-    } else if (type === 'Subject') {
+    } else if (this.data.type === 'Subject') {
       wx.setNavigationBarTitle({
         title: '选择话题'
       })
 
-      api.searchSubject(param).then(({ data }) => {
-        this.setData({
-          topics: data,
-        })
+      api.searchSubject({ ...this.data.param, offset: this.data.offset }).then(({ data, paging }) => {
+        const topics = [...this.data.topics, ...data]
+        const offset = topics.length
+        const finish = paging.total <= offset
+        this.setData({ topics, offset, finish })
       })
-    } else if (type === 'Activity') {
+    } else if (this.data.type === 'Activity') {
       wx.setNavigationBarTitle({
         title: '选择活动'
       })
 
-      api.getActivities().then(({ data }) => {
-        this.setData({
-          topics: data,
-        })
+      api.getActivities({ ...this.data.param, offset: this.data.offset }).then(({ data, paging }) => {
+        const topics = [...this.data.topics, ...data]
+        const offset = topics.length
+        const finish = paging.total <= offset
+        this.setData({ topics, offset, finish })
       })
     }
   },
@@ -93,7 +107,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getData()
   },
 
   selectItem(e) {
