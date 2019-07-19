@@ -38,18 +38,18 @@
 
       <!-- 礼物、被关注、关注 数量 -->
       <view class="my_header-info_items">
-        <view class="my_header-info_item">
+        <navigator url="/pages/my/gift/index" class="my_header-info_item">
           <view class="text-15">{{ userInfo.gift_num }}</view>
           <view class="text-12">礼物</view>
-        </view>
+        </navigator>
         <view class="my_header-info_item">
           <view class="text-15">{{userInfo.be_follow_num}}</view>
           <view class="text-12">粉丝</view>
         </view>
-        <view class="my_header-info_item">
+        <navigator url="/pages/my/follow/index" class="my_header-info_item">
           <view class="text-15">{{userInfo.follow_num}}</view>
           <view class="text-12">关注</view>
-        </view>
+        </navigator>
         <view></view>
       </view>
     </view>
