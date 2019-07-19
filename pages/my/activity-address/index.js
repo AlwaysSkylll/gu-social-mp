@@ -138,8 +138,10 @@ Page({
       return
     }
     this.setBtnStatus(false)
+    const address = this.data.address;
+    delete(address.errMsg)
     const params = {
-      ...this.data.address,
+      address: this.data.address,
       remark: this.data.remark,
       num: 1
     }
