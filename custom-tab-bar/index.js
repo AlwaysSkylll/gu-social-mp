@@ -95,7 +95,7 @@ Component({
       if (this.data.userInfo.role !== 'kol' && type === 'topic') {
         wx.showToast({
           icon: 'none',
-          title: '成为KOL才可以发布',
+          title: '成为圈主才能创建话题',
         })
         return
       }
