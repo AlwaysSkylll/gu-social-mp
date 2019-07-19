@@ -348,7 +348,7 @@ Page({
    * 推荐话题
    */
   getTopicData() {
-    api.searchSubject({ limit: 6 }).then(res => {
+    api.searchSubject({ limit: 16 }).then(res => {
       const topics = res.data
 
       this.setData({
