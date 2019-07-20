@@ -1,7 +1,6 @@
 <!--pages/activity/index.wxml-->
 <import src="/template/empty.wxml" />
 <wxs src="../../utils/time-tools.wxs" module="timeTools" />
-<wxs src="../../utils/data-tools.wxs" module="dataTools" />
 
 <view class="topic-detail">
   <view class="topic-detail_bg">
@@ -11,7 +10,6 @@
   <button class="topic-detail_share" bindtap="showShareChoice">
     <image class="topic-detail_share-icon" src="/static/share.png"></image>
   </button>
-  <!-- <view class="home-btn" wx:if="{{showHomeBtn}}" catchtap="homePage">首页</view> -->
 
   <view class="topic-detail_info light-gray-bottom">
     <!-- <text class="info-title">#{{subject.title}}#</text> -->
@@ -37,7 +35,7 @@
   <view hidden="{{tabIndex !== 1}}">
     <view wx:for="{{hotEvents}}" wx:key="{{index}}">
       <view class="user-item light-gray-bottom">
-        <view class="left-content {{index < 4 ? 'red' : ''}}">{{dataTools.currentIndex(index)}}.</view>
+        <view class="left-content {{index < 4 ? 'red' : ''}}">{{index + 1}}.</view>
         <view class="middle-content">{{item.user.nickname}}</view>
         
         <view class="right-content">
