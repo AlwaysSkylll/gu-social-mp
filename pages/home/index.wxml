@@ -78,12 +78,12 @@
       <view class="light-gray-bottom"></view>
       <view class="gray-buttom" hidden="{{groundTabIndex != 0}}" wx:for="{{events[0]}}" wx:key="{{index}}-0" wx:for-item="hotPageData">
         <view class="home-gorund-item gray-buttom" wx:for="{{hotPageData}}" wx:for-index="hotPage" wx:key="{{hotPage}}">
-          <event-card index="{{hotPage}}" eventArray="events[0][{{index}}]" cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}"  bindsendgift="showGiftList" type="subjects"></event-card>
+          <event-card index="{{hotPage}}" eventArray="events,0,{{index}}" cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}"  bindsendgift="showGiftList" type="subjects"></event-card>
         </view>
       </view>
       <view class="gray-buttom" hidden="{{groundTabIndex != 1}}" wx:for="{{events[1]}}" wx:key="{{index}}-1" wx:for-item="newPageData">
         <view class="home-gorund-item gray-buttom" wx:for="{{newPageData}}" wx:for-index="newPage" wx:key="{{newPage}}">
-          <event-card index="{{newPage}}" eventArray="events[1][{{index}}]" cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}"  bindsendgift="showGiftList" type="subjects"></event-card>
+          <event-card index="{{newPage}}" eventArray="events,1,{{index}}" cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas"  event="{{item}}"  bindsendgift="showGiftList" type="subjects"></event-card>
         </view>
       </view>
     </view>

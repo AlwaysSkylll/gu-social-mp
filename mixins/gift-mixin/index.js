@@ -44,56 +44,56 @@ module.exports = {
       })
       this.data.popover.onHide()
 
-      const testRegx = /^[a-zA-Z]+/
-      const testNum = /\d/g
-      const result = testRegx.exec(this.data._eventArray)
-
-
-      let events = {}
-      let eventIndex = this.data._giftEventIndex
-      let eventArrayName = ''
-      // 多层嵌套arrayName 需要解析 (首页变态数据结构。解决方案二，外部传入arrayName时就可以先用’，‘ 分割嵌套层级，这样会简单很多哦！)
-      if (result && this.data._eventArray.includes('[')) {
-        const partName1 = result[0] // [][].. 之前的变量名
-        const partName2 = this.data._eventArray.slice(partName1.length) // 包含 [][] 字符串
-        let events = this.data[`${partName1}`]
-        let temp = ''
-        let giftNum = 0
-        let dataName = partName1
-
-        while (temp = testNum.exec(partName2)) {
-          events = events[temp[0]]
-          dataName += `[${temp[0]}]`
-        }
-
-        giftNum = events[`${eventIndex}`].gift_num
-
-        this.setData({
-          [`${dataName}[${eventIndex}].gift_num`]: ++giftNum
-        })
-      } else {
-        events = this.data[`${this.data._eventArray}`]
-        eventArrayName = this.data._eventArray
-
-        if (events.length) {
-          let giftNum = this.data[`${eventArrayName}`][`${eventIndex}`].gift_num
-          console.log(this.data[`${eventArrayName}`], 9999)
-
-          this.setData({
-            [`${eventArrayName}[${eventIndex}].gift_num`]: ++giftNum
-          })
-          return
-        }
-
-        if (eventIndex == 0) {
-          let giftNum = this.data[`${eventArrayName}`].gift_num
-          console.log(this.data[`${eventArrayName}`], 9999)
-
-          this.setData({
-            [`${eventArrayName}.gift_num`]: ++giftNum
-          })
-        }
-      }
+      this.computedGiftNum()
     });
+  },
+
+  /**
+   * 动态刷新当前说说卡片的礼物数量 + 1
+   * @return {[type]} [description]
+   */
+  computedGiftNum() {
+    /* 多层嵌套arrayName 需要解析 (外部传入arrayName时就可以先用’，‘ 分割嵌套层级) */
+    const result = this.data._eventArray.split(',')
+
+    let events = {}                                 // 当前页面包含说说的对象本体
+    let eventIndex = this.data._giftEventIndex     // 当前说说对象在当前页面的列表里的下标
+    let eventArrayName = this.data._eventArray    // setData 时当前页面包含说说对象的外层数组
+    let giftNum = 0
+
+    /* 多层嵌套 */
+    if (result.length > 1) {
+      eventArrayName = result[0]                 // [][].. 之前的变量名
+      events = this.data[`${eventArrayName}`]
+
+      for (let i = 1; i < result.length; i++) {
+        events = events[result[i]]
+        eventArrayName += `[${result[i]}]`
+      }
+
+      giftNum = events[`${eventIndex}`].gift_num
+    } else {
+    /* 非多层嵌套 */
+      events = this.data[`${eventArrayName}`]
+    }
+
+    /* 外层是数组 */
+    if (events.length) {
+      giftNum = result.length > 1 ? giftNum : this.data[`${eventArrayName}`][`${eventIndex}`].gift_num
+      this.setData({
+        [`${eventArrayName}[${eventIndex}].gift_num`]: ++giftNum
+      })
+      return
+    }
+
+    /* 外层是对象 */
+    if (Object.prototype.toString.call(this.data[`${eventArrayName}`]) === '[object Object]') {
+      giftNum = this.data[`${eventArrayName}`].gift_num
+
+      this.setData({
+        [`${eventArrayName}.gift_num`]: ++giftNum
+      })
+      return
+    }
   }
 }
