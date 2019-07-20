@@ -22,6 +22,14 @@ Component({
       type: Boolean,
       value: true
     },
+    index: {
+      type: Number,
+      value: 0,
+    },
+    eventArray: {
+      type: String,
+      value: ''
+    },
   },
 
   /**
@@ -351,6 +359,8 @@ Component({
         // 调用自定义组件 popover 中的 onDisplay 方法
         this.triggerEvent('sendgift', {
           eventId: this.data.event.id,
+          eventIndex: this.data.index,
+          eventArray: this.data.eventArray,
           popoverRes: res
         })
       }).exec();
