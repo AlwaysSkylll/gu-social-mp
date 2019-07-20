@@ -9,8 +9,14 @@ module.exports = {
     _giftEventId: undefined,
   },
   getData() {
+    if (this.data.giftList.length) return
     this.getGiftList()
   },
+
+  onPullDownRefresh() {
+    this.getGiftList()
+  },
+
   // 显示赠送礼物元素
   showGiftList(e) {
     console.log('显示赠送礼物元素', e.detail)
