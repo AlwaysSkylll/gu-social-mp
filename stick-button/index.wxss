@@ -8,8 +8,6 @@
   background: #5cd4ea;
   border-radius: 10rpx;
   box-shadow: 0rpx 0rpx 5rpx #888888;
-  transform: rotate(45deg);
-  transform-origin: right;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,12 +47,3 @@
 .home-icon.show {
   right: 35rpx;
 }
-
-/* .hidden {
-  right: -90rpx;
-  transition: all .5s;
-}
-
-.show {
-  transition: all .5s;
-} */

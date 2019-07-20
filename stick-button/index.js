@@ -21,7 +21,7 @@ Component({
           return
         }
         this.animationHome.translateX(100).step()
-        this.animationIcon.translate(100, -72).step()
+        this.animationIcon.translate(100, -100).step()
 
         this.setData({
           animationHome: this.animationHome.export(),
