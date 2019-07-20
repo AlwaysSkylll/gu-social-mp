@@ -47,16 +47,14 @@
 }
 
 .home-icon.show {
-  right: 25rpx;
+  right: 35rpx;
 }
 
-.hidden {
+/* .hidden {
   right: -90rpx;
-  /* opacity: 0; */
   transition: all .5s;
 }
 
 .show {
-  /* opacity: 1; */
   transition: all .5s;
-}
+} */

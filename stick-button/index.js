@@ -8,8 +8,28 @@ Component({
   properties: {
     scrollDown: {
       type: Boolean,
-      value: false
-    }
+      value: false,
+      observer: function (value) { 
+        if (!value) {
+          console.log(this, this.animationHome)
+          this.animationHome.translateX(0).step()
+          this.animationIcon.translate(0, 0).step()
+          this.setData({
+            animationHome: this.animationHome.export(),
+            animationIcon: this.animationIcon.export()
+          })
+          return
+        }
+        this.animationHome.translateX(100).step()
+        this.animationIcon.translate(100, -72).step()
+
+        this.setData({
+          animationHome: this.animationHome.export(),
+          animationIcon: this.animationIcon.export()
+        })
+        return
+      }
+    },
   },
 
   /**
@@ -17,12 +37,27 @@ Component({
    */
   data: {
     showHomeBtn: false,
-    isIpx: false
+    isIpx: false,
+    animationHome: {},
+    animationIcon: {},
   },
 
   attached() {
+    // 动画实例
+    this.animationHome = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+    this.animationIcon = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+    this.animationIcon.rotate(45).step({ timingFunction: 'step-start', 'transform-origin': 'right' })
+
+
     this.setData({
-      isIpx: app.globalData.isIpx
+      isIpx: app.globalData.isIpx,
+      animationIcon: this.animationIcon.export()
     })
     const pages = getCurrentPages()
     const showList = [

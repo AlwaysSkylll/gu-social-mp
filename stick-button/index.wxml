@@ -1,7 +1,7 @@
 <!--stick-button/index.wxml-->
-<image catchtap="goHome" wx:if="{{showHomeBtn}}" style="bottom: {{isIpx ? '405rpx;' : '325rpx' }}" class="home-icon {{scrollDown ? 'hidden' : 'show' }}" src="/static/icon_home.png"></image>
+<image animation="{{animationHome}}" catchtap="goHome" wx:if="{{showHomeBtn}}" style="bottom: {{isIpx ? '405rpx;' : '325rpx' }}" class="home-icon show" src="/static/icon_home.png"></image>
 
-<button class="assist-bg assist-btn {{scrollDown ? 'hidden' : 'show' }}" style="bottom: {{isIpx ? '215rpx;' : '135rpx' }}" open-type="contact">
+<button animation="{{animationIcon}}" class="assist-bg assist-btn show" style="bottom: {{isIpx ? '215rpx;' : '135rpx' }}" open-type="contact">
   <image class="assist-icon" src="/static/assist.png"></image>
 </button>
 
