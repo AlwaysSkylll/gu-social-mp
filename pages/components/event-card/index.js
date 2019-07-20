@@ -65,7 +65,7 @@ Component({
     imgLoadError(e) {
       // const index = e.currentTarget.dataset.index
       // this.setData({
-      //   [`event.images[${index}]`]: '/static/default_ground.jpg'
+      //   [`event.images[${index}]`]: ''
       // })
     },
     setFollow(e) {

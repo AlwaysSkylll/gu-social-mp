@@ -18,7 +18,7 @@
           </view>
         </view>
         <view class="item-body_right">
-          <image class="item-bg" mode="aspectFit" src="{{item.covers[0] || '/static/topic_default.jpg'}}"></image>
+          <image class="item-bg" mode="aspectFit" src="{{item.covers[0]}}"></image>
         </view>
       </view>
     </view>
