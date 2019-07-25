@@ -10,6 +10,7 @@ Page({
     topics: [],
     type: '',
     id: '',
+    limit: 15,
     offset: 0,
     finish: false,
   },
@@ -23,8 +24,7 @@ Page({
     const param = type === 'Circle' ? { circles_id: id } : {}
     this.setData({
       type,
-      id,
-        
+      id, 
     })
 
     this.getData()
@@ -36,7 +36,7 @@ Page({
       wx.setNavigationBarTitle({
         title: '选择圈子'
       })
-      api.getCircles({ ...this.data.param, offset: this.data.offset }).then(({ data, paging }) => {
+      api.getCircles({ ...this.data.param, offset: this.data.offset, limit: this.data.limit }).then(({ data, paging }) => {
         const topics = [...this.data.topics, ...data]
         const offset = topics.length
         const finish = paging.total <= offset
@@ -48,7 +48,7 @@ Page({
         title: '选择话题'
       })
 
-      api.searchSubject({ ...this.data.param, offset: this.data.offset }).then(({ data, paging }) => {
+      api.searchSubject({ ...this.data.param, offset: this.data.offset, limit: this.data.limit }).then(({ data, paging }) => {
         const topics = [...this.data.topics, ...data]
         const offset = topics.length
         const finish = paging.total <= offset
@@ -59,7 +59,7 @@ Page({
         title: '选择活动'
       })
 
-      api.getActivities({ ...this.data.param, offset: this.data.offset }).then(({ data, paging }) => {
+      api.getActivities({ ...this.data.param, offset: this.data.offset, limit: this.data.limit }).then(({ data, paging }) => {
         const topics = [...this.data.topics, ...data]
         const offset = topics.length
         const finish = paging.total <= offset
