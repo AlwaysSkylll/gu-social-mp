@@ -61,8 +61,8 @@ Component({
     },
 
     timeCreator() {
-      const startTime = new Date(this.properties.item.start_time)
-      const endTime = new Date(this.properties.item.end_time)
+      const startTime = new Date(this.properties.item.start_time.replace(/-/g, '/'))
+      const endTime = new Date(this.properties.item.end_time.replace(/-/g, '/'))
       const nowTime = new Date()
       let prefix = ''
       let _status = this.data._status

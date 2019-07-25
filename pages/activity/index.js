@@ -325,8 +325,8 @@ Page({
 
   // 倒计时
   timeCreator() {
-    const startTime = new Date(this.data.subject.start_time)
-    const endTime = new Date(this.data.subject.end_time)
+    const startTime = new Date(this.data.subject.start_time.replace(/-/g, '/'))
+    const endTime = new Date(this.data.subject.end_time.replace(/-/g, '/'))
     const nowTime = new Date()
     let prefix = ''
     let _status = this.data._status
