@@ -27,7 +27,8 @@
     "pages/my/comment-msg/index",
     "pages/my/thumbs-msg/index",
     "pages/my/gift-msg/index",
-    "pages/my/activity-msg/index"
+    "pages/my/activity-msg/index",
+    "pages/search/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

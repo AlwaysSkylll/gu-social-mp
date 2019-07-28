@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 17,
 			"list": [
 				{
 					"id": -1,
@@ -160,6 +160,13 @@
 					"name": "活动详情",
 					"pathName": "pages/activity/index",
 					"query": "id=6",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/index",
+					"query": "",
 					"scene": null
 				}
 			]

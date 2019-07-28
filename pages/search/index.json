@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "gu-tab": "/pages/components/gu-tab/index",
+    "activity-card": "/pages/components/activity-card/index"
+  },
+  "navigationBarTitleText": "搜索"
+}

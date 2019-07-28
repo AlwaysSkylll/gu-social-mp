@@ -1,0 +1,79 @@
+<!--pages/search/index.wxml-->
+<wxs src="../../utils/time-tools.wxs" module="timeTools" />
+<import src="/template/empty.wxml" />
+
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="16"></icon>
+      <input type="text" focus="{{true}}" class="weui-search-bar__input" placeholder="搜索" value="{{searchContent}}" focus="{{inputShowed}}" bindinput="inputTyping" confirm-type="search" bindconfirm="searchItems"/>
+      <view class="weui-icon-clear" wx:if="{{searchContent.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="16"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+
+<view class="gray-buttom"></view>
+<view class="gray-buttom"></view>
+
+<gu-tab tabs="{{ tabs }}" activeBg="none"  bindselectmytab="tabHandler" fontSize="32" initialIndex="{{ tabIndex }}"></gu-tab>
+
+<view class="light-gray-bottom"></view>
+
+<view hidden="{{ tabIndex != 0 }}">
+  <view class="topic-list" style="margin-top: 25rpx;">
+    <view class="gray-buttom" wx:for="{{result.subject.data}}" wx:key="{{index}}">
+      <view class="topic-item" wx:if="{{item.status == 'published'}}" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="topic-item_head">
+          <text class="item-index">{{index + 1}}</text>
+          <text class="item-title text-overflow">#{{item.title}}#</text>
+          <text class="item-comment-num">{{item.comment_num}}条评论 ></text>
+        </view>
+        <view class="topic-item_body">
+          <view class="item-body_left">
+            <view class="topic-desc">【#{{item.title}}#：{{item.description}}】</view>
+            <view class="topic-relation">
+              <view>@</view>
+              <view>{{timeTools.formatTime(item.create_time)}}</view>
+            </view>
+          </view>
+          <view class="item-body_right">
+            <image class="item-bg" mode="aspectFit" src="{{item.covers[0]}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <template wx:if="{{ !result.subject.data.length }}" is="empty" data="{{ text: '没有相关内容' }}"/>
+</view>
+
+<view hidden="{{ tabIndex != 1 }}">
+  <view class="circle-list" style="margin-top: 25rpx;">
+    <view class="circle-list_item" wx:for="{{result.circle.data}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.id}}">
+      <view class="item-left">
+        <view class="topic text-overflow">#{{item.title}}</view>
+        <view class="topic-content text-overflow">{{item.description}}</view>
+        <view class="topic-desc">{{item.participant_num}}人参与了讨论</view>
+      </view>
+      <view class="item-right">
+        <image mode="aspectFill" class="topic-bg" src="{{item.covers[0] || '/static/circle_card.jpg'}}"></image>
+      </view>
+    </view>
+  </view>
+  <template wx:if="{{ !result.circle.data.length }}" is="empty" data="{{ text: '没有相关内容' }}"/>
+</view>
+
+<view hidden="{{ tabIndex != 2 }}" style="margin-top: 25rpx;">
+  <view wx:for="{{result.activity.data}}" wx:key="{{index}}">
+    <activity-card item="{{item}}"></activity-card>
+  </view>
+  <template wx:if="{{ !result.activity.data.length }}" is="empty" data="{{ text: '没有相关内容' }}"/>
+</view>
+
+

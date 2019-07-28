@@ -6,6 +6,16 @@
 
 }
 
+.search-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 24rpx;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+}
+
 .more-link {
   float: right;
   margin-top: 20rpx;
@@ -15,6 +25,7 @@
 }
 
 .home_header-top {
+  position: relative;
   border-bottom: 2rpx solid #EEEEEE;
 }
 

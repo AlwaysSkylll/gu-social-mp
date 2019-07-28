@@ -1,6 +1,6 @@
 /* pages/circle-list/index.wxss */
 .circle-list {
-  margin-top: 25rpx;
+
 }
 
 .circle-list_item {
