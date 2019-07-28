@@ -195,6 +195,7 @@ Page({
     wx.saveImageToPhotosAlbum({
       filePath: that.data.sharePaperPath,
       success(res) {
+        that.onShareAppMessage()
         wx.showModal({
           content: '图片已保存到相册，赶紧晒一下吧~',
           showCancel: false,
@@ -268,7 +269,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    const parmas = {
+      target_type: this.data.type.toLowerCase(),
+      target_id: this.data.id,
+    }
+    api.share(parmas);
   },
 
   getData() {
