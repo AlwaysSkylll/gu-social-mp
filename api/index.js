@@ -302,3 +302,8 @@ module.exports.getProductInfo = (data, id) => commonRequest.request(`/api/score_
  * 兑换礼物订单提交
  */
 module.exports.createOrder = (data, id) => commonRequest.request(`/api/score_mall/products/${id}`, 'POST', data)
+
+/**
+ * 分享
+ */
+module.exports.share = (data) => commonRequest.request(`/api/share`, 'POST', data)
