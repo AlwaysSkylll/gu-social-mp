@@ -54,7 +54,7 @@ App({
     console.log(this.globalData.intervalList, 'remove intervalList')
   },
 
-  login(callback) {
+  login({ callback, fromUid }) {
     const self = this
     // 登录
     // wx.login({
@@ -74,7 +74,7 @@ App({
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
-              self.getToken(res.userInfo, callback)
+              self.getToken({ ...res.userInfo, fromUid }, callback)
             }
           })
         } else {
@@ -97,7 +97,8 @@ App({
             code: res.code,
             gender: userInfo.gender,
             nickname: userInfo.nickName,
-            avatar_url: userInfo.avatarUrl
+            avatar_url: userInfo.avatarUrl,
+            from_uid: userInfo.fromUid,
           }).then(res => {
             console.log(res)
             wx.setStorageSync('userInfo', res.user)
@@ -185,5 +186,6 @@ App({
     tokenBody: {},
     intervalId: 0,
     intervalList: [],
+    fromUid: undefined,
   }
 })

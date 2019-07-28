@@ -28,7 +28,7 @@ const request = function (url, method, data) {
         const res = response.data
         console.log(response)
         if (response.statusCode == 403) {
-          app.login();
+          app.login({ fromUid: app.globalData.fromUid });
           return;
         }
         if (res.error) {

@@ -55,6 +55,9 @@ Page({
     guidItem: {}
   },
   onLoad(options) {
+    if (options && options.from_uid) {
+      app.globalData.fromUid = options.from_uid
+    }
     wx.hideTabBar({})
     options.tab != undefined && this.setData({ tabIndex: options.tab })
     this.getData()
