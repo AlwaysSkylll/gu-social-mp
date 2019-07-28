@@ -55,7 +55,7 @@
 
 <view hidden="{{ tabIndex != 1 }}">
   <view class="circle-list" style="margin-top: 25rpx;">
-    <view class="circle-list_item" wx:for="{{result.circle.data}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.id}}">
+    <view class="circle-list_item" wx:for="{{result.circle.data}}" wx:key="{{index}}" bindtap="goDetail" data-id="{{item.id}}">
       <view class="item-left">
         <view class="topic text-overflow">#{{item.title}}</view>
         <view class="topic-content text-overflow">{{item.description}}</view>
