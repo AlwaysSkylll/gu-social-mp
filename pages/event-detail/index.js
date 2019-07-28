@@ -16,6 +16,7 @@ Page({
     total: 0,
     comments: [],
     focusArea: false,
+    focusAreaDelyed: false,
     comment: {
       context: '',
       event_id: '',
@@ -109,16 +110,21 @@ Page({
 
   },
 
-  showRealComment() {
+  setFocus(status) {
     this.setData({
-      focusArea: true
+      focusArea: status
     })
+    setTimeout(() => {
+      this.setData({ focusAreaDelyed: status })
+    }, 500)
+  },
+
+  showRealComment() {
+    this.setFocus(true)
   },
 
   hideRealComment() {
-    this.setData({
-      focusArea: false
-    })
+    this.setFocus(false)
   },
 
   toolOperation(e) {
@@ -146,8 +152,9 @@ Page({
         // [`comment.context`]: '',
         ['comments']: [res, ...this.data.comments],
         ['item.comment_num']: commentNum,
-        focusArea: false,
+        ['comment.context']: ''
       })
+      this.setFocus(false)
       wx.showToast({
         title: '评论成功',
       })
