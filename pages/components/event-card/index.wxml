@@ -5,7 +5,7 @@
 <view class="event-card {{hovered ? 'event-card_hovered' : ''}}" bindlongpress="hoverCard" bindtouchend="unHoverCard">
   <view class="event-card_user" bindtap="toDetail">
     <image lazy-load class="avatar" src="{{ event.user.avatar_url }}"></image>
-    <view wx:if="{{ event.user.role === 'kol' }}" class="avatar-label">圈主</view>
+    <view wx:if="{{ event.user.role === 'kol' }}" class="label-warning">圈主</view>
     <view class="event-card_ground-info">
       <view class="event-card_info1">
         <text>{{event.user.nickname}}</text>
@@ -23,6 +23,7 @@
     </view>
   </view>
   <view class="event-card_content" bindtap="toDetail">
+    <text wx:if="{{ event.is_top }}" class="label-danger">置顶</text>
     <text wx:if="{{callback && event.content.length > 250}}">{{dataTools.eventContent(event.content)}}</text><view wx:if="{{callback && event.content.length > 250}}" class="load-more" hover-class="load-more-hovered">查看全文</view>
     <text wx:if="{{!callback || event.content.length <= 250}}">{{event.content}}</text>
     <view class="image-box" style="width:{{ dataTools.boxWidth(event.images.length)}} ">
