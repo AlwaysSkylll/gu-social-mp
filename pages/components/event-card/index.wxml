@@ -5,6 +5,7 @@
 <view class="event-card {{hovered ? 'event-card_hovered' : ''}}" bindlongpress="hoverCard" bindtouchend="unHoverCard">
   <view class="event-card_user" bindtap="toDetail">
     <image lazy-load class="avatar" src="{{ event.user.avatar_url }}"></image>
+    <view wx:if="{{ event.user.role === 'kol' }}" class="avatar-label">圈主</view>
     <view class="event-card_ground-info">
       <view class="event-card_info1">
         <text>{{event.user.nickname}}</text>

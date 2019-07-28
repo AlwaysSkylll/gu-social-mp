@@ -149,7 +149,7 @@ Page({
         context.setFillStyle('#000000')
         context.setFontSize(drawTools.rpx2px(16))
         context.fillText(this.data.subject.comment_num, drawTools.rpx2px(530), drawTools.rpx2px(360))
-        context.fillText(this.data.subject.praise_num, drawTools.rpx2px(455), drawTools.rpx2px(360))
+        context.fillText(this.data.subject.share_num, drawTools.rpx2px(455), drawTools.rpx2px(360))
         context.fillText(this.data.subject.participant_num, drawTools.rpx2px(375), drawTools.rpx2px(360))
         context.drawImage('/static/icon_chanyu@2x.png', drawTools.rpx2px(325), drawTools.rpx2px(345), drawTools.rpx2px(27), drawTools.rpx2px(18));
         context.drawImage('/static/icon_xihuan@2x.png', drawTools.rpx2px(410), drawTools.rpx2px(345), drawTools.rpx2px(25), drawTools.rpx2px(22));

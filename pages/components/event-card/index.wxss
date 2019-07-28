@@ -26,6 +26,18 @@
   position: relative;
 }
 
+.event-card_user .avatar-label {
+  position: absolute;
+  left: 50rpx;
+  bottom: 16rpx;
+  padding: 4rpx 6rpx;
+  background: #e7b24f;
+  color: #FFFFFF;
+  font-size: 20rpx;
+  line-height: 24rpx;
+  border-radius: 10rpx;
+}
+
 .event-card_user .avatar {
   position: absolute;
   left: 0;
