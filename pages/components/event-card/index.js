@@ -52,6 +52,17 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    /**
+     * 分享说说
+     */
+    shareAppMessage () {
+      const parmas = {
+        target_type: 'event',
+        target_id: this.data.event.id,
+      }
+      api.share(parmas);
+    },
+
     toDetail() {
       if (!this.data.callback) return
       let id = 0;
@@ -180,6 +191,7 @@ Component({
       wx.saveImageToPhotosAlbum({
         filePath: that.data.sharePaperPath,
         success(res) {
+          that.shareAppMessage()
           wx.showModal({
             content: '图片已保存到相册，赶紧晒一下吧~',
             showCancel: false,
