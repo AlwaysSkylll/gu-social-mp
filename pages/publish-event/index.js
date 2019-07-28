@@ -25,6 +25,7 @@ Page({
     selectTopic: {
       title: ''
     },
+    autofocs: false,
   },
 
   /**
@@ -43,7 +44,8 @@ Page({
         ['selectTopic.title']: title,
         ['event.subject_id']: isCircleType ? '' : id,
         ['event.circles_id']: isCircleType ? id : '',
-        eventType: type
+        eventType: type,
+        autofocs: true
       })
       return
     }
@@ -51,7 +53,8 @@ Page({
     this.setData({
       ['selectTopic.title']: title,
       ['event.activity_id']: id,
-      eventType: type
+      eventType: type,
+      autofocs: true
     })
   },
 
