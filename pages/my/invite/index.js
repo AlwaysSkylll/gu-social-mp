@@ -142,7 +142,7 @@ Page({
       const avatar = res[0]
       const qrcode = res[1]
       console.log(avatar, qrcode)
-      context.drawImage(qrcode, width / 2 - drawTools.rpx2px(100), drawTools.rpx2px(900), drawTools.rpx2px(200), drawTools.rpx2px(200))
+      context.drawImage(qrcode, width / 2 - drawTools.rpx2px(100), height - drawTools.rpx2px(320), drawTools.rpx2px(200), drawTools.rpx2px(200))
 
       context.save()
       context.arc(width / 2, drawTools.rpx2px(150), drawTools.rpx2px(50), 0, Math.PI * 2)
