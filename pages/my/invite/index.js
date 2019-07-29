@@ -137,10 +137,13 @@ Page({
     const width = wx.getSystemInfoSync().windowWidth
     const height = wx.getSystemInfoSync().windowHeight
     context.drawImage(`/static/share_${index}.jpg`, 0, 0, width, height)
-    context.drawImage(userInfo.qrcode, width / 2 - drawTools.rpx2px(100), drawTools.rpx2px(900), drawTools.rpx2px(200), drawTools.rpx2px(200))
 
-    drawTools.imgToTempImg(userInfo.avatar_url).then((avatar) => {
-      console.log(avatar)
+    Promise.all([drawTools.imgToTempImg(userInfo.avatar_url), drawTools.imgToTempImg(userInfo.qrcode)]).then((res) => {
+      const avatar = res[0]
+      const qrcode = res[1]
+      console.log(avatar, qrcode)
+      context.drawImage(qrcode, width / 2 - drawTools.rpx2px(100), drawTools.rpx2px(900), drawTools.rpx2px(200), drawTools.rpx2px(200))
+
       context.save()
       context.arc(width / 2, drawTools.rpx2px(150), drawTools.rpx2px(50), 0, Math.PI * 2)
       context.clip()
