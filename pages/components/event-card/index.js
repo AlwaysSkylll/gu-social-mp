@@ -60,7 +60,11 @@ Component({
         target_type: 'event',
         target_id: this.data.event.id,
       }
-      api.share(parmas);
+      api.share(parmas).then(() => {
+        this.setData({
+          ['event.share_num']: this.data.event.share_num + 1
+        })
+      });
     },
 
     toDetail() {

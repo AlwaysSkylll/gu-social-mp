@@ -273,7 +273,11 @@ Page({
       target_type: this.data.type.toLowerCase(),
       target_id: this.data.id,
     }
-    api.share(parmas);
+    api.share(parmas).then(() => {
+      this.setData({
+        ['subject.share_num']: this.data.subject.share_num + 1
+      })
+    });
   },
 
   getData() {
