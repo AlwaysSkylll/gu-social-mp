@@ -1,10 +1,8 @@
 <!--pages/invite/index.wxml-->
-<view class="invite-page">
-  <image src="{{sharePaperPath}}" class="invite-img"></image>
-  <view wx:if="{{sharePaperPath}}" class="invite-btn" catchtap="saveImage">
-    <image src="/static/download.png" class="invite-icon"></image>
-    <view class="invite-text">保存我的卡片</view>
-  </view>
-</view>
+<swiper class="invite-page" vertical="{{ true }}">
+  <swiper-item wx:for="{{sharePaperPath}}" wx:key="{{ index }}">
+    <image src="{{item}}" class="invite-img" catchtap="saveImage" data-index="{{index}}"/>
+  </swiper-item>
+</swiper>
 
 <canvas class="invite-canvas" canvas-id="myeventcanvas"/>
