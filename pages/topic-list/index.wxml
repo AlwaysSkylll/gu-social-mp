@@ -13,7 +13,7 @@
         <view class="item-body_left">
           <view class="topic-desc">【#{{item.title}}#：{{item.description}}】</view>
           <view class="topic-relation">
-            <view>@</view>
+            <!-- <view>@</view> -->
             <view>{{timeTools.formatTime(item.create_time)}}</view>
           </view>
         </view>

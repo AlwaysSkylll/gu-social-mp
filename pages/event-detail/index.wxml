@@ -20,7 +20,7 @@
     <textarea focus="{{ focusAreaDelyed }}" cursor-spacing="80" show-confirm-bar="{{false}}" class="real-comment" placeholder="{{placeholder}}" bindinput="updateContext" value="{{ comment.context }}"></textarea>
     <view class="comment-tools">
       <view class="send-btn"  catchtap="send">发送</view>
-      <view class="mention-btn"  catchtap="mention">@</view>
+      <!-- <view class="mention-btn"  catchtap="mention">@</view> -->
     </view>
   </view>
 </view>

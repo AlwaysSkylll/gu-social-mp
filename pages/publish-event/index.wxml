@@ -15,7 +15,7 @@
     <image class="location-icon" src="{{event.location_latitude ? '/static/location_active.png' : '/static/location.png'}}"></image>
     <view class="location-content text-overflow">{{ !event.location_name ? (event.location_latitude ? event.location_latitude + ',' + event.location_longitude : '你在哪里？')  : event.location_name }}</view>
   </view>
-  <view class="publish-label location-label">@</view>
+  <!-- <view class="publish-label location-label">@</view> -->
   <form report-submit bindsubmit="publish">
     <button form-type="submit" class="publish-btn {{btnStatus ? '' : 'disabled'}}">确认发布</button>
   </form>
