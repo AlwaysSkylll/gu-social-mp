@@ -47,11 +47,13 @@ Page({
   getUserInfo(e) {
     console.log(e)
     const userInfo = e.detail.userInfo
+    const fromUid = app.globalData.fromUid
     if (!userInfo) {
       return;
     }
     app.globalData.userInfo = userInfo
-    app.getToken(userInfo, () => {
+  
+    app.getToken({ ...userInfo, fromUid }, () => {
       // wx.switchTab({
       //   url: '/pages/home/index',
       // })
