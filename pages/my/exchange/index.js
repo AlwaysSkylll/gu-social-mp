@@ -166,4 +166,39 @@ Page({
       })
     })
   },
+
+  /**
+   * 显示物流信息
+   */
+  showExpressStatus(e) {
+    const self = this
+    const index = e.currentTarget.dataset.index
+    const item = this.data.mychange[index]
+    console.log(index, this.data.mychange)
+    if (item.express) {
+      wx.showModal({
+        title: '物流',
+        content: `${item.express}: ${item.express_num}`,
+        confirmText: '复制单号',
+        success(res) {
+          if(res.confirm) {
+            wx.setClipboardData({
+              data: item.express_num,
+              success: () => {
+                wx.showToast({
+                  title: '已复制到剪切板',
+                })
+              }
+            })
+          } else if(res.cancel) {
+          }
+        }
+      })
+    } else {
+      wx.showToast({
+        icon: 'none',
+        title: '暂无物流信息',
+      })
+    }
+  }
 })

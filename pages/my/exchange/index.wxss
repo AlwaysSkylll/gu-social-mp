@@ -22,10 +22,10 @@
 
 .activity-item__middle {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 20rpx;
-  line-height: 30rpx;
+  line-height: 40rpx;
 }
 
 .activity-item__middle .title {
@@ -34,7 +34,7 @@
 }
 
 .activity-item__middle .desc {
-  font-size: 20rpx;
+  font-size: 24rpx;
 }
 
 .activity-item__middle .num {

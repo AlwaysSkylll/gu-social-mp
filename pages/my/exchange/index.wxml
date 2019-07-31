@@ -2,11 +2,11 @@
 <import src="/template/empty.wxml" />
 
 <template name="activity">
-  <view class="activity-item">
+  <view class="activity-item" catchtap="showExpressStatus" data-index="{{ index }}">
     <image lazy-load="true" mode="aspectFill" class="activity-item__left" src="{{ item.product.thumb }}"></image>
     <view class="activity-item__middle">
       <view class="title">{{ item.product.title }} x 1</view>
-      <!-- <view class="desc">{{ item.product.description }}</view> -->
+      <view class="desc">{{ item.status === 'deliver' ? '已发货' : '待发货' }}</view>
       <!-- <view class="num">1137人参与了活动</view>
       <view class="hot">
         <image lazy-load="true" class="fire" src="/static/fire.png"></image>
@@ -56,7 +56,7 @@
   </view>
   <view slot="{{ tabItems[1].slotName }}">
     <block wx:for="{{ mychange }}" wx:key="{{ index }}">
-      <template is="activity" data="{{ item }}"/>
+      <template is="activity" data="{{ item, index }}"/>
     </block>
     <template wx:if="{{ !mychange.length }}" is="empty"/>
   </view>
