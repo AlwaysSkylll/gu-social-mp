@@ -12,13 +12,18 @@ Page({
         label: '进行中',
         slotName: 'ongoing'
       },
-      // {
-      //   label: '已完成',
-      //   slotName: 'compelete'
-      // }
+      {
+        label: '未开始',
+        slotName: 'unstart'
+      },
+      {
+        label: '结束',
+        slotName: 'closed'
+      },
     ],
     ongoing: [],
-    compelete: [],
+    unstart: [],
+    closed: [],
     paging: undefined,
     activeTabIndex: 0,
   },
@@ -36,8 +41,13 @@ Page({
       }
     })
 
-    this.getList('ongoing', 0)
-    this.getList('compelete', 0);
+    this.getAllList()
+  },
+
+  getAllList() {
+    this.data.tabItems.map((item) => {
+      this.getList(item.slotName, 0)
+    })
   },
 
   /**
@@ -74,16 +84,26 @@ Page({
   onPullDownRefresh: function () {
     // 发起请求，更新订单活动列表
     this.data.ongoing = []
-    this.data.compelete = []
-    this.getList('ongoing', 0)
-    this.getList('compelete', 0);
+    this.data.unstart = []
+    this.data.closed = []
+    this.getAllList()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    const activeTabIndex = this.data.activeTabIndex
+    const tabItems = this.data.tabItems
+    const type = this.data.tabItems[activeTabIndex].slotName
+    const list = this.data[type]
+    const total = this.data.paging && this.data.paging[type] && this.data.paging[type].total
 
+    if (!total || total <= list.length) {
+      return;
+    }
+
+    this.getList(type, list.length)
   },
 
   /**
@@ -98,23 +118,6 @@ Page({
     this.setData({ activeTabIndex })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  scrolltolowerListener(e) {
-    const activeTabIndex = this.data.activeTabIndex
-    const tabItems = this.data.tabItems
-    const type = tabItems[activeTabIndex].slotName
-    const list = this.data[type]
-    const total = this.data.paging && this.data.paging[type] && this.data.paging[type].total
-
-    if (!total || total <= list.length) {
-      return;
-    }
-
-    this.getList(type, list.length)
-  },
-
   getList(type, offset) {
     const tabItems = this.data.tabItems
     let list = this.data[type]
@@ -125,15 +128,20 @@ Page({
       this.setData({
         [type]: list,
         [`paging.${type}`]: res.paging,
-        showMoreLoading: false
       })
     }
 
+    const limit = 10;
+
     if (type === tabItems[0].slotName) {
-      return api.getMyActivities().then(callBack)
+      return api.getMyActivities({ offset, limit, status: 'ongoing' }).then(callBack)
     }
-    // if (type === tabItems[1].slotName) {
-      // return marketingController('getActivities', offset).success(callBack)
-    // }
+    if (type === tabItems[1].slotName) {
+      return api.getMyActivities({ offset, limit, status: 'unstart' }).then(callBack)
+    }
+    if (type === tabItems[2].slotName) {
+      return api.getMyActivities({ offset, limit, status: 'closed' }).then(callBack)
+    }
+
   },
 })
