@@ -1,4 +1,21 @@
 <!--pages/publish-topic-select/index.wxml-->
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="16"></icon>
+      <input type="text" focus="{{true}}" class="weui-search-bar__input" placeholder="搜索" value="{{searchContent}}" focus="{{inputShowed}}" bindinput="inputTyping" confirm-type="search" bindconfirm="searchItems"/>
+      <view class="weui-icon-clear" wx:if="{{searchContent.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="16"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+
 <view class="topic-list">
   <view class="topic-item" catchtap="selectItem" data-index="{{index}}" wx:for="{{topics}}" wx:key="{{index}}">
     <image class="topic-bg" mode="aspectFill" src="{{item.covers[0]}}"></image>

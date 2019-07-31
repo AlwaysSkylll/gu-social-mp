@@ -13,6 +13,8 @@ Page({
     limit: 15,
     offset: 0,
     finish: false,
+    inputShowed: false,
+    searchContent: '',
   },
 
   /**
@@ -36,7 +38,7 @@ Page({
       wx.setNavigationBarTitle({
         title: '选择圈子'
       })
-      api.getCircles({ ...this.data.param, offset: this.data.offset, limit: this.data.limit }).then(({ data, paging }) => {
+      api.getCircles({ ...this.data.param, offset: this.data.offset, limit: this.data.limit, title: this.data.searchContent }).then(({ data, paging }) => {
         const topics = [...this.data.topics, ...data]
         const offset = topics.length
         const finish = paging.total <= offset
@@ -48,7 +50,7 @@ Page({
         title: '选择话题'
       })
 
-      api.searchSubject({ ...this.data.param, offset: this.data.offset, limit: this.data.limit }).then(({ data, paging }) => {
+      api.searchSubject({ ...this.data.param, offset: this.data.offset, limit: this.data.limit, title: this.data.searchContent }).then(({ data, paging }) => {
         const topics = [...this.data.topics, ...data]
         const offset = topics.length
         const finish = paging.total <= offset
@@ -59,7 +61,7 @@ Page({
         title: '选择活动'
       })
 
-      api.getActivities({ ...this.data.param, offset: this.data.offset, limit: this.data.limit }).then(({ data, paging }) => {
+      api.getActivities({ ...this.data.param, offset: this.data.offset, limit: this.data.limit, title: this.data.searchContent }).then(({ data, paging }) => {
         const topics = [...this.data.topics, ...data]
         const offset = topics.length
         const finish = paging.total <= offset
@@ -116,5 +118,39 @@ Page({
     const prevPage = pages[pages.length - 2];   //上一页面
     prevPage.selectTopic(this.data.topics[index])
     wx.navigateBack({})
-  }
+  },
+
+  inputTyping: function (e) {
+    this.setData({
+      searchContent: e.detail.value
+    });
+  },
+
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+
+  hideInput: function () {
+    this.setData({
+      searchContent: '',
+      inputShowed: false
+    });
+  },
+
+  clearInput: function () {
+    this.setData({
+      searchContent: '',
+    });
+  },
+
+  searchItems() {
+    this.setData({
+      offset: 0,
+      finish: false,
+      topics: []
+    })
+    this.getData()
+  },
 })
