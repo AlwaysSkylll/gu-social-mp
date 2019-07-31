@@ -1,0 +1,15 @@
+<!--pages/my/fans/index.wxml-->
+<import src="/template/empty.wxml" />
+
+<template name="msg">
+  <view class="msg-item">
+    <image class="msg-item_img" lazy-load mode="aspectFill" src="{{ item.avatar_url }}"></image>
+    <view class="msg-item_content">
+      <view class="title">{{ item.nickname }}</view>
+    </view>
+  </view>
+</template>
+
+<block wx:for="{{users}}" wx:key="{{index}}">
+  <template is="msg" data="{{item}}"/>
+</block>

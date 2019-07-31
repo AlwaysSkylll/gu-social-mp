@@ -9,7 +9,7 @@ Page({
    */
   data: {
     topics: [],
-    limit: 10,
+    limit: 15,
     finish: false,
   },
 

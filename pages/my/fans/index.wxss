@@ -1,0 +1,2 @@
+/* pages/my/fans/index.wxss */
+@import "../follow/index.wxss";

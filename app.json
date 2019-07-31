@@ -28,7 +28,8 @@
     "pages/my/thumbs-msg/index",
     "pages/my/gift-msg/index",
     "pages/my/activity-msg/index",
-    "pages/search/index"
+    "pages/search/index",
+    "pages/my/fans/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

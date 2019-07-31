@@ -32,6 +32,7 @@
 
 .activity-item__middle .desc {
   font-size: 20rpx;
+  max-width: 240rpx;
 }
 
 .activity-item__middle .num {

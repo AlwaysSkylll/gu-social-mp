@@ -13,16 +13,11 @@ Page({
         slotName: 'ongoing'
       },
       {
-        label: '未开始',
-        slotName: 'unstart'
-      },
-      {
         label: '结束',
         slotName: 'closed'
       },
     ],
     ongoing: [],
-    unstart: [],
     closed: [],
     paging: undefined,
     activeTabIndex: 0,
@@ -84,7 +79,6 @@ Page({
   onPullDownRefresh: function () {
     // 发起请求，更新订单活动列表
     this.data.ongoing = []
-    this.data.unstart = []
     this.data.closed = []
     this.getAllList()
   },
@@ -137,9 +131,6 @@ Page({
       return api.getMyActivities({ offset, limit, status: 'ongoing' }).then(callBack)
     }
     if (type === tabItems[1].slotName) {
-      return api.getMyActivities({ offset, limit, status: 'unstart' }).then(callBack)
-    }
-    if (type === tabItems[2].slotName) {
       return api.getMyActivities({ offset, limit, status: 'closed' }).then(callBack)
     }
 

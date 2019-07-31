@@ -6,7 +6,7 @@
     <image lazy-load="true" mode="widthFit" class="activity-item__left" src="{{ item.covers[0] }}"></image>
     <view class="activity-item__middle">
       <view class="title">{{ item.title }}</view>
-      <view class="desc">{{ item.description }}</view>
+      <view class="desc text-overflow">{{ item.description }}</view>
       <view class="num">{{ item.participant_num }}人参与了活动</view>
       <view class="hot">
         <image lazy-load="true" class="fire" src="/static/fire.png"></image>
@@ -31,12 +31,6 @@
     <template wx:if="{{ !ongoing.length }}" is="empty"/>
   </view>
   <view slot="{{ tabItems[1].slotName }}">
-    <block wx:for="{{ unstart }}" wx:key="{{ index }}">
-      <template is="activity" data="{{ item }}"/>
-    </block>
-    <template wx:if="{{ !unstart.length }}" is="empty"/>
-  </view>
-  <view slot="{{ tabItems[2].slotName }}">
     <block wx:for="{{ closed }}" wx:key="{{ index }}">
       <template is="activity" data="{{ item }}"/>
     </block>

@@ -24,6 +24,16 @@ module.exports.unfollow = (data, id) => commonRequest.request(`/api/me/users/${i
 module.exports.follow = (data, id) => commonRequest.request(`/api/me/users/${id}`, 'POST', data)
 
 /**
+ * 搜索已关注用户
+ */
+module.exports.getFollower = (data) => commonRequest.request(`/api/me/users`, 'GET', data)
+
+/**
+ * 搜索粉丝用户
+ */
+module.exports.getFans = (data) => commonRequest.request(`/api/me/fans`, 'GET', data)
+
+/**
  * 我的说说
  */
 module.exports.myEvents = (data) => commonRequest.request('/api/me/events', 'GET', data)

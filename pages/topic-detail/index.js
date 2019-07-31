@@ -303,7 +303,7 @@ Page({
     if (this.data.finish) return
     const param = {
       offset: this.data.events.length,
-      limit: 5
+      limit: 15
     }
     this.getEvents(param)
     this.getDetail(param)

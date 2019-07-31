@@ -1,7 +1,7 @@
 <!--pages/my/follow/index.wxml-->
 <import src="/template/empty.wxml" />
 
-<view class="gray-buttom" wx:for="{{myEvents}}" wx:key="{{index}}">
+<!-- <view class="gray-buttom" wx:for="{{myEvents}}" wx:key="{{index}}">
   <event-card index="{{index}}" eventArray="myEvents" cu-modal="cu-modal" show="show" share-paper-card="share-paper-card" share-img="share-img" share-button="share-button" btn="btn" share-canvas="share-canvas" event="{{item}}" type="events" bindsendgift="showGiftList"></event-card>
 </view>
 
@@ -14,4 +14,20 @@
       <view class="gift-item_text">{{item.score}}个古币</view>
     </view>
   </popover-item>
-</popover>
+</popover> -->
+
+
+<template name="msg">
+  <view class="msg-item">
+    <image class="msg-item_img" lazy-load mode="aspectFill" src="{{ item.avatar_url }}"></image>
+    <view class="msg-item_content">
+      <view class="title">{{ item.nickname }}</view>
+      <!-- <view class="desc">复仇者联盟是什么什么什么</view> -->
+    </view>
+    <!-- <view class="btn">进入活动</view> -->
+  </view>
+</template>
+
+<block wx:for="{{users}}" wx:key="{{index}}">
+  <template is="msg" data="{{item}}"/>
+</block>

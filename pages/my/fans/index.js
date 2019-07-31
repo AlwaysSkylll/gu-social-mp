@@ -1,16 +1,19 @@
-// pages/circle-list/index.js
-const api = require('../../api/index.js')
-const app = getApp()
+// pages/my/fans/index.js
+const api = require('../../../api/index.js')
+// const app = getApp()
 
 Page({
-  mixins: [require('../../mixins/stick-btn-mixin/index.js')],
+  mixins: [
+    require('../../../mixins/gift-mixin/index.js')
+  ],
   /**
    * 页面的初始数据
    */
   data: {
-    circles: [],
+    offset: 0,
     limit: 15,
     finish: false,
+    users: [],
   },
 
   /**
@@ -24,17 +27,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (app.globalData.needRefresh === true) {
-      app.globalData.needRefresh = false
-      this.getData()
-    }
+
   },
 
   /**
@@ -55,19 +55,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({
-      offset: 0,
-      circles: [],
-      finish: false,
-    })
-    this.getData();
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getData();
+    this.getFollowes()
   },
 
   /**
@@ -78,29 +73,33 @@ Page({
   },
 
   getData() {
+    this.setData({
+      finish: false,
+      offset: 0,
+      myEvents: []
+    })
+    this.getFollowes()
+
+    wx.stopPullDownRefresh();
+  },
+
+
+  getFollowes() {
     if (this.data.finish) {
       return
     }
     const param = {
-      offset: this.data.circles.length,
+      offset: this.data.users.length,
       limit: this.data.limit,
     }
-    api.getCircles(param).then(res => {
-      const circles = [...this.data.circles, ...res.data]
-      const finish = res.paging.total <= circles.length
+    api.getFans(param).then(res => {
+      const users = [...this.data.users, ...res.data]
+      const finish = res.paging.total <= users.length
 
       this.setData({
-        circles,
+        users,
         finish
       })
-      wx.stopPullDownRefresh()
     })
   },
-
-  toDetail(e) {
-    const id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: `/pages/topic-detail/index?id=${id}&type=Circle`,
-    })
-  }
 })

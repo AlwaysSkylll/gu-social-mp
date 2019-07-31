@@ -1,1 +1,10 @@
 /* pages/my/follow/index.wxss */
+@import "../activity-msg/index.wxss";
+
+.msg-item .msg-item_img {
+  width: 120rpx;
+}
+
+.msg-item_content {
+  width: 80%;
+}

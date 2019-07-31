@@ -10,10 +10,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    myEvents: [],
+    // myEvents: [],
     offset: 0,
-    limit: 10,
+    limit: 15,
     finish: false,
+    users: [],
   },
 
   /**
@@ -62,7 +63,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getMyEvents()
+    // this.getMyEvents()
+    this.getFollowes()
   },
 
   /**
@@ -78,29 +80,51 @@ Page({
       offset: 0,
       myEvents: []
     })
-    this.getMyEvents()
+    // this.getMyEvents()
+    this.getFollowes()
+
     wx.stopPullDownRefresh();
+  },
+  
+
+  getFollowes() {
+    if (this.data.finish) {
+      return
+    }
+    const param = {
+      offset: this.data.users.length,
+      limit: this.data.limit,
+    }
+    api.getFollower(param).then(res => {
+      const users = [...this.data.users, ...res.data]
+      const finish = res.paging.total <= users.length
+
+      this.setData({
+        users,
+        finish
+      })
+    })
   },
 
   /**
    * 获取我的说说
    */
-  getMyEvents() {
-    if (this.data.finish) {
-      return
-    }
-    const param = {
-      offset: this.data.myEvents.length,
-      limit: this.data.limit,
-    }
-    api.myEvents(param).then(res => {
-      const myEvents = [...this.data.myEvents, ...res.data]
-      const finish = res.paging.total <= myEvents.length
+  // getMyEvents() {
+  //   if (this.data.finish) {
+  //     return
+  //   }
+  //   const param = {
+  //     offset: this.data.myEvents.length,
+  //     limit: this.data.limit,
+  //   }
+  //   api.myEvents(param).then(res => {
+  //     const myEvents = [...this.data.myEvents, ...res.data]
+  //     const finish = res.paging.total <= myEvents.length
 
-      this.setData({
-        myEvents,
-        finish
-      })
-    })
-  },
+  //     this.setData({
+  //       myEvents,
+  //       finish
+  //     })
+  //   })
+  // },
 })
