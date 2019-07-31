@@ -58,8 +58,8 @@
   <!-- 我的 腿儿 -->
   <view class="my_footer">
     <view class="my_footer-tab-container">
-      <gu-tab tabs="{{tabs}}" activeBg="none" fontSize="32" width="60%" bindselectmytab="myTabHandler"></gu-tab>
-      <!-- <gu-tab tabs="{{tabs}}" fontSize="32" width="auto" style="margin-left: 30rpx;" initialIndex="0" inlineBlock="{{true}}"></gu-tab> -->
+      <!-- <gu-tab tabs="{{tabs}}" activeBg="none" fontSize="32" width="60%" bindselectmytab="myTabHandler"></gu-tab> -->
+      <gu-tab tabs="{{tabs}}" activeBg="none" fontSize="32" width="40%" bindselectmytab="myTabHandler"></gu-tab>
       <view class="light-gray-bottom"></view>
       <view hidden="{{tabIndex != 0}}">
         <view class="home-gorund-item gray-buttom" wx:for="{{myEvents}}" wx:key="{{index}}">
@@ -67,13 +67,13 @@
         </view>
         <template wx:if="{{ !myEvents.length }}" is="empty"/>
       </view>
-      <view hidden="{{tabIndex != 1}}">
+      <!-- <view hidden="{{tabIndex != 1}}">
         <block wx:for="{{messageList}}" wx:key="{{index}}">
           <template is="msg-list" data="{{item}}"></template>
         </block>
-      </view>
-      <view hidden="{{tabIndex != 2}}">
-      <!-- <view hidden="{{tabIndex != 1}}"> -->
+      </view> -->
+      <!-- <view hidden="{{tabIndex != 2}}"> -->
+      <view hidden="{{tabIndex != 1}}">
         <block wx:for="{{profileList}}" wx:key="{{index}}">
           <template is="simple-list" data="{{item}}"></template>
         </block>

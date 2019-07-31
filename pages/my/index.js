@@ -6,7 +6,7 @@ Page({
   data: {
     tabs: [
       "罍小说",
-      "我的消息",
+      // "我的消息",
       "个人中心"
     ],
     profileList: [
