@@ -61,3 +61,6 @@
     <template wx:if="{{ !mychange.length }}" is="empty"/>
   </view>
 </scroll-tab>
+
+<stick-button scrollDown="{{scrollDown}}"></stick-button>
+

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "scroll-tab": "/pages/components/scroll-tab/index"
+    "scroll-tab": "/pages/components/scroll-tab/index",
+    "stick-button": "/stick-button/index"
   },
   "navigationBarTitleText": "兑换中心"
 }
