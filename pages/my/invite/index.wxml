@@ -1,7 +1,11 @@
 <!--pages/invite/index.wxml-->
 <swiper class="invite-page" vertical="{{ true }}">
   <swiper-item wx:for="{{sharePaperPath}}" wx:key="{{ index }}">
+    <view hidden="{{ 0 == index }}" class="arrow up">{{sharePaperPath.length - 1 == index}}</view>
+    <view hidden="{{ 0 == index }}" class="arrow up">{{index}}</view>
     <image src="{{item}}" class="invite-img" catchtap="saveImage" data-index="{{index}}"/>
+    <view hidden="{{ 2 == index }}" class="arrow down"></view>
+    <view hidden="{{ 2 == index }}" class="arrow down"></view>
   </swiper-item>
 </swiper>
 

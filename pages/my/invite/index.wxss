@@ -38,3 +38,50 @@
   position: fixed;
   top: 9999999px;
 }
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  margin-left: -25rpx;
+  width: 50rpx;
+  height: 50rpx;
+  background: #FFFFFF;
+  opacity: 0.6;
+  animation-name: arrowShake;
+  animation-duration: .8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.arrow.down {
+  bottom: 40rpx;
+  clip-path: polygon(50% 40%, 100% 20%, 100% 28%, 50% 50%, 0 28%, 0 20%);
+}
+
+.arrow.down + .arrow.down {
+  bottom: 30rpx;
+}
+
+.arrow.up {
+  animation-delay: .4s;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 32%, 50% 10%, 0 32%, 0 25%);
+  top: 40rpx;
+}
+
+.arrow.up + .arrow.up {
+  top: 30rpx;
+}
+
+@keyframes arrowShake {
+  0% {
+    transform: translateY(-10rpx);
+  }
+
+  50% {
+    transform: translateY(30rpx);
+  }
+
+  100% {
+    transform: translateY(-10rpx);
+  }
+}

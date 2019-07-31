@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -107,9 +107,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "邀请",
-					"pathName": "pages/invite/index",
+					"pathName": "pages/my/invite/index",
 					"query": "",
 					"scene": null
 				},
