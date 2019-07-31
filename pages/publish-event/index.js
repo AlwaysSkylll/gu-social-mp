@@ -1,6 +1,8 @@
 // pages/publish-event/index.js
 // pages/publish/index.js
 const api = require('../../api/index.js')
+const { throtting } = require('../../utils/util.js')
+
 const host = require('../../config.js').host
 const app = getApp()
 
@@ -32,6 +34,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const draftEvent = wx.getStorageSync('draftEvent')
+    if (draftEvent) this.setData({
+      ['event.content']: draftEvent,
+      btnStatus: true
+    })
     if (!options) return
     const id = options.id || ''
     const type = options.type || 'Subject'
@@ -94,11 +101,16 @@ Page({
   updateContext(e) {
     console.log(e)
     const type = e.currentTarget.dataset.type
+    const draftEvent = e.detail.value
     this.setData({
-      [`event.content`]: e.detail.value
+      [`event.content`]: draftEvent
     })
     const btnStatus = this.data.event.content
     this.setBtnStatus(btnStatus)
+    // 节流改变数据
+    throtting(() => {
+      wx.setStorageSync('draftEvent', draftEvent)
+    }, 500)
   },
 
   setBtnStatus(status) {
@@ -194,6 +206,7 @@ Page({
         title: '请等待审核结果',
         mask: true,
       })
+      wx.setStorageSync('draftEvent', '')
       setTimeout(() => {
         // 话题说说
         if (this.data.eventType === 'Subject' && this.data.event.subject_id) {
