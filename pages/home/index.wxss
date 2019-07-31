@@ -6,6 +6,10 @@
 
 }
 
+.home-mini-circle-list {
+  min-height: 280rpx;
+}
+
 .search-icon {
   position: absolute;
   right: 0;
