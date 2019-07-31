@@ -44,7 +44,7 @@
   <image src="/static/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 
-<scroll-tab tabItems="{{ tabItems }}" scrollHeight="{{ scrollHeight }}"
+<scroll-tab tabItems="{{ tabItems }}" scrollHeight="{{ scrollHeight }}" currentTabIndex="{{ activeTabIndex }}"
   bindswitch="switchTabListener" bindscrolltolower="scrolltolowerListener">
   <view slot="{{ tabItems[0].slotName }}">
     <view class="wrap-conatiner">

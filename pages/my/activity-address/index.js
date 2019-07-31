@@ -136,8 +136,18 @@ Page({
         title: '兑换成功',
         icon: 'none',
       })
+
+      const pages = getCurrentPages()
+      const beforePage = pages[pages.length - 2]
       setTimeout(() => {
-        wx.navigateBack({})
+        wx.navigateBack({
+          success: () => {
+            console.log(beforePage)
+            beforePage.setData({
+              ['activeTabIndex']: 1
+            })
+          }
+        })
       }, 1000)
     })
   },

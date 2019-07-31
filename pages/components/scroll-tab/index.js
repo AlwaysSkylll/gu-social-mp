@@ -16,6 +16,10 @@ Component({
     scrollHeight: {
       type: Number,
       value: 390,
+    },
+    currentTabIndex: {
+      type: Number,
+      value: 0,
     }
   },
 
@@ -23,7 +27,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    currentTabIndex: 0,
+
   },
 
   /**

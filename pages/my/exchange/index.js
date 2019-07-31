@@ -175,10 +175,10 @@ Page({
     const index = e.currentTarget.dataset.index
     const item = this.data.mychange[index]
     console.log(index, this.data.mychange)
-    if (item.express) {
+    if (item.express_name) {
       wx.showModal({
         title: '物流',
-        content: `${item.express}: ${item.express_num}`,
+        content: `${item.express_name}: ${item.express_num}`,
         confirmText: '复制单号',
         success(res) {
           if(res.confirm) {
