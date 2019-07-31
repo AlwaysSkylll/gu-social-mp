@@ -132,7 +132,13 @@ Page({
       num: 1
     }
     api.createOrder(params, this.data.id).then(res => {
-      wx.navigateBack({})
+      wx.showToast({
+        title: '兑换成功',
+        icon: 'none',
+      })
+      setTimeout(() => {
+        wx.navigateBack({})
+      }, 1000)
     })
   },
 

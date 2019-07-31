@@ -55,7 +55,7 @@ Page({
     this.setData({
       goods: [],
       mychange: [],
-      paging: undefined,
+      paging: {},
     })
 
     this.getList('goods', 0)
