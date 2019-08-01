@@ -30,6 +30,10 @@ Component({
       type: String,
       value: ''
     },
+    defaultCover: {
+      type: String,
+      value: ''
+    },
   },
 
   /**
@@ -329,6 +333,8 @@ Component({
       }).then(() => {
         if (event.subject && event.subject.covers && event.subject.covers[0]) {
           return drawTools.imgToTempImg(event.subject.covers[0])
+        } else if (this.data.defaultCover){
+          return drawTools.imgToTempImg(this.data.defaultCover)
         } else {
           return api.exploreSwiper().then((res) => drawTools.imgToTempImg(res.img))
         }
