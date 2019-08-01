@@ -387,5 +387,21 @@ Component({
         })
       }).exec();
     },
+
+    showMap() {
+      const location_latitude = this.data.event.location_latitude
+      const location_longitude = this.data.event.location_longitude
+      const location_name = this.data.event.name
+      const location_address = this.data.event.location_address
+      const existAddress = location_latitude && location_longitude
+      if (!existAddress) return
+      wx.openLocation({
+        latitude: Number(location_latitude),
+        longitude: Number(location_longitude),
+        name: location_name,
+        address: location_address,
+        scale: 18
+      })
+    }
   }
 })

@@ -14,7 +14,7 @@
       <view class="event-card_info2 text-overflow">
         <text>{{timeTools.formatTime(event.create_time)}}</text>
         <text>{{event.location_name ? '来自' : ''}}</text>
-        <text>{{event.location_name}}</text>
+        <text catchtap="showMap">{{event.location_name}}</text>
       </view>
     </view>
     <view class="event-card_btn">
