@@ -93,7 +93,12 @@ Component({
     },
 
     quickPublish() {
-      if (this._status == 0) return
+      console.log()
+      if (this.data._status == this.data._statusList.ready) return
+      if (this.data._status == this.data._statusList.end) {
+        this.goDetail()
+        return
+      }
       wx.navigateTo({
         url: `/pages/publish-event/index?title=${this.data.item.title}&id=${this.data.item.id}&type=Activity`,
       })
