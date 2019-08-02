@@ -116,7 +116,7 @@
   display: inline-block;
   width: 500rpx;
   background:#ffffff;
-  padding:20rpx 30rpx;
+  padding:20rpx;
   border-radius:10rpx;
 }
 
