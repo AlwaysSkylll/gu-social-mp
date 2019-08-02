@@ -20,6 +20,10 @@
 </cover-view>
 
 <view class="cu-modal {{publishModalShow ? 'show' : ''}}" bindtap="hidePublishHandler">
-  <view class="circle {{userInfo.role != 'kol' ? 'disabled' : ''}}" hover-class="circle-hovered" data-type="topic" catchtap="goPublishPage">创建话题</view>
-  <view class="circle" hover-class="circle-hovered" data-type="event" catchtap="goPublishPage">发布说说</view>
+  <!-- <view class="circle {{userInfo.role != 'kol' ? 'disabled' : ''}}" hover-class="circle-hovered" data-type="topic" catchtap="goPublishPage">创建话题</view>
+  <view class="circle" hover-class="circle-hovered" data-type="event" catchtap="goPublishPage">发布说说</view> -->
+  <view class="btn-bg-group">
+    <image class="btn-bg" src="/static/pub-event.png" hover-class="circle-hovered" data-type="event" catchtap="goPublishPage"></image>
+    <image class="btn-bg" hover-class="circle-hovered" data-type="topic" catchtap="goPublishPage" src="/static/pub-subject{{userInfo.role != 'kol' ? '-disable' : ''}}.png"></image>
+  </view>
 </view>

@@ -110,3 +110,17 @@
 	overflow-y: auto;
 	pointer-events: auto;
 }
+
+.btn-bg-group {
+  display: inline-block;
+  width: 500rpx;
+  background:#ffffff;
+  padding:20rpx 30rpx;
+  border-radius:10rpx;
+}
+
+.btn-bg {
+  display: block;
+  height: 160rpx;
+  width: 500rpx;
+}
