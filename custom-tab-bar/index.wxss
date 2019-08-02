@@ -115,9 +115,10 @@
 .btn-bg-group {
   display: inline-block;
   width: 500rpx;
-  background:#ffffff;
-  padding:20rpx;
-  border-radius:10rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  position: relative;
+  top: 150rpx;
 }
 
 .btn-bg {
