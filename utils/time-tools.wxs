@@ -7,7 +7,7 @@ var formatTime = function (target) {
   var deltaTime = Math.floor((nowTime.getTime() - targetTime.getTime()) / 1000)
 
   var year = targetTime.getFullYear()
-  var month = targetTime.getMonth()
+  var month = targetTime.getMonth() + 1
   var date = targetTime.getDate()
   var hours = targetTime.getHours()
   var minutes = targetTime.getMinutes()
