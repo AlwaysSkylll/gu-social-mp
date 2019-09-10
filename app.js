@@ -1,6 +1,7 @@
 //app.js
 var host = require('./config.js').host
 require('./utils/mixin.js')
+require('./utils/polyfill.js')
 
 App({
   onLaunch: function () {
